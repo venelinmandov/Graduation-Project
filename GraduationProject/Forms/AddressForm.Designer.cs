@@ -91,9 +91,6 @@ namespace GraduationProject.Forms
         #endregion
 
         private System.Windows.Forms.ListBox listBoxStreets;
-        private Controls.TitleLabel titleLabelcs1;
-        private Controls.TitleLabel titleLabelcs2;
-        private Controls.TitleLabel titleLabelcs3;
         private Controls.TitleLabel titleLabelStr;
         private System.Windows.Forms.Button buttonAddSt;
         private System.Windows.Forms.Button buttonRemoveSt;

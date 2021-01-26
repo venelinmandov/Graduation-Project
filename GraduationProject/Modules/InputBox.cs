@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GraduationProject
 {
-    class InputBox
+    public class InputBox
     {
         public static string OpenInputBox()
         {

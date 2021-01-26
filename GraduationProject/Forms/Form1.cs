@@ -14,6 +14,7 @@ namespace GraduationProject
     public partial class Form1 : Form
     {
         ConnectionHelper connectionHelper = new ConnectionHelper();
+        List<Street> streets;
         public Form1()
         {
             InitializeComponent();
@@ -25,10 +26,9 @@ namespace GraduationProject
 
         void showStreets()
         {
-            if (textBoxSearchStr.Text != "")
-                listBoxStreets.DataSource = Street.GetStreets(textBoxSearchStr.Text, connectionHelper);
-            else
-                listBoxStreets.DataSource = Street.GetStreets(connectionHelper);
+            streets = Street.GetStreets(connectionHelper, textBoxSearchStr.Text);
+            listBoxStreets.DataSource = streets;
+
         }
 
 
@@ -75,6 +75,20 @@ namespace GraduationProject
         private void buttonSearch_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonAddStr_Click(object sender, EventArgs e)
+        {
+            Street street = new Street();
+            street.name = InputBox.OpenInputBox();
+            street.Insert(connectionHelper);
+            showStreets();
+        }
+
+        private void buttonRemoveStr_Click(object sender, EventArgs e)
+        {
+            streets[listBoxStreets.SelectedIndex].Delete(connectionHelper);
+            showStreets();
         }
     }
 }

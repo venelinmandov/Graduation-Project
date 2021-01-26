@@ -22,14 +22,22 @@ namespace GraduationProject.Models
         }
 
         //Заявки
-        public static List<Street> GetStreets(ConnectionHelper connectionHelper, string queryConcat = "")
+        public static List<Street> GetStreets(ConnectionHelper connectionHelper, string name = "")
         {
+            string queryConcat = "";
+            if (name != "")
+            {
+                queryConcat = $" WHERE name LIKE 'name%'";
+            }
             string query = "SELECT id, name FROM Streets" + queryConcat + " ORDER BY name";
 
             connectionHelper.NewConnection(query);
 
             List<Street> streets = new List<Street>();
             Street street;
+
+            if (name != "")
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@name",name);
             SqlDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
             while (reader.Read())
             {
@@ -42,11 +50,6 @@ namespace GraduationProject.Models
             return streets;
         }
 
-        public static List<Street> GetStreets(string name, ConnectionHelper connectionHelper)
-        {
-            string queryConcat = $" WHERE name LIKE '{name}%'";
-            return GetStreets(connectionHelper, queryConcat);
-        }
 
 
 

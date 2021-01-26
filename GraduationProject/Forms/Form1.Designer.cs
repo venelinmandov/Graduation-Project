@@ -37,10 +37,12 @@ namespace GraduationProject
             this.textBoxSearchAddr = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.comboBoxCriteria = new System.Windows.Forms.ComboBox();
-            this.labelCriteria = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageSearch = new System.Windows.Forms.TabPage();
+            this.labelCriteria = new System.Windows.Forms.Label();
             this.tabPageAdd = new System.Windows.Forms.TabPage();
+            this.buttonRemoveStr = new System.Windows.Forms.Button();
+            this.buttonAddStr = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.listBoxStreets = new System.Windows.Forms.ListBox();
             this.textBoxSearchStr = new System.Windows.Forms.TextBox();
@@ -141,7 +143,7 @@ namespace GraduationProject
             this.listBoxAddresses.ItemHeight = 15;
             this.listBoxAddresses.Location = new System.Drawing.Point(3, 75);
             this.listBoxAddresses.Name = "listBoxAddresses";
-            this.listBoxAddresses.Size = new System.Drawing.Size(209, 319);
+            this.listBoxAddresses.Size = new System.Drawing.Size(209, 349);
             this.listBoxAddresses.TabIndex = 3;
             // 
             // textBoxSearchAddr
@@ -169,15 +171,6 @@ namespace GraduationProject
             this.comboBoxCriteria.Size = new System.Drawing.Size(138, 23);
             this.comboBoxCriteria.TabIndex = 2;
             // 
-            // labelCriteria
-            // 
-            this.labelCriteria.AutoSize = true;
-            this.labelCriteria.Location = new System.Drawing.Point(3, 8);
-            this.labelCriteria.Name = "labelCriteria";
-            this.labelCriteria.Size = new System.Drawing.Size(63, 15);
-            this.labelCriteria.TabIndex = 6;
-            this.labelCriteria.Text = "Критерий:";
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPageSearch);
@@ -185,37 +178,68 @@ namespace GraduationProject
             this.tabControl1.Location = new System.Drawing.Point(12, 28);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(223, 424);
+            this.tabControl1.Size = new System.Drawing.Size(223, 457);
             this.tabControl1.TabIndex = 7;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPageSearch
             // 
             this.tabPageSearch.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPageSearch.Controls.Add(this.listBoxAddresses);
             this.tabPageSearch.Controls.Add(this.labelCriteria);
+            this.tabPageSearch.Controls.Add(this.listBoxAddresses);
             this.tabPageSearch.Controls.Add(this.textBoxSearchAddr);
             this.tabPageSearch.Controls.Add(this.buttonSearch);
             this.tabPageSearch.Controls.Add(this.comboBoxCriteria);
             this.tabPageSearch.Location = new System.Drawing.Point(4, 24);
             this.tabPageSearch.Name = "tabPageSearch";
             this.tabPageSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSearch.Size = new System.Drawing.Size(215, 396);
+            this.tabPageSearch.Size = new System.Drawing.Size(215, 429);
             this.tabPageSearch.TabIndex = 0;
             this.tabPageSearch.Text = "Търси Адрес";
+            // 
+            // labelCriteria
+            // 
+            this.labelCriteria.AutoSize = true;
+            this.labelCriteria.Location = new System.Drawing.Point(4, 8);
+            this.labelCriteria.Name = "labelCriteria";
+            this.labelCriteria.Size = new System.Drawing.Size(63, 15);
+            this.labelCriteria.TabIndex = 7;
+            this.labelCriteria.Text = "Критерий:";
             // 
             // tabPageAdd
             // 
             this.tabPageAdd.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageAdd.Controls.Add(this.buttonRemoveStr);
+            this.tabPageAdd.Controls.Add(this.buttonAddStr);
             this.tabPageAdd.Controls.Add(this.label3);
             this.tabPageAdd.Controls.Add(this.listBoxStreets);
             this.tabPageAdd.Controls.Add(this.textBoxSearchStr);
             this.tabPageAdd.Location = new System.Drawing.Point(4, 24);
             this.tabPageAdd.Name = "tabPageAdd";
             this.tabPageAdd.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAdd.Size = new System.Drawing.Size(215, 396);
+            this.tabPageAdd.Size = new System.Drawing.Size(215, 429);
             this.tabPageAdd.TabIndex = 1;
             this.tabPageAdd.Text = "Нов Адрес";
+            // 
+            // buttonRemoveStr
+            // 
+            this.buttonRemoveStr.Location = new System.Drawing.Point(85, 400);
+            this.buttonRemoveStr.Name = "buttonRemoveStr";
+            this.buttonRemoveStr.Size = new System.Drawing.Size(75, 23);
+            this.buttonRemoveStr.TabIndex = 4;
+            this.buttonRemoveStr.Text = "Премахни";
+            this.buttonRemoveStr.UseVisualStyleBackColor = true;
+            this.buttonRemoveStr.Click += new System.EventHandler(this.buttonRemoveStr_Click);
+            // 
+            // buttonAddStr
+            // 
+            this.buttonAddStr.Location = new System.Drawing.Point(4, 400);
+            this.buttonAddStr.Name = "buttonAddStr";
+            this.buttonAddStr.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddStr.TabIndex = 3;
+            this.buttonAddStr.Text = "Добави";
+            this.buttonAddStr.UseVisualStyleBackColor = true;
+            this.buttonAddStr.Click += new System.EventHandler(this.buttonAddStr_Click);
             // 
             // label3
             // 
@@ -277,7 +301,7 @@ namespace GraduationProject
             this.panel1.Controls.Add(this.numericUpDownSquaring);
             this.panel1.Location = new System.Drawing.Point(242, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(725, 457);
+            this.panel1.Size = new System.Drawing.Size(725, 453);
             this.panel1.TabIndex = 8;
             // 
             // buttonAddResident
@@ -698,6 +722,9 @@ namespace GraduationProject
         private System.Windows.Forms.DataGridViewTextBoxColumn owner;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Guest;
         private System.Windows.Forms.Button buttonAddResident;
+        private System.Windows.Forms.Label labelCriteri;
+        private System.Windows.Forms.Button buttonRemoveStr;
+        private System.Windows.Forms.Button buttonAddStr;
     }
 }
 
