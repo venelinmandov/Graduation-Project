@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace GraduationProject.Models
 {
-    class Resident:Person
+    public class Resident:Person
     {
         public int addressReg { get; set; }
         public int covid19 { get; set; }

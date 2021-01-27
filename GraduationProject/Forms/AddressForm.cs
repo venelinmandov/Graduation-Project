@@ -50,7 +50,7 @@ namespace GraduationProject.Forms
             {
                 Street street = new Street();
                 street.name = name;
-                street.Insert(connectionHelper);
+                street.InsertStreet(connectionHelper);
                 ShowStreets();
             }
             
@@ -59,7 +59,7 @@ namespace GraduationProject.Forms
 
         private void buttonRemoveSt_Click(object sender, EventArgs e)
         {
-            streets[listBoxStreets.SelectedIndex].Delete(connectionHelper);
+            streets[listBoxStreets.SelectedIndex].DeleteStreet(connectionHelper);
             ShowStreets();
         }
     }

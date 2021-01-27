@@ -37,7 +37,7 @@ namespace GraduationProject
             this.textBoxSearchAddr = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.comboBoxCriteria = new System.Windows.Forms.ComboBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageSearch = new System.Windows.Forms.TabPage();
             this.labelCriteria = new System.Windows.Forms.Label();
             this.tabPageAdd = new System.Windows.Forms.TabPage();
@@ -47,10 +47,11 @@ namespace GraduationProject
             this.listBoxStreets = new System.Windows.Forms.ListBox();
             this.textBoxSearchStr = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.buttonAddResident = new System.Windows.Forms.Button();
             this.buttonRemoveDog = new System.Windows.Forms.Button();
             this.buttonAddDog = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,11 +86,11 @@ namespace GraduationProject
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDownSquaring = new System.Windows.Forms.NumericUpDown();
             this.menuStrip.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabControl.SuspendLayout();
             this.tabPageSearch.SuspendLayout();
             this.tabPageAdd.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWalnut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFeathered)).BeginInit();
@@ -171,16 +172,16 @@ namespace GraduationProject
             this.comboBoxCriteria.Size = new System.Drawing.Size(138, 23);
             this.comboBoxCriteria.TabIndex = 2;
             // 
-            // tabControl1
+            // tabControl
             // 
-            this.tabControl1.Controls.Add(this.tabPageSearch);
-            this.tabControl1.Controls.Add(this.tabPageAdd);
-            this.tabControl1.Location = new System.Drawing.Point(12, 28);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(223, 457);
-            this.tabControl1.TabIndex = 7;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tabControl.Controls.Add(this.tabPageSearch);
+            this.tabControl.Controls.Add(this.tabPageAdd);
+            this.tabControl.Location = new System.Drawing.Point(12, 28);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(223, 457);
+            this.tabControl.TabIndex = 7;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // tabPageSearch
             // 
@@ -269,10 +270,11 @@ namespace GraduationProject
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonSave);
             this.panel1.Controls.Add(this.buttonAddResident);
             this.panel1.Controls.Add(this.buttonRemoveDog);
             this.panel1.Controls.Add(this.buttonAddDog);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dataGridView);
             this.panel1.Controls.Add(this.listBox1);
             this.panel1.Controls.Add(this.numericUpDown1);
             this.panel1.Controls.Add(this.labelNumber);
@@ -304,6 +306,17 @@ namespace GraduationProject
             this.panel1.Size = new System.Drawing.Size(725, 453);
             this.panel1.TabIndex = 8;
             // 
+            // buttonSave
+            // 
+            this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonSave.Location = new System.Drawing.Point(17, 409);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(111, 29);
+            this.buttonSave.TabIndex = 32;
+            this.buttonSave.Text = "Запис";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
             // buttonAddResident
             // 
             this.buttonAddResident.Location = new System.Drawing.Point(269, 222);
@@ -332,24 +345,24 @@ namespace GraduationProject
             this.buttonAddDog.Text = "Добави";
             this.buttonAddDog.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AllowUserToResizeColumns = false;
+            this.dataGridView.AllowUserToResizeRows = false;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.firstName,
             this.lastName,
             this.owner,
             this.Guest});
-            this.dataGridView1.Location = new System.Drawing.Point(269, 32);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(443, 183);
-            this.dataGridView1.TabIndex = 28;
+            this.dataGridView.Location = new System.Drawing.Point(269, 32);
+            this.dataGridView.MultiSelect = false;
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.RowTemplate.Height = 25;
+            this.dataGridView.Size = new System.Drawing.Size(443, 183);
+            this.dataGridView.TabIndex = 28;
             // 
             // firstName
             // 
@@ -633,7 +646,7 @@ namespace GraduationProject
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 497);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "Form1";
@@ -642,14 +655,14 @@ namespace GraduationProject
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
             this.tabPageSearch.ResumeLayout(false);
             this.tabPageSearch.PerformLayout();
             this.tabPageAdd.ResumeLayout(false);
             this.tabPageAdd.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWalnut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFeathered)).EndInit();
@@ -677,7 +690,7 @@ namespace GraduationProject
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.ComboBox comboBoxCriteria;
         private System.Windows.Forms.Label labelCriteria;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPageSearch;
         private System.Windows.Forms.TabPage tabPageAdd;
         private System.Windows.Forms.ListBox listBoxStreets;
@@ -712,7 +725,7 @@ namespace GraduationProject
         private System.Windows.Forms.Label labelNumber;
         private System.Windows.Forms.Label labelDogs;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ToolStripMenuItem Residents;
         private System.Windows.Forms.Button buttonRemoveDog;
@@ -725,6 +738,7 @@ namespace GraduationProject
         private System.Windows.Forms.Label labelCriteri;
         private System.Windows.Forms.Button buttonRemoveStr;
         private System.Windows.Forms.Button buttonAddStr;
+        private System.Windows.Forms.Button buttonSave;
     }
 }
 

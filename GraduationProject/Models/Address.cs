@@ -60,6 +60,7 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@horses", address.numHorses);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@feathered", address.numFeathered);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@Walnut", address.numWalnutTrees);
+
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();
         }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GraduationProject.Models
 {
-    class Person : Model
+    public class Person : Model
     {
         public int id { get; set; }
         public string firstname { get; set; }

@@ -12,15 +12,22 @@ namespace GraduationProject.Forms
     public partial class PersonsForm : Form
     {
         ConnectionHelper connectionHelper = new ConnectionHelper();
-        Address address;
         ErrorProvider errorProvider = new ErrorProvider();
-        public PersonsForm(Address addr)
+        Resident resident;
+
+        //Конструктор
+        public PersonsForm()
         {
             InitializeComponent();
-            address = addr;
-            address.id = 5;
-
         }
+
+        //Свойства
+        public bool isResident => radioButtonHousehold.Checked;
+        public Person getGuest => resident;
+        public Resident GetResident => resident;
+
+
+
 
         //Валидация на groupbox-овете
         bool ValidateGroupBox(GroupBox groupBox, params RadioButton[] radioButtons)
@@ -60,10 +67,11 @@ namespace GraduationProject.Forms
                     sum += int.Parse(egn[i].ToString()) * consts[i];
                 }
                 textBoxFName.Text = sum.ToString();
+                sum %= 11;
                 sum = sum < 10 ? sum : 0;
-                error = !(int.Parse(egn[9].ToString()) == sum % 11);
+                error = !(int.Parse(egn[9].ToString()) == sum);
             }
-            
+
             if (error)
                 errorProvider.SetError(textBox, "Невалидно ЕГН!");
             else
@@ -80,7 +88,7 @@ namespace GraduationProject.Forms
 
             //Валидация на текстовите полета
             object[,] textBoxes = new object[,]
-            { 
+            {
                 {textBoxFName,"име" },
                 {textBoxMName,"презиме" },
                 {textBoxLName,"фамилия" },
@@ -89,9 +97,9 @@ namespace GraduationProject.Forms
             };
             for (int i = 0; i < textBoxes.GetLength(0); i++)
             {
-                if (((TextBox)textBoxes[i,0]).Text == "")
+                if (((TextBox)textBoxes[i, 0]).Text == "")
                 {
-                    errorProvider.SetError((TextBox)textBoxes[i, 0], "Моля въведете " + (string)textBoxes[i, 1]+"!");
+                    errorProvider.SetError((TextBox)textBoxes[i, 0], "Моля въведете " + (string)textBoxes[i, 1] + "!");
                     error = true;
                 }
                 else
@@ -134,7 +142,7 @@ namespace GraduationProject.Forms
             return -1;
         }
 
-        
+
         private void PersonsForm_Load(object sender, EventArgs e)
         {
 
@@ -175,40 +183,30 @@ namespace GraduationProject.Forms
             }
         }
 
-        
+
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            Resident resident = new Resident();
+            resident = new Resident();
             resident.firstname = textBoxFName.Text;
             resident.middlename = textBoxMName.Text;
             resident.lastname = textBoxLName.Text;
             resident.egn = textBoxEGN.Text;
             resident.relToOwner = textBoxOwner.Text;
-            resident.gender = GetGroupBoxValue(radioButtonMale,radioButtonFemale);
-            resident.addressId = address.id;
+            resident.gender = GetGroupBoxValue(radioButtonMale, radioButtonFemale);
+            resident.addressReg = GetGroupBoxValue(radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
+            resident.covid19 = GetGroupBoxValue(radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
 
 
 
-            if (radioButtonGuest.Checked)
+
+            if (radioButtonHousehold.Checked || radioButtonGuest.Checked)
             {
                 if (validate())
                 {
-                    Person person = resident;
-                    Person.InsertPerson(person, connectionHelper);
+                    Hide();
                 }
-
-            }
-            else if (radioButtonHousehold.Checked)
-            {
-                if (validate())
-                {
-                    resident.addressReg = GetGroupBoxValue(radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
-                    resident.covid19 = GetGroupBoxValue(radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
-                    Resident.InsertResident(resident, connectionHelper);
-                }
-
-            }
+            }   
             else
                 errorProvider.SetError(groupBoxOwner, "Моля изберете опция!");
 
