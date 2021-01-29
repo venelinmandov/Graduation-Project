@@ -12,9 +12,10 @@ namespace GraduationProject.Forms
     public partial class InputBoxForm : Form
     {
         public string text;
-        public InputBoxForm()
+        public InputBoxForm(string labelText)
         {
             InitializeComponent();
+            label.Text = labelText;
         }
 
         void Save()
@@ -58,6 +59,11 @@ namespace GraduationProject.Forms
                 Save();
             if (e.KeyCode == Keys.Escape)
                 Cancel();
+        }
+
+        private void InputBoxForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
         }
     }
 }

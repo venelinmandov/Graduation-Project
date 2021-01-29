@@ -17,6 +17,7 @@ namespace GraduationProject
         List<Person> guests;
         List<Resident> residents;
         List<Street> streets;
+        List<Dog> dogs;
         public Form1()
         {
             InitializeComponent();
@@ -55,6 +56,14 @@ namespace GraduationProject
             }
         }
 
+        void RefreshDogsList()
+        {
+            listBoxDogs.BeginUpdate();
+            listBoxDogs.DataSource = dogs;
+            listBoxDogs.EndUpdate();
+        }
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
             
@@ -67,11 +76,7 @@ namespace GraduationProject
 
 
 
-        private void Streets_ItemClicked(object sender, EventArgs e)
-        {
-            Forms.StreetsForm addressForm = new Forms.StreetsForm();
-            addressForm.ShowDialog();
-        }
+
 
         private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -84,6 +89,7 @@ namespace GraduationProject
             {
                 residents = new List<Resident>();
                 guests = new List<Person>();
+                dogs = new List<Dog>();
                 dataGridView.RowCount = 0;
             }
         }
@@ -118,7 +124,7 @@ namespace GraduationProject
         private void buttonAddStr_Click(object sender, EventArgs e)
         {
             Street street = new Street();
-            street.name = InputBox.OpenInputBox();
+            street.name = InputBox.OpenInputBox("Моля въведете име на улица:");
             if (Street.GetStreets(connectionHelper, street.name).Count == 0)
             {
                 street.InsertStreet(connectionHelper);
@@ -143,6 +149,37 @@ namespace GraduationProject
             {
                 
             }
+        }
+
+        private void buttonRemoveResident_Click(object sender, EventArgs e)
+        {
+            if (tabControl.SelectedTab == tabPageAdd)
+            {
+                if (dataGridView.CurrentCell.RowIndex < residents.Count)
+                {
+                    residents.RemoveAt(dataGridView.CurrentCell.RowIndex);
+                }
+                else if (guests.Count > 0)
+                {
+                    guests.RemoveAt(dataGridView.CurrentCell.RowIndex - residents.Count);
+                }         
+            }
+
+            RefreshDataGrid();
+        }
+
+        private void buttonAddDog_Click(object sender, EventArgs e)
+        {
+            string sealNum = InputBox.OpenInputBox("Моля въведете номер на скобата:");
+            if (sealNum == "") return;
+
+            if (tabControl.SelectedTab == tabPageAdd)
+            {  
+                dogs.Add(new Dog() { sealNumber = int.Parse(sealNum) });
+                RefreshDogsList();
+                
+            }
+           
         }
     }
 }

@@ -59,9 +59,9 @@ namespace GraduationProject.Forms
             this.label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label.Location = new System.Drawing.Point(12, 9);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(221, 21);
+            this.label.Size = new System.Drawing.Size(48, 21);
             this.label.TabIndex = 2;
-            this.label.Text = "Моля въведете име на улица:";
+            this.label.Text = "Текст";
             // 
             // buttonCancel
             // 
@@ -86,6 +86,7 @@ namespace GraduationProject.Forms
             this.Name = "InputBoxForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InputBoxForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InputBoxForm_FormClosing);
             this.Load += new System.EventHandler(this.InputBoxForm_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.InputBoxForm_KeyUp);
             this.ResumeLayout(false);

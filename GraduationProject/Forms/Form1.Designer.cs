@@ -31,8 +31,6 @@ namespace GraduationProject
         {
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.Settings = new System.Windows.Forms.ToolStripMenuItem();
-            this.Streets = new System.Windows.Forms.ToolStripMenuItem();
-            this.Residents = new System.Windows.Forms.ToolStripMenuItem();
             this.listBoxAddresses = new System.Windows.Forms.ListBox();
             this.textBoxSearchAddr = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
@@ -47,6 +45,7 @@ namespace GraduationProject
             this.listBoxStreets = new System.Windows.Forms.ListBox();
             this.textBoxSearchStr = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonRemoveResident = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonAddResident = new System.Windows.Forms.Button();
             this.buttonRemoveDog = new System.Windows.Forms.Button();
@@ -56,7 +55,7 @@ namespace GraduationProject
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Guest = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxDogs = new System.Windows.Forms.ListBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.labelNumber = new System.Windows.Forms.Label();
             this.labelDogs = new System.Windows.Forms.Label();
@@ -118,25 +117,9 @@ namespace GraduationProject
             // 
             // Settings
             // 
-            this.Settings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Streets,
-            this.Residents});
             this.Settings.Name = "Settings";
             this.Settings.Size = new System.Drawing.Size(79, 20);
             this.Settings.Text = "Настройки";
-            // 
-            // Streets
-            // 
-            this.Streets.Name = "Streets";
-            this.Streets.Size = new System.Drawing.Size(117, 22);
-            this.Streets.Text = "Улици";
-            this.Streets.Click += new System.EventHandler(this.Streets_ItemClicked);
-            // 
-            // Residents
-            // 
-            this.Residents.Name = "Residents";
-            this.Residents.Size = new System.Drawing.Size(117, 22);
-            this.Residents.Text = "Жители";
             // 
             // listBoxAddresses
             // 
@@ -270,12 +253,13 @@ namespace GraduationProject
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonRemoveResident);
             this.panel1.Controls.Add(this.buttonSave);
             this.panel1.Controls.Add(this.buttonAddResident);
             this.panel1.Controls.Add(this.buttonRemoveDog);
             this.panel1.Controls.Add(this.buttonAddDog);
             this.panel1.Controls.Add(this.dataGridView);
-            this.panel1.Controls.Add(this.listBox1);
+            this.panel1.Controls.Add(this.listBoxDogs);
             this.panel1.Controls.Add(this.numericUpDown1);
             this.panel1.Controls.Add(this.labelNumber);
             this.panel1.Controls.Add(this.labelDogs);
@@ -305,6 +289,16 @@ namespace GraduationProject
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(725, 453);
             this.panel1.TabIndex = 8;
+            // 
+            // buttonRemoveResident
+            // 
+            this.buttonRemoveResident.Location = new System.Drawing.Point(341, 223);
+            this.buttonRemoveResident.Name = "buttonRemoveResident";
+            this.buttonRemoveResident.Size = new System.Drawing.Size(78, 22);
+            this.buttonRemoveResident.TabIndex = 33;
+            this.buttonRemoveResident.Text = "Премахни";
+            this.buttonRemoveResident.UseVisualStyleBackColor = true;
+            this.buttonRemoveResident.Click += new System.EventHandler(this.buttonRemoveResident_Click);
             // 
             // buttonSave
             // 
@@ -344,6 +338,7 @@ namespace GraduationProject
             this.buttonAddDog.TabIndex = 29;
             this.buttonAddDog.Text = "Добави";
             this.buttonAddDog.UseVisualStyleBackColor = true;
+            this.buttonAddDog.Click += new System.EventHandler(this.buttonAddDog_Click);
             // 
             // dataGridView
             // 
@@ -384,14 +379,14 @@ namespace GraduationProject
             this.Guest.HeaderText = "Гост в карантина";
             this.Guest.Name = "Guest";
             // 
-            // listBox1
+            // listBoxDogs
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(269, 271);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(443, 139);
-            this.listBox1.TabIndex = 27;
+            this.listBoxDogs.FormattingEnabled = true;
+            this.listBoxDogs.ItemHeight = 15;
+            this.listBoxDogs.Location = new System.Drawing.Point(269, 271);
+            this.listBoxDogs.Name = "listBoxDogs";
+            this.listBoxDogs.Size = new System.Drawing.Size(443, 139);
+            this.listBoxDogs.TabIndex = 27;
             // 
             // numericUpDown1
             // 
@@ -684,7 +679,6 @@ namespace GraduationProject
         #endregion
         private System.Windows.Forms.ToolStripMenuItem Settings;
         private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem Streets;
         private System.Windows.Forms.ListBox listBoxAddresses;
         private System.Windows.Forms.TextBox textBoxSearchAddr;
         private System.Windows.Forms.Button buttonSearch;
@@ -726,8 +720,7 @@ namespace GraduationProject
         private System.Windows.Forms.Label labelDogs;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ToolStripMenuItem Residents;
+        private System.Windows.Forms.ListBox listBoxDogs;
         private System.Windows.Forms.Button buttonRemoveDog;
         private System.Windows.Forms.Button buttonAddDog;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
@@ -739,6 +732,7 @@ namespace GraduationProject
         private System.Windows.Forms.Button buttonRemoveStr;
         private System.Windows.Forms.Button buttonAddStr;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonRemoveResident;
     }
 }
 
