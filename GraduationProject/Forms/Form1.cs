@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GraduationProject.Models;
+using System.Text.RegularExpressions;
 
 namespace GraduationProject
 {
@@ -40,7 +41,7 @@ namespace GraduationProject
             for (int i = 0; i < residents.Count; i++)
             {
                 dataGridView.RowCount++;
-                dataGridView.Rows[dataGridView.RowCount-1].Cells[0].Value = residents[i].firstname;
+                dataGridView.Rows[dataGridView.RowCount - 1].Cells[0].Value = residents[i].firstname;
                 dataGridView.Rows[dataGridView.RowCount - 1].Cells[1].Value = residents[i].lastname;
                 dataGridView.Rows[dataGridView.RowCount - 1].Cells[2].Value = residents[i].relToOwner;
                 dataGridView.Rows[dataGridView.RowCount - 1].Cells[3].Value = false;
@@ -58,9 +59,8 @@ namespace GraduationProject
 
         void RefreshDogsList()
         {
-            listBoxDogs.BeginUpdate();
+            listBoxDogs.DataSource = null;
             listBoxDogs.DataSource = dogs;
-            listBoxDogs.EndUpdate();
         }
 
 
@@ -107,7 +107,7 @@ namespace GraduationProject
             {
                 if (personsForm.isResident)
                 {
-                    residents.Add(personsForm.GetResident);
+                    residents.Add(personsForm.getResident);
                 }
                 else
                     guests.Add(personsForm.getGuest);
@@ -124,7 +124,8 @@ namespace GraduationProject
         private void buttonAddStr_Click(object sender, EventArgs e)
         {
             Street street = new Street();
-            street.name = InputBox.OpenInputBox("Моля въведете име на улица:");
+            if((street.name = InputBox.OpenInputBox("Моля въведете име на улица:")) == "") return;
+
             if (Street.GetStreets(connectionHelper, street.name).Count == 0)
             {
                 street.InsertStreet(connectionHelper);
@@ -132,7 +133,7 @@ namespace GraduationProject
             }
             else
             {
-                //ERROR: Тази улица съществува.
+                MessageBox.Show("Тази улица съществува!", "Съществуваща улица", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
            
         }
@@ -159,7 +160,7 @@ namespace GraduationProject
                 {
                     residents.RemoveAt(dataGridView.CurrentCell.RowIndex);
                 }
-                else if (guests.Count > 0)
+                else 
                 {
                     guests.RemoveAt(dataGridView.CurrentCell.RowIndex - residents.Count);
                 }         
@@ -170,9 +171,14 @@ namespace GraduationProject
 
         private void buttonAddDog_Click(object sender, EventArgs e)
         {
+            Regex regex = new Regex(@"\d+");
             string sealNum = InputBox.OpenInputBox("Моля въведете номер на скобата:");
-            if (sealNum == "") return;
-
+            if (sealNum == "") { return; };
+            if (!regex.IsMatch(sealNum))
+            {
+                MessageBox.Show("Невалидна стойност!", "Невалидна стойност", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (tabControl.SelectedTab == tabPageAdd)
             {  
                 dogs.Add(new Dog() { sealNumber = int.Parse(sealNum) });

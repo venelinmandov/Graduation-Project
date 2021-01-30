@@ -11,7 +11,6 @@ namespace GraduationProject.Forms
 {
     public partial class PersonsForm : Form
     {
-        ConnectionHelper connectionHelper = new ConnectionHelper();
         ErrorProvider errorProvider = new ErrorProvider();
         Resident resident;
 
@@ -24,7 +23,7 @@ namespace GraduationProject.Forms
         //Свойства
         public bool isResident => radioButtonHousehold.Checked;
         public Person getGuest => resident;
-        public Resident GetResident => resident;
+        public Resident getResident => resident;
 
 
 

@@ -65,5 +65,10 @@ namespace GraduationProject.Forms
         {
             
         }
+
+        private void InputBoxForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Cancel();
+        }
     }
 }

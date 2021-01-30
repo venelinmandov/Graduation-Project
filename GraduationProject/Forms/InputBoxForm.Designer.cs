@@ -39,7 +39,7 @@ namespace GraduationProject.Forms
             // 
             this.textBox.Location = new System.Drawing.Point(12, 46);
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(221, 23);
+            this.textBox.Size = new System.Drawing.Size(277, 23);
             this.textBox.TabIndex = 0;
             this.textBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
             // 
@@ -65,7 +65,7 @@ namespace GraduationProject.Forms
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(142, 87);
+            this.buttonCancel.Location = new System.Drawing.Point(198, 87);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(91, 23);
             this.buttonCancel.TabIndex = 3;
@@ -77,7 +77,7 @@ namespace GraduationProject.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(247, 132);
+            this.ClientSize = new System.Drawing.Size(301, 132);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.label);
             this.Controls.Add(this.buttonSave);
@@ -87,6 +87,7 @@ namespace GraduationProject.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InputBoxForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InputBoxForm_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InputBoxForm_FormClosed);
             this.Load += new System.EventHandler(this.InputBoxForm_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.InputBoxForm_KeyUp);
             this.ResumeLayout(false);
