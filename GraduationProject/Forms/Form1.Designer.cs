@@ -56,7 +56,7 @@ namespace GraduationProject
             this.owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Guest = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.listBoxDogs = new System.Windows.Forms.ListBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownNumber = new System.Windows.Forms.NumericUpDown();
             this.labelNumber = new System.Windows.Forms.Label();
             this.labelDogs = new System.Windows.Forms.Label();
             this.labelInhabitants = new System.Windows.Forms.Label();
@@ -90,7 +90,7 @@ namespace GraduationProject
             this.tabPageAdd.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWalnut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFeathered)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDonkeys)).BeginInit();
@@ -260,7 +260,7 @@ namespace GraduationProject
             this.panel1.Controls.Add(this.buttonAddDog);
             this.panel1.Controls.Add(this.dataGridView);
             this.panel1.Controls.Add(this.listBoxDogs);
-            this.panel1.Controls.Add(this.numericUpDown1);
+            this.panel1.Controls.Add(this.numericUpDownNumber);
             this.panel1.Controls.Add(this.labelNumber);
             this.panel1.Controls.Add(this.labelDogs);
             this.panel1.Controls.Add(this.labelInhabitants);
@@ -388,14 +388,14 @@ namespace GraduationProject
             this.listBoxDogs.Size = new System.Drawing.Size(443, 139);
             this.listBoxDogs.TabIndex = 27;
             // 
-            // numericUpDown1
+            // numericUpDownNumber
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.numericUpDown1.Location = new System.Drawing.Point(17, 49);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(45, 43);
-            this.numericUpDown1.TabIndex = 26;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDownNumber.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.numericUpDownNumber.Location = new System.Drawing.Point(17, 49);
+            this.numericUpDownNumber.Name = "numericUpDownNumber";
+            this.numericUpDownNumber.Size = new System.Drawing.Size(45, 43);
+            this.numericUpDownNumber.TabIndex = 26;
+            this.numericUpDownNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelNumber
             // 
@@ -658,7 +658,7 @@ namespace GraduationProject
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWalnut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFeathered)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDonkeys)).EndInit();
@@ -715,7 +715,7 @@ namespace GraduationProject
         private System.Windows.Forms.NumericUpDown numericUpDownHorses;
         private System.Windows.Forms.Label labelGoats;
         private System.Windows.Forms.NumericUpDown numericUpDownGoats;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDownNumber;
         private System.Windows.Forms.Label labelNumber;
         private System.Windows.Forms.Label labelDogs;
         private System.Windows.Forms.Label label3;

@@ -29,7 +29,7 @@ namespace GraduationProject.Models
             relToOwner = reader.GetString(7);
         }
 
-        public static void InsertPerson(Person person, ConnectionHelper connectionHelper)
+        public static void InsertPerson(ConnectionHelper connectionHelper, Person person)
         {
             string query = @"INSERT INTO GuestsInQuarantine (firstname,middlename,lastname,egn,gender,addressId,relationToOwner)
                             VALUES (@fName, @mName, @lName, @egn, @gender, @addrId,@rel)";

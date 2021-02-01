@@ -17,7 +17,7 @@ namespace GraduationProject.Models
             
         }
 
-        public static void InsertResident(Resident resident, ConnectionHelper connectionHelper)
+        public static void InsertResident(ConnectionHelper connectionHelper, Resident resident)
         {
             string query = @"INSERT INTO Residents (firstname,middlename,lastname,egn,gender,addressId,owner,addressReg,covid19)
                             VALUES (@fName, @mName, @lName, @egn, @gender, @addrId, @owner, @addrReg, @covid)";

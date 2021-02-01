@@ -41,8 +41,9 @@ namespace GraduationProject.Models
             numWalnutTrees = reader.GetInt32(13);
         }
 
-        public static void InsertAddress(Address address, ConnectionHelper connectionHelper)
+        public static int InsertAddress(ConnectionHelper connectionHelper, Address address)
         {
+            int id;
             string query = @"INSERT INTO Addresses 
                             (streetId, number, squaring, habitallity, numResBuildings, numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numWalnutTrees ) 
                             VALUES (@StrId, @num, @sq, @hab, @resB, @agrB, @cows, @sheep, @goats, @horses, @donkeys, @feathered, @Walnut)";
@@ -58,14 +59,27 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@sheep", address.numSheep);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@goats", address.numGoats);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@horses", address.numHorses);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@donkeys", address.numDonkeys);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@feathered", address.numFeathered);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@Walnut", address.numWalnutTrees);
 
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();
+
+            query = @"SELECT id  FROM Addresses 
+                    WHERE streetId = @StrId AND number = @num";
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@StrId", address.streetId);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@num", address.number);
+            SqlDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            reader.Read();
+            id = reader.GetInt32(0);
+
+            connectionHelper.sqlConnection.Close();
+            return id;
         }
 
-        public static List<Address> GetAddresses(ConnectionHelper connectionHelper,object obj = null, string criteria = "")
+        public static List<Address> GetAddresses(ConnectionHelper connectionHelper, object obj = null, string criteria = "")
         {
             List<Address> addresses = new List<Address>();
             Address address;

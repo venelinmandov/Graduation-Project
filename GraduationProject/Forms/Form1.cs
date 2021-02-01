@@ -14,7 +14,9 @@ namespace GraduationProject
 {
     public partial class Form1 : Form
     {
+        ErrorProvider errorProvider = new ErrorProvider();
         ConnectionHelper connectionHelper = new ConnectionHelper();
+        Address address;
         List<Person> guests;
         List<Resident> residents;
         List<Street> streets;
@@ -61,6 +63,44 @@ namespace GraduationProject
         {
             listBoxDogs.DataSource = null;
             listBoxDogs.DataSource = dogs;
+        }
+
+        bool AddressExist(Street street, int number)
+        {
+            List <Address> addresses = Address.GetAddresses(connectionHelper, street, "street");
+            for (int i = 0; i < addresses.Count; i++)
+            {
+                if (addresses[i].number == number)
+                    return true;
+            }
+            return false;
+        }
+
+        void SaveAddress()
+        {   
+            int addressId = Address.InsertAddress(connectionHelper, address);
+            foreach (Person guest in guests)
+            {
+                guest.addressId = addressId;
+                Person.InsertPerson(connectionHelper,guest);
+            }
+
+            foreach (Resident resident in residents)
+            {
+                resident.addressId = addressId;
+                Resident.InsertPerson(connectionHelper, resident);
+            }
+
+        }
+
+        public int GetGroupBoxValue(params RadioButton[] radioButtons)
+        {
+            for (int i = 0; i < radioButtons.Length; i++)
+            {
+                if (radioButtons[i].Checked)
+                    return i;
+            }
+            return -1;
         }
 
 
@@ -148,7 +188,35 @@ namespace GraduationProject
         {
             if (tabPageAdd == tabControl.SelectedTab)
             {
-                
+                if (!AddressExist(streets[listBoxStreets.SelectedIndex],(int)numericUpDownNumber.Value))
+                {
+                    int habitabillityValue;
+                    if ((habitabillityValue = GetGroupBoxValue(radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry)) != -1)
+                    {
+                        errorProvider.SetError(groupBoxHabitabillity, "");
+                        address = new Address()
+                        {
+                            streetId = streets[listBoxStreets.SelectedIndex].id,
+                            number = (int)numericUpDownNumber.Value,
+                            squaring = (int)numericUpDownSquaring.Value,
+                            habitallity = habitabillityValue,
+                            numResBuildings = (int)numericUpDownResBouldings.Value,
+                            numAgrBuildings = (int)numericUpDownAgrBuildings.Value,
+                            numCows = (int)numericUpDownCows.Value,
+                            numSheep = (int)numericUpDownSheep.Value,
+                            numGoats = (int)numericUpDownGoats.Value,
+                            numHorses = (int)numericUpDownHorses.Value,
+                            numDonkeys = (int)numericUpDownDonkeys.Value,
+                            numFeathered = (int)numericUpDownFeathered.Value,
+                            numWalnutTrees = (int)numericUpDownWalnut.Value
+                        };
+                        SaveAddress();
+                    }
+                    else
+                        errorProvider.SetError(groupBoxHabitabillity, "Моля изберете опция!");
+                }
+                else
+                    MessageBox.Show("Този адрес съществува!", "СЪществуващ адрес", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
