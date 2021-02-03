@@ -22,6 +22,21 @@ namespace GraduationProject.Models
         public int numFeathered { get; set; } = 0;
         public int numWalnutTrees { get; set; } = 0;
 
+        public override string ToString()
+        {
+            ConnectionHelper connectionHelper = new ConnectionHelper();
+            string query = "SELECT name FROM Streets WHERE id = @id";
+            string strName;
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@id", streetId);
+            SqlDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            reader.Read();
+            strName = reader.GetString(0);
+            reader.Close();
+
+            return strName + " " + number.ToString();
+        }
+
 
         public void Fill(SqlDataReader reader)
         {
@@ -74,7 +89,7 @@ namespace GraduationProject.Models
             SqlDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
             reader.Read();
             id = reader.GetInt32(0);
-
+            reader.Close();
             connectionHelper.sqlConnection.Close();
             return id;
         }
@@ -83,9 +98,8 @@ namespace GraduationProject.Models
         {
             List<Address> addresses = new List<Address>();
             Address address;
-            string param = "";
+            string param = "2";
 
-  
             string[] queryConcats = new string[] 
             { "",
               " WHERE streetId = @param",
@@ -108,16 +122,17 @@ namespace GraduationProject.Models
                     break;
             }
              
-            string query = @"SELECT id,streetId, number, squaring, habitallity, numResBuildings, numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numWalnutTrees
-                            FROM Addresses" + queryConcats[state];
+            string query = "SELECT id,streetId, number, squaring, habitallity, numResBuildings, numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numWalnutTrees FROM Addresses" + queryConcats[state];
             connectionHelper.NewConnection(query);
             if (param != "")
-                connectionHelper.sqlCommand.Parameters.AddWithValue("@param",param);
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@param", param);
             SqlDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
             while (reader.Read())
             {
                 address = new Address();
                 address.Fill(reader);
+                addresses.Add(address);
+
             }
             reader.Close();
             connectionHelper.sqlConnection.Close();
@@ -125,6 +140,9 @@ namespace GraduationProject.Models
             
         }
 
- 
+        public void Insert(ConnectionHelper connectionHelper)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

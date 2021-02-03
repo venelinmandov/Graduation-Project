@@ -9,5 +9,6 @@ namespace GraduationProject.Models
     {
        public void Fill(SqlDataReader reader);
 
+        public void Insert(ConnectionHelper connectionHelper);
     }
 }

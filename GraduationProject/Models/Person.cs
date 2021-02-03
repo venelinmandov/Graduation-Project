@@ -29,19 +29,19 @@ namespace GraduationProject.Models
             relToOwner = reader.GetString(7);
         }
 
-        public static void InsertPerson(ConnectionHelper connectionHelper, Person person)
+        public void Insert(ConnectionHelper connectionHelper)
         {
             string query = @"INSERT INTO GuestsInQuarantine (firstname,middlename,lastname,egn,gender,addressId,relationToOwner)
                             VALUES (@fName, @mName, @lName, @egn, @gender, @addrId,@rel)";
 
             connectionHelper.NewConnection(query);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@fname",person.firstname);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@mName", person.middlename);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@lName", person.lastname);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@egn", person.egn);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", person.gender);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", person.addressId);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", person.relToOwner);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", firstname);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@mName", middlename);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@lName", lastname);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@egn", egn);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", gender);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", addressId);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", relToOwner);
 
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();

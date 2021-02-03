@@ -30,6 +30,7 @@ namespace GraduationProject
             showStreets();
         }
 
+       
         void showStreets()
         {
             streets = Street.GetStreets(connectionHelper, textBoxSearchStr.Text);
@@ -79,16 +80,17 @@ namespace GraduationProject
         void SaveAddress()
         {   
             int addressId = Address.InsertAddress(connectionHelper, address);
+
             foreach (Person guest in guests)
             {
                 guest.addressId = addressId;
-                Person.InsertPerson(connectionHelper,guest);
+                guest.Insert(connectionHelper);
             }
 
             foreach (Resident resident in residents)
             {
                 resident.addressId = addressId;
-                Resident.InsertPerson(connectionHelper, resident);
+                resident.Insert(connectionHelper);
             }
 
         }
@@ -168,7 +170,7 @@ namespace GraduationProject
 
             if (Street.GetStreets(connectionHelper, street.name).Count == 0)
             {
-                street.InsertStreet(connectionHelper);
+                street.Insert(connectionHelper);
                 showStreets();
             }
             else
@@ -198,7 +200,7 @@ namespace GraduationProject
                         {
                             streetId = streets[listBoxStreets.SelectedIndex].id,
                             number = (int)numericUpDownNumber.Value,
-                            squaring = (int)numericUpDownSquaring.Value,
+                            squaring = (double)numericUpDownSquaring.Value,
                             habitallity = habitabillityValue,
                             numResBuildings = (int)numericUpDownResBouldings.Value,
                             numAgrBuildings = (int)numericUpDownAgrBuildings.Value,
@@ -218,6 +220,7 @@ namespace GraduationProject
                 else
                     MessageBox.Show("Този адрес съществува!", "СЪществуващ адрес", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
         }
 
         private void buttonRemoveResident_Click(object sender, EventArgs e)

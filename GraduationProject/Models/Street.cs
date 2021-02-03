@@ -57,7 +57,7 @@ namespace GraduationProject.Models
 
 
 
-        public void InsertStreet(ConnectionHelper connectionHelper)
+        public void Insert(ConnectionHelper connectionHelper)
         {
             string query = "INSERT INTO Streets (name) VALUES (@name)";
 
