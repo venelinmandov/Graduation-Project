@@ -28,6 +28,7 @@ namespace GraduationProject
             addresses = Address.GetAddresses(connectionHelper);
             listBoxAddresses.DataSource = addresses;
             showStreets();
+            comboBoxCriteria.SelectedIndex = 0;
         }
 
        //Показване на улици в listbox-а
@@ -304,6 +305,11 @@ namespace GraduationProject
         //Опресняване на списъка с адреси при промяна на текстовото поле за търсене
         private void textBoxSearchAddr_TextChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        private void buttonSearchAddress_Click(object sender, EventArgs e)
+        {
             if (textBoxSearchAddr.Text == "")
             {
                 addresses = Address.GetAddresses(connectionHelper);
@@ -313,14 +319,17 @@ namespace GraduationProject
             addresses = new List<Address>();
             if (comboBoxCriteria.SelectedIndex == 0)
             {
-                List<Street> foundStreets = Street.GetStreets(connectionHelper,textBoxSearchAddr.Text);
+                List<Street> foundStreets = Street.GetStreets(connectionHelper, textBoxSearchAddr.Text);
                 foreach (Street street in foundStreets)
                 {
                     addresses = addresses.Concat(Address.GetAddresses(connectionHelper, street, "street")).ToList();
                 }
-                listBoxAddresses.DataSource = addresses;
-                    
-            }    
+            }
+            else if (comboBoxCriteria.SelectedIndex == 1)
+            {
+                addresses = Address.GetAddresses(connectionHelper, textBoxSearchAddr.Text, "person");
+            }
+            listBoxAddresses.DataSource = addresses;
         }
     }
 }

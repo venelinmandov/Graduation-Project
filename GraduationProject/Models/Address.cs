@@ -103,10 +103,10 @@ namespace GraduationProject.Models
             string[] queryConcats = new string[] 
             { "",
               " WHERE streetId = @param",
-              @", Residents, GusetsInQuarantine 
-                    WHERE Addresses.id = Residents.AddressId AND Addresses.id = GusetsInQuarantine.AddressId AND
-                    Residents.firstName LIKE '@param%' OR GusetsInQuarantine.firstName LIKE '@param%' OR
-                    Residents.lastName LIKE '@param%' OR GusetsInQuarantine.lastName LIKE '@param%'"
+              @", Residents, GuestsInQuarantine
+                WHERE Addresses.id = Residents.addressId AND
+                (Residents.firstname LIKE @param + '%' OR Residents.middlename LIKE @param + '%' OR Residents.lastname LIKE @param + '%')
+                OR (GuestsInQuarantine.firstname LIKE @param + '%' OR GuestsInQuarantine.middlename LIKE @param + '%' OR GuestsInQuarantine.lastname LIKE @param + '%')"
             };
       
             int state = 0;
@@ -122,7 +122,7 @@ namespace GraduationProject.Models
                     break;
             }
              
-            string query = "SELECT id,streetId, number, squaring, habitallity, numResBuildings, numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numWalnutTrees FROM Addresses" + queryConcats[state];
+            string query = "SELECT DISTINCT Addresses.id, streetId, number, squaring, habitallity, numResBuildings, numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numWalnutTrees FROM Addresses" + queryConcats[state];
             connectionHelper.NewConnection(query);
             if (param != "")
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@param", param);

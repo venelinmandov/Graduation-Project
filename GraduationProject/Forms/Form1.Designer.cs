@@ -33,7 +33,6 @@ namespace GraduationProject
             this.Settings = new System.Windows.Forms.ToolStripMenuItem();
             this.listBoxAddresses = new System.Windows.Forms.ListBox();
             this.textBoxSearchAddr = new System.Windows.Forms.TextBox();
-            this.buttonSearch = new System.Windows.Forms.Button();
             this.comboBoxCriteria = new System.Windows.Forms.ComboBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageSearch = new System.Windows.Forms.TabPage();
@@ -84,6 +83,7 @@ namespace GraduationProject
             this.radioButtonDesolate = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDownSquaring = new System.Windows.Forms.NumericUpDown();
+            this.buttonSearchAddress = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageSearch.SuspendLayout();
@@ -134,26 +134,16 @@ namespace GraduationProject
             // 
             this.textBoxSearchAddr.Location = new System.Drawing.Point(3, 34);
             this.textBoxSearchAddr.Name = "textBoxSearchAddr";
-            this.textBoxSearchAddr.Size = new System.Drawing.Size(147, 23);
+            this.textBoxSearchAddr.Size = new System.Drawing.Size(137, 23);
             this.textBoxSearchAddr.TabIndex = 1;
             this.textBoxSearchAddr.TextChanged += new System.EventHandler(this.textBoxSearchAddr_TextChanged);
-            // 
-            // buttonSearch
-            // 
-            this.buttonSearch.Location = new System.Drawing.Point(157, 34);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(55, 23);
-            this.buttonSearch.TabIndex = 5;
-            this.buttonSearch.Text = "Търси";
-            this.buttonSearch.UseVisualStyleBackColor = true;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // comboBoxCriteria
             // 
             this.comboBoxCriteria.FormattingEnabled = true;
             this.comboBoxCriteria.Items.AddRange(new object[] {
             "Улица",
-            "Жител"});
+            "Жител/Гост"});
             this.comboBoxCriteria.Location = new System.Drawing.Point(74, 5);
             this.comboBoxCriteria.Name = "comboBoxCriteria";
             this.comboBoxCriteria.Size = new System.Drawing.Size(138, 23);
@@ -173,10 +163,10 @@ namespace GraduationProject
             // tabPageSearch
             // 
             this.tabPageSearch.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageSearch.Controls.Add(this.buttonSearchAddress);
             this.tabPageSearch.Controls.Add(this.labelCriteria);
             this.tabPageSearch.Controls.Add(this.listBoxAddresses);
             this.tabPageSearch.Controls.Add(this.textBoxSearchAddr);
-            this.tabPageSearch.Controls.Add(this.buttonSearch);
             this.tabPageSearch.Controls.Add(this.comboBoxCriteria);
             this.tabPageSearch.Location = new System.Drawing.Point(4, 24);
             this.tabPageSearch.Name = "tabPageSearch";
@@ -640,6 +630,16 @@ namespace GraduationProject
             this.numericUpDownSquaring.Size = new System.Drawing.Size(122, 23);
             this.numericUpDownSquaring.TabIndex = 0;
             // 
+            // buttonSearchAddress
+            // 
+            this.buttonSearchAddress.Location = new System.Drawing.Point(144, 33);
+            this.buttonSearchAddress.Name = "buttonSearchAddress";
+            this.buttonSearchAddress.Size = new System.Drawing.Size(68, 24);
+            this.buttonSearchAddress.TabIndex = 8;
+            this.buttonSearchAddress.Text = "Търси";
+            this.buttonSearchAddress.UseVisualStyleBackColor = true;
+            this.buttonSearchAddress.Click += new System.EventHandler(this.buttonSearchAddress_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -686,7 +686,6 @@ namespace GraduationProject
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ListBox listBoxAddresses;
         private System.Windows.Forms.TextBox textBoxSearchAddr;
-        private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.ComboBox comboBoxCriteria;
         private System.Windows.Forms.Label labelCriteria;
         private System.Windows.Forms.TabControl tabControl;
@@ -738,6 +737,7 @@ namespace GraduationProject
         private System.Windows.Forms.Button buttonAddStr;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonRemoveResident;
+        private System.Windows.Forms.Button buttonSearchAddress;
     }
 }
 
