@@ -136,6 +136,7 @@ namespace GraduationProject
             this.textBoxSearchAddr.Name = "textBoxSearchAddr";
             this.textBoxSearchAddr.Size = new System.Drawing.Size(147, 23);
             this.textBoxSearchAddr.TabIndex = 1;
+            this.textBoxSearchAddr.TextChanged += new System.EventHandler(this.textBoxSearchAddr_TextChanged);
             // 
             // buttonSearch
             // 
@@ -150,6 +151,9 @@ namespace GraduationProject
             // comboBoxCriteria
             // 
             this.comboBoxCriteria.FormattingEnabled = true;
+            this.comboBoxCriteria.Items.AddRange(new object[] {
+            "Улица",
+            "Жител"});
             this.comboBoxCriteria.Location = new System.Drawing.Point(74, 5);
             this.comboBoxCriteria.Name = "comboBoxCriteria";
             this.comboBoxCriteria.Size = new System.Drawing.Size(138, 23);
@@ -249,7 +253,7 @@ namespace GraduationProject
             this.textBoxSearchStr.Name = "textBoxSearchStr";
             this.textBoxSearchStr.Size = new System.Drawing.Size(138, 23);
             this.textBoxSearchStr.TabIndex = 0;
-            this.textBoxSearchStr.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBoxSearchStr.TextChanged += new System.EventHandler(this.textBoxSearchStr_TextChanged);
             // 
             // panel1
             // 
@@ -329,6 +333,7 @@ namespace GraduationProject
             this.buttonRemoveDog.TabIndex = 30;
             this.buttonRemoveDog.Text = "Премахни";
             this.buttonRemoveDog.UseVisualStyleBackColor = true;
+            this.buttonRemoveDog.Click += new System.EventHandler(this.buttonRemoveDog_Click);
             // 
             // buttonAddDog
             // 

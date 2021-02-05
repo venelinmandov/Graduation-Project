@@ -20,7 +20,7 @@ namespace GraduationProject.Models
             addressId = reader.GetInt32(1);
         }
 
-        public void Insert(ConnectionHelper connectionHelper)
+        public void InsertDog(ConnectionHelper connectionHelper)
         {
             string query = "INSERT INTO Dogs (sealNumber, addressId) VALUES (@sealNum, @addrId)";
             connectionHelper.NewConnection(query);
