@@ -7,7 +7,7 @@ namespace GraduationProject.Models
 {
     public interface Model
     {
-       public void Fill(SqlDataReader reader);
+        public void Fill(SqlDataReader reader);
 
     }
 }

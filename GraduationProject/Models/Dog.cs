@@ -28,7 +28,27 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", addressId);
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();
+        }
 
+        public static List<Dog> GetDogs(ConnectionHelper connectionHelper, Address address)
+        {
+            List<Dog> dogs = new List<Dog>();
+            Dog dog;
+            string query = @"SELECT sealNumber, addressId FROM Dogs
+                           WHERE addressId = @addrId";
+
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", address.id);
+            SqlDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                dog = new Dog();
+                dog.Fill(reader);
+                dogs.Add(dog);
+            }
+            reader.Close();
+            connectionHelper.sqlConnection.Close();
+            return dogs;
         }
     }
 }

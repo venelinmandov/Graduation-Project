@@ -16,6 +16,8 @@ namespace GraduationProject.Models
         public int addressId { get; set; }
         public string relToOwner { get; set; }
 
+        private static string fields = "firstname,middlename,lastname,egn,gender,addressId,relationToOwner";
+
 
         public virtual void Fill(SqlDataReader reader)
         {
@@ -31,7 +33,7 @@ namespace GraduationProject.Models
 
         public void InsertPerson(ConnectionHelper connectionHelper)
         {
-            string query = @"INSERT INTO GuestsInQuarantine (firstname,middlename,lastname,egn,gender,addressId,relationToOwner)
+            string query = @$"INSERT INTO GuestsInQuarantine ({fields})
                             VALUES (@fName, @mName, @lName, @egn, @gender, @addrId,@rel)";
 
             connectionHelper.NewConnection(query);
@@ -45,6 +47,26 @@ namespace GraduationProject.Models
 
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();
+        }
+
+        public static List<Person> GetPersons(ConnectionHelper connectionHelper, Address address)
+        {
+            List<Person> persons = new List<Person>();
+            Person person;
+            string query = @$"SELECT id,{fields} FROM GuestsInQuarantine
+                            WHERE addressId = @addrId";
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId",address.id);
+            SqlDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                person = new Person();
+                person.Fill(reader);
+                persons.Add(person);
+            }
+            reader.Close();
+            connectionHelper.sqlConnection.Close();
+            return persons;
         }
     }
 }

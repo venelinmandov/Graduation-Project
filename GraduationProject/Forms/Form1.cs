@@ -71,6 +71,32 @@ namespace GraduationProject
             listBoxDogs.DataSource = dogs;
         }
 
+        //Показване на информацията за текущо избрания адрес
+        void ShowAddress()
+        {
+            numericUpDownNumber.Value = address.number;
+            numericUpDownSquaring.Value = (decimal)address.squaring;
+            numericUpDownResBuildings.Value = address.numResBuildings;
+            numericUpDownAgrBuildings.Value = address.numAgrBuildings;
+            numericUpDownCows.Value = address.numCows;
+            numericUpDownSheep.Value = address.numSheep;
+            numericUpDownGoats.Value = address.numGoats;
+            numericUpDownHorses.Value = address.numHorses;
+            numericUpDownDonkeys.Value = address.numDonkeys;
+            numericUpDownFeathered.Value = address.numFeathered;
+            numericUpDownWalnut.Value = address.numWalnutTrees;
+            SetGroupBoxValue(address.habitallity, radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry);
+
+            residents = Resident.GetResidents(connectionHelper,address);
+            guests = Person.GetPersons(connectionHelper, address);
+            RefreshDataGrid();
+
+            dogs = Dog.GetDogs(connectionHelper, address);
+            RefreshDogsList();
+
+        }
+
+
         //Метода връща стойност, в зависимост дали даден адрес съществува
         bool AddressExist(Street street, int number)
         {
@@ -119,6 +145,15 @@ namespace GraduationProject
                     return i;
             }
             return -1;
+        }
+
+        public void SetGroupBoxValue(int habitabillity,params RadioButton[] radioButtons)
+        {
+            for (int i = 0; i < radioButtons.Length; i++)
+            {
+                if (habitabillity == i)
+                    radioButtons[i].Checked = true;
+            }
         }
 
 
@@ -227,7 +262,7 @@ namespace GraduationProject
                             number = (int)numericUpDownNumber.Value,
                             squaring = (double)numericUpDownSquaring.Value,
                             habitallity = habitabillityValue,
-                            numResBuildings = (int)numericUpDownResBouldings.Value,
+                            numResBuildings = (int)numericUpDownResBuildings.Value,
                             numAgrBuildings = (int)numericUpDownAgrBuildings.Value,
                             numCows = (int)numericUpDownCows.Value,
                             numSheep = (int)numericUpDownSheep.Value,
@@ -302,12 +337,12 @@ namespace GraduationProject
 
         }
 
-        //Опресняване на списъка с адреси при промяна на текстовото поле за търсене
         private void textBoxSearchAddr_TextChanged(object sender, EventArgs e)
         {
             
         }
 
+        //Опресняване на списъка с адреси
         private void buttonSearchAddress_Click(object sender, EventArgs e)
         {
             if (textBoxSearchAddr.Text == "")
@@ -330,6 +365,15 @@ namespace GraduationProject
                 addresses = Address.GetAddresses(connectionHelper, textBoxSearchAddr.Text, "person");
             }
             listBoxAddresses.DataSource = addresses;
+        }
+
+        //Показване на данните за избрания адрес от списъка с адреси
+        private void listBoxAddresses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (addresses.Count == 0) return;
+                address = addresses[listBoxAddresses.SelectedIndex];
+                ShowAddress();
+
         }
     }
 }

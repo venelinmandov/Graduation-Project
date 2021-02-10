@@ -36,6 +36,7 @@ namespace GraduationProject
             this.comboBoxCriteria = new System.Windows.Forms.ComboBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageSearch = new System.Windows.Forms.TabPage();
+            this.buttonSearchAddress = new System.Windows.Forms.Button();
             this.labelCriteria = new System.Windows.Forms.Label();
             this.tabPageAdd = new System.Windows.Forms.TabPage();
             this.buttonRemoveStr = new System.Windows.Forms.Button();
@@ -76,14 +77,13 @@ namespace GraduationProject
             this.label2 = new System.Windows.Forms.Label();
             this.numericUpDownAgrBuildings = new System.Windows.Forms.NumericUpDown();
             this.labelResBuildings = new System.Windows.Forms.Label();
-            this.numericUpDownResBouldings = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownResBuildings = new System.Windows.Forms.NumericUpDown();
             this.groupBoxHabitabillity = new System.Windows.Forms.GroupBox();
             this.radioButtonTemporariry = new System.Windows.Forms.RadioButton();
             this.radioButtonInhabited = new System.Windows.Forms.RadioButton();
             this.radioButtonDesolate = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDownSquaring = new System.Windows.Forms.NumericUpDown();
-            this.buttonSearchAddress = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageSearch.SuspendLayout();
@@ -99,7 +99,7 @@ namespace GraduationProject
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGoats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCows)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAgrBuildings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownResBouldings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownResBuildings)).BeginInit();
             this.groupBoxHabitabillity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSquaring)).BeginInit();
             this.SuspendLayout();
@@ -129,6 +129,7 @@ namespace GraduationProject
             this.listBoxAddresses.Name = "listBoxAddresses";
             this.listBoxAddresses.Size = new System.Drawing.Size(209, 349);
             this.listBoxAddresses.TabIndex = 3;
+            this.listBoxAddresses.SelectedIndexChanged += new System.EventHandler(this.listBoxAddresses_SelectedIndexChanged);
             // 
             // textBoxSearchAddr
             // 
@@ -174,6 +175,16 @@ namespace GraduationProject
             this.tabPageSearch.Size = new System.Drawing.Size(215, 429);
             this.tabPageSearch.TabIndex = 0;
             this.tabPageSearch.Text = "Търси Адрес";
+            // 
+            // buttonSearchAddress
+            // 
+            this.buttonSearchAddress.Location = new System.Drawing.Point(144, 33);
+            this.buttonSearchAddress.Name = "buttonSearchAddress";
+            this.buttonSearchAddress.Size = new System.Drawing.Size(68, 24);
+            this.buttonSearchAddress.TabIndex = 8;
+            this.buttonSearchAddress.Text = "Търси";
+            this.buttonSearchAddress.UseVisualStyleBackColor = true;
+            this.buttonSearchAddress.Click += new System.EventHandler(this.buttonSearchAddress_Click);
             // 
             // labelCriteria
             // 
@@ -275,7 +286,7 @@ namespace GraduationProject
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.numericUpDownAgrBuildings);
             this.panel1.Controls.Add(this.labelResBuildings);
-            this.panel1.Controls.Add(this.numericUpDownResBouldings);
+            this.panel1.Controls.Add(this.numericUpDownResBuildings);
             this.panel1.Controls.Add(this.groupBoxHabitabillity);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.numericUpDownSquaring);
@@ -388,7 +399,7 @@ namespace GraduationProject
             this.numericUpDownNumber.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.numericUpDownNumber.Location = new System.Drawing.Point(17, 49);
             this.numericUpDownNumber.Name = "numericUpDownNumber";
-            this.numericUpDownNumber.Size = new System.Drawing.Size(45, 43);
+            this.numericUpDownNumber.Size = new System.Drawing.Size(59, 43);
             this.numericUpDownNumber.TabIndex = 26;
             this.numericUpDownNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -556,12 +567,12 @@ namespace GraduationProject
             this.labelResBuildings.TabIndex = 4;
             this.labelResBuildings.Text = "Жилищни постройки:";
             // 
-            // numericUpDownResBouldings
+            // numericUpDownResBuildings
             // 
-            this.numericUpDownResBouldings.Location = new System.Drawing.Point(210, 192);
-            this.numericUpDownResBouldings.Name = "numericUpDownResBouldings";
-            this.numericUpDownResBouldings.Size = new System.Drawing.Size(38, 23);
-            this.numericUpDownResBouldings.TabIndex = 3;
+            this.numericUpDownResBuildings.Location = new System.Drawing.Point(210, 192);
+            this.numericUpDownResBuildings.Name = "numericUpDownResBuildings";
+            this.numericUpDownResBuildings.Size = new System.Drawing.Size(38, 23);
+            this.numericUpDownResBuildings.TabIndex = 3;
             // 
             // groupBoxHabitabillity
             // 
@@ -630,16 +641,6 @@ namespace GraduationProject
             this.numericUpDownSquaring.Size = new System.Drawing.Size(122, 23);
             this.numericUpDownSquaring.TabIndex = 0;
             // 
-            // buttonSearchAddress
-            // 
-            this.buttonSearchAddress.Location = new System.Drawing.Point(144, 33);
-            this.buttonSearchAddress.Name = "buttonSearchAddress";
-            this.buttonSearchAddress.Size = new System.Drawing.Size(68, 24);
-            this.buttonSearchAddress.TabIndex = 8;
-            this.buttonSearchAddress.Text = "Търси";
-            this.buttonSearchAddress.UseVisualStyleBackColor = true;
-            this.buttonSearchAddress.Click += new System.EventHandler(this.buttonSearchAddress_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -672,7 +673,7 @@ namespace GraduationProject
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGoats)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCows)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAgrBuildings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownResBouldings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownResBuildings)).EndInit();
             this.groupBoxHabitabillity.ResumeLayout(false);
             this.groupBoxHabitabillity.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSquaring)).EndInit();
@@ -700,7 +701,7 @@ namespace GraduationProject
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numericUpDownAgrBuildings;
         private System.Windows.Forms.Label labelResBuildings;
-        private System.Windows.Forms.NumericUpDown numericUpDownResBouldings;
+        private System.Windows.Forms.NumericUpDown numericUpDownResBuildings;
         private System.Windows.Forms.GroupBox groupBoxHabitabillity;
         private System.Windows.Forms.RadioButton radioButtonTemporariry;
         private System.Windows.Forms.RadioButton radioButtonInhabited;
