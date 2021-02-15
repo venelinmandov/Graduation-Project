@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GraduationProject.Models
 {
-    public class Dog: Model
+    public class Dog: Model<Dog>
     {
         public int sealNumber { get; set; }
         public int addressId { get; set; }
@@ -20,17 +20,19 @@ namespace GraduationProject.Models
             addressId = reader.GetInt32(1);
         }
 
-        public void InsertDog(ConnectionHelper connectionHelper)
+        public int Insert(ConnectionHelper connectionHelper)
         {
-            string query = "INSERT INTO Dogs (sealNumber, addressId) VALUES (@sealNum, @addrId)";
+            int id;
+            string query = "INSERT INTO Dogs (sealNumber, addressId) output INSERTED.sealNumber VALUES (@sealNum, @addrId)";
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@sealNum", sealNumber);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", addressId);
-            connectionHelper.sqlCommand.ExecuteNonQuery();
+            id = (int) connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();
+            return id;
         }
 
-        public static List<Dog> GetDogs(ConnectionHelper connectionHelper, Address address)
+        public List<Dog> Get(ConnectionHelper connectionHelper, Address address)
         {
             List<Dog> dogs = new List<Dog>();
             Dog dog;
@@ -49,6 +51,11 @@ namespace GraduationProject.Models
             reader.Close();
             connectionHelper.sqlConnection.Close();
             return dogs;
+        }
+
+        public List<Dog> Get(ConnectionHelper connectionHelper)
+        {
+            return Get(connectionHelper,null);
         }
     }
 }

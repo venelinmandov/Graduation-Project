@@ -24,8 +24,9 @@ namespace GraduationProject
         List<Dog> dogs;
         public Form1()
         {
+            Address adr = new Address();
             InitializeComponent();
-            addresses = Address.GetAddresses(connectionHelper);
+            addresses = adr.Get(connectionHelper);
             listBoxAddresses.DataSource = addresses;
             showStreets();
             comboBoxCriteria.SelectedIndex = 0;
@@ -34,7 +35,8 @@ namespace GraduationProject
        //Показване на улици в listbox-а
         void showStreets()
         {
-            streets = Street.GetStreets(connectionHelper, textBoxSearchStr.Text);
+            Street str = new Street();
+            streets = str.Get(connectionHelper, textBoxSearchStr.Text);
             listBoxStreets.DataSource = streets;
 
         }
@@ -74,6 +76,9 @@ namespace GraduationProject
         //Показване на информацията за текущо избрания адрес
         void ShowAddress()
         {
+            Resident res = new Resident();
+            Person per = new Person();
+            Dog dog = new Dog();
             numericUpDownNumber.Value = address.number;
             numericUpDownSquaring.Value = (decimal)address.squaring;
             numericUpDownResBuildings.Value = address.numResBuildings;
@@ -87,11 +92,11 @@ namespace GraduationProject
             numericUpDownWalnut.Value = address.numWalnutTrees;
             SetGroupBoxValue(address.habitallity, radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry);
 
-            residents = Resident.GetResidents(connectionHelper,address);
-            guests = Person.GetPersons(connectionHelper, address);
+            residents = res.Get(connectionHelper,address);
+            guests = per.Get(connectionHelper, address);
             RefreshDataGrid();
 
-            dogs = Dog.GetDogs(connectionHelper, address);
+            dogs = dog.Get(connectionHelper, address);
             RefreshDogsList();
 
         }
@@ -100,7 +105,8 @@ namespace GraduationProject
         //Метода връща стойност, в зависимост дали даден адрес съществува
         bool AddressExist(Street street, int number)
         {
-            List <Address> addresses = Address.GetAddresses(connectionHelper, street, "street");
+            Address adr = new Address();
+            List <Address> addresses = adr.Get(connectionHelper, street, "street");
             for (int i = 0; i < addresses.Count; i++)
             {
                 if (addresses[i].number == number)
@@ -113,25 +119,25 @@ namespace GraduationProject
         void SaveAddress()
         {   
             //Запазване на адреса и записване на id-то му в променливата addressId
-            int addressId = Address.InsertAddress(connectionHelper, address);
+            int addressId = address.Insert(connectionHelper);
 
             //Добаване на id-то на адреса към гостите, жителите и кучетата
             foreach (Person guest in guests)
             {
                 guest.addressId = addressId;
-                guest.InsertPerson(connectionHelper);
+                guest.Insert(connectionHelper);
             }
 
             foreach (Resident resident in residents)
             {
                 resident.addressId = addressId;
-                resident.InsertResident(connectionHelper);
+                resident.Insert(connectionHelper);
             }
 
             foreach (Dog dog in dogs)
             {
                 dog.addressId = addressId;
-                dog.InsertDog(connectionHelper);
+                dog.Insert(connectionHelper);
             }
 
         }
@@ -186,6 +192,29 @@ namespace GraduationProject
                 dogs = new List<Dog>();
                 dataGridView.RowCount = 0;
                 RefreshDogsList();
+
+                numericUpDownAgrBuildings.Value = 0;
+                numericUpDownCows.Value = 0;
+                numericUpDownDonkeys.Value = 0;
+                numericUpDownFeathered.Value = 0;
+                numericUpDownGoats.Value = 0;
+                numericUpDownHorses.Value = 0;
+                numericUpDownNumber.Value = 0;
+                numericUpDownResBuildings.Value = 0;
+                numericUpDownSheep.Value = 0;
+                numericUpDownSquaring.Value = 0;
+                numericUpDownWalnut.Value = 0;
+
+                RadioButton[] radioButtons = new RadioButton[] { radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry };
+                foreach (RadioButton radioButton in radioButtons)
+                {
+                    if (radioButton.Checked)
+                    {
+                        radioButton.Checked = false;
+                        break;
+                    }
+                }
+
             }
         }
 
@@ -225,9 +254,9 @@ namespace GraduationProject
             Street street = new Street();
             if((street.name = InputBox.OpenInputBox("Моля въведете име на улица:")) == "") return;
 
-            if (Street.GetStreets(connectionHelper, street.name).Count == 0)
+            if (street.Get(connectionHelper, street.name).Count == 0)
             {
-                street.InsertStreet(connectionHelper);
+                street.Insert(connectionHelper);
                 showStreets();
             }
             else
@@ -345,24 +374,26 @@ namespace GraduationProject
         //Опресняване на списъка с адреси
         private void buttonSearchAddress_Click(object sender, EventArgs e)
         {
+            Address addr = new Address();
+            Street str = new Street();
             if (textBoxSearchAddr.Text == "")
             {
-                addresses = Address.GetAddresses(connectionHelper);
+                addresses = addr.Get(connectionHelper);
                 listBoxAddresses.DataSource = addresses;
                 return;
             }
             addresses = new List<Address>();
             if (comboBoxCriteria.SelectedIndex == 0)
             {
-                List<Street> foundStreets = Street.GetStreets(connectionHelper, textBoxSearchAddr.Text);
+                List<Street> foundStreets = str.Get(connectionHelper, textBoxSearchAddr.Text);
                 foreach (Street street in foundStreets)
                 {
-                    addresses = addresses.Concat(Address.GetAddresses(connectionHelper, street, "street")).ToList();
+                    addresses = addresses.Concat(addr.Get(connectionHelper, street, "street")).ToList();
                 }
             }
             else if (comboBoxCriteria.SelectedIndex == 1)
             {
-                addresses = Address.GetAddresses(connectionHelper, textBoxSearchAddr.Text, "person");
+                addresses = addr.Get(connectionHelper, textBoxSearchAddr.Text, "person");
             }
             listBoxAddresses.DataSource = addresses;
         }

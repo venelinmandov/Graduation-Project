@@ -5,9 +5,14 @@ using System.Data.SqlClient;
 
 namespace GraduationProject.Models
 {
-    public interface Model
+    public interface Model<T>
     {
         public void Fill(SqlDataReader reader);
+
+        public List<T> Get(ConnectionHelper connectionHelper);
+
+        public int Insert(ConnectionHelper connectionHelper);
+        
 
     }
 }

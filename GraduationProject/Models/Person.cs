@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GraduationProject.Models
 {
-    public class Person : Model
+    public class Person : Model<Person>
     {
         public int id { get; set; }
         public string firstname { get; set; }
@@ -31,9 +31,10 @@ namespace GraduationProject.Models
             relToOwner = reader.GetString(7);
         }
 
-        public void InsertPerson(ConnectionHelper connectionHelper)
+        public int Insert(ConnectionHelper connectionHelper)
         {
-            string query = @$"INSERT INTO GuestsInQuarantine ({fields})
+            int id;
+            string query = @$"INSERT INTO GuestsInQuarantine ({fields}) output INSERTED.id
                             VALUES (@fName, @mName, @lName, @egn, @gender, @addrId,@rel)";
 
             connectionHelper.NewConnection(query);
@@ -45,18 +46,21 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", addressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", relToOwner);
 
-            connectionHelper.sqlCommand.ExecuteNonQuery();
+            id = (int) connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();
+            return id;
         }
 
-        public static List<Person> GetPersons(ConnectionHelper connectionHelper, Address address)
+        public List<Person> Get(ConnectionHelper connectionHelper, Address address = null)
         {
             List<Person> persons = new List<Person>();
             Person person;
-            string query = @$"SELECT id,{fields} FROM GuestsInQuarantine
-                            WHERE addressId = @addrId";
+            string whereClause = address != null ? " WHERE addressId = @addrId" : "";
+            string query = @$"SELECT id,{fields} FROM GuestsInQuarantine " + whereClause;
             connectionHelper.NewConnection(query);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId",address.id);
+            if(address != null)
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId",address.id);
+
             SqlDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
             while (reader.Read())
             {
@@ -67,6 +71,11 @@ namespace GraduationProject.Models
             reader.Close();
             connectionHelper.sqlConnection.Close();
             return persons;
+        }
+
+        public List<Person> Get(ConnectionHelper connectionHelper)
+        {
+            return Get(connectionHelper,null);
         }
     }
 }

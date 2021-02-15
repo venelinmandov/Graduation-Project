@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GraduationProject.Models
 {
-    public class Street: Model
+    public class Street: Model<Street>
     {
         public int id;
         public string name;
@@ -22,7 +22,7 @@ namespace GraduationProject.Models
         }
 
         //Заявки
-        public static List<Street> GetStreets(ConnectionHelper connectionHelper, string name = "")
+        public List<Street> Get(ConnectionHelper connectionHelper, string name = "")
         {
             string queryConcat = "";
             if (name != "")
@@ -54,17 +54,22 @@ namespace GraduationProject.Models
             return streets;
         }
 
-
-
-
-        public void InsertStreet(ConnectionHelper connectionHelper)
+        public List<Street> Get(ConnectionHelper connectionHelper)
         {
-            string query = "INSERT INTO Streets (name) VALUES (@name)";
+            return Get(connectionHelper,"");
+        }
+
+
+        public int Insert(ConnectionHelper connectionHelper)
+        {
+            int id;
+            string query = "INSERT INTO Streets (name) output INSERTED.id VALUES (@name)";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@name", name);
-            connectionHelper.sqlCommand.ExecuteNonQuery();
+            id = (int) connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();
+            return id;
         }
 
         public void DeleteStreet(ConnectionHelper connectionHelper)

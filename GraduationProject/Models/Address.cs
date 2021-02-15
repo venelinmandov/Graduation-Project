@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GraduationProject.Models
 {
-    public class Address : Model
+    public class Address: Model<Address>
     {
         public int id { get; set; }
         public int streetId { get; set; }
@@ -56,45 +56,37 @@ namespace GraduationProject.Models
             numWalnutTrees = reader.GetInt32(13);
         }
 
-        public static int InsertAddress(ConnectionHelper connectionHelper, Address address)
+        public int Insert(ConnectionHelper connectionHelper)
         {
             int id;
             string query = @"INSERT INTO Addresses 
-                            (streetId, number, squaring, habitallity, numResBuildings, numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numWalnutTrees ) 
-                            VALUES (@StrId, @num, @sq, @hab, @resB, @agrB, @cows, @sheep, @goats, @horses, @donkeys, @feathered, @Walnut)";
+                            (streetId, number, squaring, habitallity, numResBuildings, numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numWalnutTrees )
+                            output INSERTED.id
+                            VALUES (@StrId, @num, @sq, @hab, @resB, @agrB, @cows, @sheep, @goats, @horses, @donkeys, @feathered, @Walnut); ";
 
             connectionHelper.NewConnection(query);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@StrId", address.streetId);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@num", address.number);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@sq", address.squaring);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@hab", address.habitallity);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@resB", address.numResBuildings);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@agrB", address.numAgrBuildings);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@cows", address.numCows);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@sheep", address.numSheep);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@goats", address.numGoats);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@horses", address.numHorses);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@donkeys", address.numDonkeys);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@feathered", address.numFeathered);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@Walnut", address.numWalnutTrees);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@StrId", streetId);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@num", number);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@sq", squaring);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@hab", habitallity);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@resB", numResBuildings);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@agrB", numAgrBuildings);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@cows", numCows);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@sheep", numSheep);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@goats", numGoats);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@horses", numHorses);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@donkeys", numDonkeys);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@feathered", numFeathered);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@Walnut", numWalnutTrees);
 
-            connectionHelper.sqlCommand.ExecuteNonQuery();
+            id = (int) connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();
 
-            query = @"SELECT id  FROM Addresses 
-                    WHERE streetId = @StrId AND number = @num";
-            connectionHelper.NewConnection(query);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@StrId", address.streetId);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@num", address.number);
-            SqlDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
-            reader.Read();
-            id = reader.GetInt32(0);
-            reader.Close();
-            connectionHelper.sqlConnection.Close();
+         
             return id;
         }
 
-        public static List<Address> GetAddresses(ConnectionHelper connectionHelper, object obj = null, string criteria = "")
+        public List<Address> Get(ConnectionHelper connectionHelper, object obj = null, string criteria = "")
         {
             List<Address> addresses = new List<Address>();
             Address address;
@@ -145,5 +137,9 @@ namespace GraduationProject.Models
             
         }
 
+        public List<Address> Get(ConnectionHelper connectionHelper)
+        {
+            return Get(connectionHelper,null,"");
+        }
     }
 }
