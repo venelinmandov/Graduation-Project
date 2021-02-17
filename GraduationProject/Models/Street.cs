@@ -72,15 +72,16 @@ namespace GraduationProject.Models
             return id;
         }
 
-        public void DeleteStreet(ConnectionHelper connectionHelper)
+        public void Delete(ConnectionHelper connectionHelper)
         {
             string query = "DELETE FROM Streets WHERE id = @id";
+
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@id", id);
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();
         }
 
-        
+       
     }
 }

@@ -57,5 +57,15 @@ namespace GraduationProject.Models
         {
             return Get(connectionHelper,null);
         }
+
+        public void Delete(ConnectionHelper connectionHelper)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(ConnectionHelper connectionHelper)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

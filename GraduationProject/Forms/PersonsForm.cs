@@ -13,12 +13,25 @@ namespace GraduationProject.Forms
     {
         ErrorProvider errorProvider = new ErrorProvider();
         Resident resident;
+        Person person;
+        
 
-        //Конструктор
+        //Конструктори
         public PersonsForm()
         {
             InitializeComponent();
         }
+
+        public PersonsForm(Resident res)
+        {
+            resident = res;
+        }
+
+        public PersonsForm(Person pers)
+        {
+            person = pers;
+        }
+
 
         //Свойства
         public bool isResident => radioButtonHousehold.Checked;

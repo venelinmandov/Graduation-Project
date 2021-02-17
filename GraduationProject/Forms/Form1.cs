@@ -269,8 +269,16 @@ namespace GraduationProject
         //Изтриване на улица от базата данни
         private void buttonRemoveStr_Click(object sender, EventArgs e)
         {
-            streets[listBoxStreets.SelectedIndex].DeleteStreet(connectionHelper);
-            showStreets();
+            Address adr = new Address();
+            Street selectedStreet = streets[listBoxStreets.SelectedIndex];
+            if (adr.Get(connectionHelper, selectedStreet, "street").Count == 0)
+            {
+                streets[listBoxStreets.SelectedIndex].Delete(connectionHelper);
+                showStreets();
+            }
+            else
+                MessageBox.Show("Има записи на адреси за тази улица. Моля първо изтрийте адресите.", "Действието не може да се извърши!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         //Запазване на текущия адрес

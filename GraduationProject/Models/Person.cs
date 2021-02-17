@@ -16,7 +16,7 @@ namespace GraduationProject.Models
         public int addressId { get; set; }
         public string relToOwner { get; set; }
 
-        private static string fields = "firstname,middlename,lastname,egn,gender,addressId,relationToOwner";
+        private static string fields = "firstname, middlename, lastname, egn, gender, addressId, relationToOwner";
 
 
         public virtual void Fill(SqlDataReader reader)
@@ -76,6 +76,48 @@ namespace GraduationProject.Models
         public List<Person> Get(ConnectionHelper connectionHelper)
         {
             return Get(connectionHelper,null);
+        }
+
+        public void Delete(ConnectionHelper connectionHelper)
+        {
+            string query = "DELETE FROM GuestsInQuarantine WHERE id = @id";
+
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@id",id);
+            connectionHelper.sqlCommand.ExecuteNonQuery();
+            connectionHelper.sqlConnection.Close();
+        }
+
+        public void Delete(ConnectionHelper connectionHelper, Address address)
+        {
+            string query = "DELETE FROM GuestsInQuarantine WHERE id = @id";
+
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@id", id);
+            connectionHelper.sqlCommand.ExecuteNonQuery();
+            connectionHelper.sqlConnection.Close();
+        }
+
+        public void Update(ConnectionHelper connectionHelper)
+        {
+            string query = @"UPDATE GuestsInQuarantine
+                             SET firstname = @fname, middlename = @mName,
+                                lastname = @lName, egn = @egn,
+                                gender = @gender, addressId = @addrId,
+                                relationToOwner = @rel
+                             WHERE id = @id";
+
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@id", id);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", firstname);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@mName", middlename);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@lName", lastname);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@egn", egn);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", gender);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", addressId);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", relToOwner);
+            connectionHelper.sqlCommand.ExecuteNonQuery();
+            connectionHelper.sqlConnection.Close();
         }
     }
 }

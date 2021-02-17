@@ -10,7 +10,7 @@ namespace GraduationProject.Models
         public int addressReg { get; set; }
         public int covid19 { get; set; }
 
-        private static string fields = "firstname,middlename,lastname,egn,gender,addressId,relationToOwner,addressReg,covid19";
+        private static string fields = "firstname, middlename, lastname, egn, gender, addressId, relationToOwner, addressReg, covid19";
 
         public override void Fill(SqlDataReader reader)
         {
@@ -21,11 +21,11 @@ namespace GraduationProject.Models
         }
 
 
-        public int Insert(ConnectionHelper connectionHelper)
+        public new int Insert(ConnectionHelper connectionHelper)
         {
             int id;
             string query = @$"INSERT INTO Residents ({fields}) output INSERTED.id
-                            VALUES (@fName, @mName, @lName, @egn, @gender, @addrId, @owner, @addrReg, @covid)";
+                            VALUES (@fName, @mName, @lName, @egn, @gender, @addrId, @rel, @addrReg, @covid)";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", firstname);
@@ -34,7 +34,7 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@egn", egn);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", gender);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", addressId);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@owner", relToOwner);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", relToOwner);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrReg", addressReg);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@covid", covid19);
 
@@ -69,6 +69,31 @@ namespace GraduationProject.Models
         List<Resident> Model<Resident>.Get(ConnectionHelper connectionHelper)
         {
             return Get(connectionHelper,null);
+        }
+
+        public new void Update(ConnectionHelper connectionHelper)
+        {
+            string query = @"UPDATE Residents
+                             SET firstname = @fname, middlename = @mName,
+                                lastname = @lName, egn = @egn,
+                                gender = @gender, addressId = @addrId,
+                                relationToOwner = @rel, addressReg = @addrReg,
+                                covid19 = @covid
+                             WHERE id = @id";
+
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@id", id);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", firstname);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@mName", middlename);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@lName", lastname);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@egn", egn);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", gender);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", addressId);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", relToOwner);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrReg", addressReg);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@covid", covid19);
+            connectionHelper.sqlCommand.ExecuteNonQuery();
+            connectionHelper.sqlConnection.Close();
         }
     }
    
