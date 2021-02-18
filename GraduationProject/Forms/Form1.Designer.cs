@@ -29,6 +29,9 @@ namespace GraduationProject
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.Settings = new System.Windows.Forms.ToolStripMenuItem();
             this.listBoxAddresses = new System.Windows.Forms.ListBox();
@@ -45,9 +48,9 @@ namespace GraduationProject
             this.listBoxStreets = new System.Windows.Forms.ListBox();
             this.textBoxSearchStr = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonRemoveResident = new System.Windows.Forms.Button();
+            this.buttonRemovePerson = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonAddResident = new System.Windows.Forms.Button();
+            this.buttonAddPerson = new System.Windows.Forms.Button();
             this.buttonRemoveDog = new System.Windows.Forms.Button();
             this.buttonAddDog = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
@@ -84,6 +87,7 @@ namespace GraduationProject
             this.radioButtonDesolate = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDownSquaring = new System.Windows.Forms.NumericUpDown();
+            this.buttonEditPerson = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageSearch.SuspendLayout();
@@ -110,7 +114,7 @@ namespace GraduationProject
             this.Settings});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(982, 24);
+            this.menuStrip.Size = new System.Drawing.Size(938, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             this.menuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip_ItemClicked);
@@ -258,9 +262,10 @@ namespace GraduationProject
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.buttonRemoveResident);
+            this.panel1.Controls.Add(this.buttonEditPerson);
+            this.panel1.Controls.Add(this.buttonRemovePerson);
             this.panel1.Controls.Add(this.buttonSave);
-            this.panel1.Controls.Add(this.buttonAddResident);
+            this.panel1.Controls.Add(this.buttonAddPerson);
             this.panel1.Controls.Add(this.buttonRemoveDog);
             this.panel1.Controls.Add(this.buttonAddDog);
             this.panel1.Controls.Add(this.dataGridView);
@@ -292,18 +297,18 @@ namespace GraduationProject
             this.panel1.Controls.Add(this.numericUpDownSquaring);
             this.panel1.Location = new System.Drawing.Point(242, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(725, 453);
+            this.panel1.Size = new System.Drawing.Size(685, 453);
             this.panel1.TabIndex = 8;
             // 
-            // buttonRemoveResident
+            // buttonRemovePerson
             // 
-            this.buttonRemoveResident.Location = new System.Drawing.Point(341, 223);
-            this.buttonRemoveResident.Name = "buttonRemoveResident";
-            this.buttonRemoveResident.Size = new System.Drawing.Size(78, 22);
-            this.buttonRemoveResident.TabIndex = 33;
-            this.buttonRemoveResident.Text = "Премахни";
-            this.buttonRemoveResident.UseVisualStyleBackColor = true;
-            this.buttonRemoveResident.Click += new System.EventHandler(this.buttonRemoveResident_Click);
+            this.buttonRemovePerson.Location = new System.Drawing.Point(341, 223);
+            this.buttonRemovePerson.Name = "buttonRemovePerson";
+            this.buttonRemovePerson.Size = new System.Drawing.Size(78, 22);
+            this.buttonRemovePerson.TabIndex = 33;
+            this.buttonRemovePerson.Text = "Премахни";
+            this.buttonRemovePerson.UseVisualStyleBackColor = true;
+            this.buttonRemovePerson.Click += new System.EventHandler(this.buttonRemoveResident_Click);
             // 
             // buttonSave
             // 
@@ -316,15 +321,15 @@ namespace GraduationProject
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // buttonAddResident
+            // buttonAddPerson
             // 
-            this.buttonAddResident.Location = new System.Drawing.Point(269, 222);
-            this.buttonAddResident.Name = "buttonAddResident";
-            this.buttonAddResident.Size = new System.Drawing.Size(66, 22);
-            this.buttonAddResident.TabIndex = 31;
-            this.buttonAddResident.Text = "Добави";
-            this.buttonAddResident.UseVisualStyleBackColor = true;
-            this.buttonAddResident.Click += new System.EventHandler(this.buttonAddResident_Click);
+            this.buttonAddPerson.Location = new System.Drawing.Point(269, 222);
+            this.buttonAddPerson.Name = "buttonAddPerson";
+            this.buttonAddPerson.Size = new System.Drawing.Size(66, 22);
+            this.buttonAddPerson.TabIndex = 31;
+            this.buttonAddPerson.Text = "Добави";
+            this.buttonAddPerson.UseVisualStyleBackColor = true;
+            this.buttonAddPerson.Click += new System.EventHandler(this.buttonAddResident_Click);
             // 
             // buttonRemoveDog
             // 
@@ -352,38 +357,63 @@ namespace GraduationProject
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AllowUserToResizeColumns = false;
             this.dataGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.firstName,
             this.lastName,
             this.owner,
             this.Guest});
+            this.dataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView.Location = new System.Drawing.Point(269, 32);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
+            this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowTemplate.Height = 25;
-            this.dataGridView.Size = new System.Drawing.Size(443, 183);
+            this.dataGridView.Size = new System.Drawing.Size(404, 183);
             this.dataGridView.TabIndex = 28;
+            this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 
             // firstName
             // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.firstName.DefaultCellStyle = dataGridViewCellStyle5;
             this.firstName.HeaderText = "Име";
             this.firstName.Name = "firstName";
+            this.firstName.ReadOnly = true;
+            this.firstName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // lastName
             // 
             this.lastName.HeaderText = "Фамилия";
             this.lastName.Name = "lastName";
+            this.lastName.ReadOnly = true;
+            this.lastName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // owner
             // 
             this.owner.HeaderText = "Собственик";
             this.owner.Name = "owner";
+            this.owner.ReadOnly = true;
+            this.owner.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Guest
             // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.NullValue = false;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Guest.DefaultCellStyle = dataGridViewCellStyle6;
             this.Guest.HeaderText = "Гост в карантина";
             this.Guest.Name = "Guest";
+            this.Guest.ReadOnly = true;
             // 
             // listBoxDogs
             // 
@@ -391,7 +421,7 @@ namespace GraduationProject
             this.listBoxDogs.ItemHeight = 15;
             this.listBoxDogs.Location = new System.Drawing.Point(269, 271);
             this.listBoxDogs.Name = "listBoxDogs";
-            this.listBoxDogs.Size = new System.Drawing.Size(443, 139);
+            this.listBoxDogs.Size = new System.Drawing.Size(404, 139);
             this.listBoxDogs.TabIndex = 27;
             // 
             // numericUpDownNumber
@@ -641,11 +671,21 @@ namespace GraduationProject
             this.numericUpDownSquaring.Size = new System.Drawing.Size(122, 23);
             this.numericUpDownSquaring.TabIndex = 0;
             // 
+            // buttonEditPerson
+            // 
+            this.buttonEditPerson.Location = new System.Drawing.Point(425, 223);
+            this.buttonEditPerson.Name = "buttonEditPerson";
+            this.buttonEditPerson.Size = new System.Drawing.Size(78, 22);
+            this.buttonEditPerson.TabIndex = 34;
+            this.buttonEditPerson.Text = "Редактирай";
+            this.buttonEditPerson.UseVisualStyleBackColor = true;
+            this.buttonEditPerson.Click += new System.EventHandler(this.buttonEditPerson_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 497);
+            this.ClientSize = new System.Drawing.Size(938, 497);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip);
@@ -728,17 +768,18 @@ namespace GraduationProject
         private System.Windows.Forms.ListBox listBoxDogs;
         private System.Windows.Forms.Button buttonRemoveDog;
         private System.Windows.Forms.Button buttonAddDog;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn owner;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Guest;
-        private System.Windows.Forms.Button buttonAddResident;
+        private System.Windows.Forms.Button buttonAddPerson;
         private System.Windows.Forms.Label labelCriteri;
         private System.Windows.Forms.Button buttonRemoveStr;
         private System.Windows.Forms.Button buttonAddStr;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Button buttonRemoveResident;
+        private System.Windows.Forms.Button buttonRemovePerson;
         private System.Windows.Forms.Button buttonSearchAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn owner;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Guest;
+        private System.Windows.Forms.Button buttonEditPerson;
     }
 }
 

@@ -86,7 +86,7 @@ namespace GraduationProject.Models
             return id;
         }
 
-        public List<Address> Get(ConnectionHelper connectionHelper, object obj = null, string criteria = "")
+        public List<Address> Get(ConnectionHelper connectionHelper, object obj, string criteria)
         {
             List<Address> addresses = new List<Address>();
             Address address;

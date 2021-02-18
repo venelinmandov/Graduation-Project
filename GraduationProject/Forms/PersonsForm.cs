@@ -14,6 +14,7 @@ namespace GraduationProject.Forms
         ErrorProvider errorProvider = new ErrorProvider();
         Resident resident;
         Person person;
+        public bool canceled = false;
         
 
         //Конструктори
@@ -24,19 +25,33 @@ namespace GraduationProject.Forms
 
         public PersonsForm(Resident res)
         {
+            InitializeComponent();
             resident = res;
+            radioButtonHousehold.Enabled = false;
+            radioButtonGuest.Enabled = false;
+            radioButtonHousehold.Checked = true;
+            showData(resident);
+
+
         }
 
         public PersonsForm(Person pers)
         {
+            InitializeComponent();
             person = pers;
+            radioButtonHousehold.Enabled = false;
+            radioButtonGuest.Enabled = false;
+            radioButtonGuest.Checked = true;
+            groupBoxAddressReg.Enabled = false;
+            groupBoxCovid19.Enabled = false;
+            showData(person);
         }
 
 
         //Свойства
         public bool isResident => radioButtonHousehold.Checked;
-        public Person getGuest => resident;
-        public Resident getResident => resident;
+        public Person getNewGuest => resident;
+        public Resident getNewResident => resident;
 
 
 
@@ -92,6 +107,26 @@ namespace GraduationProject.Forms
 
         }
 
+        //Показване на информацията за жителя/госта (при редактиране)
+        void showData(Person personToShow)
+        {
+            textBoxFName.Text = personToShow.firstname;
+            textBoxMName.Text = personToShow.middlename;
+            textBoxLName.Text = personToShow.lastname;
+            textBoxEGN.Text = personToShow.egn;
+            textBoxOwner.Text = personToShow.relToOwner;
+            SetGroupBoxValue(personToShow.gender,radioButtonMale, radioButtonFemale);
+            if (resident != null)
+            {
+                Resident residentToShow = (Resident)personToShow;
+                SetGroupBoxValue(residentToShow.addressReg,radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
+                SetGroupBoxValue(residentToShow.covid19, radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
+            }
+
+            if (textBoxOwner.Text == "Собственик")
+                checkBoxOwner.Checked = true;
+        }
+
 
         //Валидация
         bool validate()
@@ -144,6 +179,7 @@ namespace GraduationProject.Forms
             }
         }
 
+        //Връща индекса на избрания радиобутон 
         public int GetGroupBoxValue(params RadioButton[] radioButtons)
         {
             for (int i = 0; i < radioButtons.Length; i++)
@@ -152,6 +188,11 @@ namespace GraduationProject.Forms
                     return i;
             }
             return -1;
+        }
+
+        public void SetGroupBoxValue(int index, params RadioButton[] radioButtons)
+        {
+            radioButtons[index].Checked = true;
         }
 
 
@@ -199,7 +240,8 @@ namespace GraduationProject.Forms
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            resident = new Resident();
+            if(resident == null && person == null)
+                resident = new Resident();
             resident.firstname = textBoxFName.Text;
             resident.middlename = textBoxMName.Text;
             resident.lastname = textBoxLName.Text;
@@ -224,6 +266,12 @@ namespace GraduationProject.Forms
 
 
 
+        }
+
+        private void PersonsForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            canceled = true;
+            Hide();
         }
     }
 }

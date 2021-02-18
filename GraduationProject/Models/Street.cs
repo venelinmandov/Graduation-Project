@@ -82,6 +82,9 @@ namespace GraduationProject.Models
             connectionHelper.sqlConnection.Close();
         }
 
-       
+        public void Update(ConnectionHelper connectionHelper)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

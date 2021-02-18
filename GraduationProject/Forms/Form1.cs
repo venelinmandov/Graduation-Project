@@ -229,15 +229,16 @@ namespace GraduationProject
         {
             Forms.PersonsForm personsForm = new Forms.PersonsForm();
             personsForm.ShowDialog();
+            if (personsForm.canceled) return;
             //В режим "нов адрес"
             if (tabControl.SelectedTab == tabPageAdd)
             {
                 if (personsForm.isResident)
                 {
-                    residents.Add(personsForm.getResident);
+                    residents.Add(personsForm.getNewResident);
                 }
                 else
-                    guests.Add(personsForm.getGuest);
+                    guests.Add(personsForm.getNewGuest);
                 RefreshDataGrid();
             }
 
@@ -413,6 +414,34 @@ namespace GraduationProject
                 address = addresses[listBoxAddresses.SelectedIndex];
                 ShowAddress();
 
+        }
+
+        
+        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        //Отваряне на формата за редактиране на жител/гост 
+        private void buttonEditPerson_Click(object sender, EventArgs e)
+        {
+            if (dataGridView.RowCount == 0) return;
+            Forms.PersonsForm personsForm;
+            int currentRowIndex = dataGridView.CurrentCell.RowIndex;
+            if (currentRowIndex < residents.Count)
+            {
+                personsForm = new Forms.PersonsForm(residents[currentRowIndex]);
+                personsForm.ShowDialog();
+                if (!personsForm.canceled && tabControl.SelectedTab == tabPageSearch)
+                    residents[currentRowIndex].Update(connectionHelper);
+            }
+            else
+            {
+                personsForm = new Forms.PersonsForm(guests[currentRowIndex - residents.Count]);
+                personsForm.ShowDialog();
+                if (!personsForm.canceled && tabControl.SelectedTab == tabPageSearch)
+                    guests[currentRowIndex - residents.Count].Update(connectionHelper);
+            }
+            RefreshDataGrid();
         }
     }
 }
