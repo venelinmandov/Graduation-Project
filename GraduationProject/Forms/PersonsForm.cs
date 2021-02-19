@@ -240,18 +240,29 @@ namespace GraduationProject.Forms
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            Person personToSave;
             if(resident == null && person == null)
                 resident = new Resident();
-            resident.firstname = textBoxFName.Text;
-            resident.middlename = textBoxMName.Text;
-            resident.lastname = textBoxLName.Text;
-            resident.egn = textBoxEGN.Text;
-            resident.relToOwner = textBoxOwner.Text;
-            resident.gender = GetGroupBoxValue(radioButtonMale, radioButtonFemale);
-            resident.addressReg = GetGroupBoxValue(radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
-            resident.covid19 = GetGroupBoxValue(radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
+            if (resident != null)
+            {
+                personToSave = resident;
+                Resident residentToSave = (Resident)personToSave;
+                residentToSave.addressReg = GetGroupBoxValue(radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
+                residentToSave.covid19 = GetGroupBoxValue(radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
 
+            }
+            else
+            {
+                personToSave = person;
+            }
 
+            personToSave.firstname = textBoxFName.Text;
+            personToSave.middlename = textBoxMName.Text;
+            personToSave.lastname = textBoxLName.Text;
+            personToSave.egn = textBoxEGN.Text;
+            personToSave.relToOwner = textBoxOwner.Text;
+            personToSave.gender = GetGroupBoxValue(radioButtonMale, radioButtonFemale);
+           
 
 
             if (radioButtonHousehold.Checked || radioButtonGuest.Checked)

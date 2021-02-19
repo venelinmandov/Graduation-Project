@@ -88,15 +88,6 @@ namespace GraduationProject.Models
             connectionHelper.sqlConnection.Close();
         }
 
-        public void Delete(ConnectionHelper connectionHelper, Address address)
-        {
-            string query = "DELETE FROM GuestsInQuarantine WHERE id = @id";
-
-            connectionHelper.NewConnection(query);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@id", id);
-            connectionHelper.sqlCommand.ExecuteNonQuery();
-            connectionHelper.sqlConnection.Close();
-        }
 
         public void Update(ConnectionHelper connectionHelper)
         {

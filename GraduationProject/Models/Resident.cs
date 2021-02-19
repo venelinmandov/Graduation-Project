@@ -71,6 +71,17 @@ namespace GraduationProject.Models
             return Get(connectionHelper,null);
         }
 
+        public void Delete(ConnectionHelper connectionHelper)
+        {
+            string query = "DELETE FROM Residents WHERE id = @id";
+
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@id", id);
+            connectionHelper.sqlCommand.ExecuteNonQuery();
+            connectionHelper.sqlConnection.Close();
+        }
+
+
         public new void Update(ConnectionHelper connectionHelper)
         {
             string query = @"UPDATE Residents

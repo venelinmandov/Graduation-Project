@@ -144,12 +144,43 @@ namespace GraduationProject.Models
 
         public void Delete(ConnectionHelper connectionHelper)
         {
-            throw new NotImplementedException();
+            string query = "DELETE FROM Addresses WHERE id = @id";
+
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@id", id);
+            connectionHelper.sqlCommand.ExecuteNonQuery();
+            connectionHelper.sqlConnection.Close();
         }
 
         public void Update(ConnectionHelper connectionHelper)
         {
-            throw new NotImplementedException();
+            string query = @"UPDATE Addresses
+                            SET streetId = @strId,      number = @num,              squaring = @sq,
+                                habitallity = @hab,     numResBuildings = @numRes,  numAgrBuildings = @numAgr,
+                                numCows = @numCows,     numSheep = @numSheep,       numGoats = @numGoats,
+                                numHorses = @numHorses, numDonkeys = @numDonkeys,  numFeathered = @numFeathered,
+                                numWalnutTrees = @numWalnut
+                             WHERE id = @id";
+
+            connectionHelper.NewConnection(query);
+
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@id",id);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@strId", streetId);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@num", number);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@sq", squaring);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@hab", habitallity);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@numRes", numResBuildings);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@numAgr", numAgrBuildings);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@numCows", numCows);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@numSheep", numSheep);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@numGoats", numGoats);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@numHorses", numHorses);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@numDonkeys", numDonkeys);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@numFeathered", numFeathered);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@numWalnut", numWalnutTrees);
+
+            connectionHelper.sqlCommand.ExecuteNonQuery();
+            connectionHelper.sqlConnection.Close();
         }
     }
 }

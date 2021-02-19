@@ -29,9 +29,9 @@ namespace GraduationProject
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.Settings = new System.Windows.Forms.ToolStripMenuItem();
             this.listBoxAddresses = new System.Windows.Forms.ListBox();
@@ -48,6 +48,7 @@ namespace GraduationProject
             this.listBoxStreets = new System.Windows.Forms.ListBox();
             this.textBoxSearchStr = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonEditPerson = new System.Windows.Forms.Button();
             this.buttonRemovePerson = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonAddPerson = new System.Windows.Forms.Button();
@@ -87,7 +88,6 @@ namespace GraduationProject
             this.radioButtonDesolate = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDownSquaring = new System.Windows.Forms.NumericUpDown();
-            this.buttonEditPerson = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageSearch.SuspendLayout();
@@ -300,6 +300,16 @@ namespace GraduationProject
             this.panel1.Size = new System.Drawing.Size(685, 453);
             this.panel1.TabIndex = 8;
             // 
+            // buttonEditPerson
+            // 
+            this.buttonEditPerson.Location = new System.Drawing.Point(425, 223);
+            this.buttonEditPerson.Name = "buttonEditPerson";
+            this.buttonEditPerson.Size = new System.Drawing.Size(78, 22);
+            this.buttonEditPerson.TabIndex = 34;
+            this.buttonEditPerson.Text = "Редактирай";
+            this.buttonEditPerson.UseVisualStyleBackColor = true;
+            this.buttonEditPerson.Click += new System.EventHandler(this.buttonEditPerson_Click);
+            // 
             // buttonRemovePerson
             // 
             this.buttonRemovePerson.Location = new System.Drawing.Point(341, 223);
@@ -357,14 +367,14 @@ namespace GraduationProject
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AllowUserToResizeColumns = false;
             this.dataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.firstName,
@@ -384,8 +394,8 @@ namespace GraduationProject
             // 
             // firstName
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.firstName.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.firstName.DefaultCellStyle = dataGridViewCellStyle2;
             this.firstName.HeaderText = "Име";
             this.firstName.Name = "firstName";
             this.firstName.ReadOnly = true;
@@ -407,10 +417,10 @@ namespace GraduationProject
             // 
             // Guest
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.NullValue = false;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Guest.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = false;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Guest.DefaultCellStyle = dataGridViewCellStyle3;
             this.Guest.HeaderText = "Гост в карантина";
             this.Guest.Name = "Guest";
             this.Guest.ReadOnly = true;
@@ -426,6 +436,7 @@ namespace GraduationProject
             // 
             // numericUpDownNumber
             // 
+            this.numericUpDownNumber.Enabled = false;
             this.numericUpDownNumber.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.numericUpDownNumber.Location = new System.Drawing.Point(17, 49);
             this.numericUpDownNumber.Name = "numericUpDownNumber";
@@ -670,16 +681,6 @@ namespace GraduationProject
             this.numericUpDownSquaring.Name = "numericUpDownSquaring";
             this.numericUpDownSquaring.Size = new System.Drawing.Size(122, 23);
             this.numericUpDownSquaring.TabIndex = 0;
-            // 
-            // buttonEditPerson
-            // 
-            this.buttonEditPerson.Location = new System.Drawing.Point(425, 223);
-            this.buttonEditPerson.Name = "buttonEditPerson";
-            this.buttonEditPerson.Size = new System.Drawing.Size(78, 22);
-            this.buttonEditPerson.TabIndex = 34;
-            this.buttonEditPerson.Text = "Редактирай";
-            this.buttonEditPerson.UseVisualStyleBackColor = true;
-            this.buttonEditPerson.Click += new System.EventHandler(this.buttonEditPerson_Click);
             // 
             // Form1
             // 

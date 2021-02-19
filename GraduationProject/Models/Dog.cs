@@ -60,7 +60,12 @@ namespace GraduationProject.Models
 
         public void Delete(ConnectionHelper connectionHelper)
         {
-            throw new NotImplementedException();
+            string query = "DELETE FROM Dogs WHERE sealNumber = @sealNum";
+
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@sealNum", sealNumber);
+            connectionHelper.sqlCommand.ExecuteNonQuery();
+            connectionHelper.sqlConnection.Close();
         }
 
         public void Update(ConnectionHelper connectionHelper)
