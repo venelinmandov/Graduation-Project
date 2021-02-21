@@ -7,6 +7,7 @@ namespace GraduationProject.Models
 {
     public class Dog: Model<Dog>
     {
+     //Полета
         public int sealNumber { get; set; }
         public int addressId { get; set; }
 
@@ -14,12 +15,18 @@ namespace GraduationProject.Models
         {
             return sealNumber.ToString();
         }
+
+        //Запълване на обекта с информация
         public void Fill(SqlDataReader reader)
         {
             sealNumber = reader.GetInt32(0);
             addressId = reader.GetInt32(1);
         }
 
+
+        //Заявки
+
+        //INSERT
         public int Insert(ConnectionHelper connectionHelper)
         {
             int id;
@@ -32,6 +39,8 @@ namespace GraduationProject.Models
             return id;
         }
 
+
+        //GET
         public List<Dog> Get(ConnectionHelper connectionHelper, Address address)
         {
             List<Dog> dogs = new List<Dog>();
@@ -58,6 +67,7 @@ namespace GraduationProject.Models
             return Get(connectionHelper,null);
         }
 
+        //DELETE
         public void Delete(ConnectionHelper connectionHelper)
         {
             string query = "DELETE FROM Dogs WHERE sealNumber = @sealNum";
@@ -68,6 +78,7 @@ namespace GraduationProject.Models
             connectionHelper.sqlConnection.Close();
         }
 
+        //UPDATE
         public void Update(ConnectionHelper connectionHelper)
         {
             throw new NotImplementedException();

@@ -7,11 +7,13 @@ namespace GraduationProject.Models
 {
     public class Resident:Person, Model<Resident>
     {
+        //Полета
         public int addressReg { get; set; }
         public int covid19 { get; set; }
 
-        private static string fields = "firstname, middlename, lastname, egn, gender, addressId, relationToOwner, addressReg, covid19";
+        private string fields = "firstname, middlename, lastname, egn, gender, addressId, relationToOwner, addressReg, covid19";
 
+        //Запълане на обекта с информация
         public override void Fill(SqlDataReader reader)
         {
             base.Fill(reader);
@@ -20,7 +22,9 @@ namespace GraduationProject.Models
             
         }
 
+        //Заявки
 
+        //INSERT
         public new int Insert(ConnectionHelper connectionHelper)
         {
             int id;
@@ -43,7 +47,8 @@ namespace GraduationProject.Models
             return id;
         }
 
-        new public List<Resident> Get(ConnectionHelper connectionHelper, Address address = null)
+        //GET
+        new public List<Resident> Get(ConnectionHelper connectionHelper, Address address)
         {
             List<Resident> residents = new List<Resident>();
             Resident resident;
@@ -66,12 +71,14 @@ namespace GraduationProject.Models
             return residents;
         }
 
+
         List<Resident> Model<Resident>.Get(ConnectionHelper connectionHelper)
         {
             return Get(connectionHelper,null);
         }
 
-        public void Delete(ConnectionHelper connectionHelper)
+        //DELETE
+        public new void Delete(ConnectionHelper connectionHelper)
         {
             string query = "DELETE FROM Residents WHERE id = @id";
 
@@ -81,7 +88,7 @@ namespace GraduationProject.Models
             connectionHelper.sqlConnection.Close();
         }
 
-
+        //UPDATE
         public new void Update(ConnectionHelper connectionHelper)
         {
             string query = @"UPDATE Residents

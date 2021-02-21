@@ -7,6 +7,7 @@ namespace GraduationProject.Models
 {
     public class Person : Model<Person>
     {
+        //Полета
         public int id { get; set; }
         public string firstname { get; set; }
         public string middlename { get; set; }
@@ -18,7 +19,7 @@ namespace GraduationProject.Models
 
         private static string fields = "firstname, middlename, lastname, egn, gender, addressId, relationToOwner";
 
-
+        //Запълване на обекта с информация
         public virtual void Fill(SqlDataReader reader)
         {
             id = reader.GetInt32(0);
@@ -31,6 +32,9 @@ namespace GraduationProject.Models
             relToOwner = reader.GetString(7);
         }
 
+        //Заявки
+
+        //INSERT
         public int Insert(ConnectionHelper connectionHelper)
         {
             int id;
@@ -51,6 +55,7 @@ namespace GraduationProject.Models
             return id;
         }
 
+        //GET
         public List<Person> Get(ConnectionHelper connectionHelper, Address address = null)
         {
             List<Person> persons = new List<Person>();
@@ -78,6 +83,7 @@ namespace GraduationProject.Models
             return Get(connectionHelper,null);
         }
 
+        //DELETE
         public void Delete(ConnectionHelper connectionHelper)
         {
             string query = "DELETE FROM GuestsInQuarantine WHERE id = @id";
@@ -88,7 +94,7 @@ namespace GraduationProject.Models
             connectionHelper.sqlConnection.Close();
         }
 
-
+        //UPDATE
         public void Update(ConnectionHelper connectionHelper)
         {
             string query = @"UPDATE GuestsInQuarantine

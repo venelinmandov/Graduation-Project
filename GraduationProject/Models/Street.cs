@@ -7,6 +7,7 @@ namespace GraduationProject.Models
 {
     public class Street: Model<Street>
     {
+        //Полета
         public int id;
         public string name;
 
@@ -15,6 +16,7 @@ namespace GraduationProject.Models
             return name;
         }
 
+        //Запълване на обекта с информация
         public void Fill(SqlDataReader reader)
         {
             id = reader.GetInt32(0);
@@ -22,6 +24,8 @@ namespace GraduationProject.Models
         }
 
         //Заявки
+        
+        //GET
         public List<Street> Get(ConnectionHelper connectionHelper, string name = "")
         {
             string queryConcat = "";
@@ -59,7 +63,7 @@ namespace GraduationProject.Models
             return Get(connectionHelper,"");
         }
 
-
+        //INSERT
         public int Insert(ConnectionHelper connectionHelper)
         {
             int id;
@@ -72,6 +76,7 @@ namespace GraduationProject.Models
             return id;
         }
 
+        //DELETE
         public void Delete(ConnectionHelper connectionHelper)
         {
             string query = "DELETE FROM Streets WHERE id = @id";
@@ -82,6 +87,7 @@ namespace GraduationProject.Models
             connectionHelper.sqlConnection.Close();
         }
 
+        //UPDATE
         public void Update(ConnectionHelper connectionHelper)
         {
             throw new System.NotImplementedException();
