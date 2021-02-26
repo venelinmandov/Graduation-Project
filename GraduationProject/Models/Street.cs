@@ -7,20 +7,21 @@ namespace GraduationProject.Models
 {
     public class Street: Model<Street>
     {
-        //Полета
-        public int id;
-        public string name;
+        
+
+        public int Id { get; set; }
+        public string Name { get; set; }
 
         public override string ToString()
         {
-            return name;
+            return Name;
         }
 
         //Запълване на обекта с информация
         public void Fill(SqlDataReader reader)
         {
-            id = reader.GetInt32(0);
-            name = reader.GetString(1);
+            Id = reader.GetInt32(0);
+            Name = reader.GetString(1);
         }
 
         //Заявки
@@ -70,7 +71,7 @@ namespace GraduationProject.Models
             string query = "INSERT INTO Streets (name) output INSERTED.id VALUES (@name)";
 
             connectionHelper.NewConnection(query);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@name", name);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@name", Name);
             id = (int) connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();
             return id;
@@ -82,7 +83,7 @@ namespace GraduationProject.Models
             string query = "DELETE FROM Streets WHERE id = @id";
 
             connectionHelper.NewConnection(query);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@id", id);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@id", Id);
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();
         }
@@ -90,7 +91,15 @@ namespace GraduationProject.Models
         //UPDATE
         public void Update(ConnectionHelper connectionHelper)
         {
-            throw new System.NotImplementedException();
+
+            string query = "UPDATE Streets SET name = @name WHERE id = @id";
+
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@id", Id);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@name", Name);
+            connectionHelper.sqlCommand.ExecuteNonQuery();
+            connectionHelper.sqlConnection.Close();
         }
     }
+    
 }

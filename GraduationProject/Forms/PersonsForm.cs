@@ -14,8 +14,9 @@ namespace GraduationProject.Forms
         ErrorProvider errorProvider = new ErrorProvider();
         Resident resident;
         Person person;
-        public bool canceled = false;
-        
+        bool canceled = false;
+
+        public bool Canceled => canceled;
 
         //Конструктори
         public PersonsForm()
@@ -110,17 +111,17 @@ namespace GraduationProject.Forms
         //Показване на информацията за жителя/госта (при редактиране)
         void showData(Person personToShow)
         {
-            textBoxFName.Text = personToShow.firstname;
-            textBoxMName.Text = personToShow.middlename;
-            textBoxLName.Text = personToShow.lastname;
-            textBoxEGN.Text = personToShow.egn;
-            textBoxOwner.Text = personToShow.relToOwner;
-            SetGroupBoxValue(personToShow.gender,radioButtonMale, radioButtonFemale);
+            textBoxFName.Text = personToShow.Firstname;
+            textBoxMName.Text = personToShow.Middlename;
+            textBoxLName.Text = personToShow.Lastname;
+            textBoxEGN.Text = personToShow.Egn;
+            textBoxOwner.Text = personToShow.RelToOwner;
+            SetGroupBoxValue(personToShow.Gender,radioButtonMale, radioButtonFemale);
             if (resident != null)
             {
                 Resident residentToShow = (Resident)personToShow;
-                SetGroupBoxValue(residentToShow.addressReg,radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
-                SetGroupBoxValue(residentToShow.covid19, radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
+                SetGroupBoxValue(residentToShow.AddressReg,radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
+                SetGroupBoxValue(residentToShow.Covid19, radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
             }
 
             if (textBoxOwner.Text == "Собственик")
@@ -247,8 +248,8 @@ namespace GraduationProject.Forms
             {
                 personToSave = resident;
                 Resident residentToSave = (Resident)personToSave;
-                residentToSave.addressReg = GetGroupBoxValue(radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
-                residentToSave.covid19 = GetGroupBoxValue(radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
+                residentToSave.AddressReg = GetGroupBoxValue(radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
+                residentToSave.Covid19 = GetGroupBoxValue(radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
 
             }
             else
@@ -256,12 +257,12 @@ namespace GraduationProject.Forms
                 personToSave = person;
             }
 
-            personToSave.firstname = textBoxFName.Text;
-            personToSave.middlename = textBoxMName.Text;
-            personToSave.lastname = textBoxLName.Text;
-            personToSave.egn = textBoxEGN.Text;
-            personToSave.relToOwner = textBoxOwner.Text;
-            personToSave.gender = GetGroupBoxValue(radioButtonMale, radioButtonFemale);
+            personToSave.Firstname = textBoxFName.Text;
+            personToSave.Middlename = textBoxMName.Text;
+            personToSave.Lastname = textBoxLName.Text;
+            personToSave.Egn = textBoxEGN.Text;
+            personToSave.RelToOwner = textBoxOwner.Text;
+            personToSave.Gender = GetGroupBoxValue(radioButtonMale, radioButtonFemale);
            
 
 

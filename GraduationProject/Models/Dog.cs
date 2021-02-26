@@ -7,20 +7,19 @@ namespace GraduationProject.Models
 {
     public class Dog: Model<Dog>
     {
-     //Полета
-        public int sealNumber { get; set; }
-        public int addressId { get; set; }
+        public string SealNumber { get; set; }
+        public int AddressId { get; set; }
 
         public override string ToString()
         {
-            return sealNumber.ToString();
+            return SealNumber.ToString();
         }
 
         //Запълване на обекта с информация
         public void Fill(SqlDataReader reader)
         {
-            sealNumber = reader.GetInt32(0);
-            addressId = reader.GetInt32(1);
+            SealNumber = reader.GetString(0);
+            AddressId = reader.GetInt32(1);
         }
 
 
@@ -30,10 +29,10 @@ namespace GraduationProject.Models
         public int Insert(ConnectionHelper connectionHelper)
         {
             int id;
-            string query = "INSERT INTO Dogs (sealNumber, addressId) output INSERTED.sealNumber VALUES (@sealNum, @addrId)";
+            string query = "INSERT INTO Dogs (sealNumber, addressId) output INSERTED.id VALUES (@sealNum, @addrId)";
             connectionHelper.NewConnection(query);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@sealNum", sealNumber);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", addressId);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@sealNum", SealNumber);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
             id = (int) connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();
             return id;
@@ -49,7 +48,7 @@ namespace GraduationProject.Models
                            WHERE addressId = @addrId";
 
             connectionHelper.NewConnection(query);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", address.id);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", address.Id);
             SqlDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
             while (reader.Read())
             {
@@ -73,7 +72,17 @@ namespace GraduationProject.Models
             string query = "DELETE FROM Dogs WHERE sealNumber = @sealNum";
 
             connectionHelper.NewConnection(query);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@sealNum", sealNumber);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@sealNum", SealNumber);
+            connectionHelper.sqlCommand.ExecuteNonQuery();
+            connectionHelper.sqlConnection.Close();
+        }
+
+        public void Delete(ConnectionHelper connectionHelper,Address address)
+        {
+            string query = "DELETE FROM Dogs WHERE addressId = @addrId";
+
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", address.Id);
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();
         }

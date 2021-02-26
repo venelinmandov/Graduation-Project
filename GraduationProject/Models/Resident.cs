@@ -7,9 +7,8 @@ namespace GraduationProject.Models
 {
     public class Resident:Person, Model<Resident>
     {
-        //Полета
-        public int addressReg { get; set; }
-        public int covid19 { get; set; }
+        public int AddressReg { get; set; }
+        public int Covid19 { get; set; }
 
         private string fields = "firstname, middlename, lastname, egn, gender, addressId, relationToOwner, addressReg, covid19";
 
@@ -17,8 +16,8 @@ namespace GraduationProject.Models
         public override void Fill(SqlDataReader reader)
         {
             base.Fill(reader);
-            addressReg = reader.GetInt32(8);
-            covid19 = reader.GetInt32(9);
+            AddressReg = reader.GetInt32(8);
+            Covid19 = reader.GetInt32(9);
             
         }
 
@@ -32,15 +31,15 @@ namespace GraduationProject.Models
                             VALUES (@fName, @mName, @lName, @egn, @gender, @addrId, @rel, @addrReg, @covid)";
 
             connectionHelper.NewConnection(query);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", firstname);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@mName", middlename);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@lName", lastname);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@egn", egn);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", gender);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", addressId);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", relToOwner);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrReg", addressReg);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@covid", covid19);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", Firstname);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@mName", Middlename);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@lName", Lastname);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@egn", Egn);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", Gender);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrReg", AddressReg);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@covid", Covid19);
 
             id = (int) connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();
@@ -57,7 +56,7 @@ namespace GraduationProject.Models
 
             connectionHelper.NewConnection(query);
             if(address != null)
-                connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", address.id);
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", address.Id);
 
             SqlDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
             while (reader.Read())
@@ -83,7 +82,17 @@ namespace GraduationProject.Models
             string query = "DELETE FROM Residents WHERE id = @id";
 
             connectionHelper.NewConnection(query);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@id", id);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@id", Id);
+            connectionHelper.sqlCommand.ExecuteNonQuery();
+            connectionHelper.sqlConnection.Close();
+        }
+
+        public new void Delete(ConnectionHelper connectionHelper,Address address)
+        {
+            string query = "DELETE FROM Residents WHERE addressId = @addrId";
+
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", address.Id);
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();
         }
@@ -100,16 +109,16 @@ namespace GraduationProject.Models
                              WHERE id = @id";
 
             connectionHelper.NewConnection(query);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@id", id);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", firstname);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@mName", middlename);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@lName", lastname);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@egn", egn);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", gender);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", addressId);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", relToOwner);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrReg", addressReg);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@covid", covid19);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@id", Id);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", Firstname);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@mName", Middlename);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@lName", Lastname);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@egn", Egn);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", Gender);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrReg", AddressReg);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@covid", Covid19);
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();
         }

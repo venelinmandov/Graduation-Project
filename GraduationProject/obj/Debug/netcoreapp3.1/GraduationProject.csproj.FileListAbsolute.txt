@@ -24,7 +24,6 @@ D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\System.Text
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.csproj.CopyComplete
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\GraduationProject.dll.config
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Properties.Resources.resources
-D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Controls.TitleLabel.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.InputBoxForm.resources
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll

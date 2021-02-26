@@ -47,9 +47,9 @@ namespace GraduationProject
             for (int i = 0; i < residents.Count; i++)
             {
                 dataGridView.RowCount++;
-                dataGridView.Rows[dataGridView.RowCount - 1].Cells[0].Value = residents[i].firstname;
-                dataGridView.Rows[dataGridView.RowCount - 1].Cells[1].Value = residents[i].lastname;
-                dataGridView.Rows[dataGridView.RowCount - 1].Cells[2].Value = residents[i].relToOwner;
+                dataGridView.Rows[dataGridView.RowCount - 1].Cells[0].Value = residents[i].Firstname;
+                dataGridView.Rows[dataGridView.RowCount - 1].Cells[1].Value = residents[i].Lastname;
+                dataGridView.Rows[dataGridView.RowCount - 1].Cells[2].Value = residents[i].RelToOwner;
                 dataGridView.Rows[dataGridView.RowCount - 1].Cells[3].Value = false;
             }
 
@@ -57,9 +57,9 @@ namespace GraduationProject
             for (int i = 0; i < guests.Count; i++)
             {
                 dataGridView.RowCount++;
-                dataGridView.Rows[dataGridView.RowCount - 1].Cells[0].Value = guests[i].firstname;
-                dataGridView.Rows[dataGridView.RowCount - 1].Cells[1].Value = guests[i].lastname;
-                dataGridView.Rows[dataGridView.RowCount - 1].Cells[2].Value = guests[i].relToOwner;
+                dataGridView.Rows[dataGridView.RowCount - 1].Cells[0].Value = guests[i].Firstname;
+                dataGridView.Rows[dataGridView.RowCount - 1].Cells[1].Value = guests[i].Lastname;
+                dataGridView.Rows[dataGridView.RowCount - 1].Cells[2].Value = guests[i].RelToOwner;
                 dataGridView.Rows[dataGridView.RowCount - 1].Cells[3].Value = true;
             }
         }
@@ -72,20 +72,20 @@ namespace GraduationProject
         }
 
         //Показване на информацията за текущо избрания адрес
-        void ShowAddress()
+        void ShowSelectedAddress()
         {
-            numericUpDownNumber.Value = address.number;
-            numericUpDownSquaring.Value = (decimal)address.squaring;
-            numericUpDownResBuildings.Value = address.numResBuildings;
-            numericUpDownAgrBuildings.Value = address.numAgrBuildings;
-            numericUpDownCows.Value = address.numCows;
-            numericUpDownSheep.Value = address.numSheep;
-            numericUpDownGoats.Value = address.numGoats;
-            numericUpDownHorses.Value = address.numHorses;
-            numericUpDownDonkeys.Value = address.numDonkeys;
-            numericUpDownFeathered.Value = address.numFeathered;
-            numericUpDownWalnut.Value = address.numWalnutTrees;
-            SetGroupBoxValue(address.habitallity, radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry);
+            numericUpDownNumber.Value = address.Number;
+            numericUpDownSquaring.Value = (decimal)address.Squaring;
+            numericUpDownResBuildings.Value = address.NumResBuildings;
+            numericUpDownAgrBuildings.Value = address.NumAgrBuildings;
+            numericUpDownCows.Value = address.NumCows;
+            numericUpDownSheep.Value = address.NumSheep;
+            numericUpDownGoats.Value = address.NumGoats;
+            numericUpDownHorses.Value = address.NumHorses;
+            numericUpDownDonkeys.Value = address.NumDonkeys;
+            numericUpDownFeathered.Value = address.NumFeathered;
+            numericUpDownWalnut.Value = address.NumWalnutTrees;
+            SetGroupBoxValue(address.Habitallity, radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry);
 
             residents = new Resident().Get(connectionHelper,address);
             guests = new Person().Get(connectionHelper, address);
@@ -103,7 +103,7 @@ namespace GraduationProject
             List <Address> addresses = new Address().Get(connectionHelper, street);
             for (int i = 0; i < addresses.Count; i++)
             {
-                if (addresses[i].number == number)
+                if (addresses[i].Number == number)
                     return true;
             }
             return false;
@@ -118,19 +118,19 @@ namespace GraduationProject
             //Добаване на id-то на адреса към гостите, жителите и кучетата
             foreach (Person guest in guests)
             {
-                guest.addressId = addressId;
+                guest.AddressId = addressId;
                 guest.Insert(connectionHelper);
             }
 
             foreach (Resident resident in residents)
             {
-                resident.addressId = addressId;
+                resident.AddressId = addressId;
                 resident.Insert(connectionHelper);
             }
 
             foreach (Dog dog in dogs)
             {
-                dog.addressId = addressId;
+                dog.AddressId = addressId;
                 dog.Insert(connectionHelper);
             }
 
@@ -189,6 +189,7 @@ namespace GraduationProject
             if (tabPageAdd == tabControl.SelectedTab)
             {
                 numericUpDownNumber.Enabled = true;
+                buttonDeleteAddr.Enabled = false;
                 residents = new List<Resident>();
                 guests = new List<Person>();
                 dogs = new List<Dog>();
@@ -221,6 +222,7 @@ namespace GraduationProject
             else 
             {
                 numericUpDownNumber.Enabled = false;
+                buttonDeleteAddr.Enabled = true;
             }
         }
 
@@ -235,7 +237,7 @@ namespace GraduationProject
         {
             Forms.PersonsForm personsForm = new Forms.PersonsForm();
             personsForm.ShowDialog();
-            if (personsForm.canceled) return;
+            if (personsForm.Canceled) return;
             //В режим "нов адрес"
             if (tabControl.SelectedTab == tabPageAdd)
             {
@@ -253,14 +255,14 @@ namespace GraduationProject
                 if (personsForm.isResident)
                 {
                     Resident newRes = personsForm.getNewResident;
-                    newRes.addressId = address.id;
+                    newRes.AddressId = address.Id;
                     newRes.Insert(connectionHelper);
                     residents = new Resident().Get(connectionHelper, address);
                 }
                 else
                 {
                     Person newGuest = personsForm.getNewGuest;
-                    newGuest.addressId = address.id;
+                    newGuest.AddressId = address.Id;
                     newGuest.Insert(connectionHelper);
                     guests = new Person().Get(connectionHelper, address);
                 }
@@ -279,9 +281,11 @@ namespace GraduationProject
         private void buttonAddStr_Click(object sender, EventArgs e)
         {
             Street street = new Street();
-            if((street.name = InputBox.OpenInputBox("Моля въведете име на улица:")) == "") return;
+            InputBox.InputboxResponce responce = InputBox.OpenInputBox("Моля въведете име на улица:");
+            if (responce.canceled) return;
 
-            if (street.Get(connectionHelper, street.name).Count == 0)
+            street.Name = responce.text;
+            if (street.Get(connectionHelper, street.Name).Count == 0)
             {
                 street.Insert(connectionHelper);
                 showStreets();
@@ -322,19 +326,19 @@ namespace GraduationProject
                         }
 
 
-                        address.streetId = streets[listBoxStreets.SelectedIndex].id;
-                        address.number = (int)numericUpDownNumber.Value;
-                        address.squaring = (double)numericUpDownSquaring.Value;
-                        address.habitallity = habitabillityValue;
-                        address.numResBuildings = (int)numericUpDownResBuildings.Value;
-                        address.numAgrBuildings = (int)numericUpDownAgrBuildings.Value;
-                        address.numCows = (int)numericUpDownCows.Value;
-                        address.numSheep = (int)numericUpDownSheep.Value;
-                        address.numGoats = (int)numericUpDownGoats.Value;
-                        address.numHorses = (int)numericUpDownHorses.Value;
-                        address.numDonkeys = (int)numericUpDownDonkeys.Value;
-                        address.numFeathered = (int)numericUpDownFeathered.Value;
-                        address.numWalnutTrees = (int)numericUpDownWalnut.Value;
+                        address.StreetId = streets[listBoxStreets.SelectedIndex].Id;
+                        address.Number = (int)numericUpDownNumber.Value;
+                        address.Squaring = (double)numericUpDownSquaring.Value;
+                        address.Habitallity = habitabillityValue;
+                        address.NumResBuildings = (int)numericUpDownResBuildings.Value;
+                        address.NumAgrBuildings = (int)numericUpDownAgrBuildings.Value;
+                        address.NumCows = (int)numericUpDownCows.Value;
+                        address.NumSheep = (int)numericUpDownSheep.Value;
+                        address.NumGoats = (int)numericUpDownGoats.Value;
+                        address.NumHorses = (int)numericUpDownHorses.Value;
+                        address.NumDonkeys = (int)numericUpDownDonkeys.Value;
+                        address.NumFeathered = (int)numericUpDownFeathered.Value;
+                        address.NumWalnutTrees = (int)numericUpDownWalnut.Value;
 
                         if (tabPageAdd == tabControl.SelectedTab)
                         {
@@ -392,21 +396,31 @@ namespace GraduationProject
         //Добаване на куче
         private void buttonAddDog_Click(object sender, EventArgs e)
         {
-            Regex regex = new Regex(@"\d+");
-            string sealNum = InputBox.OpenInputBox("Моля въведете номер на скобата:");
-            if (sealNum == "") { return; };
+            
+            Regex regex = new Regex(@"\d{15}");
+            InputBox.InputboxResponce responce = InputBox.OpenInputBox("Моля въведете номер на скобата:");
+            if (responce.canceled) return;
+
+            string sealNum = responce.text;
             if (!regex.IsMatch(sealNum))
             {
                 MessageBox.Show("Невалидна стойност!", "Невалидна стойност", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            Dog newDog = new Dog() { SealNumber = sealNum };
             //В режим "нов адрес"
             if (tabControl.SelectedTab == tabPageAdd)
-            {  
-                dogs.Add(new Dog() { sealNumber = int.Parse(sealNum) });
-                RefreshDogsList();
+            {
+                dogs.Add(newDog); 
             }
-           
+            //В режим "редактиране на адрес"
+            else
+            {
+                newDog.AddressId = address.Id;
+                newDog.Insert(connectionHelper);
+                dogs = new Dog().Get(connectionHelper, address);
+            }
+            RefreshDogsList();
         }
         //Премахване на куче
         private void buttonRemoveDog_Click(object sender, EventArgs e)
@@ -437,6 +451,11 @@ namespace GraduationProject
         //Опресняване на списъка с адреси
         private void buttonSearchAddress_Click(object sender, EventArgs e)
         {
+            ShowAddresses();
+        }
+
+        private void ShowAddresses()
+        {
             if (textBoxSearchAddr.Text == "")
             {
                 addresses = new Address().Get(connectionHelper);
@@ -464,7 +483,7 @@ namespace GraduationProject
         {
             if (addresses.Count == 0) return;
                 address = addresses[listBoxAddresses.SelectedIndex];
-                ShowAddress();
+                ShowSelectedAddress();
         }
 
         
@@ -482,17 +501,41 @@ namespace GraduationProject
             {
                 personsForm = new Forms.PersonsForm(residents[currentRowIndex]);
                 personsForm.ShowDialog();
-                if (!personsForm.canceled && tabControl.SelectedTab == tabPageSearch)
+                if (!personsForm.Canceled && tabControl.SelectedTab == tabPageSearch)
                     residents[currentRowIndex].Update(connectionHelper);
             }
             else
             {
                 personsForm = new Forms.PersonsForm(guests[currentRowIndex - residents.Count]);
                 personsForm.ShowDialog();
-                if (!personsForm.canceled && tabControl.SelectedTab == tabPageSearch)
+                if (!personsForm.Canceled && tabControl.SelectedTab == tabPageSearch)
                     guests[currentRowIndex - residents.Count].Update(connectionHelper);
             }
             RefreshDataGrid();
+        }
+
+        private void buttonDeleteAddr_Click(object sender, EventArgs e)
+        {
+            DialogResult = MessageBox.Show("Сигурни ли сте, че искате да изтриете адреса?", "Изтриване на адрес",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (DialogResult == DialogResult.No) return;
+
+            address.Delete(connectionHelper);
+            ShowAddresses();
+
+
+        }
+
+        private void listBoxStreets_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                
+                if (listBoxStreets.IndexFromPoint(e.Location) != ListBox.NoMatches)
+                {
+                    listBoxStreets.SelectedIndex = listBoxStreets.IndexFromPoint(e.Location);
+                    contextMenuStripStreets.Show(listBoxStreets, e.Location);
+                }
+            }
         }
     }
 }

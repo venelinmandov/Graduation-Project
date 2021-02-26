@@ -12,6 +12,7 @@ namespace GraduationProject.Forms
     public partial class InputBoxForm : Form
     {
         public string text;
+        public bool canceled = false;
         public InputBoxForm(string labelText)
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace GraduationProject.Forms
 
         void Cancel()
         {
-            text = "";
+            canceled = true;
             Hide();
         }
 

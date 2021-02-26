@@ -6,13 +6,19 @@ namespace GraduationProject
 {
     public class InputBox
     {
-        public static string OpenInputBox(string labelText)
+        public struct InputboxResponce
         {
-            string text;
+            public string text;
+            public bool canceled;
+        }
+        public static InputboxResponce OpenInputBox(string labelText)
+        {
+            InputboxResponce inputboxResponce = new InputboxResponce();
             Forms.InputBoxForm inputBoxForm = new Forms.InputBoxForm(labelText);
             inputBoxForm.ShowDialog();
-            text = inputBoxForm.text;
-            return text;
+            inputboxResponce.text = inputBoxForm.text;
+            inputboxResponce.canceled = inputBoxForm.canceled;
+            return inputboxResponce;
         }
 
     }
