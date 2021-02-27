@@ -43,8 +43,6 @@ namespace GraduationProject
             this.buttonSearchAddress = new System.Windows.Forms.Button();
             this.labelCriteria = new System.Windows.Forms.Label();
             this.tabPageAdd = new System.Windows.Forms.TabPage();
-            this.buttonRenameStr = new System.Windows.Forms.Button();
-            this.buttonRemoveStr = new System.Windows.Forms.Button();
             this.buttonAddStr = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.listBoxStreets = new System.Windows.Forms.ListBox();
@@ -124,7 +122,6 @@ namespace GraduationProject
             this.menuStrip.Size = new System.Drawing.Size(946, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
-            this.menuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip_ItemClicked);
             // 
             // Settings
             // 
@@ -148,7 +145,6 @@ namespace GraduationProject
             this.textBoxSearchAddr.Name = "textBoxSearchAddr";
             this.textBoxSearchAddr.Size = new System.Drawing.Size(137, 23);
             this.textBoxSearchAddr.TabIndex = 1;
-            this.textBoxSearchAddr.TextChanged += new System.EventHandler(this.textBoxSearchAddr_TextChanged);
             // 
             // comboBoxCriteria
             // 
@@ -193,7 +189,7 @@ namespace GraduationProject
             this.buttonSearchAddress.Name = "buttonSearchAddress";
             this.buttonSearchAddress.Size = new System.Drawing.Size(68, 24);
             this.buttonSearchAddress.TabIndex = 8;
-            this.buttonSearchAddress.Text = "Търси";
+            this.buttonSearchAddress.Text = "Търсене";
             this.buttonSearchAddress.UseVisualStyleBackColor = true;
             this.buttonSearchAddress.Click += new System.EventHandler(this.buttonSearchAddress_Click);
             // 
@@ -209,8 +205,6 @@ namespace GraduationProject
             // tabPageAdd
             // 
             this.tabPageAdd.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPageAdd.Controls.Add(this.buttonRenameStr);
-            this.tabPageAdd.Controls.Add(this.buttonRemoveStr);
             this.tabPageAdd.Controls.Add(this.buttonAddStr);
             this.tabPageAdd.Controls.Add(this.label3);
             this.tabPageAdd.Controls.Add(this.listBoxStreets);
@@ -222,32 +216,14 @@ namespace GraduationProject
             this.tabPageAdd.TabIndex = 1;
             this.tabPageAdd.Text = "Нов Адрес";
             // 
-            // buttonRenameStr
-            // 
-            this.buttonRenameStr.Location = new System.Drawing.Point(63, 392);
-            this.buttonRenameStr.Name = "buttonRenameStr";
-            this.buttonRenameStr.Size = new System.Drawing.Size(101, 23);
-            this.buttonRenameStr.TabIndex = 5;
-            this.buttonRenameStr.Text = "Преименувай";
-            this.buttonRenameStr.UseVisualStyleBackColor = true;
-            // 
-            // buttonRemoveStr
-            // 
-            this.buttonRemoveStr.Location = new System.Drawing.Point(120, 363);
-            this.buttonRemoveStr.Name = "buttonRemoveStr";
-            this.buttonRemoveStr.Size = new System.Drawing.Size(101, 23);
-            this.buttonRemoveStr.TabIndex = 4;
-            this.buttonRemoveStr.Text = "Премахни";
-            this.buttonRemoveStr.UseVisualStyleBackColor = true;
-            this.buttonRemoveStr.Click += new System.EventHandler(this.buttonRemoveStr_Click);
-            // 
             // buttonAddStr
             // 
-            this.buttonAddStr.Location = new System.Drawing.Point(13, 363);
+            this.buttonAddStr.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonAddStr.Location = new System.Drawing.Point(3, 385);
             this.buttonAddStr.Name = "buttonAddStr";
-            this.buttonAddStr.Size = new System.Drawing.Size(101, 23);
+            this.buttonAddStr.Size = new System.Drawing.Size(229, 32);
             this.buttonAddStr.TabIndex = 3;
-            this.buttonAddStr.Text = "Добави";
+            this.buttonAddStr.Text = "Добави улица";
             this.buttonAddStr.UseVisualStyleBackColor = true;
             this.buttonAddStr.Click += new System.EventHandler(this.buttonAddStr_Click);
             // 
@@ -266,7 +242,7 @@ namespace GraduationProject
             this.listBoxStreets.ItemHeight = 15;
             this.listBoxStreets.Location = new System.Drawing.Point(3, 48);
             this.listBoxStreets.Name = "listBoxStreets";
-            this.listBoxStreets.Size = new System.Drawing.Size(229, 304);
+            this.listBoxStreets.Size = new System.Drawing.Size(229, 319);
             this.listBoxStreets.TabIndex = 1;
             this.listBoxStreets.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxStreets_MouseDown);
             // 
@@ -326,27 +302,27 @@ namespace GraduationProject
             this.buttonDeleteAddr.Name = "buttonDeleteAddr";
             this.buttonDeleteAddr.Size = new System.Drawing.Size(98, 29);
             this.buttonDeleteAddr.TabIndex = 35;
-            this.buttonDeleteAddr.Text = "Изтрий";
+            this.buttonDeleteAddr.Text = "Изтриване";
             this.buttonDeleteAddr.UseVisualStyleBackColor = true;
             this.buttonDeleteAddr.Click += new System.EventHandler(this.buttonDeleteAddr_Click);
             // 
             // buttonEditPerson
             // 
-            this.buttonEditPerson.Location = new System.Drawing.Point(425, 223);
+            this.buttonEditPerson.Location = new System.Drawing.Point(457, 228);
             this.buttonEditPerson.Name = "buttonEditPerson";
-            this.buttonEditPerson.Size = new System.Drawing.Size(78, 22);
+            this.buttonEditPerson.Size = new System.Drawing.Size(88, 22);
             this.buttonEditPerson.TabIndex = 34;
-            this.buttonEditPerson.Text = "Редактирай";
+            this.buttonEditPerson.Text = "Редактиране";
             this.buttonEditPerson.UseVisualStyleBackColor = true;
             this.buttonEditPerson.Click += new System.EventHandler(this.buttonEditPerson_Click);
             // 
             // buttonRemovePerson
             // 
-            this.buttonRemovePerson.Location = new System.Drawing.Point(341, 223);
+            this.buttonRemovePerson.Location = new System.Drawing.Point(363, 228);
             this.buttonRemovePerson.Name = "buttonRemovePerson";
-            this.buttonRemovePerson.Size = new System.Drawing.Size(78, 22);
+            this.buttonRemovePerson.Size = new System.Drawing.Size(88, 22);
             this.buttonRemovePerson.TabIndex = 33;
-            this.buttonRemovePerson.Text = "Премахни";
+            this.buttonRemovePerson.Text = "Премахване";
             this.buttonRemovePerson.UseVisualStyleBackColor = true;
             this.buttonRemovePerson.Click += new System.EventHandler(this.buttonRemoveResident_Click);
             // 
@@ -363,21 +339,21 @@ namespace GraduationProject
             // 
             // buttonAddPerson
             // 
-            this.buttonAddPerson.Location = new System.Drawing.Point(269, 222);
+            this.buttonAddPerson.Location = new System.Drawing.Point(269, 228);
             this.buttonAddPerson.Name = "buttonAddPerson";
-            this.buttonAddPerson.Size = new System.Drawing.Size(66, 22);
+            this.buttonAddPerson.Size = new System.Drawing.Size(88, 22);
             this.buttonAddPerson.TabIndex = 31;
-            this.buttonAddPerson.Text = "Добави";
+            this.buttonAddPerson.Text = "Добавяне";
             this.buttonAddPerson.UseVisualStyleBackColor = true;
             this.buttonAddPerson.Click += new System.EventHandler(this.buttonAddResident_Click);
             // 
             // buttonRemoveDog
             // 
-            this.buttonRemoveDog.Location = new System.Drawing.Point(341, 416);
+            this.buttonRemoveDog.Location = new System.Drawing.Point(363, 416);
             this.buttonRemoveDog.Name = "buttonRemoveDog";
-            this.buttonRemoveDog.Size = new System.Drawing.Size(78, 22);
+            this.buttonRemoveDog.Size = new System.Drawing.Size(88, 22);
             this.buttonRemoveDog.TabIndex = 30;
-            this.buttonRemoveDog.Text = "Премахни";
+            this.buttonRemoveDog.Text = "Премахване";
             this.buttonRemoveDog.UseVisualStyleBackColor = true;
             this.buttonRemoveDog.Click += new System.EventHandler(this.buttonRemoveDog_Click);
             // 
@@ -385,9 +361,9 @@ namespace GraduationProject
             // 
             this.buttonAddDog.Location = new System.Drawing.Point(269, 416);
             this.buttonAddDog.Name = "buttonAddDog";
-            this.buttonAddDog.Size = new System.Drawing.Size(66, 22);
+            this.buttonAddDog.Size = new System.Drawing.Size(88, 22);
             this.buttonAddDog.TabIndex = 29;
-            this.buttonAddDog.Text = "Добави";
+            this.buttonAddDog.Text = "Добавяне";
             this.buttonAddDog.UseVisualStyleBackColor = true;
             this.buttonAddDog.Click += new System.EventHandler(this.buttonAddDog_Click);
             // 
@@ -420,7 +396,6 @@ namespace GraduationProject
             this.dataGridView.RowTemplate.Height = 25;
             this.dataGridView.Size = new System.Drawing.Size(404, 183);
             this.dataGridView.TabIndex = 28;
-            this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 
             // firstName
             // 
@@ -718,19 +693,20 @@ namespace GraduationProject
             this.toolStripMenuItemRemoveStr,
             this.toolStripMenuItemRenameStr});
             this.contextMenuStripStreets.Name = "contextMenuStripStreets";
-            this.contextMenuStripStreets.Size = new System.Drawing.Size(151, 48);
+            this.contextMenuStripStreets.Size = new System.Drawing.Size(157, 48);
             // 
             // toolStripMenuItemRemoveStr
             // 
             this.toolStripMenuItemRemoveStr.Name = "toolStripMenuItemRemoveStr";
-            this.toolStripMenuItemRemoveStr.Size = new System.Drawing.Size(150, 22);
-            this.toolStripMenuItemRemoveStr.Text = "Премахни";
+            this.toolStripMenuItemRemoveStr.Size = new System.Drawing.Size(156, 22);
+            this.toolStripMenuItemRemoveStr.Text = "Премахване";
+            this.toolStripMenuItemRemoveStr.Click += new System.EventHandler(this.toolStripMenuItemRemoveStr_click);
             // 
             // toolStripMenuItemRenameStr
             // 
             this.toolStripMenuItemRenameStr.Name = "toolStripMenuItemRenameStr";
-            this.toolStripMenuItemRenameStr.Size = new System.Drawing.Size(150, 22);
-            this.toolStripMenuItemRenameStr.Text = "Преименувай";
+            this.toolStripMenuItemRenameStr.Size = new System.Drawing.Size(156, 22);
+            this.toolStripMenuItemRenameStr.Text = "Преименуване";
             // 
             // Form1
             // 
@@ -744,7 +720,6 @@ namespace GraduationProject
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.tabControl.ResumeLayout(false);
@@ -822,7 +797,6 @@ namespace GraduationProject
         private System.Windows.Forms.Button buttonAddDog;
         private System.Windows.Forms.Button buttonAddPerson;
         private System.Windows.Forms.Label labelCriteri;
-        private System.Windows.Forms.Button buttonRemoveStr;
         private System.Windows.Forms.Button buttonAddStr;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonRemovePerson;
@@ -833,7 +807,6 @@ namespace GraduationProject
         private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn owner;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Guest;
-        private System.Windows.Forms.Button buttonRenameStr;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripStreets;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRenameStr;
