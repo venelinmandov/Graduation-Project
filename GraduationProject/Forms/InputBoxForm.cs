@@ -11,6 +11,7 @@ namespace GraduationProject.Forms
 {
     public partial class InputBoxForm : Form
     {
+        ErrorProvider errorProvider = new ErrorProvider();
         public string text;
         public bool canceled = false;
         public InputBoxForm(string labelText)
@@ -21,7 +22,12 @@ namespace GraduationProject.Forms
 
         void Save()
         {
-            text = textBox.Text;
+            text = textBox.Text.Trim();
+            if (text == "")
+            {
+                errorProvider.SetError(textBox, "Моля въведете текст.");
+                return;
+            }
             Hide();
         }
 

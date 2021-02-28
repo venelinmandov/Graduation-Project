@@ -27,7 +27,7 @@ namespace GraduationProject.Models
         //Заявки
         
         //GET
-        public List<Street> Get(ConnectionHelper connectionHelper, string name = "")
+        public List<Street> Get(ConnectionHelper connectionHelper, string name)
         {
             string queryConcat = "";
             if (name != "")

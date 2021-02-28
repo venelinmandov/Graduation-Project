@@ -27,7 +27,7 @@ namespace GraduationProject
             InitializeComponent();
             addresses = new Address().Get(connectionHelper);
             listBoxAddresses.DataSource = addresses;
-            showStreets();
+            ShowStreets();
             comboBoxCriteria.SelectedIndex = 0;
         }
 
@@ -65,6 +65,7 @@ namespace GraduationProject
                     if (tabPageAdd == tabControl.SelectedTab)
                     {
                         InsertAddress();
+                        ClearInfo();
                     }
                     else
                         UpdateAddress();
@@ -206,15 +207,35 @@ namespace GraduationProject
             if (responce.canceled) return;
 
             street.Name = responce.text;
-            if (street.Get(connectionHelper, street.Name).Count == 0)
+            if (!StreetExist(street.Name))
             {
                 street.Insert(connectionHelper);
-                showStreets();
+                ShowStreets();
             }
             else
             {
                 MessageBox.Show("Тази улица съществува!", "Съществуваща улица", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        //Преименуване на улица
+        private void toolStripMenuItemRenameStr_click(object sender, EventArgs e)
+        {
+            InputBox.InputboxResponce responce = InputBox.OpenInputBox("Ново име на улицата: ");
+            if (responce.canceled) return;
+            if (!StreetExist(responce.text))
+            {
+                Street selectedStreet = streets[listBoxStreets.SelectedIndex];
+
+                selectedStreet.Name = responce.text;
+                selectedStreet.Update(connectionHelper);
+                ShowStreets();
+            }
+            else
+            {
+                MessageBox.Show("Тази улица съществува!", "Съществуваща улица", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
 
         //Изтриване на улица от базата данни
@@ -224,7 +245,7 @@ namespace GraduationProject
             if (new Address().Get(connectionHelper, selectedStreet).Count == 0)
             {
                 streets[listBoxStreets.SelectedIndex].Delete(connectionHelper);
-                showStreets();
+                ShowStreets();
             }
             else
                 MessageBox.Show("Има записи на адреси за тази улица. Моля първо изтрийте адресите.", "Действието не може да се извърши!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -233,11 +254,11 @@ namespace GraduationProject
         //Опресняване на списъка с улици при промяна на стойността на полето за търсене
         private void textBoxSearchStr_TextChanged(object sender, EventArgs e)
         {
-            showStreets();
+            ShowStreets();
         }
 
         //Показване на улици в listbox-а
-        void showStreets()
+        void ShowStreets()
         {
             streets = new Street().Get(connectionHelper, textBoxSearchStr.Text);
             listBoxStreets.DataSource = streets;
@@ -255,6 +276,23 @@ namespace GraduationProject
                     contextMenuStripStreets.Show(listBoxStreets, e.Location);
                 }
             }
+        }
+
+        //Връща стойност дали дадена улица съществува
+        bool StreetExist(string streetName)
+        {
+            List<Street> foundStreets = new Street().Get(connectionHelper, streetName);
+            if (foundStreets.Count != 0)
+            {
+                foreach (Street street in foundStreets)
+                {
+                    if (street.Name == streetName)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         //ЖИТЕЛИ/ГОСТИ:
@@ -464,46 +502,54 @@ namespace GraduationProject
             }
         }
 
-        //Нулиране на списъците с гости, жители и кучета
+        //Променен е избрания таб
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabPageAdd == tabControl.SelectedTab)
             {
-                numericUpDownNumber.Enabled = true;
-                buttonDeleteAddr.Enabled = false;
-                residents = new List<Resident>();
-                guests = new List<Person>();
-                dogs = new List<Dog>();
-                dataGridView.RowCount = 0;
-                RefreshDogsList();
-
-                numericUpDownAgrBuildings.Value = 0;
-                numericUpDownCows.Value = 0;
-                numericUpDownDonkeys.Value = 0;
-                numericUpDownFeathered.Value = 0;
-                numericUpDownGoats.Value = 0;
-                numericUpDownHorses.Value = 0;
-                numericUpDownNumber.Value = 0;
-                numericUpDownResBuildings.Value = 0;
-                numericUpDownSheep.Value = 0;
-                numericUpDownSquaring.Value = 0;
-                numericUpDownWalnut.Value = 0;
-
-                RadioButton[] radioButtons = new RadioButton[] { radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry };
-                foreach (RadioButton radioButton in radioButtons)
-                {
-                    if (radioButton.Checked)
-                    {
-                        radioButton.Checked = false;
-                        break;
-                    }
-                }
-
+                //Таб "Нов адрес"
+                ClearInfo();
             }
             else
             {
+                //Таб "Търси адрес"
+                ShowAddresses();
                 numericUpDownNumber.Enabled = false;
                 buttonDeleteAddr.Enabled = true;
+            }
+        }
+
+        //Изчистване на визуализираната информация за адрес
+        private void ClearInfo()
+        {
+            numericUpDownNumber.Enabled = true;
+            buttonDeleteAddr.Enabled = false;
+            residents = new List<Resident>();
+            guests = new List<Person>();
+            dogs = new List<Dog>();
+            dataGridView.RowCount = 0;
+            RefreshDogsList();
+
+            numericUpDownAgrBuildings.Value = 0;
+            numericUpDownCows.Value = 0;
+            numericUpDownDonkeys.Value = 0;
+            numericUpDownFeathered.Value = 0;
+            numericUpDownGoats.Value = 0;
+            numericUpDownHorses.Value = 0;
+            numericUpDownNumber.Value = 0;
+            numericUpDownResBuildings.Value = 0;
+            numericUpDownSheep.Value = 0;
+            numericUpDownSquaring.Value = 0;
+            numericUpDownWalnut.Value = 0;
+
+            RadioButton[] radioButtons = new RadioButton[] { radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry };
+            foreach (RadioButton radioButton in radioButtons)
+            {
+                if (radioButton.Checked)
+                {
+                    radioButton.Checked = false;
+                    break;
+                }
             }
         }
     }

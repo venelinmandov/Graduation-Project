@@ -37,15 +37,15 @@ namespace GraduationProject.Forms
             // 
             // textBox
             // 
-            this.textBox.Location = new System.Drawing.Point(12, 46);
+            this.textBox.Location = new System.Drawing.Point(21, 45);
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(277, 23);
+            this.textBox.Size = new System.Drawing.Size(257, 23);
             this.textBox.TabIndex = 0;
             this.textBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(12, 87);
+            this.buttonSave.Location = new System.Drawing.Point(21, 87);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(91, 23);
             this.buttonSave.TabIndex = 1;
@@ -57,7 +57,7 @@ namespace GraduationProject.Forms
             // 
             this.label.AutoSize = true;
             this.label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label.Location = new System.Drawing.Point(12, 9);
+            this.label.Location = new System.Drawing.Point(21, 9);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(48, 21);
             this.label.TabIndex = 2;
@@ -65,7 +65,7 @@ namespace GraduationProject.Forms
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(198, 87);
+            this.buttonCancel.Location = new System.Drawing.Point(187, 87);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(91, 23);
             this.buttonCancel.TabIndex = 3;

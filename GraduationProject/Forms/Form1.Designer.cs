@@ -119,7 +119,7 @@ namespace GraduationProject
             this.Settings});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(946, 24);
+            this.menuStrip.Size = new System.Drawing.Size(913, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -161,10 +161,10 @@ namespace GraduationProject
             // 
             this.tabControl.Controls.Add(this.tabPageSearch);
             this.tabControl.Controls.Add(this.tabPageAdd);
-            this.tabControl.Location = new System.Drawing.Point(12, 28);
+            this.tabControl.Location = new System.Drawing.Point(0, 27);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(243, 457);
+            this.tabControl.Size = new System.Drawing.Size(225, 457);
             this.tabControl.TabIndex = 7;
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
@@ -179,7 +179,7 @@ namespace GraduationProject
             this.tabPageSearch.Location = new System.Drawing.Point(4, 24);
             this.tabPageSearch.Name = "tabPageSearch";
             this.tabPageSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSearch.Size = new System.Drawing.Size(235, 429);
+            this.tabPageSearch.Size = new System.Drawing.Size(217, 429);
             this.tabPageSearch.TabIndex = 0;
             this.tabPageSearch.Text = "Търси Адрес";
             // 
@@ -212,16 +212,16 @@ namespace GraduationProject
             this.tabPageAdd.Location = new System.Drawing.Point(4, 24);
             this.tabPageAdd.Name = "tabPageAdd";
             this.tabPageAdd.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAdd.Size = new System.Drawing.Size(235, 429);
+            this.tabPageAdd.Size = new System.Drawing.Size(217, 429);
             this.tabPageAdd.TabIndex = 1;
             this.tabPageAdd.Text = "Нов Адрес";
             // 
             // buttonAddStr
             // 
             this.buttonAddStr.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonAddStr.Location = new System.Drawing.Point(3, 385);
+            this.buttonAddStr.Location = new System.Drawing.Point(3, 388);
             this.buttonAddStr.Name = "buttonAddStr";
-            this.buttonAddStr.Size = new System.Drawing.Size(229, 32);
+            this.buttonAddStr.Size = new System.Drawing.Size(211, 32);
             this.buttonAddStr.TabIndex = 3;
             this.buttonAddStr.Text = "Добави улица";
             this.buttonAddStr.UseVisualStyleBackColor = true;
@@ -230,7 +230,7 @@ namespace GraduationProject
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 25);
+            this.label3.Location = new System.Drawing.Point(3, 8);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 15);
             this.label3.TabIndex = 2;
@@ -240,17 +240,17 @@ namespace GraduationProject
             // 
             this.listBoxStreets.FormattingEnabled = true;
             this.listBoxStreets.ItemHeight = 15;
-            this.listBoxStreets.Location = new System.Drawing.Point(3, 48);
+            this.listBoxStreets.Location = new System.Drawing.Point(3, 33);
             this.listBoxStreets.Name = "listBoxStreets";
-            this.listBoxStreets.Size = new System.Drawing.Size(229, 319);
+            this.listBoxStreets.Size = new System.Drawing.Size(211, 349);
             this.listBoxStreets.TabIndex = 1;
             this.listBoxStreets.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxStreets_MouseDown);
             // 
             // textBoxSearchStr
             // 
-            this.textBoxSearchStr.Location = new System.Drawing.Point(63, 19);
+            this.textBoxSearchStr.Location = new System.Drawing.Point(53, 5);
             this.textBoxSearchStr.Name = "textBoxSearchStr";
-            this.textBoxSearchStr.Size = new System.Drawing.Size(138, 23);
+            this.textBoxSearchStr.Size = new System.Drawing.Size(161, 23);
             this.textBoxSearchStr.TabIndex = 0;
             this.textBoxSearchStr.TextChanged += new System.EventHandler(this.textBoxSearchStr_TextChanged);
             // 
@@ -290,9 +290,9 @@ namespace GraduationProject
             this.panel1.Controls.Add(this.groupBoxHabitabillity);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.numericUpDownSquaring);
-            this.panel1.Location = new System.Drawing.Point(257, 28);
+            this.panel1.Location = new System.Drawing.Point(227, 35);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(685, 453);
+            this.panel1.Size = new System.Drawing.Size(685, 449);
             this.panel1.TabIndex = 8;
             // 
             // buttonDeleteAddr
@@ -707,12 +707,13 @@ namespace GraduationProject
             this.toolStripMenuItemRenameStr.Name = "toolStripMenuItemRenameStr";
             this.toolStripMenuItemRenameStr.Size = new System.Drawing.Size(156, 22);
             this.toolStripMenuItemRenameStr.Text = "Преименуване";
+            this.toolStripMenuItemRenameStr.Click += new System.EventHandler(this.toolStripMenuItemRenameStr_click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(946, 497);
+            this.ClientSize = new System.Drawing.Size(913, 484);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip);
