@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 
 namespace GraduationProject
@@ -21,8 +22,24 @@ namespace GraduationProject
 
         public void NewConnection(string query)
         {
-            sqlConnection.Open();
-            sqlCommand = new SqlCommand(query, sqlConnection);
+            try
+            {
+                sqlConnection.Open();
+                sqlCommand = new SqlCommand(query, sqlConnection);
+            }
+            catch (SqlException exception)
+            {
+                DialogResult result = MessageBox.Show("Не може да се осъществи връзка с базата данни","Грешка", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                if (result == DialogResult.Retry)
+                {
+                    NewConnection(query);
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    Environment.Exit(0);
+                }
+            }
+            
         }
 
        

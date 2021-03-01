@@ -425,13 +425,14 @@ namespace GraduationProject
         private void buttonAddDog_Click(object sender, EventArgs e)
         {
 
-            Regex regex = new Regex(@"\d{15}");
+            Regex regex = new Regex(@"^\d{15}$");
             InputBox.InputboxResponce responce = InputBox.OpenInputBox("Моля въведете номер на скобата:");
             if (responce.canceled) return;
 
             string sealNum = responce.text;
             if (!regex.IsMatch(sealNum))
             {
+               
                 MessageBox.Show("Невалидна стойност!", "Невалидна стойност", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
