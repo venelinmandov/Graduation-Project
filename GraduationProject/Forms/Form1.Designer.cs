@@ -161,15 +161,17 @@ namespace GraduationProject
             // 
             this.tabControl.Controls.Add(this.tabPageSearch);
             this.tabControl.Controls.Add(this.tabPageAdd);
-            this.tabControl.Location = new System.Drawing.Point(0, 27);
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tabControl.Location = new System.Drawing.Point(0, 24);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(225, 457);
+            this.tabControl.Size = new System.Drawing.Size(225, 460);
             this.tabControl.TabIndex = 7;
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // tabPageSearch
             // 
+            this.tabPageSearch.AutoScroll = true;
             this.tabPageSearch.BackColor = System.Drawing.SystemColors.Control;
             this.tabPageSearch.Controls.Add(this.buttonSearchAddress);
             this.tabPageSearch.Controls.Add(this.labelCriteria);
@@ -179,7 +181,7 @@ namespace GraduationProject
             this.tabPageSearch.Location = new System.Drawing.Point(4, 24);
             this.tabPageSearch.Name = "tabPageSearch";
             this.tabPageSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSearch.Size = new System.Drawing.Size(217, 429);
+            this.tabPageSearch.Size = new System.Drawing.Size(217, 432);
             this.tabPageSearch.TabIndex = 0;
             this.tabPageSearch.Text = "Търси Адрес";
             // 
@@ -212,12 +214,13 @@ namespace GraduationProject
             this.tabPageAdd.Location = new System.Drawing.Point(4, 24);
             this.tabPageAdd.Name = "tabPageAdd";
             this.tabPageAdd.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAdd.Size = new System.Drawing.Size(217, 429);
+            this.tabPageAdd.Size = new System.Drawing.Size(217, 432);
             this.tabPageAdd.TabIndex = 1;
             this.tabPageAdd.Text = "Нов Адрес";
             // 
             // buttonAddStr
             // 
+            this.buttonAddStr.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.buttonAddStr.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonAddStr.Location = new System.Drawing.Point(3, 388);
             this.buttonAddStr.Name = "buttonAddStr";
@@ -230,7 +233,8 @@ namespace GraduationProject
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 8);
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Location = new System.Drawing.Point(3, 3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 15);
             this.label3.TabIndex = 2;
@@ -238,6 +242,7 @@ namespace GraduationProject
             // 
             // listBoxStreets
             // 
+            this.listBoxStreets.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.listBoxStreets.FormattingEnabled = true;
             this.listBoxStreets.ItemHeight = 15;
             this.listBoxStreets.Location = new System.Drawing.Point(3, 33);
@@ -248,6 +253,7 @@ namespace GraduationProject
             // 
             // textBoxSearchStr
             // 
+            this.textBoxSearchStr.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxSearchStr.Location = new System.Drawing.Point(53, 5);
             this.textBoxSearchStr.Name = "textBoxSearchStr";
             this.textBoxSearchStr.Size = new System.Drawing.Size(161, 23);

@@ -30,8 +30,8 @@ namespace GraduationProject
             ShowStreets();
             comboBoxCriteria.SelectedIndex = 0;
         }
-
-        //АДРЕСИ:
+        //Методи:
+        # region Адреси:
 
         //Запазване на текущия адрес
         private void buttonSave_Click(object sender, EventArgs e)
@@ -196,8 +196,8 @@ namespace GraduationProject
         {
             ShowAddresses();
         }
-
-        //УЛИЦИ:
+        #endregion
+        #region Улици:
 
         //Добаване на улица в базата данни
         private void buttonAddStr_Click(object sender, EventArgs e)
@@ -294,8 +294,8 @@ namespace GraduationProject
             }
             return false;
         }
-
-        //ЖИТЕЛИ/ГОСТИ:
+        #endregion
+        #region Жители/Гости:
 
         //Добавяне на нов жител/гост
         private void buttonAddResident_Click(object sender, EventArgs e)
@@ -418,8 +418,8 @@ namespace GraduationProject
             }
             RefreshDataGrid();
         }
-
-        //КУЧЕТА:
+        #endregion
+        #region Кучета:
 
         //Добаване на куче
         private void buttonAddDog_Click(object sender, EventArgs e)
@@ -479,8 +479,8 @@ namespace GraduationProject
             listBoxDogs.DataSource = null;
             listBoxDogs.DataSource = dogs;
         }
-
-        //ДРУГИ:
+        #endregion
+        #region Други:
 
         //Връща поредния номер на избран радиобутон от няколко подадени кото аргументи.
         public int GetGroupBoxValue(params RadioButton[] radioButtons)
@@ -553,5 +553,6 @@ namespace GraduationProject
                 }
             }
         }
+        #endregion
     }
 }
