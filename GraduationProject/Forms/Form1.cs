@@ -554,5 +554,12 @@ namespace GraduationProject
             }
         }
         #endregion
+
+        private void tabControl_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            Brush brush = new SolidBrush(Color.FromArgb(237, 164, 47));
+            e.Graphics.FillRectangle(brush,e.Bounds);
+            e.DrawFocusRectangle();
+        }
     }
 }
