@@ -22,6 +22,7 @@ namespace GraduationProject
         List<Resident> residents;
         List<Street> streets;
         List<Dog> dogs;
+        Panel selectedTab;
         public Form1()
         {
             InitializeComponent();
@@ -29,6 +30,8 @@ namespace GraduationProject
             listBoxAddresses.DataSource = addresses;
             ShowStreets();
             comboBoxCriteria.SelectedIndex = 0;
+            selectedTab = panelSearch;
+
         }
         //Методи:
         # region Адреси:
@@ -36,13 +39,13 @@ namespace GraduationProject
         //Запазване на текущия адрес
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (!AddressExist(streets[listBoxStreets.SelectedIndex], (int)numericUpDownNumber.Value) || tabControl.SelectedTab == tabPageSearch)
+            if (!AddressExist(streets[listBoxStreets.SelectedIndex], (int)numericUpDownNumber.Value) || selectedTab == panelSearch)
             {
                 int habitabillityValue;
                 if ((habitabillityValue = GetGroupBoxValue(radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry)) != -1)
                 {
                     errorProvider.SetError(groupBoxHabitabillity, "");
-                    if (tabPageAdd == tabControl.SelectedTab)
+                    if (panelAdd == selectedTab)
                     {
                         address = new Address();
                     }
@@ -62,7 +65,7 @@ namespace GraduationProject
                     address.NumFeathered = (int)numericUpDownFeathered.Value;
                     address.NumWalnutTrees = (int)numericUpDownWalnut.Value;
 
-                    if (tabPageAdd == tabControl.SelectedTab)
+                    if (panelAdd == selectedTab)
                     {
                         InsertAddress();
                         ClearInfo();
@@ -304,7 +307,7 @@ namespace GraduationProject
             personsForm.ShowDialog();
             if (personsForm.Canceled) return;
             //В режим "нов адрес"
-            if (tabControl.SelectedTab == tabPageAdd)
+            if (selectedTab == panelAdd)
             {
                 if (personsForm.isResident)
                 {
@@ -343,7 +346,7 @@ namespace GraduationProject
             if (dataGridView.RowCount == 0) return;
             int currentIndex = dataGridView.CurrentCell.RowIndex;
             //в режим "нов адрес"
-            if (tabControl.SelectedTab == tabPageAdd)
+            if (selectedTab == panelAdd)
             {
                 if (currentIndex < residents.Count)
                 {
@@ -406,14 +409,14 @@ namespace GraduationProject
             {
                 personsForm = new Forms.PersonsForm(residents[currentRowIndex]);
                 personsForm.ShowDialog();
-                if (!personsForm.Canceled && tabControl.SelectedTab == tabPageSearch)
+                if (!personsForm.Canceled && selectedTab == panelSearch)
                     residents[currentRowIndex].Update(connectionHelper);
             }
             else
             {
                 personsForm = new Forms.PersonsForm(guests[currentRowIndex - residents.Count]);
                 personsForm.ShowDialog();
-                if (!personsForm.Canceled && tabControl.SelectedTab == tabPageSearch)
+                if (!personsForm.Canceled && selectedTab == panelSearch)
                     guests[currentRowIndex - residents.Count].Update(connectionHelper);
             }
             RefreshDataGrid();
@@ -438,7 +441,7 @@ namespace GraduationProject
             }
             Dog newDog = new Dog() { SealNumber = sealNum };
             //В режим "нов адрес"
-            if (tabControl.SelectedTab == tabPageAdd)
+            if (selectedTab == panelAdd)
             {
                 dogs.Add(newDog);
             }
@@ -457,7 +460,7 @@ namespace GraduationProject
         {
             int selectedIndex = listBoxDogs.SelectedIndex;
             //В режим "нов адрес"
-            if (tabControl.SelectedTab == tabPageAdd)
+            if (selectedTab == panelAdd)
             {
                 if (dogs.Count > 0)
                 {
@@ -506,7 +509,7 @@ namespace GraduationProject
         //Променен е избрания таб
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabPageAdd == tabControl.SelectedTab)
+            if (panelAdd == selectedTab)
             {
                 //Таб "Нов адрес"
                 ClearInfo();
@@ -553,13 +556,20 @@ namespace GraduationProject
                 }
             }
         }
+
         #endregion
 
-        private void tabControl_DrawItem(object sender, DrawItemEventArgs e)
+        private void buttonSearch_Click(object sender, EventArgs e)
         {
-            Brush brush = new SolidBrush(Color.FromArgb(237, 164, 47));
-            e.Graphics.FillRectangle(brush,e.Bounds);
-            e.DrawFocusRectangle();
+            panelSearch.BringToFront();
+            selectedTab = panelSearch;
+            
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            panelAdd.BringToFront();
+            selectedTab = panelAdd;
         }
     }
 }

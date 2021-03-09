@@ -30,24 +30,20 @@ namespace GraduationProject
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.Settings = new System.Windows.Forms.ToolStripMenuItem();
             this.listBoxAddresses = new System.Windows.Forms.ListBox();
             this.textBoxSearchAddr = new System.Windows.Forms.TextBox();
             this.comboBoxCriteria = new System.Windows.Forms.ComboBox();
-            this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabPageSearch = new System.Windows.Forms.TabPage();
             this.buttonSearchAddress = new System.Windows.Forms.Button();
             this.labelCriteria = new System.Windows.Forms.Label();
-            this.tabPageAdd = new System.Windows.Forms.TabPage();
-            this.buttonAddStr = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.listBoxStreets = new System.Windows.Forms.ListBox();
             this.textBoxSearchStr = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelAddressInfo = new System.Windows.Forms.Panel();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.labelInhabitants = new System.Windows.Forms.Label();
             this.buttonEditPerson = new System.Windows.Forms.Button();
@@ -93,11 +89,12 @@ namespace GraduationProject
             this.contextMenuStripStreets = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemRemoveStr = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemRenameStr = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelSearch = new System.Windows.Forms.Panel();
+            this.panelAdd = new System.Windows.Forms.Panel();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
-            this.tabControl.SuspendLayout();
-            this.tabPageSearch.SuspendLayout();
-            this.tabPageAdd.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panelAddressInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -116,6 +113,8 @@ namespace GraduationProject
             this.groupBoxHabitabillity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSquaring)).BeginInit();
             this.contextMenuStripStreets.SuspendLayout();
+            this.panelSearch.SuspendLayout();
+            this.panelAdd.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -139,17 +138,17 @@ namespace GraduationProject
             this.listBoxAddresses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.listBoxAddresses.FormattingEnabled = true;
             this.listBoxAddresses.ItemHeight = 15;
-            this.listBoxAddresses.Location = new System.Drawing.Point(3, 62);
+            this.listBoxAddresses.Location = new System.Drawing.Point(3, 80);
             this.listBoxAddresses.Name = "listBoxAddresses";
-            this.listBoxAddresses.Size = new System.Drawing.Size(209, 349);
+            this.listBoxAddresses.Size = new System.Drawing.Size(210, 334);
             this.listBoxAddresses.TabIndex = 3;
             this.listBoxAddresses.SelectedIndexChanged += new System.EventHandler(this.listBoxAddresses_SelectedIndexChanged);
             // 
             // textBoxSearchAddr
             // 
-            this.textBoxSearchAddr.Location = new System.Drawing.Point(3, 34);
+            this.textBoxSearchAddr.Location = new System.Drawing.Point(3, 41);
             this.textBoxSearchAddr.Name = "textBoxSearchAddr";
-            this.textBoxSearchAddr.Size = new System.Drawing.Size(137, 23);
+            this.textBoxSearchAddr.Size = new System.Drawing.Size(136, 23);
             this.textBoxSearchAddr.TabIndex = 1;
             // 
             // comboBoxCriteria
@@ -159,45 +158,16 @@ namespace GraduationProject
             this.comboBoxCriteria.Items.AddRange(new object[] {
             "Улица",
             "Жител/Гост"});
-            this.comboBoxCriteria.Location = new System.Drawing.Point(74, 5);
+            this.comboBoxCriteria.Location = new System.Drawing.Point(73, 12);
             this.comboBoxCriteria.Name = "comboBoxCriteria";
-            this.comboBoxCriteria.Size = new System.Drawing.Size(138, 23);
+            this.comboBoxCriteria.Size = new System.Drawing.Size(140, 23);
             this.comboBoxCriteria.TabIndex = 2;
-            // 
-            // tabControl
-            // 
-            this.tabControl.Controls.Add(this.tabPageSearch);
-            this.tabControl.Controls.Add(this.tabPageAdd);
-            this.tabControl.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tabControl.Location = new System.Drawing.Point(0, 24);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(225, 451);
-            this.tabControl.TabIndex = 7;
-            this.tabControl.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl_DrawItem);
-            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
-            // 
-            // tabPageSearch
-            // 
-            this.tabPageSearch.AutoScroll = true;
-            this.tabPageSearch.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPageSearch.Controls.Add(this.buttonSearchAddress);
-            this.tabPageSearch.Controls.Add(this.labelCriteria);
-            this.tabPageSearch.Controls.Add(this.listBoxAddresses);
-            this.tabPageSearch.Controls.Add(this.textBoxSearchAddr);
-            this.tabPageSearch.Controls.Add(this.comboBoxCriteria);
-            this.tabPageSearch.Location = new System.Drawing.Point(4, 24);
-            this.tabPageSearch.Name = "tabPageSearch";
-            this.tabPageSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSearch.Size = new System.Drawing.Size(217, 423);
-            this.tabPageSearch.TabIndex = 0;
-            this.tabPageSearch.Text = "Търси Адрес";
             // 
             // buttonSearchAddress
             // 
-            this.buttonSearchAddress.Location = new System.Drawing.Point(144, 33);
+            this.buttonSearchAddress.Location = new System.Drawing.Point(143, 40);
             this.buttonSearchAddress.Name = "buttonSearchAddress";
-            this.buttonSearchAddress.Size = new System.Drawing.Size(68, 24);
+            this.buttonSearchAddress.Size = new System.Drawing.Size(70, 24);
             this.buttonSearchAddress.TabIndex = 8;
             this.buttonSearchAddress.Text = "Търсене";
             this.buttonSearchAddress.UseVisualStyleBackColor = true;
@@ -206,43 +176,17 @@ namespace GraduationProject
             // labelCriteria
             // 
             this.labelCriteria.AutoSize = true;
-            this.labelCriteria.Location = new System.Drawing.Point(4, 8);
+            this.labelCriteria.Location = new System.Drawing.Point(3, 15);
             this.labelCriteria.Name = "labelCriteria";
             this.labelCriteria.Size = new System.Drawing.Size(63, 15);
             this.labelCriteria.TabIndex = 7;
             this.labelCriteria.Text = "Критерий:";
             // 
-            // tabPageAdd
-            // 
-            this.tabPageAdd.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPageAdd.Controls.Add(this.buttonAddStr);
-            this.tabPageAdd.Controls.Add(this.label3);
-            this.tabPageAdd.Controls.Add(this.listBoxStreets);
-            this.tabPageAdd.Controls.Add(this.textBoxSearchStr);
-            this.tabPageAdd.Location = new System.Drawing.Point(4, 24);
-            this.tabPageAdd.Name = "tabPageAdd";
-            this.tabPageAdd.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAdd.Size = new System.Drawing.Size(217, 423);
-            this.tabPageAdd.TabIndex = 1;
-            this.tabPageAdd.Text = "Нов Адрес";
-            // 
-            // buttonAddStr
-            // 
-            this.buttonAddStr.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonAddStr.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonAddStr.Location = new System.Drawing.Point(3, 425);
-            this.buttonAddStr.Name = "buttonAddStr";
-            this.buttonAddStr.Size = new System.Drawing.Size(211, 32);
-            this.buttonAddStr.TabIndex = 3;
-            this.buttonAddStr.Text = "Добави улица";
-            this.buttonAddStr.UseVisualStyleBackColor = true;
-            this.buttonAddStr.Click += new System.EventHandler(this.buttonAddStr_Click);
-            // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Location = new System.Drawing.Point(3, 3);
+            this.label3.Location = new System.Drawing.Point(3, 10);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.label3.Size = new System.Drawing.Size(44, 25);
@@ -254,55 +198,57 @@ namespace GraduationProject
             this.listBoxStreets.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.listBoxStreets.FormattingEnabled = true;
             this.listBoxStreets.ItemHeight = 15;
-            this.listBoxStreets.Location = new System.Drawing.Point(3, 33);
+            this.listBoxStreets.Location = new System.Drawing.Point(3, 50);
             this.listBoxStreets.Name = "listBoxStreets";
-            this.listBoxStreets.Size = new System.Drawing.Size(211, 379);
+            this.listBoxStreets.Size = new System.Drawing.Size(210, 364);
             this.listBoxStreets.TabIndex = 1;
             this.listBoxStreets.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxStreets_MouseDown);
             // 
             // textBoxSearchStr
             // 
             this.textBoxSearchStr.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBoxSearchStr.Location = new System.Drawing.Point(53, 5);
+            this.textBoxSearchStr.Location = new System.Drawing.Point(53, 11);
             this.textBoxSearchStr.Name = "textBoxSearchStr";
-            this.textBoxSearchStr.Size = new System.Drawing.Size(161, 23);
+            this.textBoxSearchStr.Size = new System.Drawing.Size(160, 23);
             this.textBoxSearchStr.TabIndex = 0;
             this.textBoxSearchStr.TextChanged += new System.EventHandler(this.textBoxSearchStr_TextChanged);
             // 
-            // panel1
+            // panelAddressInfo
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(156)))), ((int)(((byte)(224)))));
-            this.panel1.Controls.Add(this.splitContainer);
-            this.panel1.Controls.Add(this.buttonDeleteAddr);
-            this.panel1.Controls.Add(this.buttonSave);
-            this.panel1.Controls.Add(this.numericUpDownNumber);
-            this.panel1.Controls.Add(this.labelNumber);
-            this.panel1.Controls.Add(this.labelWalnut);
-            this.panel1.Controls.Add(this.numericUpDownWalnut);
-            this.panel1.Controls.Add(this.labelFeathered);
-            this.panel1.Controls.Add(this.numericUpDownFeathered);
-            this.panel1.Controls.Add(this.labelDonkeys);
-            this.panel1.Controls.Add(this.numericUpDownDonkeys);
-            this.panel1.Controls.Add(this.labelSheep);
-            this.panel1.Controls.Add(this.numericUpDownSheep);
-            this.panel1.Controls.Add(this.labelHorses);
-            this.panel1.Controls.Add(this.numericUpDownHorses);
-            this.panel1.Controls.Add(this.labelGoats);
-            this.panel1.Controls.Add(this.numericUpDownGoats);
-            this.panel1.Controls.Add(this.labelCows);
-            this.panel1.Controls.Add(this.numericUpDownCows);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.numericUpDownAgrBuildings);
-            this.panel1.Controls.Add(this.labelResBuildings);
-            this.panel1.Controls.Add(this.numericUpDownResBuildings);
-            this.panel1.Controls.Add(this.groupBoxHabitabillity);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.numericUpDownSquaring);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(225, 24);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(705, 451);
-            this.panel1.TabIndex = 8;
+            this.panelAddressInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelAddressInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(156)))), ((int)(((byte)(224)))));
+            this.panelAddressInfo.Controls.Add(this.splitContainer);
+            this.panelAddressInfo.Controls.Add(this.buttonDeleteAddr);
+            this.panelAddressInfo.Controls.Add(this.buttonSave);
+            this.panelAddressInfo.Controls.Add(this.numericUpDownNumber);
+            this.panelAddressInfo.Controls.Add(this.labelNumber);
+            this.panelAddressInfo.Controls.Add(this.labelWalnut);
+            this.panelAddressInfo.Controls.Add(this.numericUpDownWalnut);
+            this.panelAddressInfo.Controls.Add(this.labelFeathered);
+            this.panelAddressInfo.Controls.Add(this.numericUpDownFeathered);
+            this.panelAddressInfo.Controls.Add(this.labelDonkeys);
+            this.panelAddressInfo.Controls.Add(this.numericUpDownDonkeys);
+            this.panelAddressInfo.Controls.Add(this.labelSheep);
+            this.panelAddressInfo.Controls.Add(this.numericUpDownSheep);
+            this.panelAddressInfo.Controls.Add(this.labelHorses);
+            this.panelAddressInfo.Controls.Add(this.numericUpDownHorses);
+            this.panelAddressInfo.Controls.Add(this.labelGoats);
+            this.panelAddressInfo.Controls.Add(this.numericUpDownGoats);
+            this.panelAddressInfo.Controls.Add(this.labelCows);
+            this.panelAddressInfo.Controls.Add(this.numericUpDownCows);
+            this.panelAddressInfo.Controls.Add(this.label2);
+            this.panelAddressInfo.Controls.Add(this.numericUpDownAgrBuildings);
+            this.panelAddressInfo.Controls.Add(this.labelResBuildings);
+            this.panelAddressInfo.Controls.Add(this.numericUpDownResBuildings);
+            this.panelAddressInfo.Controls.Add(this.groupBoxHabitabillity);
+            this.panelAddressInfo.Controls.Add(this.label1);
+            this.panelAddressInfo.Controls.Add(this.numericUpDownSquaring);
+            this.panelAddressInfo.Location = new System.Drawing.Point(225, 24);
+            this.panelAddressInfo.Name = "panelAddressInfo";
+            this.panelAddressInfo.Size = new System.Drawing.Size(705, 451);
+            this.panelAddressInfo.TabIndex = 8;
             // 
             // splitContainer
             // 
@@ -378,14 +324,14 @@ namespace GraduationProject
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.firstName,
@@ -404,8 +350,8 @@ namespace GraduationProject
             // 
             // firstName
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.firstName.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.firstName.DefaultCellStyle = dataGridViewCellStyle5;
             this.firstName.HeaderText = "Име";
             this.firstName.Name = "firstName";
             this.firstName.ReadOnly = true;
@@ -427,10 +373,10 @@ namespace GraduationProject
             // 
             // Guest
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = false;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Guest.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.NullValue = false;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Guest.DefaultCellStyle = dataGridViewCellStyle6;
             this.Guest.HeaderText = "Гост в карантина";
             this.Guest.Name = "Guest";
             this.Guest.ReadOnly = true;
@@ -782,14 +728,65 @@ namespace GraduationProject
             this.toolStripMenuItemRenameStr.Text = "Преименуване";
             this.toolStripMenuItemRenameStr.Click += new System.EventHandler(this.toolStripMenuItemRenameStr_click);
             // 
+            // panelSearch
+            // 
+            this.panelSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelSearch.Controls.Add(this.buttonSearchAddress);
+            this.panelSearch.Controls.Add(this.labelCriteria);
+            this.panelSearch.Controls.Add(this.comboBoxCriteria);
+            this.panelSearch.Controls.Add(this.textBoxSearchAddr);
+            this.panelSearch.Controls.Add(this.listBoxAddresses);
+            this.panelSearch.Location = new System.Drawing.Point(2, 50);
+            this.panelSearch.Name = "panelSearch";
+            this.panelSearch.Size = new System.Drawing.Size(217, 423);
+            this.panelSearch.TabIndex = 9;
+            // 
+            // panelAdd
+            // 
+            this.panelAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelAdd.Controls.Add(this.textBoxSearchStr);
+            this.panelAdd.Controls.Add(this.label3);
+            this.panelAdd.Controls.Add(this.listBoxStreets);
+            this.panelAdd.Location = new System.Drawing.Point(2, 50);
+            this.panelAdd.Name = "panelAdd";
+            this.panelAdd.Size = new System.Drawing.Size(217, 423);
+            this.panelAdd.TabIndex = 9;
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSearch.Location = new System.Drawing.Point(2, 24);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(121, 23);
+            this.buttonSearch.TabIndex = 3;
+            this.buttonSearch.Text = "Търсене на адреси";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.Location = new System.Drawing.Point(120, 24);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(99, 23);
+            this.buttonAdd.TabIndex = 10;
+            this.buttonAdd.Text = "Нов адрес";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(930, 475);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.tabControl);
+            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.panelAddressInfo);
             this.Controls.Add(this.menuStrip);
+            this.Controls.Add(this.panelSearch);
+            this.Controls.Add(this.panelAdd);
             this.MainMenuStrip = this.menuStrip;
             this.MinimumSize = new System.Drawing.Size(946, 514);
             this.Name = "Form1";
@@ -797,13 +794,8 @@ namespace GraduationProject
             this.Text = "Form1";
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            this.tabControl.ResumeLayout(false);
-            this.tabPageSearch.ResumeLayout(false);
-            this.tabPageSearch.PerformLayout();
-            this.tabPageAdd.ResumeLayout(false);
-            this.tabPageAdd.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelAddressInfo.ResumeLayout(false);
+            this.panelAddressInfo.PerformLayout();
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel1.PerformLayout();
             this.splitContainer.Panel2.ResumeLayout(false);
@@ -825,6 +817,10 @@ namespace GraduationProject
             this.groupBoxHabitabillity.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSquaring)).EndInit();
             this.contextMenuStripStreets.ResumeLayout(false);
+            this.panelSearch.ResumeLayout(false);
+            this.panelSearch.PerformLayout();
+            this.panelAdd.ResumeLayout(false);
+            this.panelAdd.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -837,12 +833,9 @@ namespace GraduationProject
         private System.Windows.Forms.TextBox textBoxSearchAddr;
         private System.Windows.Forms.ComboBox comboBoxCriteria;
         private System.Windows.Forms.Label labelCriteria;
-        private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage tabPageSearch;
-        private System.Windows.Forms.TabPage tabPageAdd;
         private System.Windows.Forms.ListBox listBoxStreets;
         private System.Windows.Forms.TextBox textBoxSearchStr;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelAddressInfo;
         private System.Windows.Forms.NumericUpDown numericUpDownSquaring;
         private System.Windows.Forms.Label labelCows;
         private System.Windows.Forms.NumericUpDown numericUpDownCows;
@@ -878,7 +871,6 @@ namespace GraduationProject
         private System.Windows.Forms.Button buttonAddDog;
         private System.Windows.Forms.Button buttonAddPerson;
         private System.Windows.Forms.Label labelCriteri;
-        private System.Windows.Forms.Button buttonAddStr;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonRemovePerson;
         private System.Windows.Forms.Button buttonSearchAddress;
@@ -895,6 +887,10 @@ namespace GraduationProject
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRemoveStr;
         private System.Windows.Forms.SplitContainer splitContainer;
+        private System.Windows.Forms.Panel panelSearch;
+        private System.Windows.Forms.Panel panelAdd;
+        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.Button buttonAdd;
     }
 }
 

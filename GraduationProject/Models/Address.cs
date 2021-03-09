@@ -96,7 +96,7 @@ namespace GraduationProject.Models
         //GET
         public List<Address> Get(ConnectionHelper connectionHelper, Street street)
         {
-            string query = $"{selectClause} FROM Addresses WHERE streetId = @strId";
+            string query = $"{selectClause} FROM Addresses WHERE streetId = @strId ORDER BY number";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@strId", street.Id);
@@ -106,13 +106,13 @@ namespace GraduationProject.Models
 
         public List<Address> Get(ConnectionHelper connectionHelper,string personName)
         {
-            string query = @$"{selectClause} FROM Addresses, GuestsInQuarantine
+            string query = @$"({selectClause} FROM Addresses, GuestsInQuarantine
                 WHERE Addresses.id = GuestsInQuarantine.addressId AND
                 (GuestsInQuarantine.firstname LIKE @persName + '%' OR GuestsInQuarantine.middlename LIKE @persName + '%' OR GuestsInQuarantine.lastname LIKE @persName + '%' )
                 UNION
                {selectClause} FROM Addresses, Residents
                 WHERE Addresses.id = Residents.addressId AND
-                (Residents.firstname LIKE @persName + '%' OR Residents.middlename LIKE @persName + '%' OR Residents.lastname LIKE @persName + '%' )";
+                (Residents.firstname LIKE @persName + '%' OR Residents.middlename LIKE @persName + '%' OR Residents.lastname LIKE @persName + '%' )) ORDER BY streetId, number";
 
             connectionHelper.NewConnection(query);
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@persName", personName);
@@ -124,7 +124,7 @@ namespace GraduationProject.Models
 
         public List<Address> Get(ConnectionHelper connectionHelper)
         {
-            string query = $"{selectClause} FROM Addresses";
+            string query = $"{selectClause} FROM Addresses,Streets ORDER BY streetId, number";
                
             connectionHelper.NewConnection(query);
 
