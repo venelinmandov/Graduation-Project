@@ -27,7 +27,7 @@ namespace GraduationProject
         {
             InitializeComponent();
             addresses = new Address().Get(connectionHelper);
-            listBoxAddresses.DataSource = addresses;
+            listBoxAddresses.AddList(addresses.Cast<object>().ToList());
             ShowStreets();
             comboBoxCriteria.SelectedIndex = 0;
             selectedTab = panelSearch;
@@ -131,7 +131,7 @@ namespace GraduationProject
             if (textBoxSearchAddr.Text == "")
             {
                 addresses = new Address().Get(connectionHelper);
-                listBoxAddresses.DataSource = addresses;
+                listBoxAddresses.AddList(addresses.Cast<object>().ToList());
                 return;
             }
             addresses = new List<Address>();
@@ -147,7 +147,7 @@ namespace GraduationProject
             {
                 addresses = new Address().Get(connectionHelper, textBoxSearchAddr.Text);
             }
-            listBoxAddresses.DataSource = addresses;
+            listBoxAddresses.AddList(addresses.Cast<object>().ToList());
         }
 
         //Показване на информацията за текущо избрания адрес
@@ -479,6 +479,7 @@ namespace GraduationProject
         //Опресняване на списъка с кучета
         void RefreshDogsList()
         {
+            textBoxDogs.Text = dogs.Count.ToString();
             listBoxDogs.DataSource = null;
             listBoxDogs.DataSource = dogs;
         }
@@ -570,6 +571,19 @@ namespace GraduationProject
         {
             panelAdd.BringToFront();
             selectedTab = panelAdd;
+        }
+
+        private void listBoxUserControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (addresses.Count == 0) return;
+            address = addresses[listBoxAddresses.SelectedIndex];
+            ShowSelectedAddress();
+        }
+
+        private void textBoxDogs_Click(object sender, EventArgs e)
+        {
+            Forms.DogsForm dogsForm = new Forms.DogsForm(dogs);
+            dogsForm.ShowDialog();
         }
     }
 }

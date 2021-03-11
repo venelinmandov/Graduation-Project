@@ -30,12 +30,11 @@ namespace GraduationProject
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.Settings = new System.Windows.Forms.ToolStripMenuItem();
-            this.listBoxAddresses = new System.Windows.Forms.ListBox();
             this.textBoxSearchAddr = new System.Windows.Forms.TextBox();
             this.comboBoxCriteria = new System.Windows.Forms.ComboBox();
             this.buttonSearchAddress = new System.Windows.Forms.Button();
@@ -44,6 +43,8 @@ namespace GraduationProject
             this.listBoxStreets = new System.Windows.Forms.ListBox();
             this.textBoxSearchStr = new System.Windows.Forms.TextBox();
             this.panelAddressInfo = new System.Windows.Forms.Panel();
+            this.textBoxDogs = new System.Windows.Forms.TextBox();
+            this.labelDogs = new System.Windows.Forms.Label();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.labelInhabitants = new System.Windows.Forms.Label();
             this.buttonEditPerson = new System.Windows.Forms.Button();
@@ -55,7 +56,7 @@ namespace GraduationProject
             this.Guest = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.buttonRemovePerson = new System.Windows.Forms.Button();
             this.listBoxDogs = new System.Windows.Forms.ListBox();
-            this.labelDogs = new System.Windows.Forms.Label();
+            this.labelDogst = new System.Windows.Forms.Label();
             this.buttonAddDog = new System.Windows.Forms.Button();
             this.buttonRemoveDog = new System.Windows.Forms.Button();
             this.buttonDeleteAddr = new System.Windows.Forms.Button();
@@ -86,6 +87,7 @@ namespace GraduationProject
             this.radioButtonDesolate = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDownSquaring = new System.Windows.Forms.NumericUpDown();
+            this.listBoxAddresses = new GraduationProject.Controls.ListBoxUserControl();
             this.contextMenuStripStreets = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemRemoveStr = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemRenameStr = new System.Windows.Forms.ToolStripMenuItem();
@@ -132,17 +134,6 @@ namespace GraduationProject
             this.Settings.Name = "Settings";
             this.Settings.Size = new System.Drawing.Size(79, 20);
             this.Settings.Text = "Настройки";
-            // 
-            // listBoxAddresses
-            // 
-            this.listBoxAddresses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.listBoxAddresses.FormattingEnabled = true;
-            this.listBoxAddresses.ItemHeight = 15;
-            this.listBoxAddresses.Location = new System.Drawing.Point(3, 80);
-            this.listBoxAddresses.Name = "listBoxAddresses";
-            this.listBoxAddresses.Size = new System.Drawing.Size(210, 334);
-            this.listBoxAddresses.TabIndex = 3;
-            this.listBoxAddresses.SelectedIndexChanged += new System.EventHandler(this.listBoxAddresses_SelectedIndexChanged);
             // 
             // textBoxSearchAddr
             // 
@@ -219,6 +210,8 @@ namespace GraduationProject
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelAddressInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(156)))), ((int)(((byte)(224)))));
+            this.panelAddressInfo.Controls.Add(this.textBoxDogs);
+            this.panelAddressInfo.Controls.Add(this.labelDogs);
             this.panelAddressInfo.Controls.Add(this.splitContainer);
             this.panelAddressInfo.Controls.Add(this.buttonDeleteAddr);
             this.panelAddressInfo.Controls.Add(this.buttonSave);
@@ -250,13 +243,33 @@ namespace GraduationProject
             this.panelAddressInfo.Size = new System.Drawing.Size(705, 451);
             this.panelAddressInfo.TabIndex = 8;
             // 
+            // textBoxDogs
+            // 
+            this.textBoxDogs.Location = new System.Drawing.Point(63, 365);
+            this.textBoxDogs.Name = "textBoxDogs";
+            this.textBoxDogs.ReadOnly = true;
+            this.textBoxDogs.Size = new System.Drawing.Size(38, 23);
+            this.textBoxDogs.TabIndex = 38;
+            this.textBoxDogs.Text = "0";
+            this.textBoxDogs.Click += new System.EventHandler(this.textBoxDogs_Click);
+            // 
+            // labelDogs
+            // 
+            this.labelDogs.AutoSize = true;
+            this.labelDogs.ForeColor = System.Drawing.Color.White;
+            this.labelDogs.Location = new System.Drawing.Point(17, 368);
+            this.labelDogs.Name = "labelDogs";
+            this.labelDogs.Size = new System.Drawing.Size(47, 15);
+            this.labelDogs.TabIndex = 37;
+            this.labelDogs.Text = "Кучета:";
+            // 
             // splitContainer
             // 
             this.splitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer.IsSplitterFixed = true;
-            this.splitContainer.Location = new System.Drawing.Point(254, 0);
+            this.splitContainer.Location = new System.Drawing.Point(285, 0);
             this.splitContainer.Name = "splitContainer";
             this.splitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -272,12 +285,12 @@ namespace GraduationProject
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.listBoxDogs);
-            this.splitContainer.Panel2.Controls.Add(this.labelDogs);
+            this.splitContainer.Panel2.Controls.Add(this.labelDogst);
             this.splitContainer.Panel2.Controls.Add(this.buttonAddDog);
             this.splitContainer.Panel2.Controls.Add(this.buttonRemoveDog);
             this.splitContainer.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.splitContainer.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainer.Size = new System.Drawing.Size(451, 451);
+            this.splitContainer.Size = new System.Drawing.Size(420, 451);
             this.splitContainer.SplitterDistance = 239;
             this.splitContainer.TabIndex = 36;
             // 
@@ -324,14 +337,14 @@ namespace GraduationProject
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.firstName,
@@ -345,13 +358,13 @@ namespace GraduationProject
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowTemplate.Height = 25;
-            this.dataGridView.Size = new System.Drawing.Size(409, 149);
+            this.dataGridView.Size = new System.Drawing.Size(378, 149);
             this.dataGridView.TabIndex = 28;
             // 
             // firstName
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.firstName.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.firstName.DefaultCellStyle = dataGridViewCellStyle2;
             this.firstName.HeaderText = "Име";
             this.firstName.Name = "firstName";
             this.firstName.ReadOnly = true;
@@ -373,10 +386,10 @@ namespace GraduationProject
             // 
             // Guest
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.NullValue = false;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Guest.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = false;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Guest.DefaultCellStyle = dataGridViewCellStyle3;
             this.Guest.HeaderText = "Гост в карантина";
             this.Guest.Name = "Guest";
             this.Guest.ReadOnly = true;
@@ -401,19 +414,19 @@ namespace GraduationProject
             this.listBoxDogs.ItemHeight = 15;
             this.listBoxDogs.Location = new System.Drawing.Point(35, 43);
             this.listBoxDogs.Name = "listBoxDogs";
-            this.listBoxDogs.Size = new System.Drawing.Size(404, 109);
+            this.listBoxDogs.Size = new System.Drawing.Size(373, 109);
             this.listBoxDogs.TabIndex = 27;
             // 
-            // labelDogs
+            // labelDogst
             // 
-            this.labelDogs.AutoSize = true;
-            this.labelDogs.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelDogs.ForeColor = System.Drawing.Color.White;
-            this.labelDogs.Location = new System.Drawing.Point(35, 10);
-            this.labelDogs.Name = "labelDogs";
-            this.labelDogs.Size = new System.Drawing.Size(72, 26);
-            this.labelDogs.TabIndex = 24;
-            this.labelDogs.Text = "Кучета";
+            this.labelDogst.AutoSize = true;
+            this.labelDogst.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelDogst.ForeColor = System.Drawing.Color.White;
+            this.labelDogst.Location = new System.Drawing.Point(35, 10);
+            this.labelDogst.Name = "labelDogst";
+            this.labelDogst.Size = new System.Drawing.Size(72, 26);
+            this.labelDogst.TabIndex = 24;
+            this.labelDogst.Text = "Кучета";
             // 
             // buttonAddDog
             // 
@@ -485,7 +498,7 @@ namespace GraduationProject
             // 
             this.labelWalnut.AutoSize = true;
             this.labelWalnut.ForeColor = System.Drawing.Color.White;
-            this.labelWalnut.Location = new System.Drawing.Point(96, 365);
+            this.labelWalnut.Location = new System.Drawing.Point(108, 365);
             this.labelWalnut.Name = "labelWalnut";
             this.labelWalnut.Size = new System.Drawing.Size(104, 15);
             this.labelWalnut.TabIndex = 20;
@@ -493,7 +506,7 @@ namespace GraduationProject
             // 
             // numericUpDownWalnut
             // 
-            this.numericUpDownWalnut.Location = new System.Drawing.Point(210, 363);
+            this.numericUpDownWalnut.Location = new System.Drawing.Point(222, 363);
             this.numericUpDownWalnut.Name = "numericUpDownWalnut";
             this.numericUpDownWalnut.Size = new System.Drawing.Size(38, 23);
             this.numericUpDownWalnut.TabIndex = 19;
@@ -502,7 +515,7 @@ namespace GraduationProject
             // 
             this.labelFeathered.AutoSize = true;
             this.labelFeathered.ForeColor = System.Drawing.Color.White;
-            this.labelFeathered.Location = new System.Drawing.Point(143, 255);
+            this.labelFeathered.Location = new System.Drawing.Point(155, 255);
             this.labelFeathered.Name = "labelFeathered";
             this.labelFeathered.Size = new System.Drawing.Size(57, 15);
             this.labelFeathered.TabIndex = 18;
@@ -510,7 +523,7 @@ namespace GraduationProject
             // 
             // numericUpDownFeathered
             // 
-            this.numericUpDownFeathered.Location = new System.Drawing.Point(210, 253);
+            this.numericUpDownFeathered.Location = new System.Drawing.Point(222, 253);
             this.numericUpDownFeathered.Name = "numericUpDownFeathered";
             this.numericUpDownFeathered.Size = new System.Drawing.Size(38, 23);
             this.numericUpDownFeathered.TabIndex = 17;
@@ -519,7 +532,7 @@ namespace GraduationProject
             // 
             this.labelDonkeys.AutoSize = true;
             this.labelDonkeys.ForeColor = System.Drawing.Color.White;
-            this.labelDonkeys.Location = new System.Drawing.Point(143, 329);
+            this.labelDonkeys.Location = new System.Drawing.Point(155, 329);
             this.labelDonkeys.Name = "labelDonkeys";
             this.labelDonkeys.Size = new System.Drawing.Size(62, 15);
             this.labelDonkeys.TabIndex = 16;
@@ -527,7 +540,7 @@ namespace GraduationProject
             // 
             // numericUpDownDonkeys
             // 
-            this.numericUpDownDonkeys.Location = new System.Drawing.Point(210, 325);
+            this.numericUpDownDonkeys.Location = new System.Drawing.Point(222, 325);
             this.numericUpDownDonkeys.Name = "numericUpDownDonkeys";
             this.numericUpDownDonkeys.Size = new System.Drawing.Size(38, 23);
             this.numericUpDownDonkeys.TabIndex = 15;
@@ -536,7 +549,7 @@ namespace GraduationProject
             // 
             this.labelSheep.AutoSize = true;
             this.labelSheep.ForeColor = System.Drawing.Color.White;
-            this.labelSheep.Location = new System.Drawing.Point(143, 289);
+            this.labelSheep.Location = new System.Drawing.Point(174, 289);
             this.labelSheep.Name = "labelSheep";
             this.labelSheep.Size = new System.Drawing.Size(38, 15);
             this.labelSheep.TabIndex = 14;
@@ -544,7 +557,7 @@ namespace GraduationProject
             // 
             // numericUpDownSheep
             // 
-            this.numericUpDownSheep.Location = new System.Drawing.Point(210, 289);
+            this.numericUpDownSheep.Location = new System.Drawing.Point(222, 289);
             this.numericUpDownSheep.Name = "numericUpDownSheep";
             this.numericUpDownSheep.Size = new System.Drawing.Size(38, 23);
             this.numericUpDownSheep.TabIndex = 13;
@@ -553,7 +566,7 @@ namespace GraduationProject
             // 
             this.labelHorses.AutoSize = true;
             this.labelHorses.ForeColor = System.Drawing.Color.White;
-            this.labelHorses.Location = new System.Drawing.Point(17, 325);
+            this.labelHorses.Location = new System.Drawing.Point(17, 333);
             this.labelHorses.Name = "labelHorses";
             this.labelHorses.Size = new System.Drawing.Size(37, 15);
             this.labelHorses.TabIndex = 12;
@@ -612,7 +625,7 @@ namespace GraduationProject
             // 
             // numericUpDownAgrBuildings
             // 
-            this.numericUpDownAgrBuildings.Location = new System.Drawing.Point(210, 221);
+            this.numericUpDownAgrBuildings.Location = new System.Drawing.Point(222, 221);
             this.numericUpDownAgrBuildings.Name = "numericUpDownAgrBuildings";
             this.numericUpDownAgrBuildings.Size = new System.Drawing.Size(38, 23);
             this.numericUpDownAgrBuildings.TabIndex = 5;
@@ -629,7 +642,7 @@ namespace GraduationProject
             // 
             // numericUpDownResBuildings
             // 
-            this.numericUpDownResBuildings.Location = new System.Drawing.Point(210, 192);
+            this.numericUpDownResBuildings.Location = new System.Drawing.Point(222, 192);
             this.numericUpDownResBuildings.Name = "numericUpDownResBuildings";
             this.numericUpDownResBuildings.Size = new System.Drawing.Size(38, 23);
             this.numericUpDownResBuildings.TabIndex = 3;
@@ -642,7 +655,7 @@ namespace GraduationProject
             this.groupBoxHabitabillity.ForeColor = System.Drawing.Color.White;
             this.groupBoxHabitabillity.Location = new System.Drawing.Point(82, 14);
             this.groupBoxHabitabillity.Name = "groupBoxHabitabillity";
-            this.groupBoxHabitabillity.Size = new System.Drawing.Size(166, 110);
+            this.groupBoxHabitabillity.Size = new System.Drawing.Size(178, 110);
             this.groupBoxHabitabillity.TabIndex = 2;
             this.groupBoxHabitabillity.TabStop = false;
             this.groupBoxHabitabillity.Text = "Обитаемост";
@@ -696,7 +709,7 @@ namespace GraduationProject
             // numericUpDownSquaring
             // 
             this.numericUpDownSquaring.DecimalPlaces = 3;
-            this.numericUpDownSquaring.Location = new System.Drawing.Point(126, 143);
+            this.numericUpDownSquaring.Location = new System.Drawing.Point(138, 143);
             this.numericUpDownSquaring.Maximum = new decimal(new int[] {
             30000,
             0,
@@ -705,6 +718,17 @@ namespace GraduationProject
             this.numericUpDownSquaring.Name = "numericUpDownSquaring";
             this.numericUpDownSquaring.Size = new System.Drawing.Size(122, 23);
             this.numericUpDownSquaring.TabIndex = 0;
+            // 
+            // listBoxAddresses
+            // 
+            this.listBoxAddresses.ItemsColor = System.Drawing.Color.Yellow;
+            this.listBoxAddresses.Location = new System.Drawing.Point(3, 72);
+            this.listBoxAddresses.Name = "listBoxAddresses";
+            this.listBoxAddresses.SelectedIndex = -1;
+            this.listBoxAddresses.SelectedItemColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.listBoxAddresses.Size = new System.Drawing.Size(210, 341);
+            this.listBoxAddresses.TabIndex = 35;
+            this.listBoxAddresses.SelectedIndexChanged += new System.EventHandler(this.listBoxUserControl1_SelectedIndexChanged);
             // 
             // contextMenuStripStreets
             // 
@@ -732,11 +756,11 @@ namespace GraduationProject
             // 
             this.panelSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelSearch.Controls.Add(this.listBoxAddresses);
             this.panelSearch.Controls.Add(this.buttonSearchAddress);
             this.panelSearch.Controls.Add(this.labelCriteria);
             this.panelSearch.Controls.Add(this.comboBoxCriteria);
             this.panelSearch.Controls.Add(this.textBoxSearchAddr);
-            this.panelSearch.Controls.Add(this.listBoxAddresses);
             this.panelSearch.Location = new System.Drawing.Point(2, 50);
             this.panelSearch.Name = "panelSearch";
             this.panelSearch.Size = new System.Drawing.Size(217, 423);
@@ -829,7 +853,6 @@ namespace GraduationProject
         #endregion
         private System.Windows.Forms.ToolStripMenuItem Settings;
         private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ListBox listBoxAddresses;
         private System.Windows.Forms.TextBox textBoxSearchAddr;
         private System.Windows.Forms.ComboBox comboBoxCriteria;
         private System.Windows.Forms.Label labelCriteria;
@@ -863,7 +886,7 @@ namespace GraduationProject
         private System.Windows.Forms.NumericUpDown numericUpDownGoats;
         private System.Windows.Forms.NumericUpDown numericUpDownNumber;
         private System.Windows.Forms.Label labelNumber;
-        private System.Windows.Forms.Label labelDogs;
+        private System.Windows.Forms.Label labelDogst;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.ListBox listBoxDogs;
@@ -891,6 +914,9 @@ namespace GraduationProject
         private System.Windows.Forms.Panel panelAdd;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Button buttonAdd;
+        private Controls.ListBoxUserControl listBoxAddresses;
+        private System.Windows.Forms.Label labelDogs;
+        private System.Windows.Forms.TextBox textBoxDogs;
     }
 }
 
