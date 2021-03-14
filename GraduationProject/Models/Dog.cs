@@ -12,13 +12,16 @@ namespace GraduationProject.Models
 
         public override string ToString()
         {
-            return SealNumber.ToString();
+            return SealNumber != null ? SealNumber : "няма";
         }
 
         //Запълване на обекта с информация
         public void Fill(SqlDataReader reader)
         {
-            SealNumber = reader.GetString(0);
+            if (reader.IsDBNull(0))
+                SealNumber = null;
+            else
+                SealNumber = reader.GetString(0);
             AddressId = reader.GetInt32(1);
         }
 
@@ -31,7 +34,10 @@ namespace GraduationProject.Models
             int id;
             string query = "INSERT INTO Dogs (sealNumber, addressId) output INSERTED.id VALUES (@sealNum, @addrId)";
             connectionHelper.NewConnection(query);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@sealNum", SealNumber);
+            if(SealNumber != null)
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@sealNum", SealNumber);
+            else
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@sealNum", DBNull.Value);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
             id = (int) connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();

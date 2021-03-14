@@ -582,8 +582,25 @@ namespace GraduationProject
 
         private void textBoxDogs_Click(object sender, EventArgs e)
         {
-            Forms.DogsForm dogsForm = new Forms.DogsForm(dogs);
-            dogsForm.ShowDialog();
+            if (selectedTab == panelSearch)
+            {
+                Forms.DogsForm dogsForm = new Forms.DogsForm(dogs, address);
+                dogsForm.ShowDialog();
+                dogs = new Dog().Get(connectionHelper, address);
+                RefreshDogsList();
+            }
+            else
+            {
+                Forms.DogsForm dogsForm = new Forms.DogsForm(dogs);
+                dogsForm.ShowDialog();
+            }
+            RefreshDogsList();
+
+        }
+
+        private void textBoxDogs_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

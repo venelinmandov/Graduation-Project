@@ -252,6 +252,7 @@ namespace GraduationProject
             this.textBoxDogs.TabIndex = 38;
             this.textBoxDogs.Text = "0";
             this.textBoxDogs.Click += new System.EventHandler(this.textBoxDogs_Click);
+            this.textBoxDogs.TextChanged += new System.EventHandler(this.textBoxDogs_TextChanged);
             // 
             // labelDogs
             // 
