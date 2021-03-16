@@ -27,7 +27,7 @@ namespace GraduationProject
         {
             InitializeComponent();
             addresses = new Address().Get(connectionHelper);
-            listBoxAddresses.AddList(addresses.Cast<object>().ToList());
+            listBoxAddresses.AddList(addresses);
             ShowStreets();
             comboBoxCriteria.SelectedIndex = 0;
             selectedTab = panelSearch;
@@ -131,7 +131,7 @@ namespace GraduationProject
             if (textBoxSearchAddr.Text == "")
             {
                 addresses = new Address().Get(connectionHelper);
-                listBoxAddresses.AddList(addresses.Cast<object>().ToList());
+                listBoxAddresses.AddList(addresses);
                 return;
             }
             addresses = new List<Address>();
@@ -171,7 +171,6 @@ namespace GraduationProject
             RefreshDataGrid();
 
             dogs = new Dog().Get(connectionHelper, address);
-            RefreshDogsList();
         }
 
         //Показване на данните за избрания адрес от списъка с адреси
@@ -422,68 +421,7 @@ namespace GraduationProject
             RefreshDataGrid();
         }
         #endregion
-        #region Кучета:
-
-        //Добаване на куче
-        private void buttonAddDog_Click(object sender, EventArgs e)
-        {
-
-            Regex regex = new Regex(@"^\d{15}$");
-            InputBox.InputboxResponce responce = InputBox.OpenInputBox("Моля въведете номер на скобата:");
-            if (responce.canceled) return;
-
-            string sealNum = responce.text;
-            if (!regex.IsMatch(sealNum))
-            {
-               
-                MessageBox.Show("Невалидна стойност!", "Невалидна стойност", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            Dog newDog = new Dog() { SealNumber = sealNum };
-            //В режим "нов адрес"
-            if (selectedTab == panelAdd)
-            {
-                dogs.Add(newDog);
-            }
-            //В режим "редактиране на адрес"
-            else
-            {
-                newDog.AddressId = address.Id;
-                newDog.Insert(connectionHelper);
-                dogs = new Dog().Get(connectionHelper, address);
-            }
-            RefreshDogsList();
-        }
-
-        //Премахване на куче
-        private void buttonRemoveDog_Click(object sender, EventArgs e)
-        {
-            int selectedIndex = listBoxDogs.SelectedIndex;
-            //В режим "нов адрес"
-            if (selectedTab == panelAdd)
-            {
-                if (dogs.Count > 0)
-                {
-                    dogs.RemoveAt(selectedIndex);
-                }
-            }
-            //В режим "редактиране на адрес"
-            else
-            {
-                dogs[selectedIndex].Delete(connectionHelper);
-                dogs = new Dog().Get(connectionHelper, address);
-            }
-            RefreshDogsList();
-        }
-
-        //Опресняване на списъка с кучета
-        void RefreshDogsList()
-        {
-            textBoxDogs.Text = dogs.Count.ToString();
-            listBoxDogs.DataSource = null;
-            listBoxDogs.DataSource = dogs;
-        }
-        #endregion
+      
         #region Други:
 
         //Връща поредния номер на избран радиобутон от няколко подадени кото аргументи.
@@ -507,22 +445,7 @@ namespace GraduationProject
             }
         }
 
-        //Променен е избрания таб
-        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (panelAdd == selectedTab)
-            {
-                //Таб "Нов адрес"
-                ClearInfo();
-            }
-            else
-            {
-                //Таб "Търси адрес"
-                ShowAddresses();
-                numericUpDownNumber.Enabled = false;
-                buttonDeleteAddr.Enabled = true;
-            }
-        }
+       
 
         //Изчистване на визуализираната информация за адрес
         private void ClearInfo()
@@ -533,7 +456,6 @@ namespace GraduationProject
             guests = new List<Person>();
             dogs = new List<Dog>();
             dataGridView.RowCount = 0;
-            RefreshDogsList();
 
             numericUpDownAgrBuildings.Value = 0;
             numericUpDownCows.Value = 0;
@@ -560,26 +482,36 @@ namespace GraduationProject
 
         #endregion
 
+        //Избран е таб "Търсене на адреси"
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             panelSearch.BringToFront();
             selectedTab = panelSearch;
-            
+
+            ShowAddresses();
+            numericUpDownNumber.Enabled = false;
+            buttonDeleteAddr.Enabled = true;
+
         }
 
+        //Избран е таб "Нов адрес"
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             panelAdd.BringToFront();
             selectedTab = panelAdd;
+
+            ClearInfo();
         }
 
-        private void listBoxUserControl1_SelectedIndexChanged(object sender, EventArgs e)
+        //Избран е друг адрес от списъка с адреси
+        private void listBoxUserControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (addresses.Count == 0) return;
             address = addresses[listBoxAddresses.SelectedIndex];
             ShowSelectedAddress();
         }
 
+        //Натискане на левия бутон на мишката върх етикета за брой кучета
         private void textBoxDogs_Click(object sender, EventArgs e)
         {
             if (selectedTab == panelSearch)
@@ -587,19 +519,12 @@ namespace GraduationProject
                 Forms.DogsForm dogsForm = new Forms.DogsForm(dogs, address);
                 dogsForm.ShowDialog();
                 dogs = new Dog().Get(connectionHelper, address);
-                RefreshDogsList();
             }
             else
             {
                 Forms.DogsForm dogsForm = new Forms.DogsForm(dogs);
                 dogsForm.ShowDialog();
             }
-            RefreshDogsList();
-
-        }
-
-        private void textBoxDogs_TextChanged(object sender, EventArgs e)
-        {
 
         }
     }

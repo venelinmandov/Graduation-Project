@@ -7,6 +7,7 @@ namespace GraduationProject.Models
 {
     public class Dog: Model<Dog>
     {
+        public int Id { get; set; }
         public string SealNumber { get; set; }
         public int AddressId { get; set; }
 
@@ -18,11 +19,12 @@ namespace GraduationProject.Models
         //Запълване на обекта с информация
         public void Fill(SqlDataReader reader)
         {
-            if (reader.IsDBNull(0))
+            Id = reader.GetInt32(0);
+            if (reader.IsDBNull(1))
                 SealNumber = null;
             else
-                SealNumber = reader.GetString(0);
-            AddressId = reader.GetInt32(1);
+                SealNumber = reader.GetString(1);
+            AddressId = reader.GetInt32(2);
         }
 
 
@@ -50,7 +52,7 @@ namespace GraduationProject.Models
         {
             List<Dog> dogs = new List<Dog>();
             Dog dog;
-            string query = @"SELECT sealNumber, addressId FROM Dogs
+            string query = @"SELECT id, sealNumber, addressId FROM Dogs
                            WHERE addressId = @addrId";
 
             connectionHelper.NewConnection(query);
@@ -75,10 +77,10 @@ namespace GraduationProject.Models
         //DELETE
         public void Delete(ConnectionHelper connectionHelper)
         {
-            string query = "DELETE FROM Dogs WHERE sealNumber = @sealNum";
+            string query = "DELETE FROM Dogs WHERE id = @id";
 
             connectionHelper.NewConnection(query);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@sealNum", SealNumber);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@id", Id);
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();
         }
@@ -96,7 +98,16 @@ namespace GraduationProject.Models
         //UPDATE
         public void Update(ConnectionHelper connectionHelper)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE Dogs SET sealNumber = @sealNum WHERE id = @id";
+
+            connectionHelper.NewConnection(query);
+            if(SealNumber != null)
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@sealNum",SealNumber);
+            else
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@sealNum", DBNull.Value);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@id", Id);
+            connectionHelper.sqlCommand.ExecuteNonQuery();
+            connectionHelper.sqlConnection.Close();
         }
     }
 }

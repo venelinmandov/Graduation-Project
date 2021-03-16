@@ -132,6 +132,7 @@ namespace GraduationProject.Forms
             this.Controls.Add(this.dataGridViewDogs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "DogsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DogsForm";
             this.Load += new System.EventHandler(this.DogsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDogs)).EndInit();

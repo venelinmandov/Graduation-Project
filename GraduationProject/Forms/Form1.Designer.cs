@@ -43,22 +43,18 @@ namespace GraduationProject
             this.listBoxStreets = new System.Windows.Forms.ListBox();
             this.textBoxSearchStr = new System.Windows.Forms.TextBox();
             this.panelAddressInfo = new System.Windows.Forms.Panel();
-            this.textBoxDogs = new System.Windows.Forms.TextBox();
-            this.labelDogs = new System.Windows.Forms.Label();
-            this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.panelResidents = new System.Windows.Forms.Panel();
             this.labelInhabitants = new System.Windows.Forms.Label();
-            this.buttonEditPerson = new System.Windows.Forms.Button();
-            this.buttonAddPerson = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Guest = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.buttonEditPerson = new System.Windows.Forms.Button();
             this.buttonRemovePerson = new System.Windows.Forms.Button();
-            this.listBoxDogs = new System.Windows.Forms.ListBox();
-            this.labelDogst = new System.Windows.Forms.Label();
-            this.buttonAddDog = new System.Windows.Forms.Button();
-            this.buttonRemoveDog = new System.Windows.Forms.Button();
+            this.buttonAddPerson = new System.Windows.Forms.Button();
+            this.textBoxDogs = new System.Windows.Forms.TextBox();
+            this.labelDogs = new System.Windows.Forms.Label();
             this.buttonDeleteAddr = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.numericUpDownNumber = new System.Windows.Forms.NumericUpDown();
@@ -97,10 +93,7 @@ namespace GraduationProject
             this.buttonAdd = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.panelAddressInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
-            this.splitContainer.Panel1.SuspendLayout();
-            this.splitContainer.Panel2.SuspendLayout();
-            this.splitContainer.SuspendLayout();
+            this.panelResidents.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWalnut)).BeginInit();
@@ -175,7 +168,6 @@ namespace GraduationProject
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 10);
             this.label3.Name = "label3";
@@ -210,9 +202,9 @@ namespace GraduationProject
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelAddressInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(156)))), ((int)(((byte)(224)))));
+            this.panelAddressInfo.Controls.Add(this.panelResidents);
             this.panelAddressInfo.Controls.Add(this.textBoxDogs);
             this.panelAddressInfo.Controls.Add(this.labelDogs);
-            this.panelAddressInfo.Controls.Add(this.splitContainer);
             this.panelAddressInfo.Controls.Add(this.buttonDeleteAddr);
             this.panelAddressInfo.Controls.Add(this.buttonSave);
             this.panelAddressInfo.Controls.Add(this.numericUpDownNumber);
@@ -243,90 +235,31 @@ namespace GraduationProject
             this.panelAddressInfo.Size = new System.Drawing.Size(705, 451);
             this.panelAddressInfo.TabIndex = 8;
             // 
-            // textBoxDogs
+            // panelResidents
             // 
-            this.textBoxDogs.Location = new System.Drawing.Point(63, 365);
-            this.textBoxDogs.Name = "textBoxDogs";
-            this.textBoxDogs.ReadOnly = true;
-            this.textBoxDogs.Size = new System.Drawing.Size(38, 23);
-            this.textBoxDogs.TabIndex = 38;
-            this.textBoxDogs.Text = "0";
-            this.textBoxDogs.Click += new System.EventHandler(this.textBoxDogs_Click);
-            this.textBoxDogs.TextChanged += new System.EventHandler(this.textBoxDogs_TextChanged);
-            // 
-            // labelDogs
-            // 
-            this.labelDogs.AutoSize = true;
-            this.labelDogs.ForeColor = System.Drawing.Color.White;
-            this.labelDogs.Location = new System.Drawing.Point(17, 368);
-            this.labelDogs.Name = "labelDogs";
-            this.labelDogs.Size = new System.Drawing.Size(47, 15);
-            this.labelDogs.TabIndex = 37;
-            this.labelDogs.Text = "Кучета:";
-            // 
-            // splitContainer
-            // 
-            this.splitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panelResidents.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer.IsSplitterFixed = true;
-            this.splitContainer.Location = new System.Drawing.Point(285, 0);
-            this.splitContainer.Name = "splitContainer";
-            this.splitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer.Panel1
-            // 
-            this.splitContainer.Panel1.Controls.Add(this.labelInhabitants);
-            this.splitContainer.Panel1.Controls.Add(this.buttonEditPerson);
-            this.splitContainer.Panel1.Controls.Add(this.buttonAddPerson);
-            this.splitContainer.Panel1.Controls.Add(this.dataGridView);
-            this.splitContainer.Panel1.Controls.Add(this.buttonRemovePerson);
-            this.splitContainer.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            // 
-            // splitContainer.Panel2
-            // 
-            this.splitContainer.Panel2.Controls.Add(this.listBoxDogs);
-            this.splitContainer.Panel2.Controls.Add(this.labelDogst);
-            this.splitContainer.Panel2.Controls.Add(this.buttonAddDog);
-            this.splitContainer.Panel2.Controls.Add(this.buttonRemoveDog);
-            this.splitContainer.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainer.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainer.Size = new System.Drawing.Size(420, 451);
-            this.splitContainer.SplitterDistance = 239;
-            this.splitContainer.TabIndex = 36;
+            this.panelResidents.Controls.Add(this.labelInhabitants);
+            this.panelResidents.Controls.Add(this.dataGridView);
+            this.panelResidents.Controls.Add(this.buttonEditPerson);
+            this.panelResidents.Controls.Add(this.buttonRemovePerson);
+            this.panelResidents.Controls.Add(this.buttonAddPerson);
+            this.panelResidents.Location = new System.Drawing.Point(294, 0);
+            this.panelResidents.Name = "panelResidents";
+            this.panelResidents.Size = new System.Drawing.Size(411, 451);
+            this.panelResidents.TabIndex = 39;
             // 
             // labelInhabitants
             // 
             this.labelInhabitants.AutoSize = true;
             this.labelInhabitants.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelInhabitants.ForeColor = System.Drawing.Color.White;
-            this.labelInhabitants.Location = new System.Drawing.Point(30, 13);
+            this.labelInhabitants.Location = new System.Drawing.Point(17, 19);
             this.labelInhabitants.Name = "labelInhabitants";
             this.labelInhabitants.Size = new System.Drawing.Size(109, 26);
             this.labelInhabitants.TabIndex = 22;
             this.labelInhabitants.Text = "Обитатели";
-            // 
-            // buttonEditPerson
-            // 
-            this.buttonEditPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonEditPerson.Location = new System.Drawing.Point(218, 204);
-            this.buttonEditPerson.Name = "buttonEditPerson";
-            this.buttonEditPerson.Size = new System.Drawing.Size(88, 22);
-            this.buttonEditPerson.TabIndex = 34;
-            this.buttonEditPerson.Text = "Редактиране";
-            this.buttonEditPerson.UseVisualStyleBackColor = true;
-            this.buttonEditPerson.Click += new System.EventHandler(this.buttonEditPerson_Click);
-            // 
-            // buttonAddPerson
-            // 
-            this.buttonAddPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonAddPerson.Location = new System.Drawing.Point(30, 204);
-            this.buttonAddPerson.Name = "buttonAddPerson";
-            this.buttonAddPerson.Size = new System.Drawing.Size(88, 22);
-            this.buttonAddPerson.TabIndex = 31;
-            this.buttonAddPerson.Text = "Добавяне";
-            this.buttonAddPerson.UseVisualStyleBackColor = true;
-            this.buttonAddPerson.Click += new System.EventHandler(this.buttonAddResident_Click);
             // 
             // dataGridView
             // 
@@ -353,13 +286,13 @@ namespace GraduationProject
             this.owner,
             this.Guest});
             this.dataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView.Location = new System.Drawing.Point(30, 42);
+            this.dataGridView.Location = new System.Drawing.Point(17, 48);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowTemplate.Height = 25;
-            this.dataGridView.Size = new System.Drawing.Size(378, 149);
+            this.dataGridView.Size = new System.Drawing.Size(378, 338);
             this.dataGridView.TabIndex = 28;
             // 
             // firstName
@@ -395,10 +328,21 @@ namespace GraduationProject
             this.Guest.Name = "Guest";
             this.Guest.ReadOnly = true;
             // 
+            // buttonEditPerson
+            // 
+            this.buttonEditPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonEditPerson.Location = new System.Drawing.Point(205, 401);
+            this.buttonEditPerson.Name = "buttonEditPerson";
+            this.buttonEditPerson.Size = new System.Drawing.Size(88, 22);
+            this.buttonEditPerson.TabIndex = 34;
+            this.buttonEditPerson.Text = "Редактиране";
+            this.buttonEditPerson.UseVisualStyleBackColor = true;
+            this.buttonEditPerson.Click += new System.EventHandler(this.buttonEditPerson_Click);
+            // 
             // buttonRemovePerson
             // 
             this.buttonRemovePerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonRemovePerson.Location = new System.Drawing.Point(124, 204);
+            this.buttonRemovePerson.Location = new System.Drawing.Point(111, 401);
             this.buttonRemovePerson.Name = "buttonRemovePerson";
             this.buttonRemovePerson.Size = new System.Drawing.Size(88, 22);
             this.buttonRemovePerson.TabIndex = 33;
@@ -406,50 +350,36 @@ namespace GraduationProject
             this.buttonRemovePerson.UseVisualStyleBackColor = true;
             this.buttonRemovePerson.Click += new System.EventHandler(this.buttonRemoveResident_Click);
             // 
-            // listBoxDogs
+            // buttonAddPerson
             // 
-            this.listBoxDogs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxDogs.FormattingEnabled = true;
-            this.listBoxDogs.ItemHeight = 15;
-            this.listBoxDogs.Location = new System.Drawing.Point(35, 43);
-            this.listBoxDogs.Name = "listBoxDogs";
-            this.listBoxDogs.Size = new System.Drawing.Size(373, 109);
-            this.listBoxDogs.TabIndex = 27;
+            this.buttonAddPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonAddPerson.Location = new System.Drawing.Point(17, 401);
+            this.buttonAddPerson.Name = "buttonAddPerson";
+            this.buttonAddPerson.Size = new System.Drawing.Size(88, 22);
+            this.buttonAddPerson.TabIndex = 31;
+            this.buttonAddPerson.Text = "Добавяне";
+            this.buttonAddPerson.UseVisualStyleBackColor = true;
+            this.buttonAddPerson.Click += new System.EventHandler(this.buttonAddResident_Click);
             // 
-            // labelDogst
+            // textBoxDogs
             // 
-            this.labelDogst.AutoSize = true;
-            this.labelDogst.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelDogst.ForeColor = System.Drawing.Color.White;
-            this.labelDogst.Location = new System.Drawing.Point(35, 10);
-            this.labelDogst.Name = "labelDogst";
-            this.labelDogst.Size = new System.Drawing.Size(72, 26);
-            this.labelDogst.TabIndex = 24;
-            this.labelDogst.Text = "Кучета";
+            this.textBoxDogs.Location = new System.Drawing.Point(63, 365);
+            this.textBoxDogs.Name = "textBoxDogs";
+            this.textBoxDogs.ReadOnly = true;
+            this.textBoxDogs.Size = new System.Drawing.Size(38, 23);
+            this.textBoxDogs.TabIndex = 38;
+            this.textBoxDogs.Text = "0";
+            this.textBoxDogs.Click += new System.EventHandler(this.textBoxDogs_Click);
             // 
-            // buttonAddDog
+            // labelDogs
             // 
-            this.buttonAddDog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonAddDog.Location = new System.Drawing.Point(35, 165);
-            this.buttonAddDog.Name = "buttonAddDog";
-            this.buttonAddDog.Size = new System.Drawing.Size(88, 22);
-            this.buttonAddDog.TabIndex = 29;
-            this.buttonAddDog.Text = "Добавяне";
-            this.buttonAddDog.UseVisualStyleBackColor = true;
-            this.buttonAddDog.Click += new System.EventHandler(this.buttonAddDog_Click);
-            // 
-            // buttonRemoveDog
-            // 
-            this.buttonRemoveDog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonRemoveDog.Location = new System.Drawing.Point(129, 165);
-            this.buttonRemoveDog.Name = "buttonRemoveDog";
-            this.buttonRemoveDog.Size = new System.Drawing.Size(88, 22);
-            this.buttonRemoveDog.TabIndex = 30;
-            this.buttonRemoveDog.Text = "Премахване";
-            this.buttonRemoveDog.UseVisualStyleBackColor = true;
-            this.buttonRemoveDog.Click += new System.EventHandler(this.buttonRemoveDog_Click);
+            this.labelDogs.AutoSize = true;
+            this.labelDogs.ForeColor = System.Drawing.Color.White;
+            this.labelDogs.Location = new System.Drawing.Point(17, 368);
+            this.labelDogs.Name = "labelDogs";
+            this.labelDogs.Size = new System.Drawing.Size(47, 15);
+            this.labelDogs.TabIndex = 37;
+            this.labelDogs.Text = "Кучета:";
             // 
             // buttonDeleteAddr
             // 
@@ -722,14 +652,17 @@ namespace GraduationProject
             // 
             // listBoxAddresses
             // 
-            this.listBoxAddresses.ItemsColor = System.Drawing.Color.Yellow;
+            this.listBoxAddresses.DesolateColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(49)))), ((int)(((byte)(37)))));
+            this.listBoxAddresses.InhabitedColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(232)))), ((int)(((byte)(60)))));
+            this.listBoxAddresses.ItemsColor = System.Drawing.Color.DeepSkyBlue;
             this.listBoxAddresses.Location = new System.Drawing.Point(3, 72);
             this.listBoxAddresses.Name = "listBoxAddresses";
             this.listBoxAddresses.SelectedIndex = -1;
-            this.listBoxAddresses.SelectedItemColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.listBoxAddresses.SelectedItemColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.listBoxAddresses.Size = new System.Drawing.Size(210, 341);
             this.listBoxAddresses.TabIndex = 35;
-            this.listBoxAddresses.SelectedIndexChanged += new System.EventHandler(this.listBoxUserControl1_SelectedIndexChanged);
+            this.listBoxAddresses.TemporarilyColor = System.Drawing.Color.Yellow;
+            this.listBoxAddresses.SelectedIndexChanged += new System.EventHandler(this.listBoxUserControl_SelectedIndexChanged);
             // 
             // contextMenuStripStreets
             // 
@@ -821,12 +754,8 @@ namespace GraduationProject
             this.menuStrip.PerformLayout();
             this.panelAddressInfo.ResumeLayout(false);
             this.panelAddressInfo.PerformLayout();
-            this.splitContainer.Panel1.ResumeLayout(false);
-            this.splitContainer.Panel1.PerformLayout();
-            this.splitContainer.Panel2.ResumeLayout(false);
-            this.splitContainer.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
-            this.splitContainer.ResumeLayout(false);
+            this.panelResidents.ResumeLayout(false);
+            this.panelResidents.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWalnut)).EndInit();
@@ -887,14 +816,9 @@ namespace GraduationProject
         private System.Windows.Forms.NumericUpDown numericUpDownGoats;
         private System.Windows.Forms.NumericUpDown numericUpDownNumber;
         private System.Windows.Forms.Label labelNumber;
-        private System.Windows.Forms.Label labelDogst;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.ListBox listBoxDogs;
-        private System.Windows.Forms.Button buttonRemoveDog;
-        private System.Windows.Forms.Button buttonAddDog;
         private System.Windows.Forms.Button buttonAddPerson;
-        private System.Windows.Forms.Label labelCriteri;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonRemovePerson;
         private System.Windows.Forms.Button buttonSearchAddress;
@@ -905,12 +829,8 @@ namespace GraduationProject
         private System.Windows.Forms.DataGridViewTextBoxColumn owner;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Guest;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripStreets;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRenameStr;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRemoveStr;
-        private System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.Panel panelSearch;
         private System.Windows.Forms.Panel panelAdd;
         private System.Windows.Forms.Button buttonSearch;
@@ -918,6 +838,7 @@ namespace GraduationProject
         private Controls.ListBoxUserControl listBoxAddresses;
         private System.Windows.Forms.Label labelDogs;
         private System.Windows.Forms.TextBox textBoxDogs;
+        private System.Windows.Forms.Panel panelResidents;
     }
 }
 

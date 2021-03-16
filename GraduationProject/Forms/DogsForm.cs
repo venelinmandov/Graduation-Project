@@ -116,8 +116,8 @@ namespace GraduationProject.Forms
             {
                 sealNum = null;
             }
+            textBoxDogName.Text = "";
 
-           
             Dog newDog = new Dog() { SealNumber = sealNum };
 
             if (address != null)
@@ -143,19 +143,50 @@ namespace GraduationProject.Forms
 
         private void dataGridViewDogs_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            Regex regex = new Regex(@"^\d{15}$");
+            string newSealnumber;
+
             if (!editing) return;
             editing = false;
             dataGridViewDogs.Columns[1].ReadOnly = true;
+
+
+            if (dataGridViewDogs.CurrentCell.Value == null )
+            {
+                newSealnumber = null;
+                dataGridViewDogs.CurrentCell.Value = "няма";
+            }
+            else if (regex.IsMatch(dataGridViewDogs.CurrentCell.Value.ToString()))
+            {
+                newSealnumber = dataGridViewDogs.CurrentCell.Value.ToString();
+            }
+            
+            else
+            {
+                MessageBox.Show("Невалидна стойност!", "Невалидна стойност", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dataGridViewDogs.CurrentCell.Value = currentCellText;
+                return;
+            }
+
+
             DialogResult dialogResult;
-            dialogResult = MessageBox.Show("Сигурни ли сте, че искате да промените номера?", "Промяна на номера",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            dialogResult = MessageBox.Show("Сигурни ли сте, че искате да промените номера?", "Промяна на номера", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
-                //INSERT
+                dogs[dataGridViewDogs.CurrentCell.RowIndex].SealNumber = newSealnumber;
+                if (address != null)
+                {
+                    dogs[dataGridViewDogs.CurrentCell.RowIndex].Update(connectionHelper);
+                }
+
+
             }
             else
                 dataGridViewDogs.CurrentCell.Value = currentCellText;
 
-            
+
+
+
 
         }
     }
