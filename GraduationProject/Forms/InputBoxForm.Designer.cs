@@ -86,10 +86,7 @@ namespace GraduationProject.Forms
             this.Name = "InputBoxForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InputBoxForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InputBoxForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InputBoxForm_FormClosed);
-            this.Load += new System.EventHandler(this.InputBoxForm_Load);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.InputBoxForm_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 

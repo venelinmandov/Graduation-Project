@@ -39,7 +39,7 @@ namespace GraduationProject
         //Запазване на текущия адрес
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (!AddressExist(streets[listBoxStreets.SelectedIndex], (int)numericUpDownNumber.Value) || selectedTab == panelSearch)
+            if ( selectedTab == panelSearch || !AddressExist(streets[listBoxStreets.SelectedIndex], (int)numericUpDownNumber.Value))
             {
                 int habitabillityValue;
                 if ((habitabillityValue = GetGroupBoxValue(radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry)) != -1)
@@ -171,6 +171,7 @@ namespace GraduationProject
             RefreshDataGrid();
 
             dogs = new Dog().Get(connectionHelper, address);
+            textBoxDogs.Text = dogs.Count.ToString();
         }
 
         //Показване на данните за избрания адрес от списъка с адреси
@@ -344,36 +345,29 @@ namespace GraduationProject
         {
             if (dataGridView.RowCount == 0) return;
             int currentIndex = dataGridView.CurrentCell.RowIndex;
-            //в режим "нов адрес"
-            if (selectedTab == panelAdd)
-            {
+
                 if (currentIndex < residents.Count)
-                {
+                { 
+                    if (selectedTab == panelSearch)
+                    {
+                        residents[currentIndex].Delete(connectionHelper);
+                    }
                     residents.RemoveAt(currentIndex);
                 }
                 else
                 {
+                    
+                    if (selectedTab == panelSearch)
+                    {
+                        guests[currentIndex - residents.Count].Delete(connectionHelper);
+                    }
                     guests.RemoveAt(currentIndex - residents.Count);
                 }
-            }
-            //В режим "редактиране на адрес" 
-            else
-            {
-                if (currentIndex < residents.Count)
-                {
-                    residents[currentIndex].Delete(connectionHelper);
-                    residents = new Resident().Get(connectionHelper, address);
-                }
-                else
-                {
-                    guests[currentIndex - residents.Count].Delete(connectionHelper);
-                    guests = new Person().Get(connectionHelper);
-                }
-            }
-            RefreshDataGrid();
+            
+            dataGridView.Rows.RemoveAt(currentIndex);
         }
 
-        //Опресняване на таблциата с жители и гости
+        //Опресняване на таблцата с жители и гости
         void RefreshDataGrid()
         {
             //Запълване с жители
@@ -468,6 +462,7 @@ namespace GraduationProject
             numericUpDownSheep.Value = 0;
             numericUpDownSquaring.Value = 0;
             numericUpDownWalnut.Value = 0;
+            textBoxDogs.Text = "0";
 
             RadioButton[] radioButtons = new RadioButton[] { radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry };
             foreach (RadioButton radioButton in radioButtons)
@@ -525,7 +520,8 @@ namespace GraduationProject
                 Forms.DogsForm dogsForm = new Forms.DogsForm(dogs);
                 dogsForm.ShowDialog();
             }
-
+            textBoxDogs.Text = dogs.Count.ToString();
         }
+
     }
 }

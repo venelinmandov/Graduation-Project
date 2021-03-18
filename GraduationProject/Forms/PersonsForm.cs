@@ -12,7 +12,6 @@ namespace GraduationProject.Forms
     public partial class PersonsForm : Form
     {
         ErrorProvider errorProvider = new ErrorProvider();
-        Resident resident;
         Person person;
         bool canceled = false;
 
@@ -27,11 +26,11 @@ namespace GraduationProject.Forms
         public PersonsForm(Resident res)
         {
             InitializeComponent();
-            resident = res;
+            person = res;
             radioButtonHousehold.Enabled = false;
             radioButtonGuest.Enabled = false;
             radioButtonHousehold.Checked = true;
-            showData(resident);
+            showData(person);
 
 
         }
@@ -51,8 +50,8 @@ namespace GraduationProject.Forms
 
         //Свойства
         public bool isResident => radioButtonHousehold.Checked;
-        public Person getNewGuest => resident;
-        public Resident getNewResident => resident;
+        public Person getNewGuest => person;
+        public Resident getNewResident => (Resident)person;
 
 
 
@@ -94,7 +93,6 @@ namespace GraduationProject.Forms
                     }
                     sum += int.Parse(egn[i].ToString()) * consts[i];
                 }
-                textBoxFName.Text = sum.ToString();
                 sum %= 11;
                 sum = sum < 10 ? sum : 0;
                 error = !(int.Parse(egn[9].ToString()) == sum);
@@ -117,7 +115,7 @@ namespace GraduationProject.Forms
             textBoxEGN.Text = personToShow.Egn;
             textBoxOwner.Text = personToShow.RelToOwner;
             SetGroupBoxValue(personToShow.Gender,radioButtonMale, radioButtonFemale);
-            if (resident != null)
+            if (radioButtonHousehold.Checked)
             {
                 Resident residentToShow = (Resident)personToShow;
                 SetGroupBoxValue(residentToShow.AddressReg,radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
@@ -241,42 +239,41 @@ namespace GraduationProject.Forms
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            Person personToSave;
-            if(resident == null && person == null)
-                resident = new Resident();
-            if (resident != null)
+            if (person == null)
             {
-                personToSave = resident;
-                Resident residentToSave = (Resident)personToSave;
+                if (radioButtonHousehold.Checked)
+                {
+                    person = new Resident();
+                }
+                else if (radioButtonGuest.Checked)
+                {
+                    person = new Person();
+                }
+                else
+                {
+                    errorProvider.SetError(groupBoxOwner, "Моля изберете опция!");
+                    return;
+                }
+
+            }
+            if (radioButtonHousehold.Checked)
+            {
+                Resident residentToSave = (Resident)person;
                 residentToSave.AddressReg = GetGroupBoxValue(radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
                 residentToSave.Covid19 = GetGroupBoxValue(radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
 
             }
-            else
-            {
-                personToSave = person;
-            }
 
-            personToSave.Firstname = textBoxFName.Text;
-            personToSave.Middlename = textBoxMName.Text;
-            personToSave.Lastname = textBoxLName.Text;
-            personToSave.Egn = textBoxEGN.Text;
-            personToSave.RelToOwner = textBoxOwner.Text;
-            personToSave.Gender = GetGroupBoxValue(radioButtonMale, radioButtonFemale);
+            person.Firstname = textBoxFName.Text;
+            person.Middlename = textBoxMName.Text;
+            person.Lastname = textBoxLName.Text;
+            person.Egn = textBoxEGN.Text;
+            person.RelToOwner = textBoxOwner.Text;
+            person.Gender = GetGroupBoxValue(radioButtonMale, radioButtonFemale);
            
 
-
-            if (radioButtonHousehold.Checked || radioButtonGuest.Checked)
-            {
                 if (validate())
-                {
                     Hide();
-                }
-            }   
-            else
-                errorProvider.SetError(groupBoxOwner, "Моля изберете опция!");
-
-
 
         }
 

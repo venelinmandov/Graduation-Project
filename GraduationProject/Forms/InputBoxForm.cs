@@ -20,6 +20,7 @@ namespace GraduationProject.Forms
             label.Text = labelText;
         }
 
+        //Запазване на въведения текст
         void Save()
         {
             text = textBox.Text.Trim();
@@ -31,33 +32,23 @@ namespace GraduationProject.Forms
             Hide();
         }
 
+        //Изход от формата без запазване на текста
         void Cancel()
         {
             canceled = true;
             Hide();
         }
 
+        //Избор на бутона "Запис"
         private void buttonSave_Click(object sender, EventArgs e)
         {
             Save();
         }
-        
 
+        //Избор на бутона "Отказ"
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             Cancel();
-        }
-
-        private void InputBoxForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void InputBoxForm_KeyUp(object sender, KeyEventArgs e)
-        {
-
-            
-
         }
 
         private void textBox_KeyUp(object sender, KeyEventArgs e)
@@ -68,11 +59,7 @@ namespace GraduationProject.Forms
                 Cancel();
         }
 
-        private void InputBoxForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            
-        }
-
+        //Избор на бутона за затваряне на формата
         private void InputBoxForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Cancel();
