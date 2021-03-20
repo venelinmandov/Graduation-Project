@@ -63,7 +63,6 @@ namespace GraduationProject.Forms
             this.dataGridViewDogs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDogs_CellClick);
             this.dataGridViewDogs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDogs_CellContentClick);
             this.dataGridViewDogs.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDogs_CellValueChanged);
-            this.dataGridViewDogs.CurrentCellChanged += new System.EventHandler(this.dataGridViewDogs_CurrentCellChanged);
             // 
             // ColumnNumber
             // 
@@ -96,7 +95,6 @@ namespace GraduationProject.Forms
             this.textBoxDogName.Name = "textBoxDogName";
             this.textBoxDogName.Size = new System.Drawing.Size(185, 23);
             this.textBoxDogName.TabIndex = 1;
-            this.textBoxDogName.TextChanged += new System.EventHandler(this.textBoxDogName_TextChanged);
             // 
             // checkBoxNoNumber
             // 
@@ -134,7 +132,6 @@ namespace GraduationProject.Forms
             this.Name = "DogsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DogsForm";
-            this.Load += new System.EventHandler(this.DogsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDogs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

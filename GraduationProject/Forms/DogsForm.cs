@@ -25,14 +25,12 @@ namespace GraduationProject.Forms
             ShowDogs();
         }
 
-        public DogsForm(List<Dog> dogsArg, Address addressArg)
+        public DogsForm(List<Dog> dogsArg, Address addressArg): this(dogsArg)
         {
-            InitializeComponent();
-            dogs = dogsArg;
-            ShowDogs();
             address = addressArg;
         }
 
+        //Показване на кучетата в списъка
         void ShowDogs()
         {
             for (int i = 0; i < dogs.Count; i++)
@@ -41,18 +39,12 @@ namespace GraduationProject.Forms
                 dataGridViewDogs.RowCount++;
                 dataGridViewDogs.Rows[dataGridViewDogs.RowCount - 1].Cells[0].Value = i + 1;
                 dataGridViewDogs.Rows[dataGridViewDogs.RowCount - 1].Cells[1].Value = dogs[i];
-                
-                
                 dataGridViewDogs.Rows[dataGridViewDogs.RowCount - 1].Cells[2].Value = "Изтриване";
                 
             }
         }
 
-        private void DogsForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        //Натискане на бутон "Изтрване"
         private void dataGridViewDogs_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
@@ -69,16 +61,7 @@ namespace GraduationProject.Forms
             }
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxDogName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        //Натискане на клетка с номер на куче, при кето тя става редактируема
         private void dataGridViewDogs_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridViewDogs.CurrentCell.ColumnIndex == 1)
@@ -89,6 +72,7 @@ namespace GraduationProject.Forms
             }
         }
 
+        //Избрана е отметката, оказваща че кучето няма номер
         private void checkBoxNoNumber_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxNoNumber.Checked)
@@ -97,6 +81,7 @@ namespace GraduationProject.Forms
                 textBoxDogName.Enabled = true;
         }
 
+        //Валидация и добавяне на ново куче
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             Regex regex = new Regex(@"^\d{15}$");
@@ -136,11 +121,7 @@ namespace GraduationProject.Forms
             dataGridViewDogs.Rows[dataGridViewDogs.RowCount - 1].Cells[2].Value = "Изтриване";
         }
 
-        private void dataGridViewDogs_CurrentCellChanged(object sender, EventArgs e)
-        {
-            
-        }
-
+        //Премяна на номера на кучето
         private void dataGridViewDogs_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             Regex regex = new Regex(@"^\d{15}$");
@@ -160,14 +141,12 @@ namespace GraduationProject.Forms
             {
                 newSealnumber = dataGridViewDogs.CurrentCell.Value.ToString();
             }
-            
             else
             {
                 MessageBox.Show("Невалидна стойност!", "Невалидна стойност", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dataGridViewDogs.CurrentCell.Value = currentCellText;
                 return;
             }
-
 
             DialogResult dialogResult;
             dialogResult = MessageBox.Show("Сигурни ли сте, че искате да промените номера?", "Промяна на номера", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -178,15 +157,9 @@ namespace GraduationProject.Forms
                 {
                     dogs[dataGridViewDogs.CurrentCell.RowIndex].Update(connectionHelper);
                 }
-
-
             }
             else
                 dataGridViewDogs.CurrentCell.Value = currentCellText;
-
-
-
-
 
         }
     }

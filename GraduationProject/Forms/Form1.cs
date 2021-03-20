@@ -32,6 +32,7 @@ namespace GraduationProject
             comboBoxCriteria.SelectedIndex = 0;
             selectedTab = panelSearch;
 
+
         }
         //Методи:
         # region Адреси:
@@ -523,5 +524,9 @@ namespace GraduationProject
             textBoxDogs.Text = dogs.Count.ToString();
         }
 
+        private void groupBoxHabitabillity_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

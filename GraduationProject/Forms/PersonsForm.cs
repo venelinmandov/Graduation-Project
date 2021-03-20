@@ -23,9 +23,8 @@ namespace GraduationProject.Forms
             InitializeComponent();
         }
 
-        public PersonsForm(Resident res)
+        public PersonsForm(Resident res): this()
         {
-            InitializeComponent();
             person = res;
             radioButtonHousehold.Enabled = false;
             radioButtonGuest.Enabled = false;
@@ -35,9 +34,8 @@ namespace GraduationProject.Forms
 
         }
 
-        public PersonsForm(Person pers)
+        public PersonsForm(Person pers):this()
         {
-            InitializeComponent();
             person = pers;
             radioButtonHousehold.Enabled = false;
             radioButtonGuest.Enabled = false;
@@ -71,38 +69,40 @@ namespace GraduationProject.Forms
             }
         }
 
+        //Валидация на ЕГН
         bool ValidateEgn(TextBox textBox)
         {
-            bool error = false;
             int[] consts = new int[] { 2, 4, 8, 5, 10, 9, 7, 3, 6 };
+
             textBox.Text = textBox.Text.Trim();
             string egn = (string)textBox.Text.Clone();
             if (textBox.Text.Length != 10)
             {
-                error = true;
-            }
-            else
-            {
-                int sum = 0;
-                for (int i = 0; i < 9; i++)
-                {
-                    if (!char.IsDigit(egn[i]))
-                    {
-                        error = true;
-                        break;
-                    }
-                    sum += int.Parse(egn[i].ToString()) * consts[i];
-                }
-                sum %= 11;
-                sum = sum < 10 ? sum : 0;
-                error = !(int.Parse(egn[9].ToString()) == sum);
+                errorProvider.SetError(textBox, "Дължината на ЕГН-то трябва да е от 10 цифри!");
+                return true;
             }
 
-            if (error)
+            int sum = 0;
+            for (int i = 0; i < 9; i++)
+            {
+                if (!char.IsDigit(egn[i]))
+                {
+                    errorProvider.SetError(textBox, "ЕГН-то се състои само от цифри!");
+                    return true;
+                }
+                sum += int.Parse(egn[i].ToString()) * consts[i];
+            }
+            sum %= 11;
+            sum = sum < 10 ? sum : 0;
+            if (int.Parse(egn[9].ToString()) != sum)
+            {
                 errorProvider.SetError(textBox, "Невалидно ЕГН!");
-            else
-                errorProvider.SetError(textBox, "");
-            return error;
+                return true;
+            }
+
+            errorProvider.SetError(textBox, "");
+            return false;
+
 
         }
 
@@ -166,6 +166,7 @@ namespace GraduationProject.Forms
             return !error;
         }
 
+        //Отключват/заключват се опциите, ексклузивни за членовете на домакинството
         void SetOwner(bool enabled, RadioButton radioButton)
         {
             errorProvider.Clear();
@@ -189,28 +190,20 @@ namespace GraduationProject.Forms
             return -1;
         }
 
+        //Избира се радиобутон по индекс
         public void SetGroupBoxValue(int index, params RadioButton[] radioButtons)
         {
             radioButtons[index].Checked = true;
         }
 
-
-        private void PersonsForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        //Избран е радиобутона "Член на домакинство"
         private void radioButtonHousehold_CheckedChanged(object sender, EventArgs e)
         {
             SetOwner(true, (RadioButton)sender);
 
         }
 
-        private void groupBox4_Enter(object sender, EventArgs e)
-        {
-
-        }
-
+        //Избран е бутона "Гост"
         private void radioButtonGuest_CheckedChanged(object sender, EventArgs e)
         {
             SetOwner(false, (RadioButton)sender);
@@ -221,6 +214,7 @@ namespace GraduationProject.Forms
             }
         }
 
+        //Проняна на състоянието на отметката "Собственик"
         private void checkBoxOwner_CheckedChanged(object sender, EventArgs e)
         {
             if (((CheckBox)sender).Checked == true)
@@ -236,7 +230,7 @@ namespace GraduationProject.Forms
         }
 
 
-
+        //Запазване и затваряне на формата
         private void buttonSave_Click(object sender, EventArgs e)
         {
             if (person == null)
@@ -270,13 +264,12 @@ namespace GraduationProject.Forms
             person.Egn = textBoxEGN.Text;
             person.RelToOwner = textBoxOwner.Text;
             person.Gender = GetGroupBoxValue(radioButtonMale, radioButtonFemale);
-           
 
                 if (validate())
                     Hide();
-
         }
 
+        //Избран е бутона за затваряне на формата
         private void PersonsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             canceled = true;

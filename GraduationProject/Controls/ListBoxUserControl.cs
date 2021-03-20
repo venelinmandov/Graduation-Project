@@ -113,7 +113,7 @@ namespace GraduationProject.Controls
         private  void buttonOnPaint(object sender, PaintEventArgs e)
         {
             Button button = (Button)sender;
-            Pen pen = new Pen(Color.Black, 1);
+            Pen pen = new Pen(Color.FromArgb(28, 97, 81), 1);
             Rectangle rectangle = new Rectangle(0, 0, button.Width - 1, button.Height-1);
             e.Graphics.DrawRectangle(pen, rectangle);
         }
