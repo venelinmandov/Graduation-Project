@@ -69,6 +69,26 @@
   <metadata name="Guest.UserAddedColumn" type="System.Boolean, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
     <value>True</value>
   </metadata>
+  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=4.0.2.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+  <data name="buttonDeleteAddr.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAACtSURBVDhP7dI9CsJAEIbh6TyGlkFvYq9XiXZeQLvYib21goew9TCCf++XYtksa9xoUgh+8BQ7
+        MzssIVaTNS54BFQr0CgD6PIZu4Bq6vWRnBF0aVGeqlFNPc1EM0f4iiPevVAzYW8Gu0MDbbjBtji1ZINu
+        kiH/kna4TBD7Jk1M4dLpQv1fQ++cWvsvfD2YWvvhhSssvXNqrbJwDH/4E9rh0sMBV8SG6+jOHuwwewKL
+        fOqqGRONmAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="buttonSave.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAADmSURBVDhP7ZU7CsJAFEXT6D6sxdI9WGjppnQJ9gqCG3Abghuw0tJGBH/3jA6Mk4vEBKy8cMzw
+        fO8wcSQplIW4ifsXHMVKdEQpyHZi+brmwxvBd8Ca2lZcxV50xVtooJlwTWUwFjGsY20ozqIkpaGOkAzE
+        SRxEjwKhoa6QpDsNvykNTYQE6UVwUKHhk3AmEABrarmQrAWnHxqicCpSmYN/RV/kiZsJH1HYEmw/7sjh
+        ZMQKm+Q3wrYYCXerDnqZIVZY5VByJoJYYSy63TjcrC9WzF/4nHUPWNZVoDed5aFb6xXgkKOYPwD3zsqz
+        UOdRZwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
     <value>76</value>
   </metadata>

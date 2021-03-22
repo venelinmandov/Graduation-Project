@@ -92,7 +92,9 @@ namespace GraduationProject.Controls
             }
             SelectedIndex = index;
             selectedButtonColor = buttons[SelectedIndex].BackColor;
-            buttons[SelectedIndex].BackColor = SelectedItemColor;
+            buttons[SelectedIndex].BackColor = Color.FromArgb(Math.Clamp(selectedButtonColor.R + 30,0,255),
+                                                              Math.Clamp(selectedButtonColor.G + 30, 0, 255),
+                                                              Math.Clamp(selectedButtonColor.B + 30, 0, 255));
             if(SelectedIndexChanged != null)
                 SelectedIndexChanged(buttons[SelectedIndex],new EventArgs());
         }

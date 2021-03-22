@@ -32,7 +32,10 @@ namespace GraduationProject
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBoxSearchAddr = new System.Windows.Forms.TextBox();
             this.comboBoxCriteria = new System.Windows.Forms.ComboBox();
             this.buttonSearchAddress = new System.Windows.Forms.Button();
@@ -130,12 +133,14 @@ namespace GraduationProject
             // 
             // buttonSearchAddress
             // 
+            this.buttonSearchAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonSearchAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearchAddress.Location = new System.Drawing.Point(143, 40);
             this.buttonSearchAddress.Name = "buttonSearchAddress";
             this.buttonSearchAddress.Size = new System.Drawing.Size(70, 24);
             this.buttonSearchAddress.TabIndex = 8;
             this.buttonSearchAddress.Text = "Търсене";
-            this.buttonSearchAddress.UseVisualStyleBackColor = true;
+            this.buttonSearchAddress.UseVisualStyleBackColor = false;
             this.buttonSearchAddress.Click += new System.EventHandler(this.buttonSearchAddress_Click);
             // 
             // labelCriteria
@@ -165,12 +170,14 @@ namespace GraduationProject
             // listBoxStreets
             // 
             this.listBoxStreets.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.listBoxStreets.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
+            this.listBoxStreets.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBoxStreets.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxStreets.FormattingEnabled = true;
             this.listBoxStreets.ItemHeight = 15;
             this.listBoxStreets.Location = new System.Drawing.Point(3, 50);
             this.listBoxStreets.Name = "listBoxStreets";
-            this.listBoxStreets.Size = new System.Drawing.Size(210, 379);
+            this.listBoxStreets.Size = new System.Drawing.Size(210, 390);
             this.listBoxStreets.TabIndex = 1;
             this.listBoxStreets.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxStreets_MouseDown);
             // 
@@ -188,7 +195,7 @@ namespace GraduationProject
             this.panelAddressInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelAddressInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(250)))), ((int)(((byte)(232)))));
+            this.panelAddressInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
             this.panelAddressInfo.Controls.Add(this.panelResidents);
             this.panelAddressInfo.Controls.Add(this.textBoxDogs);
             this.panelAddressInfo.Controls.Add(this.labelDogs);
@@ -221,7 +228,7 @@ namespace GraduationProject
             this.panelAddressInfo.ForeColor = System.Drawing.Color.Black;
             this.panelAddressInfo.Location = new System.Drawing.Point(225, 1);
             this.panelAddressInfo.Name = "panelAddressInfo";
-            this.panelAddressInfo.Size = new System.Drawing.Size(705, 474);
+            this.panelAddressInfo.Size = new System.Drawing.Size(797, 474);
             this.panelAddressInfo.TabIndex = 8;
             // 
             // panelResidents
@@ -236,17 +243,17 @@ namespace GraduationProject
             this.panelResidents.Controls.Add(this.buttonAddPerson);
             this.panelResidents.Location = new System.Drawing.Point(294, 0);
             this.panelResidents.Name = "panelResidents";
-            this.panelResidents.Size = new System.Drawing.Size(411, 474);
+            this.panelResidents.Size = new System.Drawing.Size(479, 474);
             this.panelResidents.TabIndex = 39;
             // 
             // labelInhabitants
             // 
             this.labelInhabitants.AutoSize = true;
-            this.labelInhabitants.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelInhabitants.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelInhabitants.ForeColor = System.Drawing.Color.Black;
-            this.labelInhabitants.Location = new System.Drawing.Point(17, 19);
+            this.labelInhabitants.Location = new System.Drawing.Point(17, 13);
             this.labelInhabitants.Name = "labelInhabitants";
-            this.labelInhabitants.Size = new System.Drawing.Size(109, 26);
+            this.labelInhabitants.Size = new System.Drawing.Size(118, 25);
             this.labelInhabitants.TabIndex = 22;
             this.labelInhabitants.Text = "Обитатели";
             // 
@@ -254,40 +261,56 @@ namespace GraduationProject
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AllowUserToOrderColumns = true;
             this.dataGridView.AllowUserToResizeColumns = false;
             this.dataGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
+            this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.firstName,
             this.lastName,
             this.owner,
             this.Guest});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(79)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView.Location = new System.Drawing.Point(17, 48);
+            this.dataGridView.EnableHeadersVisualStyles = false;
+            this.dataGridView.GridColor = System.Drawing.Color.Silver;
+            this.dataGridView.Location = new System.Drawing.Point(17, 49);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
+            this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowTemplate.Height = 25;
-            this.dataGridView.Size = new System.Drawing.Size(378, 361);
+            this.dataGridView.Size = new System.Drawing.Size(446, 361);
             this.dataGridView.TabIndex = 28;
             // 
             // firstName
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.firstName.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.firstName.DefaultCellStyle = dataGridViewCellStyle3;
             this.firstName.HeaderText = "Име";
             this.firstName.Name = "firstName";
             this.firstName.ReadOnly = true;
@@ -309,10 +332,10 @@ namespace GraduationProject
             // 
             // Guest
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = false;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Guest.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.NullValue = false;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Guest.DefaultCellStyle = dataGridViewCellStyle4;
             this.Guest.HeaderText = "Гост в карантина";
             this.Guest.Name = "Guest";
             this.Guest.ReadOnly = true;
@@ -320,38 +343,46 @@ namespace GraduationProject
             // buttonEditPerson
             // 
             this.buttonEditPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonEditPerson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonEditPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditPerson.Location = new System.Drawing.Point(205, 424);
             this.buttonEditPerson.Name = "buttonEditPerson";
-            this.buttonEditPerson.Size = new System.Drawing.Size(88, 22);
+            this.buttonEditPerson.Size = new System.Drawing.Size(93, 22);
             this.buttonEditPerson.TabIndex = 34;
             this.buttonEditPerson.Text = "Редактиране";
-            this.buttonEditPerson.UseVisualStyleBackColor = true;
+            this.buttonEditPerson.UseVisualStyleBackColor = false;
             this.buttonEditPerson.Click += new System.EventHandler(this.buttonEditPerson_Click);
             // 
             // buttonRemovePerson
             // 
             this.buttonRemovePerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonRemovePerson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonRemovePerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRemovePerson.Location = new System.Drawing.Point(111, 424);
             this.buttonRemovePerson.Name = "buttonRemovePerson";
             this.buttonRemovePerson.Size = new System.Drawing.Size(88, 22);
             this.buttonRemovePerson.TabIndex = 33;
             this.buttonRemovePerson.Text = "Премахване";
-            this.buttonRemovePerson.UseVisualStyleBackColor = true;
+            this.buttonRemovePerson.UseVisualStyleBackColor = false;
             this.buttonRemovePerson.Click += new System.EventHandler(this.buttonRemoveResident_Click);
             // 
             // buttonAddPerson
             // 
             this.buttonAddPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonAddPerson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonAddPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddPerson.Location = new System.Drawing.Point(17, 424);
             this.buttonAddPerson.Name = "buttonAddPerson";
             this.buttonAddPerson.Size = new System.Drawing.Size(88, 22);
             this.buttonAddPerson.TabIndex = 31;
             this.buttonAddPerson.Text = "Добавяне";
-            this.buttonAddPerson.UseVisualStyleBackColor = true;
+            this.buttonAddPerson.UseVisualStyleBackColor = false;
             this.buttonAddPerson.Click += new System.EventHandler(this.buttonAddResident_Click);
             // 
             // textBoxDogs
             // 
+            this.textBoxDogs.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxDogs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxDogs.Location = new System.Drawing.Point(63, 365);
             this.textBoxDogs.Name = "textBoxDogs";
             this.textBoxDogs.ReadOnly = true;
@@ -374,29 +405,38 @@ namespace GraduationProject
             // buttonDeleteAddr
             // 
             this.buttonDeleteAddr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonDeleteAddr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonDeleteAddr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeleteAddr.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonDeleteAddr.Location = new System.Drawing.Point(126, 424);
+            this.buttonDeleteAddr.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteAddr.Image")));
+            this.buttonDeleteAddr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDeleteAddr.Location = new System.Drawing.Point(146, 424);
             this.buttonDeleteAddr.Name = "buttonDeleteAddr";
-            this.buttonDeleteAddr.Size = new System.Drawing.Size(98, 29);
+            this.buttonDeleteAddr.Size = new System.Drawing.Size(123, 29);
             this.buttonDeleteAddr.TabIndex = 35;
-            this.buttonDeleteAddr.Text = "Изтриване";
-            this.buttonDeleteAddr.UseVisualStyleBackColor = true;
+            this.buttonDeleteAddr.Text = "     Изтриване";
+            this.buttonDeleteAddr.UseVisualStyleBackColor = false;
             this.buttonDeleteAddr.Click += new System.EventHandler(this.buttonDeleteAddr_Click);
             // 
             // buttonSave
             // 
             this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
+            this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSave.Location = new System.Drawing.Point(17, 424);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(98, 29);
+            this.buttonSave.Size = new System.Drawing.Size(123, 29);
             this.buttonSave.TabIndex = 32;
-            this.buttonSave.Text = "Запис";
-            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Text = "  Запис";
+            this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // numericUpDownNumber
             // 
+            this.numericUpDownNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numericUpDownNumber.Enabled = false;
             this.numericUpDownNumber.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.numericUpDownNumber.Location = new System.Drawing.Point(17, 49);
@@ -429,6 +469,7 @@ namespace GraduationProject
             // 
             // numericUpDownWalnut
             // 
+            this.numericUpDownWalnut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numericUpDownWalnut.Location = new System.Drawing.Point(222, 363);
             this.numericUpDownWalnut.Name = "numericUpDownWalnut";
             this.numericUpDownWalnut.Size = new System.Drawing.Size(38, 22);
@@ -446,6 +487,7 @@ namespace GraduationProject
             // 
             // numericUpDownFeathered
             // 
+            this.numericUpDownFeathered.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numericUpDownFeathered.Location = new System.Drawing.Point(222, 253);
             this.numericUpDownFeathered.Name = "numericUpDownFeathered";
             this.numericUpDownFeathered.Size = new System.Drawing.Size(38, 22);
@@ -464,6 +506,7 @@ namespace GraduationProject
             // 
             // numericUpDownDonkeys
             // 
+            this.numericUpDownDonkeys.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numericUpDownDonkeys.Location = new System.Drawing.Point(222, 325);
             this.numericUpDownDonkeys.Name = "numericUpDownDonkeys";
             this.numericUpDownDonkeys.Size = new System.Drawing.Size(38, 22);
@@ -482,6 +525,7 @@ namespace GraduationProject
             // 
             // numericUpDownSheep
             // 
+            this.numericUpDownSheep.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numericUpDownSheep.Location = new System.Drawing.Point(222, 289);
             this.numericUpDownSheep.Name = "numericUpDownSheep";
             this.numericUpDownSheep.Size = new System.Drawing.Size(38, 22);
@@ -500,6 +544,7 @@ namespace GraduationProject
             // 
             // numericUpDownHorses
             // 
+            this.numericUpDownHorses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numericUpDownHorses.Location = new System.Drawing.Point(63, 327);
             this.numericUpDownHorses.Name = "numericUpDownHorses";
             this.numericUpDownHorses.Size = new System.Drawing.Size(38, 22);
@@ -536,6 +581,7 @@ namespace GraduationProject
             // 
             // numericUpDownCows
             // 
+            this.numericUpDownCows.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numericUpDownCows.Location = new System.Drawing.Point(63, 253);
             this.numericUpDownCows.Name = "numericUpDownCows";
             this.numericUpDownCows.Size = new System.Drawing.Size(38, 22);
@@ -554,6 +600,7 @@ namespace GraduationProject
             // 
             // numericUpDownAgrBuildings
             // 
+            this.numericUpDownAgrBuildings.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numericUpDownAgrBuildings.Location = new System.Drawing.Point(222, 221);
             this.numericUpDownAgrBuildings.Name = "numericUpDownAgrBuildings";
             this.numericUpDownAgrBuildings.Size = new System.Drawing.Size(38, 22);
@@ -572,6 +619,7 @@ namespace GraduationProject
             // 
             // numericUpDownResBuildings
             // 
+            this.numericUpDownResBuildings.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numericUpDownResBuildings.Location = new System.Drawing.Point(222, 192);
             this.numericUpDownResBuildings.Name = "numericUpDownResBuildings";
             this.numericUpDownResBuildings.Size = new System.Drawing.Size(38, 22);
@@ -640,6 +688,7 @@ namespace GraduationProject
             // 
             // numericUpDownSquaring
             // 
+            this.numericUpDownSquaring.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numericUpDownSquaring.DecimalPlaces = 3;
             this.numericUpDownSquaring.Location = new System.Drawing.Point(138, 143);
             this.numericUpDownSquaring.Maximum = new decimal(new int[] {
@@ -653,8 +702,8 @@ namespace GraduationProject
             // 
             // listBoxAddresses
             // 
-            this.listBoxAddresses.DesolateColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
-            this.listBoxAddresses.InhabitedColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(252)))), ((int)(((byte)(157)))));
+            this.listBoxAddresses.DesolateColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(79)))), ((int)(((byte)(55)))));
+            this.listBoxAddresses.InhabitedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
             this.listBoxAddresses.ItemsColor = System.Drawing.Color.DeepSkyBlue;
             this.listBoxAddresses.Location = new System.Drawing.Point(3, 72);
             this.listBoxAddresses.Name = "listBoxAddresses";
@@ -662,7 +711,7 @@ namespace GraduationProject
             this.listBoxAddresses.SelectedItemColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.listBoxAddresses.Size = new System.Drawing.Size(210, 341);
             this.listBoxAddresses.TabIndex = 35;
-            this.listBoxAddresses.TemporarilyColor = System.Drawing.Color.Yellow;
+            this.listBoxAddresses.TemporarilyColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(187)))), ((int)(((byte)(0)))));
             this.listBoxAddresses.SelectedIndexChanged += new System.EventHandler(this.listBoxUserControl_SelectedIndexChanged);
             // 
             // contextMenuStripStreets
@@ -747,13 +796,14 @@ namespace GraduationProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(97)))), ((int)(((byte)(81)))));
-            this.ClientSize = new System.Drawing.Size(930, 475);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(79)))), ((int)(((byte)(33)))));
+            this.ClientSize = new System.Drawing.Size(997, 475);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.panelAddressInfo);
-            this.Controls.Add(this.panelAdd);
             this.Controls.Add(this.panelSearch);
+            this.Controls.Add(this.panelAdd);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.MinimumSize = new System.Drawing.Size(946, 514);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
