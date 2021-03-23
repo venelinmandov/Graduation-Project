@@ -26,8 +26,7 @@ namespace GraduationProject
         public Form1()
         {
             InitializeComponent();
-            addresses = new Address().Get(connectionHelper);
-            listBoxAddresses.AddList(addresses);
+            ShowAddresses();
             ShowStreets();
             comboBoxCriteria.SelectedIndex = 0;
             selectedTab = panelSearch;
@@ -112,7 +111,10 @@ namespace GraduationProject
         //Промяна на информацията за избрания адрес в базата данни
         private void UpdateAddress()
         {
+            int addressesSelectedIndex = listBoxAddresses.SelectedIndex;
             address.Update(connectionHelper);
+            ShowAddresses();
+            listBoxAddresses.ChangeIndex(addressesSelectedIndex);
 
         }
 
@@ -135,9 +137,10 @@ namespace GraduationProject
                 listBoxAddresses.AddList(addresses);
                 return;
             }
-            addresses = new List<Address>();
+            
             if (comboBoxCriteria.SelectedIndex == 0)
             {
+                addresses = new List<Address>();
                 List<Street> foundStreets = new Street().Get(connectionHelper, textBoxSearchAddr.Text);
                 foreach (Street street in foundStreets)
                 {
@@ -148,7 +151,7 @@ namespace GraduationProject
             {
                 addresses = new Address().Get(connectionHelper, textBoxSearchAddr.Text);
             }
-            listBoxAddresses.AddList(addresses.Cast<object>().ToList());
+            listBoxAddresses.AddList(addresses);
         }
 
         //Показване на информацията за текущо избрания адрес
@@ -502,7 +505,16 @@ namespace GraduationProject
         //Избран е друг адрес от списъка с адреси
         private void listBoxUserControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (addresses.Count == 0) return;
+            if (addresses.Count == 0)
+            { 
+                ClearInfo();
+                address = null;
+                buttonSave.Enabled = false;
+                buttonDeleteAddr.Enabled = false;
+                return;
+            };
+            buttonSave.Enabled = true;
+            buttonDeleteAddr.Enabled = true;
             address = addresses[listBoxAddresses.SelectedIndex];
             ShowSelectedAddress();
         }
@@ -524,9 +536,5 @@ namespace GraduationProject
             textBoxDogs.Text = dogs.Count.ToString();
         }
 
-        private void groupBoxHabitabillity_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }

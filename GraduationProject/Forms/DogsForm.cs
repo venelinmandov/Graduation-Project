@@ -39,8 +39,7 @@ namespace GraduationProject.Forms
                 dataGridViewDogs.RowCount++;
                 dataGridViewDogs.Rows[dataGridViewDogs.RowCount - 1].Cells[0].Value = i + 1;
                 dataGridViewDogs.Rows[dataGridViewDogs.RowCount - 1].Cells[1].Value = dogs[i];
-                dataGridViewDogs.Rows[dataGridViewDogs.RowCount - 1].Cells[2].Value = "Изтриване";
-                
+
             }
         }
 
@@ -49,7 +48,7 @@ namespace GraduationProject.Forms
         {
             var senderGrid = (DataGridView)sender;
 
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewImageColumn &&
                 e.RowIndex >= 0)
             {
                 if (address != null)
@@ -57,6 +56,11 @@ namespace GraduationProject.Forms
                     dogs[e.RowIndex].Delete(connectionHelper);
                 }
                 dataGridViewDogs.Rows.Remove(dataGridViewDogs.Rows[e.RowIndex]);
+                for (int i = e.RowIndex; i < dataGridViewDogs.Rows.Count; i++)
+                {
+                    int newVal = (int)dataGridViewDogs.Rows[i].Cells[0].Value - 1;
+                    dataGridViewDogs.Rows[i].Cells[0].Value = newVal;
+                }
                 dogs.RemoveAt(e.RowIndex);
             }
         }
@@ -110,15 +114,11 @@ namespace GraduationProject.Forms
                 newDog.AddressId = address.Id;
                 newDog.Insert(connectionHelper);
             }
-            else
-            {
-                dogs.Add(newDog);
-            }
+            dogs.Add(newDog);
 
             dataGridViewDogs.RowCount++;
             dataGridViewDogs.Rows[dataGridViewDogs.RowCount - 1].Cells[0].Value = dataGridViewDogs.RowCount;
             dataGridViewDogs.Rows[dataGridViewDogs.RowCount - 1].Cells[1].Value = newDog;
-            dataGridViewDogs.Rows[dataGridViewDogs.RowCount - 1].Cells[2].Value = "Изтриване";
         }
 
         //Премяна на номера на кучето

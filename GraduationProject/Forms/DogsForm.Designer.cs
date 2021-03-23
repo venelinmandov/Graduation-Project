@@ -29,10 +29,15 @@ namespace GraduationProject.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DogsForm));
             this.dataGridViewDogs = new System.Windows.Forms.DataGridView();
             this.ColumnNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSealNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.textBoxDogName = new System.Windows.Forms.TextBox();
             this.checkBoxNoNumber = new System.Windows.Forms.CheckBox();
             this.buttonAdd = new System.Windows.Forms.Button();
@@ -45,19 +50,51 @@ namespace GraduationProject.Forms
             this.dataGridViewDogs.AllowUserToDeleteRows = false;
             this.dataGridViewDogs.AllowUserToResizeColumns = false;
             this.dataGridViewDogs.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewDogs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewDogs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewDogs.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
+            this.dataGridViewDogs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewDogs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewDogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDogs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnNumber,
             this.ColumnSealNumber,
-            this.dataGridViewButtonColumn1});
+            this.dataGridViewImageColumn1});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(79)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewDogs.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewDogs.EnableHeadersVisualStyles = false;
+            this.dataGridViewDogs.GridColor = System.Drawing.Color.Silver;
             this.dataGridViewDogs.Location = new System.Drawing.Point(12, 12);
             this.dataGridViewDogs.MultiSelect = false;
             this.dataGridViewDogs.Name = "dataGridViewDogs";
+            this.dataGridViewDogs.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewDogs.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewDogs.RowHeadersVisible = false;
             this.dataGridViewDogs.RowTemplate.Height = 25;
+            this.dataGridViewDogs.ShowCellToolTips = false;
             this.dataGridViewDogs.Size = new System.Drawing.Size(279, 177);
             this.dataGridViewDogs.TabIndex = 0;
             this.dataGridViewDogs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDogs_CellClick);
@@ -80,29 +117,32 @@ namespace GraduationProject.Forms
             this.ColumnSealNumber.Name = "ColumnSealNumber";
             this.ColumnSealNumber.ReadOnly = true;
             // 
-            // dataGridViewButtonColumn1
+            // dataGridViewImageColumn1
             // 
-            this.dataGridViewButtonColumn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dataGridViewButtonColumn1.HeaderText = "";
-            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            this.dataGridViewButtonColumn1.ReadOnly = true;
-            this.dataGridViewButtonColumn1.Width = 70;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.Width = 32;
             // 
             // textBoxDogName
             // 
             this.textBoxDogName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxDogName.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxDogName.Location = new System.Drawing.Point(308, 13);
             this.textBoxDogName.Name = "textBoxDogName";
-            this.textBoxDogName.Size = new System.Drawing.Size(185, 23);
+            this.textBoxDogName.Size = new System.Drawing.Size(185, 22);
             this.textBoxDogName.TabIndex = 1;
             // 
             // checkBoxNoNumber
             // 
             this.checkBoxNoNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxNoNumber.AutoSize = true;
-            this.checkBoxNoNumber.Location = new System.Drawing.Point(308, 52);
+            this.checkBoxNoNumber.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBoxNoNumber.Location = new System.Drawing.Point(308, 53);
             this.checkBoxNoNumber.Name = "checkBoxNoNumber";
-            this.checkBoxNoNumber.Size = new System.Drawing.Size(95, 19);
+            this.checkBoxNoNumber.Size = new System.Drawing.Size(96, 18);
             this.checkBoxNoNumber.TabIndex = 2;
             this.checkBoxNoNumber.Text = "Няма номер";
             this.checkBoxNoNumber.UseVisualStyleBackColor = true;
@@ -111,18 +151,22 @@ namespace GraduationProject.Forms
             // buttonAdd
             // 
             this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonAdd.Location = new System.Drawing.Point(308, 80);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(94, 23);
             this.buttonAdd.TabIndex = 3;
-            this.buttonAdd.Text = "Добаване";
-            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Text = "Добавяне";
+            this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // DogsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
             this.ClientSize = new System.Drawing.Size(505, 201);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.checkBoxNoNumber);
@@ -146,6 +190,6 @@ namespace GraduationProject.Forms
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSealNumber;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
     }
 }

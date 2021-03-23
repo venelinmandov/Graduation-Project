@@ -72,21 +72,21 @@
   <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=4.0.2.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
   <data name="buttonDeleteAddr.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAACtSURBVDhP7dI9CsJAEIbh6TyGlkFvYq9XiXZeQLvYib21goew9TCCf++XYtksa9xoUgh+8BQ7
-        MzssIVaTNS54BFQr0CgD6PIZu4Bq6vWRnBF0aVGeqlFNPc1EM0f4iiPevVAzYW8Gu0MDbbjBtji1ZINu
-        kiH/kna4TBD7Jk1M4dLpQv1fQ++cWvsvfD2YWvvhhSssvXNqrbJwDH/4E9rh0sMBV8SG6+jOHuwwewKL
-        fOqqGRONmAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAK1JREFUOE/t
+        0j0KwkAQhuHpPIaWQW9ir1eJdl5Au9iJvbWCh7D1MIJ/75di2Sxr3GhSCH7wFDszOywhVpM1LngEVCvQ
+        KAPo8hm7gGrq9ZGcEXRpUZ6qUU09zUQzR/iKI969UDNhbwa7QwNtuMG2OLVkg26SIf+SdrhMEPsmTUzh
+        0ulC/V9D75xa+y98PZha++GFKyy9c2qtsnAMf/gT2uHSwwFXxIbr6M4e7DB7Aot86qoZE42YAAAAAElF
+        TkSuQmCC
 </value>
   </data>
   <data name="buttonSave.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAADmSURBVDhP7ZU7CsJAFEXT6D6sxdI9WGjppnQJ9gqCG3Abghuw0tJGBH/3jA6Mk4vEBKy8cMzw
-        fO8wcSQplIW4ifsXHMVKdEQpyHZi+brmwxvBd8Ca2lZcxV50xVtooJlwTWUwFjGsY20ozqIkpaGOkAzE
-        SRxEjwKhoa6QpDsNvykNTYQE6UVwUKHhk3AmEABrarmQrAWnHxqicCpSmYN/RV/kiZsJH1HYEmw/7sjh
-        ZMQKm+Q3wrYYCXerDnqZIVZY5VByJoJYYSy63TjcrC9WzF/4nHUPWNZVoDed5aFb6xXgkKOYPwD3zsqz
-        UOdRZwAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAOZJREFUOE/t
+        lTsKwkAURdPoPqzF0j1YaOmmdAn2CoIbcBuCG7DS0kYEf/eMDoyTi8QErLxwzPB87zBxJCmUhbiJ+xcc
+        xUp0RCnIdmL5uubDG8F3wJraVlzFXnTFW2igmXBNZTAWMaxjbSjOoiSloY6QDMRJHESPAqGhrpCkOw2/
+        KQ1NhATpRXBQoeGTcCYQAGtquZCsBacfGqJwKlKZg39FX+SJmwkfUdgSbD/uyOFkxAqb5DfCthgJd6sO
+        epkhVljlUHImglhhLLrdONysL1bMX/icdQ9Y1lWgN53loVvrFeCQo5g/APfOyrNQ51FnAAAAAElFTkSu
+        QmCC
 </value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">

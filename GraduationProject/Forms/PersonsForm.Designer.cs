@@ -63,88 +63,99 @@ namespace GraduationProject.Forms
             // 
             // textBoxFName
             // 
+            this.textBoxFName.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxFName.Location = new System.Drawing.Point(77, 30);
             this.textBoxFName.Name = "textBoxFName";
-            this.textBoxFName.Size = new System.Drawing.Size(149, 23);
+            this.textBoxFName.Size = new System.Drawing.Size(149, 22);
             this.textBoxFName.TabIndex = 0;
             // 
             // labelFname
             // 
             this.labelFname.AutoSize = true;
+            this.labelFname.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelFname.Location = new System.Drawing.Point(37, 33);
             this.labelFname.Name = "labelFname";
-            this.labelFname.Size = new System.Drawing.Size(34, 15);
+            this.labelFname.Size = new System.Drawing.Size(33, 14);
             this.labelFname.TabIndex = 1;
             this.labelFname.Text = "Име:";
             // 
             // labelMName
             // 
             this.labelMName.AutoSize = true;
+            this.labelMName.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelMName.Location = new System.Drawing.Point(12, 73);
             this.labelMName.Name = "labelMName";
-            this.labelMName.Size = new System.Drawing.Size(59, 15);
+            this.labelMName.Size = new System.Drawing.Size(59, 14);
             this.labelMName.TabIndex = 3;
             this.labelMName.Text = "Презиме:";
             // 
             // textBoxMName
             // 
+            this.textBoxMName.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxMName.Location = new System.Drawing.Point(77, 70);
             this.textBoxMName.Name = "textBoxMName";
-            this.textBoxMName.Size = new System.Drawing.Size(149, 23);
+            this.textBoxMName.Size = new System.Drawing.Size(149, 22);
             this.textBoxMName.TabIndex = 2;
             // 
             // labelLName
             // 
             this.labelLName.AutoSize = true;
+            this.labelLName.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelLName.Location = new System.Drawing.Point(10, 113);
             this.labelLName.Name = "labelLName";
-            this.labelLName.Size = new System.Drawing.Size(61, 15);
+            this.labelLName.Size = new System.Drawing.Size(62, 14);
             this.labelLName.TabIndex = 5;
             this.labelLName.Text = "Фамилия:";
             // 
             // textBoxLName
             // 
+            this.textBoxLName.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxLName.Location = new System.Drawing.Point(77, 110);
             this.textBoxLName.Name = "textBoxLName";
-            this.textBoxLName.Size = new System.Drawing.Size(149, 23);
+            this.textBoxLName.Size = new System.Drawing.Size(149, 22);
             this.textBoxLName.TabIndex = 4;
             // 
             // labelOwner
             // 
             this.labelOwner.AutoSize = true;
+            this.labelOwner.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelOwner.Location = new System.Drawing.Point(95, 164);
             this.labelOwner.Name = "labelOwner";
-            this.labelOwner.Size = new System.Drawing.Size(142, 15);
+            this.labelOwner.Size = new System.Drawing.Size(150, 14);
             this.labelOwner.TabIndex = 7;
             this.labelOwner.Text = "Връзка със собственика:";
             // 
             // textBoxOwner
             // 
-            this.textBoxOwner.Location = new System.Drawing.Point(243, 161);
+            this.textBoxOwner.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxOwner.Location = new System.Drawing.Point(251, 161);
             this.textBoxOwner.Name = "textBoxOwner";
-            this.textBoxOwner.Size = new System.Drawing.Size(149, 23);
+            this.textBoxOwner.Size = new System.Drawing.Size(149, 22);
             this.textBoxOwner.TabIndex = 6;
             // 
             // labelEGN
             // 
             this.labelEGN.AutoSize = true;
+            this.labelEGN.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelEGN.Location = new System.Drawing.Point(260, 36);
             this.labelEGN.Name = "labelEGN";
-            this.labelEGN.Size = new System.Drawing.Size(31, 15);
+            this.labelEGN.Size = new System.Drawing.Size(32, 14);
             this.labelEGN.TabIndex = 9;
             this.labelEGN.Text = "ЕГН:";
             // 
             // textBoxEGN
             // 
+            this.textBoxEGN.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxEGN.Location = new System.Drawing.Point(297, 33);
             this.textBoxEGN.Name = "textBoxEGN";
-            this.textBoxEGN.Size = new System.Drawing.Size(149, 23);
+            this.textBoxEGN.Size = new System.Drawing.Size(149, 22);
             this.textBoxEGN.TabIndex = 8;
             // 
             // groupBoxGender
             // 
             this.groupBoxGender.Controls.Add(this.radioButtonFemale);
             this.groupBoxGender.Controls.Add(this.radioButtonMale);
+            this.groupBoxGender.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBoxGender.Location = new System.Drawing.Point(254, 73);
             this.groupBoxGender.Name = "groupBoxGender";
             this.groupBoxGender.Size = new System.Drawing.Size(192, 63);
@@ -157,7 +168,7 @@ namespace GraduationProject.Forms
             this.radioButtonFemale.AutoSize = true;
             this.radioButtonFemale.Location = new System.Drawing.Point(119, 36);
             this.radioButtonFemale.Name = "radioButtonFemale";
-            this.radioButtonFemale.Size = new System.Drawing.Size(55, 19);
+            this.radioButtonFemale.Size = new System.Drawing.Size(55, 18);
             this.radioButtonFemale.TabIndex = 1;
             this.radioButtonFemale.TabStop = true;
             this.radioButtonFemale.Text = "Жена";
@@ -168,7 +179,7 @@ namespace GraduationProject.Forms
             this.radioButtonMale.AutoSize = true;
             this.radioButtonMale.Location = new System.Drawing.Point(6, 36);
             this.radioButtonMale.Name = "radioButtonMale";
-            this.radioButtonMale.Size = new System.Drawing.Size(52, 19);
+            this.radioButtonMale.Size = new System.Drawing.Size(51, 18);
             this.radioButtonMale.TabIndex = 0;
             this.radioButtonMale.TabStop = true;
             this.radioButtonMale.Text = "Мъж";
@@ -179,6 +190,7 @@ namespace GraduationProject.Forms
             this.groupBoxAddressReg.Controls.Add(this.radioButtonAddrRegTemp);
             this.groupBoxAddressReg.Controls.Add(this.radioButtonAddrRegYes);
             this.groupBoxAddressReg.Controls.Add(this.radioButtonAddrRegNo);
+            this.groupBoxAddressReg.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBoxAddressReg.Location = new System.Drawing.Point(12, 218);
             this.groupBoxAddressReg.Name = "groupBoxAddressReg";
             this.groupBoxAddressReg.Size = new System.Drawing.Size(112, 120);
@@ -191,7 +203,7 @@ namespace GraduationProject.Forms
             this.radioButtonAddrRegTemp.AutoSize = true;
             this.radioButtonAddrRegTemp.Location = new System.Drawing.Point(6, 86);
             this.radioButtonAddrRegTemp.Name = "radioButtonAddrRegTemp";
-            this.radioButtonAddrRegTemp.Size = new System.Drawing.Size(80, 19);
+            this.radioButtonAddrRegTemp.Size = new System.Drawing.Size(82, 18);
             this.radioButtonAddrRegTemp.TabIndex = 3;
             this.radioButtonAddrRegTemp.TabStop = true;
             this.radioButtonAddrRegTemp.Text = "Временна";
@@ -202,7 +214,7 @@ namespace GraduationProject.Forms
             this.radioButtonAddrRegYes.AutoSize = true;
             this.radioButtonAddrRegYes.Location = new System.Drawing.Point(6, 61);
             this.radioButtonAddrRegYes.Name = "radioButtonAddrRegYes";
-            this.radioButtonAddrRegYes.Size = new System.Drawing.Size(49, 19);
+            this.radioButtonAddrRegYes.Size = new System.Drawing.Size(49, 18);
             this.radioButtonAddrRegYes.TabIndex = 1;
             this.radioButtonAddrRegYes.TabStop = true;
             this.radioButtonAddrRegYes.Text = "Има";
@@ -213,7 +225,7 @@ namespace GraduationProject.Forms
             this.radioButtonAddrRegNo.AutoSize = true;
             this.radioButtonAddrRegNo.Location = new System.Drawing.Point(6, 36);
             this.radioButtonAddrRegNo.Name = "radioButtonAddrRegNo";
-            this.radioButtonAddrRegNo.Size = new System.Drawing.Size(55, 19);
+            this.radioButtonAddrRegNo.Size = new System.Drawing.Size(56, 18);
             this.radioButtonAddrRegNo.TabIndex = 0;
             this.radioButtonAddrRegNo.TabStop = true;
             this.radioButtonAddrRegNo.Text = "Няма";
@@ -224,6 +236,7 @@ namespace GraduationProject.Forms
             this.groupBoxCovid19.Controls.Add(this.radioButtonCovid19Contact);
             this.groupBoxCovid19.Controls.Add(this.radioButtonCovid19Yes);
             this.groupBoxCovid19.Controls.Add(this.radioButtonCovid19No);
+            this.groupBoxCovid19.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBoxCovid19.Location = new System.Drawing.Point(151, 218);
             this.groupBoxCovid19.Name = "groupBoxCovid19";
             this.groupBoxCovid19.Size = new System.Drawing.Size(128, 120);
@@ -236,7 +249,7 @@ namespace GraduationProject.Forms
             this.radioButtonCovid19Contact.AutoSize = true;
             this.radioButtonCovid19Contact.Location = new System.Drawing.Point(6, 86);
             this.radioButtonCovid19Contact.Name = "radioButtonCovid19Contact";
-            this.radioButtonCovid19Contact.Size = new System.Drawing.Size(81, 19);
+            this.radioButtonCovid19Contact.Size = new System.Drawing.Size(86, 18);
             this.radioButtonCovid19Contact.TabIndex = 3;
             this.radioButtonCovid19Contact.TabStop = true;
             this.radioButtonCovid19Contact.Text = "Контактен";
@@ -247,7 +260,7 @@ namespace GraduationProject.Forms
             this.radioButtonCovid19Yes.AutoSize = true;
             this.radioButtonCovid19Yes.Location = new System.Drawing.Point(6, 61);
             this.radioButtonCovid19Yes.Name = "radioButtonCovid19Yes";
-            this.radioButtonCovid19Yes.Size = new System.Drawing.Size(49, 19);
+            this.radioButtonCovid19Yes.Size = new System.Drawing.Size(49, 18);
             this.radioButtonCovid19Yes.TabIndex = 1;
             this.radioButtonCovid19Yes.TabStop = true;
             this.radioButtonCovid19Yes.Text = "Има";
@@ -258,7 +271,7 @@ namespace GraduationProject.Forms
             this.radioButtonCovid19No.AutoSize = true;
             this.radioButtonCovid19No.Location = new System.Drawing.Point(6, 36);
             this.radioButtonCovid19No.Name = "radioButtonCovid19No";
-            this.radioButtonCovid19No.Size = new System.Drawing.Size(55, 19);
+            this.radioButtonCovid19No.Size = new System.Drawing.Size(56, 18);
             this.radioButtonCovid19No.TabIndex = 0;
             this.radioButtonCovid19No.TabStop = true;
             this.radioButtonCovid19No.Text = "Няма";
@@ -269,6 +282,7 @@ namespace GraduationProject.Forms
             this.groupBoxOwner.Controls.Add(this.checkBoxOwner);
             this.groupBoxOwner.Controls.Add(this.radioButtonGuest);
             this.groupBoxOwner.Controls.Add(this.radioButtonHousehold);
+            this.groupBoxOwner.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBoxOwner.Location = new System.Drawing.Point(312, 218);
             this.groupBoxOwner.Name = "groupBoxOwner";
             this.groupBoxOwner.Size = new System.Drawing.Size(134, 120);
@@ -280,7 +294,7 @@ namespace GraduationProject.Forms
             this.checkBoxOwner.AutoSize = true;
             this.checkBoxOwner.Location = new System.Drawing.Point(23, 87);
             this.checkBoxOwner.Name = "checkBoxOwner";
-            this.checkBoxOwner.Size = new System.Drawing.Size(91, 19);
+            this.checkBoxOwner.Size = new System.Drawing.Size(94, 18);
             this.checkBoxOwner.TabIndex = 3;
             this.checkBoxOwner.Text = "Собственик";
             this.checkBoxOwner.UseVisualStyleBackColor = true;
@@ -291,7 +305,7 @@ namespace GraduationProject.Forms
             this.radioButtonGuest.AutoSize = true;
             this.radioButtonGuest.Location = new System.Drawing.Point(6, 61);
             this.radioButtonGuest.Name = "radioButtonGuest";
-            this.radioButtonGuest.Size = new System.Drawing.Size(49, 19);
+            this.radioButtonGuest.Size = new System.Drawing.Size(51, 18);
             this.radioButtonGuest.TabIndex = 1;
             this.radioButtonGuest.TabStop = true;
             this.radioButtonGuest.Text = "Гост";
@@ -311,18 +325,22 @@ namespace GraduationProject.Forms
             // 
             // buttonSave
             // 
+            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSave.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonSave.Location = new System.Drawing.Point(12, 355);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(112, 23);
             this.buttonSave.TabIndex = 14;
             this.buttonSave.Text = "Запази";
-            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // PersonsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
             this.ClientSize = new System.Drawing.Size(465, 391);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.groupBoxOwner);

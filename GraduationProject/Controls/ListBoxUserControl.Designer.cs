@@ -37,7 +37,6 @@ namespace GraduationProject.Controls
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "ListBoxUserControl";
             this.Size = new System.Drawing.Size(206, 322);
-            this.Load += new System.EventHandler(this.ListBoxUserControl_Load);
             this.ResumeLayout(false);
 
         }

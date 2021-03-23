@@ -29,9 +29,10 @@ namespace GraduationProject.Controls
             SelectedIndex = -1;
         }
 
+        //Добаване на списък с елементи
         public void AddList(List<object> items)
         {
-            this.Controls.Clear();
+            Controls.Clear();
             buttons = new List<Button>();
             foreach (object item in items)
             {
@@ -53,10 +54,16 @@ namespace GraduationProject.Controls
 
         }
 
+        //Добаване на списък с елементи от тип адрес
         public void AddList(List<Models.Address> addresses)
         {
-            this.Controls.Clear();
+            
+            buttons = null;
+            Controls.Clear();
             buttons = new List<Button>();
+            SelectedIndex = -1;
+            
+            
             foreach (Models.Address address in addresses)
             {
                 Button button = new Button();
@@ -65,8 +72,7 @@ namespace GraduationProject.Controls
                 button.FlatStyle = FlatStyle.Flat;
                 
                 button.Dock = DockStyle.Top;
-                Controls.Add(button);
-                button.BringToFront();
+                
                 button.Click += buttonClick;
                 button.Paint += buttonOnPaint;
 
@@ -77,15 +83,17 @@ namespace GraduationProject.Controls
                     case 2: button.BackColor = TemporarilyColor;break;
                     default:  button.BackColor = ItemsColor;break;
                 }
-
+                Controls.Add(button);
+                button.BringToFront();
                 buttons.Add(button);
             }
             ChangeIndex(0);
-
         }
 
-        private void ChangeIndex(int index)
+        //Промяна на индекса на избрания елемент
+        public void ChangeIndex(int index)
         {
+            if (buttons.Count <= index) return;
             if (SelectedIndex != -1)
             {
                 buttons[SelectedIndex].BackColor = selectedButtonColor;
@@ -96,9 +104,11 @@ namespace GraduationProject.Controls
                                                               Math.Clamp(selectedButtonColor.G + 30, 0, 255),
                                                               Math.Clamp(selectedButtonColor.B + 30, 0, 255));
             if(SelectedIndexChanged != null)
-                SelectedIndexChanged(buttons[SelectedIndex],new EventArgs());
+                SelectedIndexChanged(this,new EventArgs());
         }
 
+
+        //Обработчик на събитие натискане на ляв бутон на мишката върху елемент 
         private void buttonClick(object buttonClicked, EventArgs eventArgs)
         {
             for (int i = 0; i < buttons.Count; i++)
@@ -111,7 +121,7 @@ namespace GraduationProject.Controls
             }
         }
 
-
+        //Изчертаване на рамка на елемент
         private  void buttonOnPaint(object sender, PaintEventArgs e)
         {
             Button button = (Button)sender;
@@ -120,9 +130,5 @@ namespace GraduationProject.Controls
             e.Graphics.DrawRectangle(pen, rectangle);
         }
 
-        private void ListBoxUserControl_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

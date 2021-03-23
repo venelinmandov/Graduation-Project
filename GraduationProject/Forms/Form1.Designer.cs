@@ -33,6 +33,7 @@ namespace GraduationProject
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
@@ -90,6 +91,7 @@ namespace GraduationProject
             this.toolStripMenuItemRenameStr = new System.Windows.Forms.ToolStripMenuItem();
             this.panelSearch = new System.Windows.Forms.Panel();
             this.panelAdd = new System.Windows.Forms.Panel();
+            this.buttonAddStr = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.panelAddressInfo.SuspendLayout();
@@ -114,6 +116,7 @@ namespace GraduationProject
             // 
             // textBoxSearchAddr
             // 
+            this.textBoxSearchAddr.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxSearchAddr.Location = new System.Drawing.Point(3, 41);
             this.textBoxSearchAddr.Name = "textBoxSearchAddr";
             this.textBoxSearchAddr.Size = new System.Drawing.Size(136, 23);
@@ -122,6 +125,8 @@ namespace GraduationProject
             // comboBoxCriteria
             // 
             this.comboBoxCriteria.BackColor = System.Drawing.Color.White;
+            this.comboBoxCriteria.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxCriteria.ForeColor = System.Drawing.SystemColors.MenuText;
             this.comboBoxCriteria.FormattingEnabled = true;
             this.comboBoxCriteria.Items.AddRange(new object[] {
             "Улица",
@@ -134,6 +139,7 @@ namespace GraduationProject
             // buttonSearchAddress
             // 
             this.buttonSearchAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonSearchAddress.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
             this.buttonSearchAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearchAddress.Location = new System.Drawing.Point(143, 40);
             this.buttonSearchAddress.Name = "buttonSearchAddress";
@@ -177,13 +183,14 @@ namespace GraduationProject
             this.listBoxStreets.ItemHeight = 15;
             this.listBoxStreets.Location = new System.Drawing.Point(3, 50);
             this.listBoxStreets.Name = "listBoxStreets";
-            this.listBoxStreets.Size = new System.Drawing.Size(210, 390);
+            this.listBoxStreets.Size = new System.Drawing.Size(210, 360);
             this.listBoxStreets.TabIndex = 1;
             this.listBoxStreets.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxStreets_MouseDown);
             // 
             // textBoxSearchStr
             // 
             this.textBoxSearchStr.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxSearchStr.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxSearchStr.Location = new System.Drawing.Point(53, 11);
             this.textBoxSearchStr.Name = "textBoxSearchStr";
             this.textBoxSearchStr.Size = new System.Drawing.Size(160, 23);
@@ -276,8 +283,8 @@ namespace GraduationProject
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -302,8 +309,18 @@ namespace GraduationProject
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowTemplate.Height = 25;
+            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView.ShowCellToolTips = false;
             this.dataGridView.Size = new System.Drawing.Size(446, 361);
             this.dataGridView.TabIndex = 28;
             // 
@@ -344,6 +361,7 @@ namespace GraduationProject
             // 
             this.buttonEditPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonEditPerson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonEditPerson.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
             this.buttonEditPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditPerson.Location = new System.Drawing.Point(205, 424);
             this.buttonEditPerson.Name = "buttonEditPerson";
@@ -357,6 +375,7 @@ namespace GraduationProject
             // 
             this.buttonRemovePerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonRemovePerson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonRemovePerson.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
             this.buttonRemovePerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRemovePerson.Location = new System.Drawing.Point(111, 424);
             this.buttonRemovePerson.Name = "buttonRemovePerson";
@@ -370,6 +389,7 @@ namespace GraduationProject
             // 
             this.buttonAddPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonAddPerson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonAddPerson.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
             this.buttonAddPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddPerson.Location = new System.Drawing.Point(17, 424);
             this.buttonAddPerson.Name = "buttonAddPerson";
@@ -406,8 +426,9 @@ namespace GraduationProject
             // 
             this.buttonDeleteAddr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonDeleteAddr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonDeleteAddr.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
             this.buttonDeleteAddr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDeleteAddr.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonDeleteAddr.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonDeleteAddr.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteAddr.Image")));
             this.buttonDeleteAddr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonDeleteAddr.Location = new System.Drawing.Point(146, 424);
@@ -422,8 +443,9 @@ namespace GraduationProject
             // 
             this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonSave.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonSave.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
             this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSave.Location = new System.Drawing.Point(17, 424);
@@ -637,7 +659,6 @@ namespace GraduationProject
             this.groupBoxHabitabillity.TabIndex = 2;
             this.groupBoxHabitabillity.TabStop = false;
             this.groupBoxHabitabillity.Text = "Обитаемост";
-            this.groupBoxHabitabillity.Enter += new System.EventHandler(this.groupBoxHabitabillity_Enter);
             // 
             // radioButtonTemporariry
             // 
@@ -754,6 +775,7 @@ namespace GraduationProject
             // 
             this.panelAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelAdd.Controls.Add(this.buttonAddStr);
             this.panelAdd.Controls.Add(this.textBoxSearchStr);
             this.panelAdd.Controls.Add(this.label3);
             this.panelAdd.Controls.Add(this.listBoxStreets);
@@ -761,6 +783,21 @@ namespace GraduationProject
             this.panelAdd.Name = "panelAdd";
             this.panelAdd.Size = new System.Drawing.Size(217, 448);
             this.panelAdd.TabIndex = 9;
+            // 
+            // buttonAddStr
+            // 
+            this.buttonAddStr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonAddStr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonAddStr.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.buttonAddStr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddStr.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonAddStr.Location = new System.Drawing.Point(3, 416);
+            this.buttonAddStr.Name = "buttonAddStr";
+            this.buttonAddStr.Size = new System.Drawing.Size(210, 25);
+            this.buttonAddStr.TabIndex = 35;
+            this.buttonAddStr.Text = "Добавяне на улица";
+            this.buttonAddStr.UseVisualStyleBackColor = false;
+            this.buttonAddStr.Click += new System.EventHandler(this.buttonAddStr_Click);
             // 
             // buttonSearch
             // 
@@ -892,6 +929,7 @@ namespace GraduationProject
         private System.Windows.Forms.Label labelDogs;
         private System.Windows.Forms.TextBox textBoxDogs;
         private System.Windows.Forms.Panel panelResidents;
+        private System.Windows.Forms.Button buttonAddStr;
     }
 }
 
