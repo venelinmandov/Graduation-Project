@@ -479,8 +479,6 @@ namespace GraduationProject
             }
         }
 
-        #endregion
-
         //Избран е таб "Търсене на адреси"
         private void buttonSearch_Click(object sender, EventArgs e)
         {
@@ -506,7 +504,7 @@ namespace GraduationProject
         private void listBoxUserControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (addresses.Count == 0)
-            { 
+            {
                 ClearInfo();
                 address = null;
                 buttonSave.Enabled = false;
@@ -519,7 +517,7 @@ namespace GraduationProject
             ShowSelectedAddress();
         }
 
-        //Натискане на левия бутон на мишката върх етикета за брой кучета
+        //Натискане на левия бутон на мишката върху етикета за брой кучета
         private void textBoxDogs_Click(object sender, EventArgs e)
         {
             if (selectedTab == panelSearch)
@@ -535,6 +533,52 @@ namespace GraduationProject
             }
             textBoxDogs.Text = dogs.Count.ToString();
         }
+
+        //Изчераване на елемент от списъка с кучета
+        private void listBoxStreets_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                e = new DrawItemEventArgs(
+                    e.Graphics,
+                    new Font(e.Font.FontFamily, e.Font.Size,Font.Style|FontStyle.Bold),
+                    e.Bounds,
+                    e.Index,
+                    e.State ^ DrawItemState.Selected,
+                    e.ForeColor,
+                    Color.FromArgb(224, 224, 224)
+                    );
+            }
+                
+
+            e.DrawBackground();
+            e.Graphics.DrawString(listBoxStreets.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, StringFormat.GenericDefault);
+        }
+
+        private void comboBoxCriteria_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            var combo = sender as ComboBox;
+            SolidBrush solidBrush = new SolidBrush(Color.Black);
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(this.BackColor), e.Bounds);
+                solidBrush = new SolidBrush(Color.White);
+            }
+            else
+            {
+                e.Graphics.FillRectangle(new SolidBrush(SystemColors.Window), e.Bounds);
+                solidBrush = new SolidBrush(Color.Black);
+            }
+
+            e.Graphics.DrawString(combo.Items[e.Index].ToString(),
+                                          e.Font,
+                                          solidBrush,
+                                          new Point(e.Bounds.X, e.Bounds.Y));
+        }
+        #endregion
+
 
     }
 }

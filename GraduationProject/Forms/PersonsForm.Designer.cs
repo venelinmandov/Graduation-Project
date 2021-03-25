@@ -357,6 +357,7 @@ namespace GraduationProject.Forms
             this.Controls.Add(this.textBoxMName);
             this.Controls.Add(this.labelFname);
             this.Controls.Add(this.textBoxFName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "PersonsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PersonsForm";

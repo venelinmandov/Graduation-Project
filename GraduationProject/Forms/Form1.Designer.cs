@@ -125,16 +125,18 @@ namespace GraduationProject
             // comboBoxCriteria
             // 
             this.comboBoxCriteria.BackColor = System.Drawing.Color.White;
+            this.comboBoxCriteria.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxCriteria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCriteria.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxCriteria.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.comboBoxCriteria.FormattingEnabled = true;
             this.comboBoxCriteria.Items.AddRange(new object[] {
             "Улица",
             "Жител/Гост"});
             this.comboBoxCriteria.Location = new System.Drawing.Point(73, 12);
             this.comboBoxCriteria.Name = "comboBoxCriteria";
-            this.comboBoxCriteria.Size = new System.Drawing.Size(140, 23);
+            this.comboBoxCriteria.Size = new System.Drawing.Size(140, 24);
             this.comboBoxCriteria.TabIndex = 2;
+            this.comboBoxCriteria.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBoxCriteria_DrawItem);
             // 
             // buttonSearchAddress
             // 
@@ -178,6 +180,7 @@ namespace GraduationProject
             this.listBoxStreets.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.listBoxStreets.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
             this.listBoxStreets.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBoxStreets.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.listBoxStreets.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxStreets.FormattingEnabled = true;
             this.listBoxStreets.ItemHeight = 15;
@@ -185,6 +188,7 @@ namespace GraduationProject
             this.listBoxStreets.Name = "listBoxStreets";
             this.listBoxStreets.Size = new System.Drawing.Size(210, 360);
             this.listBoxStreets.TabIndex = 1;
+            this.listBoxStreets.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBoxStreets_DrawItem);
             this.listBoxStreets.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxStreets_MouseDown);
             // 
             // textBoxSearchStr
