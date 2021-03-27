@@ -48,10 +48,11 @@ namespace GraduationProject
             this.panelResidents = new System.Windows.Forms.Panel();
             this.labelInhabitants = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Guest = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.firstNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.middleNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ownerCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestCol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.buttonEditPerson = new System.Windows.Forms.Button();
             this.buttonRemovePerson = new System.Windows.Forms.Button();
             this.buttonAddPerson = new System.Windows.Forms.Button();
@@ -239,7 +240,7 @@ namespace GraduationProject
             this.panelAddressInfo.ForeColor = System.Drawing.Color.Black;
             this.panelAddressInfo.Location = new System.Drawing.Point(225, 1);
             this.panelAddressInfo.Name = "panelAddressInfo";
-            this.panelAddressInfo.Size = new System.Drawing.Size(797, 474);
+            this.panelAddressInfo.Size = new System.Drawing.Size(771, 474);
             this.panelAddressInfo.TabIndex = 8;
             // 
             // panelResidents
@@ -254,7 +255,7 @@ namespace GraduationProject
             this.panelResidents.Controls.Add(this.buttonAddPerson);
             this.panelResidents.Location = new System.Drawing.Point(294, 0);
             this.panelResidents.Name = "panelResidents";
-            this.panelResidents.Size = new System.Drawing.Size(479, 474);
+            this.panelResidents.Size = new System.Drawing.Size(477, 474);
             this.panelResidents.TabIndex = 39;
             // 
             // labelInhabitants
@@ -293,10 +294,11 @@ namespace GraduationProject
             this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.firstName,
-            this.lastName,
-            this.owner,
-            this.Guest});
+            this.firstNameCol,
+            this.middleNameCol,
+            this.lastNameCol,
+            this.ownerCol,
+            this.GuestCol});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -325,41 +327,49 @@ namespace GraduationProject
             this.dataGridView.RowTemplate.Height = 25;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.ShowCellToolTips = false;
-            this.dataGridView.Size = new System.Drawing.Size(446, 361);
+            this.dataGridView.Size = new System.Drawing.Size(444, 361);
             this.dataGridView.TabIndex = 28;
+            this.dataGridView.Resize += new System.EventHandler(this.dataGridView_Resize);
             // 
-            // firstName
+            // firstNameCol
             // 
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.firstName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.firstName.HeaderText = "Име";
-            this.firstName.Name = "firstName";
-            this.firstName.ReadOnly = true;
-            this.firstName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.firstNameCol.DefaultCellStyle = dataGridViewCellStyle3;
+            this.firstNameCol.HeaderText = "Име";
+            this.firstNameCol.Name = "firstNameCol";
+            this.firstNameCol.ReadOnly = true;
+            this.firstNameCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // lastName
+            // middleNameCol
             // 
-            this.lastName.HeaderText = "Фамилия";
-            this.lastName.Name = "lastName";
-            this.lastName.ReadOnly = true;
-            this.lastName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.middleNameCol.HeaderText = "Презиме";
+            this.middleNameCol.Name = "middleNameCol";
+            this.middleNameCol.ReadOnly = true;
+            this.middleNameCol.Visible = false;
             // 
-            // owner
+            // lastNameCol
             // 
-            this.owner.HeaderText = "Връзка със собственика";
-            this.owner.Name = "owner";
-            this.owner.ReadOnly = true;
-            this.owner.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.lastNameCol.HeaderText = "Фамилия";
+            this.lastNameCol.Name = "lastNameCol";
+            this.lastNameCol.ReadOnly = true;
+            this.lastNameCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // Guest
+            // ownerCol
+            // 
+            this.ownerCol.HeaderText = "Връзка със собственика";
+            this.ownerCol.Name = "ownerCol";
+            this.ownerCol.ReadOnly = true;
+            this.ownerCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // GuestCol
             // 
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.NullValue = false;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Guest.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Guest.HeaderText = "Гост в карантина";
-            this.Guest.Name = "Guest";
-            this.Guest.ReadOnly = true;
+            this.GuestCol.DefaultCellStyle = dataGridViewCellStyle4;
+            this.GuestCol.HeaderText = "Гост в карантина";
+            this.GuestCol.Name = "GuestCol";
+            this.GuestCol.ReadOnly = true;
             // 
             // buttonEditPerson
             // 
@@ -466,10 +476,20 @@ namespace GraduationProject
             this.numericUpDownNumber.Enabled = false;
             this.numericUpDownNumber.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.numericUpDownNumber.Location = new System.Drawing.Point(17, 49);
+            this.numericUpDownNumber.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownNumber.Name = "numericUpDownNumber";
             this.numericUpDownNumber.Size = new System.Drawing.Size(59, 43);
             this.numericUpDownNumber.TabIndex = 26;
             this.numericUpDownNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDownNumber.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // labelNumber
             // 
@@ -727,6 +747,9 @@ namespace GraduationProject
             // 
             // listBoxAddresses
             // 
+            this.listBoxAddresses.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.listBoxAddresses.AutoScroll = true;
             this.listBoxAddresses.DesolateColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(79)))), ((int)(((byte)(55)))));
             this.listBoxAddresses.InhabitedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
             this.listBoxAddresses.ItemsColor = System.Drawing.Color.DeepSkyBlue;
@@ -734,7 +757,7 @@ namespace GraduationProject
             this.listBoxAddresses.Name = "listBoxAddresses";
             this.listBoxAddresses.SelectedIndex = -1;
             this.listBoxAddresses.SelectedItemColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.listBoxAddresses.Size = new System.Drawing.Size(210, 341);
+            this.listBoxAddresses.Size = new System.Drawing.Size(210, 369);
             this.listBoxAddresses.TabIndex = 35;
             this.listBoxAddresses.TemporarilyColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(187)))), ((int)(((byte)(0)))));
             this.listBoxAddresses.SelectedIndexChanged += new System.EventHandler(this.listBoxUserControl_SelectedIndexChanged);
@@ -918,10 +941,6 @@ namespace GraduationProject
         private System.Windows.Forms.Button buttonSearchAddress;
         private System.Windows.Forms.Button buttonEditPerson;
         private System.Windows.Forms.Button buttonDeleteAddr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn owner;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Guest;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripStreets;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRenameStr;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRemoveStr;
@@ -934,6 +953,11 @@ namespace GraduationProject
         private System.Windows.Forms.TextBox textBoxDogs;
         private System.Windows.Forms.Panel panelResidents;
         private System.Windows.Forms.Button buttonAddStr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn middleNameCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ownerCol;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn GuestCol;
     }
 }
 

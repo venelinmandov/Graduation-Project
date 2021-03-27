@@ -154,6 +154,40 @@ namespace GraduationProject
             listBoxAddresses.AddList(addresses);
         }
 
+        //Изчистване на визуализираната информация за адрес
+        private void ClearInfo()
+        {
+            numericUpDownNumber.Enabled = true;
+            buttonDeleteAddr.Enabled = false;
+            residents = new List<Resident>();
+            guests = new List<Person>();
+            dogs = new List<Dog>();
+            dataGridView.RowCount = 0;
+
+            numericUpDownAgrBuildings.Value = 0;
+            numericUpDownCows.Value = 0;
+            numericUpDownDonkeys.Value = 0;
+            numericUpDownFeathered.Value = 0;
+            numericUpDownGoats.Value = 0;
+            numericUpDownHorses.Value = 0;
+            numericUpDownNumber.Value = 1;
+            numericUpDownResBuildings.Value = 0;
+            numericUpDownSheep.Value = 0;
+            numericUpDownSquaring.Value = 0;
+            numericUpDownWalnut.Value = 0;
+            textBoxDogs.Text = "0";
+
+            RadioButton[] radioButtons = new RadioButton[] { radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry };
+            foreach (RadioButton radioButton in radioButtons)
+            {
+                if (radioButton.Checked)
+                {
+                    radioButton.Checked = false;
+                    break;
+                }
+            }
+        }
+
         //Показване на информацията за текущо избрания адрес
         void ShowSelectedAddress()
         {
@@ -380,9 +414,10 @@ namespace GraduationProject
             {
                 dataGridView.RowCount++;
                 dataGridView.Rows[dataGridView.RowCount - 1].Cells[0].Value = residents[i].Firstname;
-                dataGridView.Rows[dataGridView.RowCount - 1].Cells[1].Value = residents[i].Lastname;
-                dataGridView.Rows[dataGridView.RowCount - 1].Cells[2].Value = residents[i].RelToOwner;
-                dataGridView.Rows[dataGridView.RowCount - 1].Cells[3].Value = false;
+                dataGridView.Rows[dataGridView.RowCount - 1].Cells[1].Value = residents[i].Middlename;
+                dataGridView.Rows[dataGridView.RowCount - 1].Cells[2].Value = residents[i].Lastname;
+                dataGridView.Rows[dataGridView.RowCount - 1].Cells[3].Value = residents[i].RelToOwner;
+                dataGridView.Rows[dataGridView.RowCount - 1].Cells[4].Value = false;
             }
 
             //Запълване с гости
@@ -390,9 +425,10 @@ namespace GraduationProject
             {
                 dataGridView.RowCount++;
                 dataGridView.Rows[dataGridView.RowCount - 1].Cells[0].Value = guests[i].Firstname;
-                dataGridView.Rows[dataGridView.RowCount - 1].Cells[1].Value = guests[i].Lastname;
-                dataGridView.Rows[dataGridView.RowCount - 1].Cells[2].Value = guests[i].RelToOwner;
-                dataGridView.Rows[dataGridView.RowCount - 1].Cells[3].Value = true;
+                dataGridView.Rows[dataGridView.RowCount - 1].Cells[1].Value = guests[i].Middlename;
+                dataGridView.Rows[dataGridView.RowCount - 1].Cells[2].Value = guests[i].Lastname;
+                dataGridView.Rows[dataGridView.RowCount - 1].Cells[3].Value = guests[i].RelToOwner;
+                dataGridView.Rows[dataGridView.RowCount - 1].Cells[4].Value = true;
             }
         }
 
@@ -418,8 +454,19 @@ namespace GraduationProject
             }
             RefreshDataGrid();
         }
+
+        //Показване/скриване на колоната "Презиме" при преоразмеряване на таблицата с обитатели
+        private void dataGridView_Resize(object sender, EventArgs e)
+        {
+            if (dataGridView.Width < 500)
+            {
+                dataGridView.Columns[1].Visible = false;
+            }
+            else
+                dataGridView.Columns[1].Visible = true;
+        }
         #endregion
-      
+
         #region Други:
 
         //Връща поредния номер на избран радиобутон от няколко подадени кото аргументи.
@@ -445,39 +492,7 @@ namespace GraduationProject
 
        
 
-        //Изчистване на визуализираната информация за адрес
-        private void ClearInfo()
-        {
-            numericUpDownNumber.Enabled = true;
-            buttonDeleteAddr.Enabled = false;
-            residents = new List<Resident>();
-            guests = new List<Person>();
-            dogs = new List<Dog>();
-            dataGridView.RowCount = 0;
-
-            numericUpDownAgrBuildings.Value = 0;
-            numericUpDownCows.Value = 0;
-            numericUpDownDonkeys.Value = 0;
-            numericUpDownFeathered.Value = 0;
-            numericUpDownGoats.Value = 0;
-            numericUpDownHorses.Value = 0;
-            numericUpDownNumber.Value = 0;
-            numericUpDownResBuildings.Value = 0;
-            numericUpDownSheep.Value = 0;
-            numericUpDownSquaring.Value = 0;
-            numericUpDownWalnut.Value = 0;
-            textBoxDogs.Text = "0";
-
-            RadioButton[] radioButtons = new RadioButton[] { radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry };
-            foreach (RadioButton radioButton in radioButtons)
-            {
-                if (radioButton.Checked)
-                {
-                    radioButton.Checked = false;
-                    break;
-                }
-            }
-        }
+        
 
         //Избран е таб "Търсене на адреси"
         private void buttonSearch_Click(object sender, EventArgs e)
@@ -557,10 +572,11 @@ namespace GraduationProject
             e.Graphics.DrawString(listBoxStreets.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, StringFormat.GenericDefault);
         }
 
+        //Изчвертаване на елемент от комбобокса за критерий за търсене на адрес
         private void comboBoxCriteria_DrawItem(object sender, DrawItemEventArgs e)
         {
             var combo = sender as ComboBox;
-            SolidBrush solidBrush = new SolidBrush(Color.Black);
+            SolidBrush solidBrush;
             if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
             {
                 e.Graphics.FillRectangle(new SolidBrush(this.BackColor), e.Bounds);
@@ -577,8 +593,9 @@ namespace GraduationProject
                                           solidBrush,
                                           new Point(e.Bounds.X, e.Bounds.Y));
         }
+
         #endregion
 
-
+        
     }
 }

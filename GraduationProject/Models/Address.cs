@@ -22,24 +22,14 @@ namespace GraduationProject.Models
         public int NumFeathered { get; set; } = 0;
         public int NumWalnutTrees { get; set; } = 0;
 
+        private string streetName;
+
         //SELECT клауза
         string selectClause = @"SELECT DISTINCT Addresses.id, streetId, number, squaring, habitallity, numResBuildings,
-                                numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numWalnutTrees ";
+                                numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numWalnutTrees, Streets.name";
 
-        public override string ToString()
-        {
-            ConnectionHelper connectionHelper = new ConnectionHelper();
-            string query = "SELECT name FROM Streets WHERE id = @id";
-            string strName;
-            connectionHelper.NewConnection(query);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@id", StreetId);
-            SqlDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
-            reader.Read();
-            strName = reader.GetString(0);
-            reader.Close();
-            connectionHelper.sqlConnection.Close();
-            return strName + " " + Number.ToString();
-        }
+        public override string ToString() => streetName + " " + Number.ToString();
+       
 
         //Запълване на обекта с информация
         public void Fill(SqlDataReader reader)
@@ -58,6 +48,7 @@ namespace GraduationProject.Models
             NumDonkeys = reader.GetInt32(11);
             NumFeathered = reader.GetInt32(12);
             NumWalnutTrees = reader.GetInt32(13);
+            streetName = reader.GetString(14);
         }
 
         //Заявки
@@ -96,7 +87,7 @@ namespace GraduationProject.Models
         //GET
         public List<Address> Get(ConnectionHelper connectionHelper, Street street)
         {
-            string query = $"{selectClause} FROM Addresses WHERE streetId = @strId ORDER BY number";
+            string query = $"{selectClause} FROM Addresses, Streets WHERE Addresses.streetId = Streets.id AND streetId = @strId ORDER BY number";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@strId", street.Id);
@@ -106,12 +97,12 @@ namespace GraduationProject.Models
 
         public List<Address> Get(ConnectionHelper connectionHelper,string personName)
         {
-            string query = @$"({selectClause} FROM Addresses, GuestsInQuarantine
-                WHERE Addresses.id = GuestsInQuarantine.addressId AND
+            string query = @$"({selectClause} FROM Addresses, GuestsInQuarantine, Streets
+                WHERE Addresses.streetId = Streets.id AND Addresses.id = GuestsInQuarantine.addressId AND
                 (GuestsInQuarantine.firstname LIKE @persName + '%' OR GuestsInQuarantine.middlename LIKE @persName + '%' OR GuestsInQuarantine.lastname LIKE @persName + '%' )
                 UNION
-               {selectClause} FROM Addresses, Residents
-                WHERE Addresses.id = Residents.addressId AND
+               {selectClause} FROM Addresses, Residents, Streets
+                WHERE Addresses.streetId = Streets.id AND Addresses.id = Residents.addressId AND
                 (Residents.firstname LIKE @persName + '%' OR Residents.middlename LIKE @persName + '%' OR Residents.lastname LIKE @persName + '%' )) ORDER BY streetId, number";
 
             connectionHelper.NewConnection(query);
@@ -124,7 +115,9 @@ namespace GraduationProject.Models
 
         public List<Address> Get(ConnectionHelper connectionHelper)
         {
-            string query = $"{selectClause} FROM Addresses,Streets ORDER BY streetId, number";
+            string query = @$"{selectClause} FROM Addresses, Streets 
+                            WHERE Addresses.streetId = Streets.id 
+                            ORDER BY  name, number";
                
             connectionHelper.NewConnection(query);
 
