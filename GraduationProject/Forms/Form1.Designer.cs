@@ -238,9 +238,9 @@ namespace GraduationProject
             this.panelAddressInfo.Controls.Add(this.numericUpDownSquaring);
             this.panelAddressInfo.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.panelAddressInfo.ForeColor = System.Drawing.Color.Black;
-            this.panelAddressInfo.Location = new System.Drawing.Point(225, 1);
+            this.panelAddressInfo.Location = new System.Drawing.Point(221, 1);
             this.panelAddressInfo.Name = "panelAddressInfo";
-            this.panelAddressInfo.Size = new System.Drawing.Size(771, 474);
+            this.panelAddressInfo.Size = new System.Drawing.Size(775, 474);
             this.panelAddressInfo.TabIndex = 8;
             // 
             // panelResidents
@@ -255,7 +255,7 @@ namespace GraduationProject
             this.panelResidents.Controls.Add(this.buttonAddPerson);
             this.panelResidents.Location = new System.Drawing.Point(294, 0);
             this.panelResidents.Name = "panelResidents";
-            this.panelResidents.Size = new System.Drawing.Size(477, 474);
+            this.panelResidents.Size = new System.Drawing.Size(481, 474);
             this.panelResidents.TabIndex = 39;
             // 
             // labelInhabitants
@@ -327,7 +327,7 @@ namespace GraduationProject
             this.dataGridView.RowTemplate.Height = 25;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.ShowCellToolTips = false;
-            this.dataGridView.Size = new System.Drawing.Size(444, 361);
+            this.dataGridView.Size = new System.Drawing.Size(448, 361);
             this.dataGridView.TabIndex = 28;
             this.dataGridView.Resize += new System.EventHandler(this.dataGridView_Resize);
             // 

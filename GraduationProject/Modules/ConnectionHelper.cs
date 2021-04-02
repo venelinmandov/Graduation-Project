@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -27,7 +25,7 @@ namespace GraduationProject
                 sqlConnection.Open();
                 sqlCommand = new SqlCommand(query, sqlConnection);
             }
-            catch (SqlException exception)
+            catch (SqlException)
             {
                 DialogResult result = MessageBox.Show("Не може да се осъществи връзка с базата данни", "Грешка", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 if (result == DialogResult.Retry)
