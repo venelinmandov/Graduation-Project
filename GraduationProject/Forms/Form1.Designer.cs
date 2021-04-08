@@ -118,7 +118,7 @@ namespace GraduationProject
             // textBoxSearchAddr
             // 
             this.textBoxSearchAddr.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxSearchAddr.Location = new System.Drawing.Point(3, 41);
+            this.textBoxSearchAddr.Location = new System.Drawing.Point(3, 35);
             this.textBoxSearchAddr.Name = "textBoxSearchAddr";
             this.textBoxSearchAddr.Size = new System.Drawing.Size(136, 23);
             this.textBoxSearchAddr.TabIndex = 1;
@@ -133,7 +133,7 @@ namespace GraduationProject
             this.comboBoxCriteria.Items.AddRange(new object[] {
             "Улица",
             "Жител/Гост"});
-            this.comboBoxCriteria.Location = new System.Drawing.Point(73, 12);
+            this.comboBoxCriteria.Location = new System.Drawing.Point(73, 5);
             this.comboBoxCriteria.Name = "comboBoxCriteria";
             this.comboBoxCriteria.Size = new System.Drawing.Size(140, 24);
             this.comboBoxCriteria.TabIndex = 2;
@@ -144,9 +144,9 @@ namespace GraduationProject
             this.buttonSearchAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonSearchAddress.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
             this.buttonSearchAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSearchAddress.Location = new System.Drawing.Point(143, 40);
+            this.buttonSearchAddress.Location = new System.Drawing.Point(143, 35);
             this.buttonSearchAddress.Name = "buttonSearchAddress";
-            this.buttonSearchAddress.Size = new System.Drawing.Size(70, 24);
+            this.buttonSearchAddress.Size = new System.Drawing.Size(70, 23);
             this.buttonSearchAddress.TabIndex = 8;
             this.buttonSearchAddress.Text = "Търсене";
             this.buttonSearchAddress.UseVisualStyleBackColor = false;
@@ -158,7 +158,7 @@ namespace GraduationProject
             this.labelCriteria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelCriteria.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelCriteria.ForeColor = System.Drawing.Color.White;
-            this.labelCriteria.Location = new System.Drawing.Point(3, 15);
+            this.labelCriteria.Location = new System.Drawing.Point(3, 8);
             this.labelCriteria.Name = "labelCriteria";
             this.labelCriteria.Size = new System.Drawing.Size(67, 15);
             this.labelCriteria.TabIndex = 7;
@@ -169,7 +169,7 @@ namespace GraduationProject
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 10);
+            this.label3.Location = new System.Drawing.Point(3, 5);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.label3.Size = new System.Drawing.Size(47, 25);
@@ -185,9 +185,9 @@ namespace GraduationProject
             this.listBoxStreets.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxStreets.FormattingEnabled = true;
             this.listBoxStreets.ItemHeight = 15;
-            this.listBoxStreets.Location = new System.Drawing.Point(3, 50);
+            this.listBoxStreets.Location = new System.Drawing.Point(3, 35);
             this.listBoxStreets.Name = "listBoxStreets";
-            this.listBoxStreets.Size = new System.Drawing.Size(210, 360);
+            this.listBoxStreets.Size = new System.Drawing.Size(210, 375);
             this.listBoxStreets.TabIndex = 1;
             this.listBoxStreets.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBoxStreets_DrawItem);
             this.listBoxStreets.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxStreets_MouseDown);
@@ -196,7 +196,7 @@ namespace GraduationProject
             // 
             this.textBoxSearchStr.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxSearchStr.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxSearchStr.Location = new System.Drawing.Point(53, 11);
+            this.textBoxSearchStr.Location = new System.Drawing.Point(53, 5);
             this.textBoxSearchStr.Name = "textBoxSearchStr";
             this.textBoxSearchStr.Size = new System.Drawing.Size(160, 23);
             this.textBoxSearchStr.TabIndex = 0;
@@ -753,11 +753,11 @@ namespace GraduationProject
             this.listBoxAddresses.DesolateColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(79)))), ((int)(((byte)(55)))));
             this.listBoxAddresses.InhabitedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
             this.listBoxAddresses.ItemsColor = System.Drawing.Color.DeepSkyBlue;
-            this.listBoxAddresses.Location = new System.Drawing.Point(3, 72);
+            this.listBoxAddresses.Location = new System.Drawing.Point(3, 64);
             this.listBoxAddresses.Name = "listBoxAddresses";
             this.listBoxAddresses.SelectedIndex = -1;
             this.listBoxAddresses.SelectedItemColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.listBoxAddresses.Size = new System.Drawing.Size(210, 369);
+            this.listBoxAddresses.Size = new System.Drawing.Size(210, 377);
             this.listBoxAddresses.TabIndex = 35;
             this.listBoxAddresses.TemporarilyColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(187)))), ((int)(((byte)(0)))));
             this.listBoxAddresses.SelectedIndexChanged += new System.EventHandler(this.listBoxUserControl_SelectedIndexChanged);
@@ -804,8 +804,8 @@ namespace GraduationProject
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelAdd.Controls.Add(this.buttonAddStr);
             this.panelAdd.Controls.Add(this.textBoxSearchStr);
-            this.panelAdd.Controls.Add(this.label3);
             this.panelAdd.Controls.Add(this.listBoxStreets);
+            this.panelAdd.Controls.Add(this.label3);
             this.panelAdd.Location = new System.Drawing.Point(2, 25);
             this.panelAdd.Name = "panelAdd";
             this.panelAdd.Size = new System.Drawing.Size(217, 448);

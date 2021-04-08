@@ -191,7 +191,7 @@ namespace GraduationProject.Forms
             this.groupBoxAddressReg.Controls.Add(this.radioButtonAddrRegYes);
             this.groupBoxAddressReg.Controls.Add(this.radioButtonAddrRegNo);
             this.groupBoxAddressReg.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxAddressReg.Location = new System.Drawing.Point(12, 218);
+            this.groupBoxAddressReg.Location = new System.Drawing.Point(180, 210);
             this.groupBoxAddressReg.Name = "groupBoxAddressReg";
             this.groupBoxAddressReg.Size = new System.Drawing.Size(112, 120);
             this.groupBoxAddressReg.TabIndex = 11;
@@ -237,7 +237,7 @@ namespace GraduationProject.Forms
             this.groupBoxCovid19.Controls.Add(this.radioButtonCovid19Yes);
             this.groupBoxCovid19.Controls.Add(this.radioButtonCovid19No);
             this.groupBoxCovid19.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxCovid19.Location = new System.Drawing.Point(151, 218);
+            this.groupBoxCovid19.Location = new System.Drawing.Point(319, 210);
             this.groupBoxCovid19.Name = "groupBoxCovid19";
             this.groupBoxCovid19.Size = new System.Drawing.Size(128, 120);
             this.groupBoxCovid19.TabIndex = 12;
@@ -279,22 +279,21 @@ namespace GraduationProject.Forms
             // 
             // groupBoxOwner
             // 
-            this.groupBoxOwner.Controls.Add(this.checkBoxOwner);
             this.groupBoxOwner.Controls.Add(this.radioButtonGuest);
             this.groupBoxOwner.Controls.Add(this.radioButtonHousehold);
             this.groupBoxOwner.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxOwner.Location = new System.Drawing.Point(312, 218);
+            this.groupBoxOwner.Location = new System.Drawing.Point(18, 238);
             this.groupBoxOwner.Name = "groupBoxOwner";
-            this.groupBoxOwner.Size = new System.Drawing.Size(134, 120);
+            this.groupBoxOwner.Size = new System.Drawing.Size(134, 92);
             this.groupBoxOwner.TabIndex = 13;
             this.groupBoxOwner.TabStop = false;
             // 
             // checkBoxOwner
             // 
             this.checkBoxOwner.AutoSize = true;
-            this.checkBoxOwner.Location = new System.Drawing.Point(23, 87);
+            this.checkBoxOwner.Location = new System.Drawing.Point(18, 213);
             this.checkBoxOwner.Name = "checkBoxOwner";
-            this.checkBoxOwner.Size = new System.Drawing.Size(94, 18);
+            this.checkBoxOwner.Size = new System.Drawing.Size(91, 19);
             this.checkBoxOwner.TabIndex = 3;
             this.checkBoxOwner.Text = "Собственик";
             this.checkBoxOwner.UseVisualStyleBackColor = true;
@@ -342,6 +341,7 @@ namespace GraduationProject.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
             this.ClientSize = new System.Drawing.Size(465, 391);
+            this.Controls.Add(this.checkBoxOwner);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.groupBoxOwner);
             this.Controls.Add(this.groupBoxCovid19);

@@ -172,9 +172,9 @@ namespace GraduationProject.Forms
             errorProvider.Clear();
             if (radioButton.Checked == true)
             {
-                checkBoxOwner.Enabled = enabled;
-                groupBoxAddressReg.Enabled = enabled;
-                groupBoxCovid19.Enabled = enabled;
+                checkBoxOwner.Visible = enabled;
+                groupBoxAddressReg.Visible = enabled;
+                groupBoxCovid19.Visible = enabled;
 
             }
         }
@@ -210,7 +210,8 @@ namespace GraduationProject.Forms
             if (textBoxOwner.Enabled == false)
             {
                 textBoxOwner.Text = "";
-                textBoxOwner.Enabled = true;
+                textBoxOwner.Visible = true;
+                labelOwner.Visible = true;
             }
         }
 
@@ -220,12 +221,14 @@ namespace GraduationProject.Forms
             if (((CheckBox)sender).Checked == true)
             {
                 textBoxOwner.Text = "Собственик";
-                textBoxOwner.Enabled = false;
+                textBoxOwner.Visible = false;
+                labelOwner.Visible = false;
             }
             else
             {
                 textBoxOwner.Text = "";
-                textBoxOwner.Enabled = true;
+                textBoxOwner.Visible = true;
+                labelOwner.Visible = true;
             }
         }
 
