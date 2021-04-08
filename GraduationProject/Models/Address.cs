@@ -96,13 +96,13 @@ namespace GraduationProject.Models
 
         public List<Address> Get(ConnectionHelper connectionHelper,string personName)
         {
-            string query = @$"({selectClause} FROM Addresses, GuestsInQuarantine, Streets
+            string query = @$"{selectClause} FROM Addresses, GuestsInQuarantine, Streets
                 WHERE Addresses.streetId = Streets.id AND Addresses.id = GuestsInQuarantine.addressId AND
-                (GuestsInQuarantine.firstname LIKE @persName + '%' OR GuestsInQuarantine.middlename LIKE @persName + '%' OR GuestsInQuarantine.lastname LIKE @persName + '%' )
+                (GuestsInQuarantine.firstname LIKE @persName || '%' OR GuestsInQuarantine.middlename LIKE @persName || '%' OR GuestsInQuarantine.lastname LIKE @persName || '%' )
                 UNION
                {selectClause} FROM Addresses, Residents, Streets
                 WHERE Addresses.streetId = Streets.id AND Addresses.id = Residents.addressId AND
-                (Residents.firstname LIKE @persName + '%' OR Residents.middlename LIKE @persName + '%' OR Residents.lastname LIKE @persName + '%' )) ORDER BY streetId, number";
+                (Residents.firstname LIKE @persName || '%' OR Residents.middlename LIKE @persName || '%' OR Residents.lastname LIKE @persName || '%' ) ORDER BY streetId, number";
 
             connectionHelper.NewConnection(query);
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@persName", personName);

@@ -32,7 +32,7 @@ namespace GraduationProject.Models
             string queryConcat = "";
             if (name != "")
             {
-                queryConcat = " WHERE name LIKE @name + '%'";
+                queryConcat = " WHERE name LIKE @name || '%' ";
             }
             string query = "SELECT id, name FROM Streets" + queryConcat + " ORDER BY name";
 
@@ -42,8 +42,9 @@ namespace GraduationProject.Models
             Street street;
 
             if (name != "")
-            { 
+            {
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@name", name);
+                
             }
 
 
