@@ -123,7 +123,7 @@ namespace GraduationProject.Forms
             Regex regex = new Regex(@"^\d{15}$");
             string newSealnumber;
 
-            if (!editing) return;
+            if (!editing || dataGridViewDogs.CurrentCell.ColumnIndex != 1) return;
             editing = false;
             dataGridViewDogs.Columns[1].ReadOnly = true;
 
