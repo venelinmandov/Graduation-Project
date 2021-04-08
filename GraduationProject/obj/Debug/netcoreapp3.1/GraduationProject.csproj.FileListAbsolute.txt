@@ -35,3 +35,11 @@ D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationP
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Controls.ListBoxUserControl.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.DogsForm.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.csprojAssemblyReference.cache
+D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
+D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\EntityFramework.dll
+D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\System.Data.SQLite.dll
+D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\System.Data.SQLite.EF6.dll
+D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\SQLite.Interop.dll
+D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\SQLite.Interop.dll
+D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SQLite.Interop.dll
+D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll

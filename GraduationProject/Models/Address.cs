@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace GraduationProject.Models
 {
@@ -30,7 +30,7 @@ namespace GraduationProject.Models
        
 
         //Запълване на обекта с информация
-        public void Fill(SqlDataReader reader)
+        public void Fill(SQLiteDataReader reader)
         {
             Id = reader.GetInt32(0);
             StreetId = reader.GetInt32(1);
@@ -54,10 +54,9 @@ namespace GraduationProject.Models
         //INSERT
         public int Insert(ConnectionHelper connectionHelper)
         {
-            int id;
+            long id;
             string query = @"INSERT INTO Addresses 
                             (streetId, number, squaring, habitallity, numResBuildings, numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numWalnutTrees )
-                            output INSERTED.id
                             VALUES (@StrId, @num, @sq, @hab, @resB, @agrB, @cows, @sheep, @goats, @horses, @donkeys, @feathered, @Walnut); ";
 
             connectionHelper.NewConnection(query);
@@ -75,11 +74,13 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@feathered", NumFeathered);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@Walnut", NumWalnutTrees);
 
-            id = (int) connectionHelper.sqlCommand.ExecuteScalar();
+            connectionHelper.sqlCommand.ExecuteNonQuery();
+            connectionHelper.sqlCommand.CommandText = "SELECT last_insert_rowid()";
+            id = (long)connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();
 
          
-            return id;
+            return (int)id;
         }
 
         //GET
@@ -126,7 +127,7 @@ namespace GraduationProject.Models
         {
             List<Address> addresses = new List<Address>();
             Address address;
-            SqlDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
             while (reader.Read())
             {
                 address = new Address();

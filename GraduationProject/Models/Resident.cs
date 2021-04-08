@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace GraduationProject.Models
 {
@@ -11,7 +11,7 @@ namespace GraduationProject.Models
         private string fields = "firstname, middlename, lastname, egn, gender, addressId, relationToOwner, addressReg, covid19";
 
         //Запълане на обекта с информация
-        public override void Fill(SqlDataReader reader)
+        public override void Fill(SQLiteDataReader reader)
         {
             base.Fill(reader);
             AddressReg = reader.GetInt32(8);
@@ -24,8 +24,8 @@ namespace GraduationProject.Models
         //INSERT
         public new int Insert(ConnectionHelper connectionHelper)
         {
-            int id;
-            string query = @$"INSERT INTO Residents ({fields}) output INSERTED.id
+            long id;
+            string query = @$"INSERT INTO Residents ({fields})
                             VALUES (@fName, @mName, @lName, @egn, @gender, @addrId, @rel, @addrReg, @covid)";
 
             connectionHelper.NewConnection(query);
@@ -39,9 +39,11 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrReg", AddressReg);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@covid", Covid19);
 
-            id = (int) connectionHelper.sqlCommand.ExecuteScalar();
+            connectionHelper.sqlCommand.ExecuteNonQuery();
+            connectionHelper.sqlCommand.CommandText = "SELECT last_insert_rowid()";
+            id = (long)connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();
-            return id;
+            return (int)id;
         }
 
         //GET
@@ -56,7 +58,7 @@ namespace GraduationProject.Models
             if(address != null)
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", address.Id);
 
-            SqlDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
             while (reader.Read())
             {
                 resident = new Resident();

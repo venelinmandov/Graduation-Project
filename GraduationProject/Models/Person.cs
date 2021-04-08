@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 using System.Text;
 
 namespace GraduationProject.Models
@@ -19,7 +19,7 @@ namespace GraduationProject.Models
         private static string fields = "firstname, middlename, lastname, egn, gender, addressId, relationToOwner";
 
         //Запълване на обекта с информация
-        public virtual void Fill(SqlDataReader reader)
+        public virtual void Fill(SQLiteDataReader reader)
         {
             Id = reader.GetInt32(0);
             Firstname = reader.GetString(1);
@@ -36,8 +36,8 @@ namespace GraduationProject.Models
         //INSERT
         public int Insert(ConnectionHelper connectionHelper)
         {
-            int id;
-            string query = @$"INSERT INTO GuestsInQuarantine ({fields}) output INSERTED.id
+            long id;
+            string query = @$"INSERT INTO GuestsInQuarantine ({fields})
                             VALUES (@fName, @mName, @lName, @egn, @gender, @addrId,@rel)";
 
             connectionHelper.NewConnection(query);
@@ -49,9 +49,13 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
 
-            id = (int) connectionHelper.sqlCommand.ExecuteScalar();
+            connectionHelper.sqlCommand.ExecuteNonQuery();
+            connectionHelper.sqlCommand.CommandText = "SELECT last_insert_rowid()";
+            id = (long)connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();
-            return id;
+
+
+            return (int)id;
         }
 
         //GET
@@ -65,7 +69,7 @@ namespace GraduationProject.Models
             if(address != null)
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId",address.Id);
 
-            SqlDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
             while (reader.Read())
             {
                 person = new Person();
