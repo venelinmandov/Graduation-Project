@@ -8,7 +8,7 @@ namespace GraduationProject.Models
         public int AddressReg { get; set; }
         public int Covid19 { get; set; }
 
-        private string fields = "firstname, middlename, lastname, egn, gender, addressId, relationToOwner, addressReg, covid19";
+        private new string fields = Person.fields + ", addressReg, covid19";
 
         //Запълане на обекта с информация
         public override void Fill(SQLiteDataReader reader)
@@ -26,16 +26,16 @@ namespace GraduationProject.Models
         {
             long id;
             string query = @$"INSERT INTO Residents ({fields})
-                            VALUES (@fName, @mName, @lName, @egn, @gender, @addrId, @rel, @addrReg, @covid)";
+                            VALUES (@fName, @mName, @lName, @gender, @addrId, @rel, @note, @addrReg, @covid)";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", Firstname);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@mName", Middlename);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@lName", Lastname);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@egn", Egn);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", Gender);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrReg", AddressReg);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@covid", Covid19);
 
@@ -102,7 +102,7 @@ namespace GraduationProject.Models
         {
             string query = @"UPDATE Residents
                              SET firstname = @fname, middlename = @mName,
-                                lastname = @lName, egn = @egn,
+                                lastname = @lName, note = @note,
                                 gender = @gender, addressId = @addrId,
                                 relationToOwner = @rel, addressReg = @addrReg,
                                 covid19 = @covid
@@ -113,12 +113,13 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", Firstname);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@mName", Middlename);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@lName", Lastname);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@egn", Egn);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", Gender);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
+                        connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrReg", AddressReg);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@covid", Covid19);
+
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();
         }

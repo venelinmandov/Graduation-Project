@@ -20,7 +20,7 @@ namespace GraduationProject.Models
         public int NumFeathered { get; set; } = 0;
         public int NumWalnutTrees { get; set; } = 0;
 
-        private string streetName;
+        public string streetName;
 
         //SELECT клауза
         string selectClause = @"SELECT DISTINCT Addresses.id, streetId, number, squaring, habitallity, numResBuildings,

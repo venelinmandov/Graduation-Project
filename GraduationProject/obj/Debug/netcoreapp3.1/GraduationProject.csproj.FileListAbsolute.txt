@@ -4,7 +4,6 @@ D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\GraduationP
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\GraduationProject.runtimeconfig.dev.json
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\GraduationProject.dll
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\GraduationProject.pdb
-D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Form1.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.csproj.GenerateResource.cache
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.AssemblyInfoInputs.cache
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.AssemblyInfo.cs
@@ -43,3 +42,5 @@ D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\li
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\SQLite.Interop.dll
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SQLite.Interop.dll
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.MenuForm.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.InsertDataForm.resources

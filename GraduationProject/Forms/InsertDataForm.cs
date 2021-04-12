@@ -7,7 +7,7 @@ using GraduationProject.Models;
 
 namespace GraduationProject
 {
-    public partial class Form1 : Form
+    public partial class InsertDataForm : Form
     {
         ErrorProvider errorProvider = new ErrorProvider();
         ConnectionHelper connectionHelper = new ConnectionHelper();
@@ -18,7 +18,7 @@ namespace GraduationProject
         List<Street> streets;
         List<Dog> dogs;
         Panel selectedTab;
-        public Form1()
+        public InsertDataForm()
         {
             InitializeComponent();
             ShowAddresses();
@@ -171,6 +171,7 @@ namespace GraduationProject
             numericUpDownSquaring.Value = 0;
             numericUpDownWalnut.Value = 0;
             textBoxDogs.Text = "0";
+            labelStreetName.Text = streets[listBoxStreets.SelectedIndex].Name;
 
             RadioButton[] radioButtons = new RadioButton[] { radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry };
             foreach (RadioButton radioButton in radioButtons)
@@ -197,6 +198,7 @@ namespace GraduationProject
             numericUpDownDonkeys.Value = address.NumDonkeys;
             numericUpDownFeathered.Value = address.NumFeathered;
             numericUpDownWalnut.Value = address.NumWalnutTrees;
+            labelStreetName.Text = address.streetName;
             SetGroupBoxValue(address.Habitallity, radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry);
 
             residents = new Resident().Get(connectionHelper, address);
@@ -589,8 +591,12 @@ namespace GraduationProject
                                           new Point(e.Bounds.X, e.Bounds.Y));
         }
 
+
         #endregion
 
-        
+        private void listBoxStreets_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            labelStreetName.Text = streets[listBoxStreets.SelectedIndex].Name;
+        }
     }
 }

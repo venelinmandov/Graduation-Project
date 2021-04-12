@@ -11,12 +11,12 @@ namespace GraduationProject.Models
         public string Firstname { get; set; }
         public string Middlename { get; set; }
         public string Lastname { get; set; }
-        public string Egn { get; set; }
         public int Gender { get; set; }
         public int AddressId { get; set; }
         public string RelToOwner { get; set; }
+        public string Note { get; set; }
 
-        private static string fields = "firstname, middlename, lastname, egn, gender, addressId, relationToOwner";
+        protected static string fields = "firstname, middlename, lastname, gender, addressId, relationToOwner, note";
 
         //Запълване на обекта с информация
         public virtual void Fill(SQLiteDataReader reader)
@@ -25,10 +25,10 @@ namespace GraduationProject.Models
             Firstname = reader.GetString(1);
             Middlename = reader.GetString(2);
             Lastname = reader.GetString(3);
-            Egn = reader.GetString(4);
-            Gender = reader.GetInt32(5);
-            AddressId = reader.GetInt32(6);
-            RelToOwner = reader.GetString(7);
+            Gender = reader.GetInt32(4);
+            AddressId = reader.GetInt32(5);
+            RelToOwner = reader.GetString(6);
+            Note = reader.GetString(7);
         }
 
         //Заявки
@@ -38,16 +38,16 @@ namespace GraduationProject.Models
         {
             long id;
             string query = @$"INSERT INTO GuestsInQuarantine ({fields})
-                            VALUES (@fName, @mName, @lName, @egn, @gender, @addrId,@rel)";
+                            VALUES (@fName, @mName, @lName, @gender, @addrId, @rel, @note)";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", Firstname);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@mName", Middlename);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@lName", Lastname);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@egn", Egn);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", Gender);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
 
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlCommand.CommandText = "SELECT last_insert_rowid()";
@@ -112,7 +112,7 @@ namespace GraduationProject.Models
         {
             string query = @"UPDATE GuestsInQuarantine
                              SET firstname = @fname, middlename = @mName,
-                                lastname = @lName, egn = @egn,
+                                lastname = @lName, note = @note,
                                 gender = @gender, addressId = @addrId,
                                 relationToOwner = @rel
                              WHERE id = @id";
@@ -122,10 +122,10 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", Firstname);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@mName", Middlename);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@lName", Lastname);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@egn", Egn);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", Gender);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();
         }
