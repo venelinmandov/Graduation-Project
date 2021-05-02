@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace GraduationProject.Models
 {
     public interface Model<T>
     {
         //Запълване на обекта с информация
-        public void Fill(SqlDataReader reader);
+        public void Fill(SQLiteDataReader reader);
 
         //Заявки
         public List<T> Get(ConnectionHelper connectionHelper);

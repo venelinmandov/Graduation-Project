@@ -69,42 +69,7 @@ namespace GraduationProject.Forms
             }
         }
 
-        //Валидация на ЕГН
-        bool ValidateEgn(TextBox textBox)
-        {
-            int[] consts = new int[] { 2, 4, 8, 5, 10, 9, 7, 3, 6 };
-
-            textBox.Text = textBox.Text.Trim();
-            string egn = (string)textBox.Text.Clone();
-            if (textBox.Text.Length != 10)
-            {
-                errorProvider.SetError(textBox, "Дължината на ЕГН-то трябва да е от 10 цифри!");
-                return true;
-            }
-
-            int sum = 0;
-            for (int i = 0; i < 9; i++)
-            {
-                if (!char.IsDigit(egn[i]))
-                {
-                    errorProvider.SetError(textBox, "ЕГН-то се състои само от цифри!");
-                    return true;
-                }
-                sum += int.Parse(egn[i].ToString()) * consts[i];
-            }
-            sum %= 11;
-            sum = sum < 10 ? sum : 0;
-            if (int.Parse(egn[9].ToString()) != sum)
-            {
-                errorProvider.SetError(textBox, "Невалидно ЕГН!");
-                return true;
-            }
-
-            errorProvider.SetError(textBox, "");
-            return false;
-
-
-        }
+      
 
         //Показване на информацията за жителя/госта (при редактиране)
         void showData(Person personToShow)
@@ -112,8 +77,8 @@ namespace GraduationProject.Forms
             textBoxFName.Text = personToShow.Firstname;
             textBoxMName.Text = personToShow.Middlename;
             textBoxLName.Text = personToShow.Lastname;
-            textBoxEGN.Text = personToShow.Egn;
             textBoxOwner.Text = personToShow.RelToOwner;
+            textBoxNotes.Text = personToShow.Note;
             SetGroupBoxValue(personToShow.Gender,radioButtonMale, radioButtonFemale);
             if (radioButtonHousehold.Checked)
             {
@@ -159,9 +124,6 @@ namespace GraduationProject.Forms
                 error |= ValidateGroupBox(groupBoxAddressReg, radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
                 error |= ValidateGroupBox(groupBoxCovid19, radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
             }
-
-            //Валидация на ЕГН
-            error |= ValidateEgn(textBoxEGN);
 
             return !error;
         }
@@ -264,11 +226,12 @@ namespace GraduationProject.Forms
             person.Firstname = textBoxFName.Text;
             person.Middlename = textBoxMName.Text;
             person.Lastname = textBoxLName.Text;
-            person.Egn = textBoxEGN.Text;
             person.RelToOwner = textBoxOwner.Text;
             person.Gender = GetGroupBoxValue(radioButtonMale, radioButtonFemale);
+            person.Note = textBoxNotes.Text;
 
-                if (validate())
+
+            if (validate())
                     Hide();
         }
 
@@ -277,6 +240,11 @@ namespace GraduationProject.Forms
         {
             canceled = true;
             Hide();
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

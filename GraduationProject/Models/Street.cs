@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 using System.Text;
 
 
@@ -18,7 +18,7 @@ namespace GraduationProject.Models
         }
 
         //Запълване на обекта с информация
-        public void Fill(SqlDataReader reader)
+        public void Fill(SQLiteDataReader reader)
         {
             Id = reader.GetInt32(0);
             Name = reader.GetString(1);
@@ -32,7 +32,7 @@ namespace GraduationProject.Models
             string queryConcat = "";
             if (name != "")
             {
-                queryConcat = " WHERE name LIKE @name + '%'";
+                queryConcat = " WHERE name LIKE @name || '%' ";
             }
             string query = "SELECT id, name FROM Streets" + queryConcat + " ORDER BY name";
 
@@ -42,12 +42,13 @@ namespace GraduationProject.Models
             Street street;
 
             if (name != "")
-            { 
+            {
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@name", name);
-            }
-            
                 
-            SqlDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            }
+
+
+            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
             while (reader.Read())
             {
                 street = new Street();
@@ -67,14 +68,18 @@ namespace GraduationProject.Models
         //INSERT
         public int Insert(ConnectionHelper connectionHelper)
         {
-            int id;
-            string query = "INSERT INTO Streets (name) output INSERTED.id VALUES (@name)";
+            long id;
+            string query = "INSERT INTO Streets (name) VALUES (@name)";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@name", Name);
-            id = (int) connectionHelper.sqlCommand.ExecuteScalar();
+            connectionHelper.sqlCommand.ExecuteNonQuery();
+            connectionHelper.sqlCommand.CommandText = "SELECT last_insert_rowid()";
+            id = (long)connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();
-            return id;
+
+
+            return (int)id;
         }
 
         //DELETE

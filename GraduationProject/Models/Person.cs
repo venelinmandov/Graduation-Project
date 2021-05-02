@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 using System.Text;
 
 namespace GraduationProject.Models
@@ -11,24 +11,26 @@ namespace GraduationProject.Models
         public string Firstname { get; set; }
         public string Middlename { get; set; }
         public string Lastname { get; set; }
-        public string Egn { get; set; }
         public int Gender { get; set; }
         public int AddressId { get; set; }
+        public int CurrentAddressId { get; set; }
         public string RelToOwner { get; set; }
+        public string Note { get; set; }
 
-        private static string fields = "firstname, middlename, lastname, egn, gender, addressId, relationToOwner";
+        protected static string fields = "firstname, middlename, lastname, gender, addressId, currentAddressId, relationToOwner, note";
 
         //Запълване на обекта с информация
-        public virtual void Fill(SqlDataReader reader)
+        public virtual void Fill(SQLiteDataReader reader)
         {
             Id = reader.GetInt32(0);
             Firstname = reader.GetString(1);
             Middlename = reader.GetString(2);
             Lastname = reader.GetString(3);
-            Egn = reader.GetString(4);
-            Gender = reader.GetInt32(5);
-            AddressId = reader.GetInt32(6);
+            Gender = reader.GetInt32(4);
+            AddressId = reader.GetInt32(5);
+            CurrentAddressId = reader.IsDBNull(6)? -1 : reader.GetInt32(6);
             RelToOwner = reader.GetString(7);
+            Note = reader.GetString(8);
         }
 
         //Заявки
@@ -36,22 +38,26 @@ namespace GraduationProject.Models
         //INSERT
         public int Insert(ConnectionHelper connectionHelper)
         {
-            int id;
-            string query = @$"INSERT INTO GuestsInQuarantine ({fields}) output INSERTED.id
-                            VALUES (@fName, @mName, @lName, @egn, @gender, @addrId,@rel)";
+            long id;
+            string query = @$"INSERT INTO GuestsInQuarantine ({fields})
+                            VALUES (@fName, @mName, @lName, @gender, @addrId, @rel, @note)";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", Firstname);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@mName", Middlename);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@lName", Lastname);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@egn", Egn);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", Gender);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
 
-            id = (int) connectionHelper.sqlCommand.ExecuteScalar();
+            connectionHelper.sqlCommand.ExecuteNonQuery();
+            connectionHelper.sqlCommand.CommandText = "SELECT last_insert_rowid()";
+            id = (long)connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();
-            return id;
+
+
+            return (int)id;
         }
 
         //GET
@@ -65,7 +71,7 @@ namespace GraduationProject.Models
             if(address != null)
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId",address.Id);
 
-            SqlDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
             while (reader.Read())
             {
                 person = new Person();
@@ -80,6 +86,50 @@ namespace GraduationProject.Models
         public List<Person> Get(ConnectionHelper connectionHelper)
         {
             return Get(connectionHelper,null);
+        }
+
+        virtual public List<Person> Get(ConnectionHelper connectionHelper,string personFirstName, string personMiddleName, string personLastNameName)
+        {
+            string whereClause;
+            List<Person> persons = new List<Person>();
+            Person person;
+            List<string> elements = new List<string>();
+
+            connectionHelper.NewConnection();
+            if (personFirstName != "")
+            {
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@firstname", personFirstName);
+                elements.Add("GuestsInQuarantine.firstname = @firstname");
+            }
+            if (personMiddleName != "")
+            {
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@middleName", personMiddleName);
+                elements.Add("GuestsInQuarantine.middlename = @middleName");
+            }
+            if (personLastNameName != "")
+            {
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@lastName", personLastNameName);
+                elements.Add("GuestsInQuarantine.lastname = @lastName");
+            }
+                
+            whereClause = string.Join(" AND ", elements);
+
+            string query = $@"SELECT id,{fields} FROM GuestsInQuarantine WHERE {whereClause}";
+            connectionHelper.sqlCommand.CommandText = query;
+
+            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                person = new Person();
+                person.Fill(reader);
+                persons.Add(person);
+            }
+            reader.Close();
+            connectionHelper.sqlConnection.Close();
+
+            return persons;
+
+
         }
 
         //DELETE
@@ -108,7 +158,7 @@ namespace GraduationProject.Models
         {
             string query = @"UPDATE GuestsInQuarantine
                              SET firstname = @fname, middlename = @mName,
-                                lastname = @lName, egn = @egn,
+                                lastname = @lName, note = @note,
                                 gender = @gender, addressId = @addrId,
                                 relationToOwner = @rel
                              WHERE id = @id";
@@ -118,10 +168,10 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", Firstname);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@mName", Middlename);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@lName", Lastname);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@egn", Egn);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", Gender);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();
         }

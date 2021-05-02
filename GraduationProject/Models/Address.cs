@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace GraduationProject.Models
 {
@@ -9,7 +9,7 @@ namespace GraduationProject.Models
         public int StreetId { get; set; }
         public int Number { get; set; }
         public double Squaring { get; set; } = 0;
-        public int Habitallity { get; set; } = 0;
+        public int Habitallity { get; set; } = 0; // 0 - пустеещ, 1 - обитаван, 2 - временно обитаван
         public int NumResBuildings { get; set; } = 0;
         public int NumAgrBuildings { get; set; } = 0;
         public int NumCows { get; set; } = 0;
@@ -20,7 +20,7 @@ namespace GraduationProject.Models
         public int NumFeathered { get; set; } = 0;
         public int NumWalnutTrees { get; set; } = 0;
 
-        private string streetName;
+        public string streetName;
 
         //SELECT клауза
         string selectClause = @"SELECT DISTINCT Addresses.id, streetId, number, squaring, habitallity, numResBuildings,
@@ -30,7 +30,7 @@ namespace GraduationProject.Models
        
 
         //Запълване на обекта с информация
-        public void Fill(SqlDataReader reader)
+        public void Fill(SQLiteDataReader reader)
         {
             Id = reader.GetInt32(0);
             StreetId = reader.GetInt32(1);
@@ -54,10 +54,9 @@ namespace GraduationProject.Models
         //INSERT
         public int Insert(ConnectionHelper connectionHelper)
         {
-            int id;
+            long id;
             string query = @"INSERT INTO Addresses 
                             (streetId, number, squaring, habitallity, numResBuildings, numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numWalnutTrees )
-                            output INSERTED.id
                             VALUES (@StrId, @num, @sq, @hab, @resB, @agrB, @cows, @sheep, @goats, @horses, @donkeys, @feathered, @Walnut); ";
 
             connectionHelper.NewConnection(query);
@@ -75,11 +74,13 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@feathered", NumFeathered);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@Walnut", NumWalnutTrees);
 
-            id = (int) connectionHelper.sqlCommand.ExecuteScalar();
+            connectionHelper.sqlCommand.ExecuteNonQuery();
+            connectionHelper.sqlCommand.CommandText = "SELECT last_insert_rowid()";
+            id = (long)connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();
 
          
-            return id;
+            return (int)id;
         }
 
         //GET
@@ -92,22 +93,92 @@ namespace GraduationProject.Models
             
             return ExecuteGetQuery(connectionHelper);
         }
-
-        public List<Address> Get(ConnectionHelper connectionHelper,string personName)
+    
+        /*
+        public List<Address> Get(ConnectionHelper connectionHelper, string personName)
         {
-            string query = @$"({selectClause} FROM Addresses, GuestsInQuarantine, Streets
-                WHERE Addresses.streetId = Streets.id AND Addresses.id = GuestsInQuarantine.addressId AND
-                (GuestsInQuarantine.firstname LIKE @persName + '%' OR GuestsInQuarantine.middlename LIKE @persName + '%' OR GuestsInQuarantine.lastname LIKE @persName + '%' )
-                UNION
-               {selectClause} FROM Addresses, Residents, Streets
-                WHERE Addresses.streetId = Streets.id AND Addresses.id = Residents.addressId AND
-                (Residents.firstname LIKE @persName + '%' OR Residents.middlename LIKE @persName + '%' OR Residents.lastname LIKE @persName + '%' )) ORDER BY streetId, number";
+            string query = @$"{selectClause} FROM Addresses, GuestsInQuarantine,Residents, Streets
+                WHERE Addresses.streetId = Streets.id AND Addresses.id = GuestsInQuarantine.addressId AND Addresses.id = Residents.addressId AND
+                (GuestsInQuarantine.firstname LIKE @persName || '%' OR GuestsInQuarantine.middlename LIKE @persName || '%' OR GuestsInQuarantine.lastname LIKE @persName || '%' OR
+                Residents.firstname LIKE @persName || '%' OR Residents.middlename LIKE @persName || '%' OR Residents.lastname LIKE @persName || '%' ) ORDER BY streetId, number";
+
 
             connectionHelper.NewConnection(query);
-                connectionHelper.sqlCommand.Parameters.AddWithValue("@persName", personName);
-            
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@persName", personName);
+
             return ExecuteGetQuery(connectionHelper);
 
+        }*/
+
+        public List<Address> Get(ConnectionHelper connectionHelper, int option, string personFirstName, string personMiddleName, string personLastNameName)
+        {
+           
+
+            string whereClause = "Addresses.streetId = Streets.id AND ";
+            string tables = "Addresses, Streets";
+
+            string MakeWhereElementsString(string tableName)
+            {
+                List<string> elements = new List<string>();
+                string whereClause;
+                connectionHelper.NewConnection();
+                if (personFirstName != "")
+                {
+                    elements.Add($"{tableName}.firstname = @firstname");
+                    connectionHelper.sqlCommand.Parameters.AddWithValue("@firstname", personFirstName);
+                }
+
+                if (personMiddleName != "")
+                {
+                    elements.Add($"{tableName}.middlename = @middleName");
+                    connectionHelper.sqlCommand.Parameters.AddWithValue("@middleName", personMiddleName);
+
+                }
+
+                if (personLastNameName != "")
+                {
+                    elements.Add($"{tableName}.lastname = @lastName");
+                    connectionHelper.sqlCommand.Parameters.AddWithValue("@lastName", personLastNameName);
+
+                }
+
+                whereClause = string.Join(" AND " , elements);
+                return whereClause;
+            }
+
+           
+            
+            /*
+           Option: 
+              0 - Жител
+              1 - Гост
+              2 - Всички
+           */
+            switch (option)
+            {
+                case 0: tables += " ,Residents"; whereClause += "Residents.addressId = Addresses.id AND " + MakeWhereElementsString("Residents"); break;
+                case 1: tables += " ,GuestsInQuarantine"; whereClause += "GuestsInQuarantine.addressId = Addresses.id AND " + MakeWhereElementsString("GuestsInQuarantine"); break;
+                case 2: tables += " ,Residents, GuestsInQuarantine";
+                    whereClause += "Residents.addressId = Addresses.id AND GuestsInQuarantine.addressId = Addresses.id AND (("
+                        + MakeWhereElementsString("Residents") + ") OR (" + MakeWhereElementsString("GuestsInQuarantine") + "))"; break;
+                default: tables += "";break;            
+            }
+
+
+            
+            string query = $@"{selectClause} FROM {tables} WHERE {whereClause}";
+            connectionHelper.sqlCommand.CommandText = query;
+            return ExecuteGetQuery(connectionHelper);
+            
+
+        }
+
+        public List<Address> Get(ConnectionHelper connectionHelper, string anamal)
+        {
+            string query = $"{selectClause} FROM Addresses, Streets WHERE Streets.id = Addresses.streetId AND {anamal} > 0";
+
+            connectionHelper.NewConnection(query);
+            return ExecuteGetQuery(connectionHelper);
         }
 
 
@@ -122,11 +193,12 @@ namespace GraduationProject.Models
             return ExecuteGetQuery(connectionHelper);
         }
 
+        
         private List<Address> ExecuteGetQuery(ConnectionHelper connectionHelper)
         {
             List<Address> addresses = new List<Address>();
             Address address;
-            SqlDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
             while (reader.Read())
             {
                 address = new Address();
@@ -139,6 +211,51 @@ namespace GraduationProject.Models
             return addresses;
 
         }
+        public Address Get(ConnectionHelper connectionHelper, int id)
+        {
+            Address address = new Address();
+            string query = @$"{selectClause} FROM Addresses, Streets 
+                            WHERE Streets.id = Addresses.streetId AND Addresses.id = @id";
+
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@id", id);
+            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            reader.Read();
+            if (!reader.HasRows)
+            {
+                reader.Close();
+                connectionHelper.sqlConnection.Close();
+                return null;
+            } 
+            address.Fill(reader);
+           
+            return address;
+        }
+
+        public Address Get(ConnectionHelper connectionHelper, int streetId, int number)
+        {
+
+            string query = @$"{selectClause} FROM Addresses, Streets 
+                            WHERE Streets.id = Addresses.streetId AND StreetId = @strId AND Addresses.number = @num";
+
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@strId", streetId);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@num", number);
+            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            reader.Read();
+            if (!reader.HasRows)
+            {
+                reader.Close();
+                connectionHelper.sqlConnection.Close();
+                return null;
+            }
+            Address address = new Address();
+            address.Fill(reader);
+            reader.Close();
+            connectionHelper.sqlConnection.Close();
+            return address;
+        }
+
 
         //DELETE
         public void Delete(ConnectionHelper connectionHelper)
@@ -161,7 +278,7 @@ namespace GraduationProject.Models
                             SET streetId = @strId,      number = @num,              squaring = @sq,
                                 habitallity = @hab,     numResBuildings = @numRes,  numAgrBuildings = @numAgr,
                                 numCows = @numCows,     numSheep = @numSheep,       numGoats = @numGoats,
-                                numHorses = @numHorses, numDonkeys = @numDonkeys,  numFeathered = @numFeathered,
+                                numHorses = @numHorses, numDonkeys = @numDonkeys,   numFeathered = @numFeathered,
                                 numWalnutTrees = @numWalnut
                              WHERE id = @id";
 

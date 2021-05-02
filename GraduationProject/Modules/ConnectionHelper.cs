@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
-using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 
 namespace GraduationProject
@@ -9,23 +9,27 @@ namespace GraduationProject
     public class ConnectionHelper
     {
         string connStr;
-        public SqlConnection sqlConnection;
-        public SqlCommand sqlCommand;
+        public SQLiteConnection sqlConnection;
+        public SQLiteCommand sqlCommand;
         public ConnectionHelper()
         {
-            connStr = ConfigurationManager.ConnectionStrings["VillageDB"].ConnectionString;
-            sqlConnection = new SqlConnection(connStr);
+            connStr = "Data Source=" + Environment.CurrentDirectory + "\\database.db; Version=3;";
+            sqlConnection = new SQLiteConnection(connStr);
             sqlConnection.Close();
         }
 
-        public void NewConnection(string query)
+        public void NewConnection(string query = null)
         {
             try
             {
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand(query, sqlConnection);
+                if(sqlConnection.State == System.Data.ConnectionState.Closed)
+                    sqlConnection.Open();
+                if (query == null)
+                    sqlCommand = new SQLiteCommand(sqlConnection);
+                else
+                    sqlCommand = new SQLiteCommand(query, sqlConnection);
             }
-            catch (SqlException)
+            catch (SQLiteException)
             {
                 DialogResult result = MessageBox.Show("Не може да се осъществи връзка с базата данни", "Грешка", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 if (result == DialogResult.Retry)

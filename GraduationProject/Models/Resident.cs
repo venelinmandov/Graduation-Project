@@ -1,21 +1,21 @@
 ﻿using System.Collections.Generic;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace GraduationProject.Models
 {
     public class Resident:Person, Model<Resident>
     {
-        public int AddressReg { get; set; }
+        public int AddressReg { get; set; } //0 - няма, 1 - има, 2 - временна
         public int Covid19 { get; set; }
 
-        private string fields = "firstname, middlename, lastname, egn, gender, addressId, relationToOwner, addressReg, covid19";
+        private new string fields = Person.fields + ", addressReg, covid19";
 
         //Запълане на обекта с информация
-        public override void Fill(SqlDataReader reader)
+        public override void Fill(SQLiteDataReader reader)
         {
             base.Fill(reader);
-            AddressReg = reader.GetInt32(8);
-            Covid19 = reader.GetInt32(9);
+            AddressReg = reader.GetInt32(9);
+            Covid19 = reader.GetInt32(10); //0 - няма, 1 - има, 2 - контактен  
             
         }
 
@@ -24,24 +24,26 @@ namespace GraduationProject.Models
         //INSERT
         public new int Insert(ConnectionHelper connectionHelper)
         {
-            int id;
-            string query = @$"INSERT INTO Residents ({fields}) output INSERTED.id
-                            VALUES (@fName, @mName, @lName, @egn, @gender, @addrId, @rel, @addrReg, @covid)";
+            long id;
+            string query = @$"INSERT INTO Residents ({fields})
+                            VALUES (@fName, @mName, @lName, @gender, @addrId, @rel, @note, @addrReg, @covid)";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", Firstname);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@mName", Middlename);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@lName", Lastname);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@egn", Egn);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", Gender);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrReg", AddressReg);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@covid", Covid19);
 
-            id = (int) connectionHelper.sqlCommand.ExecuteScalar();
+            connectionHelper.sqlCommand.ExecuteNonQuery();
+            connectionHelper.sqlCommand.CommandText = "SELECT last_insert_rowid()";
+            id = (long)connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();
-            return id;
+            return (int)id;
         }
 
         //GET
@@ -56,7 +58,7 @@ namespace GraduationProject.Models
             if(address != null)
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", address.Id);
 
-            SqlDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
             while (reader.Read())
             {
                 resident = new Resident();
@@ -66,6 +68,49 @@ namespace GraduationProject.Models
             reader.Close();
             connectionHelper.sqlConnection.Close();
             return residents;
+        }
+        new public List<Resident> Get(ConnectionHelper connectionHelper, string personFirstName, string personMiddleName, string personLastNameName)
+        {
+            string whereClause;
+            List<Resident> residents = new List<Resident>();
+            Resident resident;
+            List<string> elements = new List<string>();
+
+            connectionHelper.NewConnection();
+            if (personFirstName != "")
+            {
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@firstname", personFirstName);
+                elements.Add("Residents.firstname = @firstname");
+            }
+            if (personMiddleName != "")
+            {
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@middleName", personMiddleName);
+                elements.Add("Residents.middlename = @middleName");
+            }
+            if (personLastNameName != "")
+            {
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@lastName", personLastNameName);
+                elements.Add("Residents.lastname = @lastName");
+            }
+
+            whereClause = string.Join(" AND ", elements);
+
+            string query = $@"SELECT id,{fields} FROM Residents WHERE {whereClause}";
+            connectionHelper.sqlCommand.CommandText = query;
+
+            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                resident = new Resident();
+                resident.Fill(reader);
+                residents.Add(resident);
+            }
+            reader.Close();
+            connectionHelper.sqlConnection.Close();
+
+            return residents;
+
+
         }
 
 
@@ -95,12 +140,14 @@ namespace GraduationProject.Models
             connectionHelper.sqlConnection.Close();
         }
 
+        
+
         //UPDATE
         public new void Update(ConnectionHelper connectionHelper)
         {
             string query = @"UPDATE Residents
                              SET firstname = @fname, middlename = @mName,
-                                lastname = @lName, egn = @egn,
+                                lastname = @lName, note = @note,
                                 gender = @gender, addressId = @addrId,
                                 relationToOwner = @rel, addressReg = @addrReg,
                                 covid19 = @covid
@@ -111,12 +158,13 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", Firstname);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@mName", Middlename);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@lName", Lastname);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@egn", Egn);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", Gender);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
+                        connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrReg", AddressReg);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@covid", Covid19);
+
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();
         }
