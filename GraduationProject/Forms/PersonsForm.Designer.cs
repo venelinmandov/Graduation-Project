@@ -266,7 +266,7 @@ namespace GraduationProject.Forms
             this.groupBoxOwner.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBoxOwner.Location = new System.Drawing.Point(17, 215);
             this.groupBoxOwner.Name = "groupBoxOwner";
-            this.groupBoxOwner.Size = new System.Drawing.Size(131, 93);
+            this.groupBoxOwner.Size = new System.Drawing.Size(136, 93);
             this.groupBoxOwner.TabIndex = 13;
             this.groupBoxOwner.TabStop = false;
             // 
@@ -275,10 +275,10 @@ namespace GraduationProject.Forms
             this.radioButtonGuest.AutoSize = true;
             this.radioButtonGuest.Location = new System.Drawing.Point(6, 61);
             this.radioButtonGuest.Name = "radioButtonGuest";
-            this.radioButtonGuest.Size = new System.Drawing.Size(51, 18);
+            this.radioButtonGuest.Size = new System.Drawing.Size(126, 18);
             this.radioButtonGuest.TabIndex = 1;
             this.radioButtonGuest.TabStop = true;
-            this.radioButtonGuest.Text = "Гост";
+            this.radioButtonGuest.Text = "Гост в карантина";
             this.radioButtonGuest.UseVisualStyleBackColor = true;
             this.radioButtonGuest.CheckedChanged += new System.EventHandler(this.radioButtonGuest_CheckedChanged);
             // 
@@ -306,7 +306,8 @@ namespace GraduationProject.Forms
             // 
             // buttonSave
             // 
-            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonSave.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonSave.FlatAppearance.BorderSize = 0;
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonSave.Location = new System.Drawing.Point(17, 389);
@@ -317,12 +318,12 @@ namespace GraduationProject.Forms
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // notesRichTextBox
+            // textBoxNotes
             // 
             this.textBoxNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxNotes.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxNotes.Location = new System.Drawing.Point(214, 368);
-            this.textBoxNotes.Name = "notesRichTextBox";
+            this.textBoxNotes.Name = "textBoxNotes";
             this.textBoxNotes.Size = new System.Drawing.Size(233, 57);
             this.textBoxNotes.TabIndex = 15;
             this.textBoxNotes.Text = "";

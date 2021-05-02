@@ -13,10 +13,11 @@ namespace GraduationProject.Models
         public string Lastname { get; set; }
         public int Gender { get; set; }
         public int AddressId { get; set; }
+        public int CurrentAddressId { get; set; }
         public string RelToOwner { get; set; }
         public string Note { get; set; }
 
-        protected static string fields = "firstname, middlename, lastname, gender, addressId, relationToOwner, note";
+        protected static string fields = "firstname, middlename, lastname, gender, addressId, currentAddressId, relationToOwner, note";
 
         //Запълване на обекта с информация
         public virtual void Fill(SQLiteDataReader reader)
@@ -27,8 +28,9 @@ namespace GraduationProject.Models
             Lastname = reader.GetString(3);
             Gender = reader.GetInt32(4);
             AddressId = reader.GetInt32(5);
-            RelToOwner = reader.GetString(6);
-            Note = reader.GetString(7);
+            CurrentAddressId = reader.IsDBNull(6)? -1 : reader.GetInt32(6);
+            RelToOwner = reader.GetString(7);
+            Note = reader.GetString(8);
         }
 
         //Заявки
@@ -84,6 +86,50 @@ namespace GraduationProject.Models
         public List<Person> Get(ConnectionHelper connectionHelper)
         {
             return Get(connectionHelper,null);
+        }
+
+        virtual public List<Person> Get(ConnectionHelper connectionHelper,string personFirstName, string personMiddleName, string personLastNameName)
+        {
+            string whereClause;
+            List<Person> persons = new List<Person>();
+            Person person;
+            List<string> elements = new List<string>();
+
+            connectionHelper.NewConnection();
+            if (personFirstName != "")
+            {
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@firstname", personFirstName);
+                elements.Add("GuestsInQuarantine.firstname = @firstname");
+            }
+            if (personMiddleName != "")
+            {
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@middleName", personMiddleName);
+                elements.Add("GuestsInQuarantine.middlename = @middleName");
+            }
+            if (personLastNameName != "")
+            {
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@lastName", personLastNameName);
+                elements.Add("GuestsInQuarantine.lastname = @lastName");
+            }
+                
+            whereClause = string.Join(" AND ", elements);
+
+            string query = $@"SELECT id,{fields} FROM GuestsInQuarantine WHERE {whereClause}";
+            connectionHelper.sqlCommand.CommandText = query;
+
+            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                person = new Person();
+                person.Fill(reader);
+                persons.Add(person);
+            }
+            reader.Close();
+            connectionHelper.sqlConnection.Close();
+
+            return persons;
+
+
         }
 
         //DELETE

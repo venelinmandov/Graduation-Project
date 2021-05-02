@@ -44,3 +44,6 @@ D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\wi
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.MenuForm.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.InsertDataForm.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.ReferenceForm.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.AddressesFiltersForm.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.InhabitantsFilterForm.resources

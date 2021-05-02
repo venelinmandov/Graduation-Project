@@ -35,8 +35,9 @@ namespace GraduationProject
             // 
             // buttonAddPerson
             // 
-            this.buttonAddPerson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonAddPerson.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonAddPerson.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.buttonAddPerson.FlatAppearance.BorderSize = 0;
             this.buttonAddPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddPerson.Font = new System.Drawing.Font("Roboto", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonAddPerson.Location = new System.Drawing.Point(12, 12);
@@ -45,11 +46,13 @@ namespace GraduationProject
             this.buttonAddPerson.TabIndex = 32;
             this.buttonAddPerson.Text = "Справки";
             this.buttonAddPerson.UseVisualStyleBackColor = false;
+            this.buttonAddPerson.Click += new System.EventHandler(this.buttonAddPerson_Click);
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Roboto", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.Location = new System.Drawing.Point(209, 12);
@@ -72,6 +75,7 @@ namespace GraduationProject
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MenuForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuForm";
             this.ResumeLayout(false);
 

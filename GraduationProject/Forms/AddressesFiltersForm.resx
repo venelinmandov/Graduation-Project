@@ -57,42 +57,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=4.0.2.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
-  <data name="buttonDeleteAddr.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAK1JREFUOE/t
-        0j0KwkAQhuHpPIaWQW9ir1eJdl5Au9iJvbWCh7D1MIJ/75di2Sxr3GhSCH7wFDszOywhVpM1LngEVCvQ
-        KAPo8hm7gGrq9ZGcEXRpUZ6qUU09zUQzR/iKI969UDNhbwa7QwNtuMG2OLVkg26SIf+SdrhMEPsmTUzh
-        0ulC/V9D75xa+y98PZha++GFKyy9c2qtsnAMf/gT2uHSwwFXxIbr6M4e7DB7Aot86qoZE42YAAAAAElF
-        TkSuQmCC
-</value>
-  </data>
-  <metadata name="firstNameCol.UserAddedColumn" type="System.Boolean, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
-    <value>True</value>
-  </metadata>
-  <metadata name="middleNameCol.UserAddedColumn" type="System.Boolean, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
-    <value>True</value>
-  </metadata>
-  <metadata name="lastNameCol.UserAddedColumn" type="System.Boolean, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
-    <value>True</value>
-  </metadata>
-  <metadata name="ownerCol.UserAddedColumn" type="System.Boolean, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
-    <value>True</value>
-  </metadata>
-  <metadata name="GuestCol.UserAddedColumn" type="System.Boolean, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
-    <value>True</value>
-  </metadata>
-  <data name="buttonSave.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAOZJREFUOE/t
-        lTsKwkAURdPoPqzF0j1YaOmmdAn2CoIbcBuCG7DS0kYEf/eMDoyTi8QErLxwzPB87zBxJCmUhbiJ+xcc
-        xUp0RCnIdmL5uubDG8F3wJraVlzFXnTFW2igmXBNZTAWMaxjbSjOoiSloY6QDMRJHESPAqGhrpCkOw2/
-        KQ1NhATpRXBQoeGTcCYQAGtquZCsBacfGqJwKlKZg39FX+SJmwkfUdgSbD/uyOFkxAqb5DfCthgJd6sO
-        epkhVljlUHImglhhLLrdONysL1bMX/icdQ9Y1lWgN53loVvrFeCQo5g/APfOyrNQ51FnAAAAAElFTkSu
-        QmCC
-</value>
-  </data>
-  <metadata name="$this.TrayHeight" type="System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
-    <value>76</value>
-  </metadata>
 </root>

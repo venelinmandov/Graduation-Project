@@ -30,13 +30,13 @@ namespace GraduationProject
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsertDataForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.textBoxSearchAddr = new System.Windows.Forms.TextBox();
             this.comboBoxCriteria = new System.Windows.Forms.ComboBox();
             this.buttonSearchAddress = new System.Windows.Forms.Button();
@@ -45,6 +45,7 @@ namespace GraduationProject
             this.listBoxStreets = new System.Windows.Forms.ListBox();
             this.textBoxSearchStr = new System.Windows.Forms.TextBox();
             this.panelAddressInfo = new System.Windows.Forms.Panel();
+            this.buttonDeleteAddr = new System.Windows.Forms.Button();
             this.labelStreetName = new System.Windows.Forms.Label();
             this.panelResidents = new System.Windows.Forms.Panel();
             this.labelInhabitants = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@ namespace GraduationProject
             this.buttonAddPerson = new System.Windows.Forms.Button();
             this.textBoxDogs = new System.Windows.Forms.TextBox();
             this.labelDogs = new System.Windows.Forms.Label();
-            this.buttonDeleteAddr = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.numericUpDownNumber = new System.Windows.Forms.NumericUpDown();
             this.labelWalnut = new System.Windows.Forms.Label();
@@ -93,7 +93,7 @@ namespace GraduationProject
             this.panelSearch = new System.Windows.Forms.Panel();
             this.panelAdd = new System.Windows.Forms.Panel();
             this.buttonAddStr = new System.Windows.Forms.Button();
-            this.buttonSearch = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.panelAddressInfo.SuspendLayout();
             this.panelResidents.SuspendLayout();
@@ -141,8 +141,9 @@ namespace GraduationProject
             // 
             // buttonSearchAddress
             // 
-            this.buttonSearchAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonSearchAddress.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonSearchAddress.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.buttonSearchAddress.FlatAppearance.BorderSize = 0;
             this.buttonSearchAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearchAddress.Location = new System.Drawing.Point(143, 31);
             this.buttonSearchAddress.Name = "buttonSearchAddress";
@@ -187,7 +188,7 @@ namespace GraduationProject
             this.listBoxStreets.ItemHeight = 15;
             this.listBoxStreets.Location = new System.Drawing.Point(3, 33);
             this.listBoxStreets.Name = "listBoxStreets";
-            this.listBoxStreets.Size = new System.Drawing.Size(210, 375);
+            this.listBoxStreets.Size = new System.Drawing.Size(210, 390);
             this.listBoxStreets.TabIndex = 1;
             this.listBoxStreets.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBoxStreets_DrawItem);
             this.listBoxStreets.SelectedIndexChanged += new System.EventHandler(this.listBoxStreets_SelectedIndexChanged);
@@ -209,11 +210,11 @@ namespace GraduationProject
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelAddressInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
+            this.panelAddressInfo.Controls.Add(this.buttonDeleteAddr);
             this.panelAddressInfo.Controls.Add(this.labelStreetName);
             this.panelAddressInfo.Controls.Add(this.panelResidents);
             this.panelAddressInfo.Controls.Add(this.textBoxDogs);
             this.panelAddressInfo.Controls.Add(this.labelDogs);
-            this.panelAddressInfo.Controls.Add(this.buttonDeleteAddr);
             this.panelAddressInfo.Controls.Add(this.buttonSave);
             this.panelAddressInfo.Controls.Add(this.numericUpDownNumber);
             this.panelAddressInfo.Controls.Add(this.labelWalnut);
@@ -241,8 +242,26 @@ namespace GraduationProject
             this.panelAddressInfo.ForeColor = System.Drawing.Color.Black;
             this.panelAddressInfo.Location = new System.Drawing.Point(221, 1);
             this.panelAddressInfo.Name = "panelAddressInfo";
-            this.panelAddressInfo.Size = new System.Drawing.Size(775, 473);
+            this.panelAddressInfo.Size = new System.Drawing.Size(775, 506);
             this.panelAddressInfo.TabIndex = 8;
+            // 
+            // buttonDeleteAddr
+            // 
+            this.buttonDeleteAddr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonDeleteAddr.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonDeleteAddr.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.buttonDeleteAddr.FlatAppearance.BorderSize = 0;
+            this.buttonDeleteAddr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDeleteAddr.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonDeleteAddr.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteAddr.Image")));
+            this.buttonDeleteAddr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDeleteAddr.Location = new System.Drawing.Point(147, 460);
+            this.buttonDeleteAddr.Name = "buttonDeleteAddr";
+            this.buttonDeleteAddr.Size = new System.Drawing.Size(123, 27);
+            this.buttonDeleteAddr.TabIndex = 40;
+            this.buttonDeleteAddr.Text = "     Изтриване";
+            this.buttonDeleteAddr.UseVisualStyleBackColor = false;
+            this.buttonDeleteAddr.Click += new System.EventHandler(this.buttonDeleteAddr_Click);
             // 
             // labelStreetName
             // 
@@ -267,7 +286,7 @@ namespace GraduationProject
             this.panelResidents.Controls.Add(this.buttonAddPerson);
             this.panelResidents.Location = new System.Drawing.Point(294, 0);
             this.panelResidents.Name = "panelResidents";
-            this.panelResidents.Size = new System.Drawing.Size(481, 473);
+            this.panelResidents.Size = new System.Drawing.Size(481, 506);
             this.panelResidents.TabIndex = 39;
             // 
             // labelInhabitants
@@ -288,22 +307,22 @@ namespace GraduationProject
             this.dataGridView.AllowUserToOrderColumns = true;
             this.dataGridView.AllowUserToResizeColumns = false;
             this.dataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.firstNameCol,
@@ -311,14 +330,14 @@ namespace GraduationProject
             this.lastNameCol,
             this.ownerCol,
             this.GuestCol});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(79)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(79)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView.EnableHeadersVisualStyles = false;
             this.dataGridView.GridColor = System.Drawing.Color.Silver;
@@ -327,26 +346,26 @@ namespace GraduationProject
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowTemplate.Height = 25;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.ShowCellToolTips = false;
-            this.dataGridView.Size = new System.Drawing.Size(448, 368);
+            this.dataGridView.Size = new System.Drawing.Size(448, 401);
             this.dataGridView.TabIndex = 28;
             this.dataGridView.Resize += new System.EventHandler(this.dataGridView_Resize);
             // 
             // firstNameCol
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.firstNameCol.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.firstNameCol.DefaultCellStyle = dataGridViewCellStyle3;
             this.firstNameCol.HeaderText = "Име";
             this.firstNameCol.Name = "firstNameCol";
             this.firstNameCol.ReadOnly = true;
@@ -375,10 +394,10 @@ namespace GraduationProject
             // 
             // GuestCol
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.NullValue = false;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GuestCol.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.NullValue = false;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GuestCol.DefaultCellStyle = dataGridViewCellStyle4;
             this.GuestCol.HeaderText = "Гост в карантина";
             this.GuestCol.Name = "GuestCol";
             this.GuestCol.ReadOnly = true;
@@ -386,10 +405,11 @@ namespace GraduationProject
             // buttonEditPerson
             // 
             this.buttonEditPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonEditPerson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonEditPerson.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonEditPerson.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.buttonEditPerson.FlatAppearance.BorderSize = 0;
             this.buttonEditPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEditPerson.Location = new System.Drawing.Point(205, 427);
+            this.buttonEditPerson.Location = new System.Drawing.Point(205, 460);
             this.buttonEditPerson.Name = "buttonEditPerson";
             this.buttonEditPerson.Size = new System.Drawing.Size(93, 21);
             this.buttonEditPerson.TabIndex = 34;
@@ -400,10 +420,11 @@ namespace GraduationProject
             // buttonRemovePerson
             // 
             this.buttonRemovePerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonRemovePerson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonRemovePerson.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonRemovePerson.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.buttonRemovePerson.FlatAppearance.BorderSize = 0;
             this.buttonRemovePerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRemovePerson.Location = new System.Drawing.Point(111, 427);
+            this.buttonRemovePerson.Location = new System.Drawing.Point(111, 460);
             this.buttonRemovePerson.Name = "buttonRemovePerson";
             this.buttonRemovePerson.Size = new System.Drawing.Size(88, 21);
             this.buttonRemovePerson.TabIndex = 33;
@@ -414,10 +435,11 @@ namespace GraduationProject
             // buttonAddPerson
             // 
             this.buttonAddPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonAddPerson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonAddPerson.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonAddPerson.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.buttonAddPerson.FlatAppearance.BorderSize = 0;
             this.buttonAddPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddPerson.Location = new System.Drawing.Point(17, 427);
+            this.buttonAddPerson.Location = new System.Drawing.Point(17, 460);
             this.buttonAddPerson.Name = "buttonAddPerson";
             this.buttonAddPerson.Size = new System.Drawing.Size(88, 21);
             this.buttonAddPerson.TabIndex = 31;
@@ -448,33 +470,17 @@ namespace GraduationProject
             this.labelDogs.TabIndex = 37;
             this.labelDogs.Text = "Кучета:";
             // 
-            // buttonDeleteAddr
-            // 
-            this.buttonDeleteAddr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonDeleteAddr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.buttonDeleteAddr.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
-            this.buttonDeleteAddr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDeleteAddr.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonDeleteAddr.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteAddr.Image")));
-            this.buttonDeleteAddr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDeleteAddr.Location = new System.Drawing.Point(146, 427);
-            this.buttonDeleteAddr.Name = "buttonDeleteAddr";
-            this.buttonDeleteAddr.Size = new System.Drawing.Size(123, 27);
-            this.buttonDeleteAddr.TabIndex = 35;
-            this.buttonDeleteAddr.Text = "     Изтриване";
-            this.buttonDeleteAddr.UseVisualStyleBackColor = false;
-            this.buttonDeleteAddr.Click += new System.EventHandler(this.buttonDeleteAddr_Click);
-            // 
             // buttonSave
             // 
             this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonSave.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonSave.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.buttonSave.FlatAppearance.BorderSize = 0;
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
             this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSave.Location = new System.Drawing.Point(17, 427);
+            this.buttonSave.Location = new System.Drawing.Point(17, 460);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(123, 27);
             this.buttonSave.TabIndex = 32;
@@ -758,7 +764,7 @@ namespace GraduationProject
             this.listBoxAddresses.Name = "listBoxAddresses";
             this.listBoxAddresses.SelectedIndex = -1;
             this.listBoxAddresses.SelectedItemColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.listBoxAddresses.Size = new System.Drawing.Size(210, 387);
+            this.listBoxAddresses.Size = new System.Drawing.Size(210, 404);
             this.listBoxAddresses.TabIndex = 35;
             this.listBoxAddresses.TemporarilyColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(187)))), ((int)(((byte)(0)))));
             this.listBoxAddresses.SelectedIndexChanged += new System.EventHandler(this.listBoxUserControl_SelectedIndexChanged);
@@ -794,9 +800,9 @@ namespace GraduationProject
             this.panelSearch.Controls.Add(this.comboBoxCriteria);
             this.panelSearch.Controls.Add(this.textBoxSearchAddr);
             this.panelSearch.Controls.Add(this.listBoxAddresses);
-            this.panelSearch.Location = new System.Drawing.Point(2, 23);
+            this.panelSearch.Location = new System.Drawing.Point(2, 39);
             this.panelSearch.Name = "panelSearch";
-            this.panelSearch.Size = new System.Drawing.Size(217, 451);
+            this.panelSearch.Size = new System.Drawing.Size(217, 468);
             this.panelSearch.TabIndex = 9;
             // 
             // panelAdd
@@ -805,11 +811,11 @@ namespace GraduationProject
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelAdd.Controls.Add(this.buttonAddStr);
             this.panelAdd.Controls.Add(this.textBoxSearchStr);
-            this.panelAdd.Controls.Add(this.label3);
             this.panelAdd.Controls.Add(this.listBoxStreets);
-            this.panelAdd.Location = new System.Drawing.Point(2, 23);
+            this.panelAdd.Controls.Add(this.label3);
+            this.panelAdd.Location = new System.Drawing.Point(2, 39);
             this.panelAdd.Name = "panelAdd";
-            this.panelAdd.Size = new System.Drawing.Size(217, 451);
+            this.panelAdd.Size = new System.Drawing.Size(217, 468);
             this.panelAdd.TabIndex = 9;
             // 
             // buttonAddStr
@@ -819,7 +825,7 @@ namespace GraduationProject
             this.buttonAddStr.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
             this.buttonAddStr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddStr.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonAddStr.Location = new System.Drawing.Point(3, 414);
+            this.buttonAddStr.Location = new System.Drawing.Point(3, 433);
             this.buttonAddStr.Name = "buttonAddStr";
             this.buttonAddStr.Size = new System.Drawing.Size(210, 30);
             this.buttonAddStr.TabIndex = 35;
@@ -827,31 +833,31 @@ namespace GraduationProject
             this.buttonAddStr.UseVisualStyleBackColor = false;
             this.buttonAddStr.Click += new System.EventHandler(this.buttonAddStr_Click);
             // 
-            // buttonSearch
+            // buttonEdit
             // 
-            this.buttonSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.buttonSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(97)))), ((int)(((byte)(81)))));
-            this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSearch.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonSearch.ForeColor = System.Drawing.Color.Black;
-            this.buttonSearch.Location = new System.Drawing.Point(2, 1);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(121, 21);
-            this.buttonSearch.TabIndex = 3;
-            this.buttonSearch.Text = "Търсене на адреси";
-            this.buttonSearch.UseVisualStyleBackColor = false;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            this.buttonEdit.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(97)))), ((int)(((byte)(81)))));
+            this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEdit.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonEdit.ForeColor = System.Drawing.Color.Black;
+            this.buttonEdit.Location = new System.Drawing.Point(2, 1);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(120, 37);
+            this.buttonEdit.TabIndex = 3;
+            this.buttonEdit.Text = "Редактиране на адрес";
+            this.buttonEdit.UseVisualStyleBackColor = false;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // buttonAdd
             // 
-            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonAdd.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(97)))), ((int)(((byte)(81)))));
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonAdd.ForeColor = System.Drawing.Color.Black;
             this.buttonAdd.Location = new System.Drawing.Point(120, 1);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(99, 21);
+            this.buttonAdd.Size = new System.Drawing.Size(99, 37);
             this.buttonAdd.TabIndex = 10;
             this.buttonAdd.Text = "Нов адрес";
             this.buttonAdd.UseVisualStyleBackColor = false;
@@ -862,9 +868,9 @@ namespace GraduationProject
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(79)))), ((int)(((byte)(33)))));
-            this.ClientSize = new System.Drawing.Size(997, 475);
+            this.ClientSize = new System.Drawing.Size(997, 508);
             this.Controls.Add(this.buttonAdd);
-            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.panelAddressInfo);
             this.Controls.Add(this.panelSearch);
             this.Controls.Add(this.panelAdd);
@@ -941,13 +947,12 @@ namespace GraduationProject
         private System.Windows.Forms.Button buttonRemovePerson;
         private System.Windows.Forms.Button buttonSearchAddress;
         private System.Windows.Forms.Button buttonEditPerson;
-        private System.Windows.Forms.Button buttonDeleteAddr;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripStreets;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRenameStr;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRemoveStr;
         private System.Windows.Forms.Panel panelSearch;
         private System.Windows.Forms.Panel panelAdd;
-        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonAdd;
         private Controls.ListBoxUserControl listBoxAddresses;
         private System.Windows.Forms.Label labelDogs;
@@ -960,6 +965,7 @@ namespace GraduationProject
         private System.Windows.Forms.DataGridViewTextBoxColumn ownerCol;
         private System.Windows.Forms.DataGridViewCheckBoxColumn GuestCol;
         private System.Windows.Forms.Label labelStreetName;
+        private System.Windows.Forms.Button buttonDeleteAddr;
     }
 }
 

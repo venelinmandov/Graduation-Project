@@ -18,12 +18,16 @@ namespace GraduationProject
             sqlConnection.Close();
         }
 
-        public void NewConnection(string query)
+        public void NewConnection(string query = null)
         {
             try
             {
-                sqlConnection.Open();
-                sqlCommand = new SQLiteCommand(query, sqlConnection);
+                if(sqlConnection.State == System.Data.ConnectionState.Closed)
+                    sqlConnection.Open();
+                if (query == null)
+                    sqlCommand = new SQLiteCommand(sqlConnection);
+                else
+                    sqlCommand = new SQLiteCommand(query, sqlConnection);
             }
             catch (SQLiteException)
             {

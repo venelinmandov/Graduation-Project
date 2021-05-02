@@ -144,7 +144,10 @@ namespace GraduationProject
             }
             else if (comboBoxCriteria.SelectedIndex == 1)
             {
-                addresses = new Address().Get(connectionHelper, textBoxSearchAddr.Text);
+                addresses = new Address().Get(connectionHelper, 2, textBoxSearchAddr.Text,"","");
+                addresses = addresses.Concat(new Address().Get(connectionHelper, 2,"", textBoxSearchAddr.Text, "")).ToList();
+
+                addresses = addresses.Concat(new Address().Get(connectionHelper, 2,"","", textBoxSearchAddr.Text)).ToList();
             }
             listBoxAddresses.AddList(addresses);
         }
@@ -598,5 +601,7 @@ namespace GraduationProject
         {
             labelStreetName.Text = streets[listBoxStreets.SelectedIndex].Name;
         }
+
+       
     }
 }

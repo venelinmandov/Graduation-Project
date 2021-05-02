@@ -5,7 +5,7 @@ namespace GraduationProject.Models
 {
     public class Resident:Person, Model<Resident>
     {
-        public int AddressReg { get; set; }
+        public int AddressReg { get; set; } //0 - няма, 1 - има, 2 - временна
         public int Covid19 { get; set; }
 
         private new string fields = Person.fields + ", addressReg, covid19";
@@ -14,8 +14,8 @@ namespace GraduationProject.Models
         public override void Fill(SQLiteDataReader reader)
         {
             base.Fill(reader);
-            AddressReg = reader.GetInt32(8);
-            Covid19 = reader.GetInt32(9);
+            AddressReg = reader.GetInt32(9);
+            Covid19 = reader.GetInt32(10); //0 - няма, 1 - има, 2 - контактен  
             
         }
 
@@ -69,6 +69,49 @@ namespace GraduationProject.Models
             connectionHelper.sqlConnection.Close();
             return residents;
         }
+        new public List<Resident> Get(ConnectionHelper connectionHelper, string personFirstName, string personMiddleName, string personLastNameName)
+        {
+            string whereClause;
+            List<Resident> residents = new List<Resident>();
+            Resident resident;
+            List<string> elements = new List<string>();
+
+            connectionHelper.NewConnection();
+            if (personFirstName != "")
+            {
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@firstname", personFirstName);
+                elements.Add("Residents.firstname = @firstname");
+            }
+            if (personMiddleName != "")
+            {
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@middleName", personMiddleName);
+                elements.Add("Residents.middlename = @middleName");
+            }
+            if (personLastNameName != "")
+            {
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@lastName", personLastNameName);
+                elements.Add("Residents.lastname = @lastName");
+            }
+
+            whereClause = string.Join(" AND ", elements);
+
+            string query = $@"SELECT id,{fields} FROM Residents WHERE {whereClause}";
+            connectionHelper.sqlCommand.CommandText = query;
+
+            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                resident = new Resident();
+                resident.Fill(reader);
+                residents.Add(resident);
+            }
+            reader.Close();
+            connectionHelper.sqlConnection.Close();
+
+            return residents;
+
+
+        }
 
 
         List<Resident> Model<Resident>.Get(ConnectionHelper connectionHelper)
@@ -96,6 +139,8 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();
         }
+
+        
 
         //UPDATE
         public new void Update(ConnectionHelper connectionHelper)

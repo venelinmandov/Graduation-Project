@@ -4,7 +4,13 @@
     <Compile Update="Controls\ListBoxUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Forms\AddressesFiltersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\DogsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\InhabitantsFilterForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\InsertDataForm.cs">
@@ -17,6 +23,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\MenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ReferenceForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

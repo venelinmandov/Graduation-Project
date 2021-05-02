@@ -22,5 +22,12 @@ namespace GraduationProject
             Show();
             
         }
+
+        private void buttonAddPerson_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new Forms.ReferenceForm().ShowDialog();
+            Show();
+        }
     }
 }
