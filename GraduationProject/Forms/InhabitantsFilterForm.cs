@@ -10,14 +10,19 @@ namespace GraduationProject.Forms
 {
     public partial class InhabitantsFilterForm : Form
     {
+        //Полета
         List<Models.Street> streets;
         ConnectionHelper connectionHelper = new ConnectionHelper();
         public List<Models.Person> guests = new List<Models.Person>();
         public List<Models.Resident> residents = new List<Models.Resident>();
         ErrorProvider errorProvider = new ErrorProvider();
-        string filter;
-        public string Filter { get => filter; }
         Panel selectedTab;
+        string filter;
+
+        //Свойства
+        public string Filter { get => filter; }
+        
+        //Конструктор
         public InhabitantsFilterForm()
         {
             InitializeComponent();
@@ -26,22 +31,26 @@ namespace GraduationProject.Forms
             selectedTab = panelSearchByAddress;
         }
 
-        private void buttonSearchByInhabitant_Click(object sender, EventArgs e)
+        //Показване на панела за търсене по адрес
+        private void buttonSearchByAddress_Click(object sender, EventArgs e)
         {
             panelSearchByAddress.BringToFront();
             selectedTab = panelSearchByAddress;
         }
 
+        //Показване на панела за търсене по имена
         private void buttonSearchByNames_Click(object sender, EventArgs e)
         {
             panelSearchByNames.BringToFront();
             selectedTab = panelSearchByNames;
         }
 
+        //Натискане на бутона "търсене" 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             if (selectedTab == panelSearchByAddress)
             {
+                //Търсене по адрес
                 if (comboBoxStreet.SelectedItem == null)
                 {
                     errorProvider.SetError(comboBoxStreet, "Моля изберете улица!");
@@ -58,6 +67,7 @@ namespace GraduationProject.Forms
             }
             if (selectedTab == panelSearchByNames)
             {
+                //Търсене по имена
                 if (textBoxFirstname.Text.Trim() == "" && textBoxMiddlename.Text.Trim() == "" && textBoxLastname.Text.Trim() == "")
                 {
                     errorProvider.SetError(textBoxFirstname, "Моля въведете поне едно от трите имена");
@@ -87,7 +97,6 @@ namespace GraduationProject.Forms
 
 
                 }
-
                 else if (radioButtonAll.Checked)
                 {
                     residents = new Models.Resident().Get(connectionHelper, textBoxFirstname.Text.Trim(), textBoxMiddlename.Text.Trim(), textBoxLastname.Text.Trim());
@@ -102,7 +111,7 @@ namespace GraduationProject.Forms
                 }
             }
             errorProvider.Clear();
-            this.Hide();
+            Hide();
         }
     }
 }

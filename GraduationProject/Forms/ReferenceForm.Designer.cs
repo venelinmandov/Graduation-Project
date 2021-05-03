@@ -82,7 +82,6 @@ namespace GraduationProject.Forms
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1308, 459);
             this.tabControl.TabIndex = 0;
-            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.AddressesTab_SelectedIndexChanged);
             // 
             // tabAddresses
             // 

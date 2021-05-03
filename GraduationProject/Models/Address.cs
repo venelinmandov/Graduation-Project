@@ -93,22 +93,6 @@ namespace GraduationProject.Models
             
             return ExecuteGetQuery(connectionHelper);
         }
-    
-        /*
-        public List<Address> Get(ConnectionHelper connectionHelper, string personName)
-        {
-            string query = @$"{selectClause} FROM Addresses, GuestsInQuarantine,Residents, Streets
-                WHERE Addresses.streetId = Streets.id AND Addresses.id = GuestsInQuarantine.addressId AND Addresses.id = Residents.addressId AND
-                (GuestsInQuarantine.firstname LIKE @persName || '%' OR GuestsInQuarantine.middlename LIKE @persName || '%' OR GuestsInQuarantine.lastname LIKE @persName || '%' OR
-                Residents.firstname LIKE @persName || '%' OR Residents.middlename LIKE @persName || '%' OR Residents.lastname LIKE @persName || '%' ) ORDER BY streetId, number";
-
-
-            connectionHelper.NewConnection(query);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@persName", personName);
-
-            return ExecuteGetQuery(connectionHelper);
-
-        }*/
 
         public List<Address> Get(ConnectionHelper connectionHelper, int option, string personFirstName, string personMiddleName, string personLastNameName)
         {

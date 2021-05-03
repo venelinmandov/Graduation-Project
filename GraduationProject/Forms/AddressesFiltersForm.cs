@@ -10,6 +10,7 @@ namespace GraduationProject.Forms
 {
     public partial class AddressesFiltersForm : Form
     {
+        //Полета
         Panel selectedTab;
         List<Models.Address> addresses = new List<Models.Address>();
         ConnectionHelper connectionHelper = new ConnectionHelper();
@@ -25,9 +26,12 @@ namespace GraduationProject.Forms
             { "Магарета", "numDonkeys"},
             { "Пернати", "numFeathered"}
         };
-            
+
+        //Свойства    
         public List <Models.Address> Addresses { get => addresses; }
         public string Filter { get => filter; }
+
+        //Конструктор
         public AddressesFiltersForm()
         {
             InitializeComponent();
@@ -36,28 +40,34 @@ namespace GraduationProject.Forms
             comboBoxStreets.Items.AddRange(streets.ToArray());
         }
 
+        //Показване на панела за търсене по обитатели
         private void buttonSearchByInhabitant_Click(object sender, EventArgs e)
         {
             panelSearchByInhabitant.BringToFront();
             selectedTab = panelSearchByInhabitant;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        //Показване на панела за търсене по добитък
+        private void buttonSearchByAnimals_Click(object sender, EventArgs e)
         {
             panelSearchByAnimal.BringToFront();
             selectedTab = panelSearchByAnimal;
         }
 
+        //Показване на панела за търсене по улица
         private void buttonSearchByStreet_Click(object sender, EventArgs e)
         {
             panelSearchByStreet.BringToFront();
             selectedTab = panelSearchByStreet;
         }
 
+        //Натискане на бутона "Търсене"
         private void buttonSearch_Click(object sender, EventArgs e)
         {
+            
             if (selectedTab == panelSearchByInhabitant)
             {
+                //Тъесене по обитател
                 int option = getSelectedOption(radioButtonResident, radioButtonGuest, radioButtonAll);
                 if (option == -1)
                 {
@@ -82,6 +92,7 @@ namespace GraduationProject.Forms
             }
             else if (selectedTab == panelSearchByAnimal)
             {
+                //Търсене по добитък
                 if (comboBoxAnimals.SelectedItem == null)
                 {
                     ErrorProvider.SetError(comboBoxAnimals, "Моля изберете добитък!");
@@ -92,6 +103,7 @@ namespace GraduationProject.Forms
             }
             else if (selectedTab == panelSearchByStreet)
             {
+                //Търсене по улица 
                 if (comboBoxStreets.SelectedItem == null)
                 {
                     ErrorProvider.SetError(comboBoxStreets, "Моля изберете улица!");
@@ -104,6 +116,7 @@ namespace GraduationProject.Forms
             this.Hide();
         }
 
+        //Връща номера на избрания радиобутон 
         int getSelectedOption(params RadioButton[] radioButtons)
         {
             for (int i = 0; i < radioButtons.Length; i++)

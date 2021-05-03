@@ -10,9 +10,11 @@ namespace GraduationProject.Forms
 {
     public partial class ReferenceForm : Form
     {
+        //Полета
         ConnectionHelper connectionHelper = new ConnectionHelper();
         AddressesFiltersForm addressesFilterForm = new AddressesFiltersForm();
         InhabitantsFilterForm inhabitantsFilterForm = new InhabitantsFilterForm();
+
         Dictionary<int, string> habitabillity = new Dictionary<int, string>(){
             { 0, "Пустеещ" } ,
             { 1, "Обитаван" },
@@ -32,17 +34,15 @@ namespace GraduationProject.Forms
             { 2, "Временна" }};
 
 
-
+        //Конструктор
         public ReferenceForm()
         {
             InitializeComponent();
         }
 
-        private void AddressesTab_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        #region Адреси
 
-        }
-
+        //Отваряне на формата за избор на филтър при тъсене на адреси
         private void buttonFiltersAddresses_Click(object sender, EventArgs e)
         {
             addressesFilterForm.ShowDialog();
@@ -50,13 +50,7 @@ namespace GraduationProject.Forms
             labelCriteriaAddresses.Text = addressesFilterForm.Filter;
         }
 
-        private void buttonFiltersInhabitants_Click(object sender, EventArgs e)
-        {
-            inhabitantsFilterForm.ShowDialog();
-            ShowInhabitants(inhabitantsFilterForm.residents, inhabitantsFilterForm.guests);
-            labelCriteriaInhabitants.Text = inhabitantsFilterForm.Filter;
-        }
-
+        //Показване на адресите в таблицата
         void ShowAddresses(List<Models.Address> addresses)
         {
             dataGridViewAddresses.RowCount = 0;
@@ -80,10 +74,23 @@ namespace GraduationProject.Forms
                
             }
         }
+        #endregion
+        #region Обитатели
 
+        //Отваряне на формата за избор на филтър при тъсене на обитатели
+        private void buttonFiltersInhabitants_Click(object sender, EventArgs e)
+        {
+            inhabitantsFilterForm.ShowDialog();
+            ShowInhabitants(inhabitantsFilterForm.residents, inhabitantsFilterForm.guests);
+            labelCriteriaInhabitants.Text = inhabitantsFilterForm.Filter;
+        }
+
+        //Показване на обитателите в таблицата
         void ShowInhabitants(List<Models.Resident> residents, List<Models.Person> guests)
         {
             dataGridViewInhabitants.RowCount = 0;
+
+            //Жители
             for (int i = 0; i < residents.Count; i++)
             {
                 dataGridViewInhabitants.RowCount++;
@@ -104,6 +111,8 @@ namespace GraduationProject.Forms
                 dataGridViewInhabitants.Rows[dataGridViewInhabitants.RowCount - 1].Cells[10].Value = residents[i].Note;
 
             }
+
+            //Гости в карантина
             for (int i = 0; i < guests.Count; i++)
             {
                 dataGridViewInhabitants.RowCount++;
@@ -123,7 +132,9 @@ namespace GraduationProject.Forms
 
             }
         }
+#endregion
 
+        //Показване на обитателите на избран адрес
         private void dataGridViewAddresses_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;

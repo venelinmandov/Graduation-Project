@@ -46,7 +46,7 @@ namespace GraduationProject.Forms
             this.comboBoxAnimals = new System.Windows.Forms.ComboBox();
             this.labelSearchByAnimal = new System.Windows.Forms.Label();
             this.buttonSearchByInhabitant = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonSearchByAnimals = new System.Windows.Forms.Button();
             this.buttonSearchByStreet = new System.Windows.Forms.Button();
             this.panelSearchByStreet = new System.Windows.Forms.Panel();
             this.comboBoxStreets = new System.Windows.Forms.ComboBox();
@@ -225,15 +225,15 @@ namespace GraduationProject.Forms
             this.buttonSearchByInhabitant.UseVisualStyleBackColor = true;
             this.buttonSearchByInhabitant.Click += new System.EventHandler(this.buttonSearchByInhabitant_Click);
             // 
-            // button1
+            // buttonSearchByAnimals
             // 
-            this.button1.Location = new System.Drawing.Point(95, 24);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 40);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Търсене по добитък";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSearchByAnimals.Location = new System.Drawing.Point(95, 24);
+            this.buttonSearchByAnimals.Name = "buttonSearchByAnimals";
+            this.buttonSearchByAnimals.Size = new System.Drawing.Size(96, 40);
+            this.buttonSearchByAnimals.TabIndex = 6;
+            this.buttonSearchByAnimals.Text = "Търсене по добитък";
+            this.buttonSearchByAnimals.UseVisualStyleBackColor = true;
+            this.buttonSearchByAnimals.Click += new System.EventHandler(this.buttonSearchByAnimals_Click);
             // 
             // buttonSearchByStreet
             // 
@@ -279,7 +279,7 @@ namespace GraduationProject.Forms
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.buttonSearchByInhabitant);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonSearchByAnimals);
             this.Controls.Add(this.buttonSearchByStreet);
             this.Controls.Add(this.panelSearchByInhabitant);
             this.Controls.Add(this.panelSearchByStreet);
@@ -320,7 +320,7 @@ namespace GraduationProject.Forms
         private System.Windows.Forms.ComboBox comboBoxAnimals;
         private System.Windows.Forms.Label labelSearchByAnimal;
         private System.Windows.Forms.Button buttonSearchByInhabitant;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonSearchByAnimals;
         private System.Windows.Forms.Button buttonSearchByStreet;
         private System.Windows.Forms.Panel panelSearchByStreet;
         private System.Windows.Forms.ComboBox comboBoxStreets;

@@ -34,7 +34,7 @@ namespace GraduationProject.Forms
             this.radioButtonGuest = new System.Windows.Forms.RadioButton();
             this.radioButtonResident = new System.Windows.Forms.RadioButton();
             this.buttonSearch = new System.Windows.Forms.Button();
-            this.buttonSearchByInhabitant = new System.Windows.Forms.Button();
+            this.buttonSearchByAddress = new System.Windows.Forms.Button();
             this.labelStreet = new System.Windows.Forms.Label();
             this.textBoxLastname = new System.Windows.Forms.TextBox();
             this.labelLastname = new System.Windows.Forms.Label();
@@ -55,13 +55,13 @@ namespace GraduationProject.Forms
             this.panelSearchByNames.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // groupBox
             // 
             this.groupBox.Controls.Add(this.radioButtonAll);
             this.groupBox.Controls.Add(this.radioButtonGuest);
             this.groupBox.Controls.Add(this.radioButtonResident);
             this.groupBox.Location = new System.Drawing.Point(244, 19);
-            this.groupBox.Name = "groupBox1";
+            this.groupBox.Name = "groupBox";
             this.groupBox.Size = new System.Drawing.Size(125, 81);
             this.groupBox.TabIndex = 6;
             this.groupBox.TabStop = false;
@@ -109,15 +109,15 @@ namespace GraduationProject.Forms
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
-            // buttonSearchByInhabitant
+            // buttonSearchByAddress
             // 
-            this.buttonSearchByInhabitant.Location = new System.Drawing.Point(0, 22);
-            this.buttonSearchByInhabitant.Name = "buttonSearchByInhabitant";
-            this.buttonSearchByInhabitant.Size = new System.Drawing.Size(96, 40);
-            this.buttonSearchByInhabitant.TabIndex = 13;
-            this.buttonSearchByInhabitant.Text = "Търсене по адрес";
-            this.buttonSearchByInhabitant.UseVisualStyleBackColor = true;
-            this.buttonSearchByInhabitant.Click += new System.EventHandler(this.buttonSearchByInhabitant_Click);
+            this.buttonSearchByAddress.Location = new System.Drawing.Point(0, 22);
+            this.buttonSearchByAddress.Name = "buttonSearchByAddress";
+            this.buttonSearchByAddress.Size = new System.Drawing.Size(96, 40);
+            this.buttonSearchByAddress.TabIndex = 13;
+            this.buttonSearchByAddress.Text = "Търсене по адрес";
+            this.buttonSearchByAddress.UseVisualStyleBackColor = true;
+            this.buttonSearchByAddress.Click += new System.EventHandler(this.buttonSearchByAddress_Click);
             // 
             // labelStreet
             // 
@@ -260,7 +260,7 @@ namespace GraduationProject.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 234);
             this.Controls.Add(this.buttonSearch);
-            this.Controls.Add(this.buttonSearchByInhabitant);
+            this.Controls.Add(this.buttonSearchByAddress);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.buttonSearchByNames);
             this.Controls.Add(this.panelSearchByAddress);
@@ -287,7 +287,7 @@ namespace GraduationProject.Forms
         private System.Windows.Forms.RadioButton radioButtonGuest;
         private System.Windows.Forms.RadioButton radioButtonResident;
         private System.Windows.Forms.Button buttonSearch;
-        private System.Windows.Forms.Button buttonSearchByInhabitant;
+        private System.Windows.Forms.Button buttonSearchByAddress;
         private System.Windows.Forms.Label labelStreet;
         private System.Windows.Forms.TextBox textBoxLastname;
         private System.Windows.Forms.Label labelLastname;

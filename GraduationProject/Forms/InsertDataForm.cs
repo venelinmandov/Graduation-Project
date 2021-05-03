@@ -29,7 +29,7 @@ namespace GraduationProject
 
         }
         //Методи:
-        # region Адреси:
+        #region Адреси:
 
         //Запазване на текущия адрес
         private void buttonSave_Click(object sender, EventArgs e)
@@ -116,11 +116,12 @@ namespace GraduationProject
         //Изтриване на адрес
         private void buttonDeleteAddr_Click(object sender, EventArgs e)
         {
-            DialogResult = MessageBox.Show("Сигурни ли сте, че искате да изтриете адреса?", "Изтриване на адрес", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (DialogResult == DialogResult.No) return;
-
-            address.Delete(connectionHelper);
-            ShowAddresses();
+            DialogResult dialogResult = MessageBox.Show("Сигурни ли сте, че искате да изтриете адреса?", "Изтриване на адрес", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                address.Delete(connectionHelper);
+                ShowAddresses();
+            }
         }
 
         //Опресняване на списъка с адреси
