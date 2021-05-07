@@ -12,7 +12,10 @@ namespace GraduationProject.Forms
     public partial class PersonsForm : Form
     {
         ErrorProvider errorProvider = new ErrorProvider();
+        ConnectionHelper connectionHelper = new ConnectionHelper(); 
         Person person;
+        List<Street> streets;
+
         bool canceled = false;
 
         public bool Canceled => canceled;
@@ -21,6 +24,11 @@ namespace GraduationProject.Forms
         public PersonsForm()
         {
             InitializeComponent();
+            streets = new Street().Get(connectionHelper);
+            comboBoxStreets.Items.AddRange(streets.ToArray());
+            comboBoxStreets.Visible = false;
+            numericUpDownAddressNumber.Visible = false;
+            Text = "Добавяне на жител / гост в карантина";
         }
 
         public PersonsForm(Resident res): this()
@@ -30,7 +38,7 @@ namespace GraduationProject.Forms
             radioButtonGuest.Enabled = false;
             radioButtonHousehold.Checked = true;
             showData(person);
-
+            Text = "Редактиране на жител";
 
         }
 
@@ -43,6 +51,7 @@ namespace GraduationProject.Forms
             groupBoxAddressReg.Enabled = false;
             groupBoxCovid19.Enabled = false;
             showData(person);
+            Text = "Редактиране на гост в карантина";
         }
 
 
@@ -87,6 +96,22 @@ namespace GraduationProject.Forms
                 SetGroupBoxValue(residentToShow.Covid19, radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
             }
 
+            if (personToShow.CurrentAddressId != -1)
+            {
+                checkBoxCurrentAddress.Checked = true;
+                Address currentAddress = new Address().Get(connectionHelper,personToShow.CurrentAddressId);
+
+                int i;
+                for (i = 0; i < streets.Count; i++)
+                {
+                    if (currentAddress.StreetId == streets[i].Id)
+                        break;
+                }
+                comboBoxStreets.SelectedIndex = i;
+                numericUpDownAddressNumber.Value = currentAddress.Number;
+            }
+
+
             if (textBoxOwner.Text == "Собственик")
                 checkBoxOwner.Checked = true;
         }
@@ -96,6 +121,7 @@ namespace GraduationProject.Forms
         bool validate()
         {
             bool error = false;
+            errorProvider.Clear();
 
             //Валидация на текстовите полета
             object[,] textBoxes = new object[,]
@@ -123,6 +149,22 @@ namespace GraduationProject.Forms
             {
                 error |= ValidateGroupBox(groupBoxAddressReg, radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
                 error |= ValidateGroupBox(groupBoxCovid19, radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
+            }
+
+            //Валидация на полетата за текущ адрес
+            if (checkBoxCurrentAddress.Checked)
+            {
+                if (comboBoxStreets.SelectedItem == null)
+                {
+                    errorProvider.SetError(numericUpDownAddressNumber, "Моля изберете улица!");
+                    error |= true;
+                }
+                    
+                else if (person.CurrentAddressId == -1)
+                {
+                    errorProvider.SetError(numericUpDownAddressNumber, "Няма такъв адрес!");
+                    error |= true;
+                }
             }
 
             return !error;
@@ -229,6 +271,14 @@ namespace GraduationProject.Forms
             person.RelToOwner = textBoxOwner.Text;
             person.Gender = GetGroupBoxValue(radioButtonMale, radioButtonFemale);
             person.Note = textBoxNotes.Text;
+            if (checkBoxCurrentAddress.Checked && comboBoxStreets.SelectedItem != null)
+            {
+                Address currentAddres = new Address().Get(connectionHelper, streets[comboBoxStreets.SelectedIndex].Id, (int)numericUpDownAddressNumber.Value);
+                person.CurrentAddressId = currentAddres == null ? -1 : currentAddres.Id;
+            }
+            else
+                person.CurrentAddressId = -1;
+            
 
 
             if (validate())
@@ -246,5 +296,26 @@ namespace GraduationProject.Forms
         {
 
         }
+
+        private void checkBoxCurrentAddress_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxCurrentAddress.Checked)
+            {
+                comboBoxStreets.Visible = true;
+                numericUpDownAddressNumber.Visible = true;
+                numericUpDownAddressNumber.Visible = true;
+                labelStreet.Visible = true;
+                labelAddressNumber.Visible = true;
+            }
+            else
+            {
+                comboBoxStreets.Visible = false;
+                numericUpDownAddressNumber.Visible = false;
+                numericUpDownAddressNumber.Visible = false;
+                labelStreet.Visible = false;
+                labelAddressNumber.Visible = false;
+            }
+        }
+
     }
 }

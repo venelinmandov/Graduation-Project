@@ -76,7 +76,7 @@ namespace GraduationProject
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MenuForm";
+            this.Text = "Меню";
             this.ResumeLayout(false);
 
         }

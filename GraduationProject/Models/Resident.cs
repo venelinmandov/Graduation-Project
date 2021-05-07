@@ -26,7 +26,7 @@ namespace GraduationProject.Models
         {
             long id;
             string query = @$"INSERT INTO Residents ({fields})
-                            VALUES (@fName, @mName, @lName, @gender, @addrId, @rel, @note, @addrReg, @covid)";
+                            VALUES (@fName, @mName, @lName, @gender, @addrId, @currAddrId, @rel, @note, @addrReg, @covid)";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", Firstname);
@@ -34,6 +34,11 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@lName", Lastname);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", Gender);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
+
+            if (CurrentAddressId == -1)
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@currAddrId", System.DBNull.Value);
+            else
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@currAddrId", CurrentAddressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrReg", AddressReg);
@@ -47,11 +52,12 @@ namespace GraduationProject.Models
         }
 
         //GET
-        new public List<Resident> Get(ConnectionHelper connectionHelper, Address address)
+        new public List<Resident> Get(ConnectionHelper connectionHelper, Address address, Address.AddressType addressType = Address.AddressType.Permanent)
         {
             List<Resident> residents = new List<Resident>();
             Resident resident;
-            string whereClause = address != null ? "WHERE addressId = @addrId": "";
+            string addressField = Address.FieldName[addressType];
+            string whereClause = address != null ? $"WHERE {addressField} = @addrId": "";
             string query = @$"SELECT id,{fields} FROM Residents " + whereClause;
 
             connectionHelper.NewConnection(query);
@@ -130,9 +136,10 @@ namespace GraduationProject.Models
             connectionHelper.sqlConnection.Close();
         }
 
-        public new void Delete(ConnectionHelper connectionHelper,Address address)
+        public new void Delete(ConnectionHelper connectionHelper,Address address, Address.AddressType addressType = Address.AddressType.Permanent)
         {
-            string query = "DELETE FROM Residents WHERE addressId = @addrId";
+            string addressField = Address.FieldName[addressType];
+            string query = $"DELETE FROM Residents WHERE {addressField} = @addrId";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", address.Id);
@@ -150,7 +157,7 @@ namespace GraduationProject.Models
                                 lastname = @lName, note = @note,
                                 gender = @gender, addressId = @addrId,
                                 relationToOwner = @rel, addressReg = @addrReg,
-                                covid19 = @covid
+                                currentAddressId = @currAddrId, covid19 = @covid
                              WHERE id = @id";
 
             connectionHelper.NewConnection(query);
@@ -160,8 +167,13 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@lName", Lastname);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", Gender);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
+            if (CurrentAddressId == -1)
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@currAddrId", System.DBNull.Value);
+            else
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@currAddrId", CurrentAddressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
-                        connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrReg", AddressReg);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@covid", Covid19);
 

@@ -55,10 +55,16 @@ namespace GraduationProject.Forms
             this.buttonSave = new System.Windows.Forms.Button();
             this.textBoxNotes = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.checkBoxCurrentAddress = new System.Windows.Forms.CheckBox();
+            this.comboBoxStreets = new System.Windows.Forms.ComboBox();
+            this.numericUpDownAddressNumber = new System.Windows.Forms.NumericUpDown();
+            this.labelStreet = new System.Windows.Forms.Label();
+            this.labelAddressNumber = new System.Windows.Forms.Label();
             this.groupBoxGender.SuspendLayout();
             this.groupBoxAddressReg.SuspendLayout();
             this.groupBoxCovid19.SuspendLayout();
             this.groupBoxOwner.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAddressNumber)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxFName
@@ -310,7 +316,7 @@ namespace GraduationProject.Forms
             this.buttonSave.FlatAppearance.BorderSize = 0;
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonSave.Location = new System.Drawing.Point(17, 389);
+            this.buttonSave.Location = new System.Drawing.Point(12, 443);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(125, 34);
             this.buttonSave.TabIndex = 14;
@@ -322,7 +328,7 @@ namespace GraduationProject.Forms
             // 
             this.textBoxNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxNotes.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxNotes.Location = new System.Drawing.Point(214, 368);
+            this.textBoxNotes.Location = new System.Drawing.Point(216, 420);
             this.textBoxNotes.Name = "textBoxNotes";
             this.textBoxNotes.Size = new System.Drawing.Size(233, 57);
             this.textBoxNotes.TabIndex = 15;
@@ -333,18 +339,77 @@ namespace GraduationProject.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(214, 351);
+            this.label1.Location = new System.Drawing.Point(216, 403);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 14);
             this.label1.TabIndex = 16;
             this.label1.Text = "Забележки:";
+            // 
+            // checkBoxCurrentAddress
+            // 
+            this.checkBoxCurrentAddress.AutoSize = true;
+            this.checkBoxCurrentAddress.Location = new System.Drawing.Point(23, 372);
+            this.checkBoxCurrentAddress.Name = "checkBoxCurrentAddress";
+            this.checkBoxCurrentAddress.Size = new System.Drawing.Size(95, 19);
+            this.checkBoxCurrentAddress.TabIndex = 17;
+            this.checkBoxCurrentAddress.Text = "Текущ адрес";
+            this.checkBoxCurrentAddress.UseVisualStyleBackColor = true;
+            this.checkBoxCurrentAddress.CheckedChanged += new System.EventHandler(this.checkBoxCurrentAddress_CheckedChanged);
+            // 
+            // comboBoxStreets
+            // 
+            this.comboBoxStreets.FormattingEnabled = true;
+            this.comboBoxStreets.Location = new System.Drawing.Point(145, 368);
+            this.comboBoxStreets.Name = "comboBoxStreets";
+            this.comboBoxStreets.Size = new System.Drawing.Size(143, 23);
+            this.comboBoxStreets.TabIndex = 18;
+            // 
+            // numericUpDownAddressNumber
+            // 
+            this.numericUpDownAddressNumber.Location = new System.Drawing.Point(295, 368);
+            this.numericUpDownAddressNumber.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownAddressNumber.Name = "numericUpDownAddressNumber";
+            this.numericUpDownAddressNumber.Size = new System.Drawing.Size(41, 23);
+            this.numericUpDownAddressNumber.TabIndex = 19;
+            this.numericUpDownAddressNumber.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // labelStreet
+            // 
+            this.labelStreet.AutoSize = true;
+            this.labelStreet.Location = new System.Drawing.Point(145, 350);
+            this.labelStreet.Name = "labelStreet";
+            this.labelStreet.Size = new System.Drawing.Size(41, 15);
+            this.labelStreet.TabIndex = 20;
+            this.labelStreet.Text = "Улица";
+            // 
+            // labelAddressNumber
+            // 
+            this.labelAddressNumber.AutoSize = true;
+            this.labelAddressNumber.Location = new System.Drawing.Point(295, 350);
+            this.labelAddressNumber.Name = "labelAddressNumber";
+            this.labelAddressNumber.Size = new System.Drawing.Size(45, 15);
+            this.labelAddressNumber.TabIndex = 21;
+            this.labelAddressNumber.Text = "Номер";
             // 
             // PersonsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
-            this.ClientSize = new System.Drawing.Size(461, 435);
+            this.ClientSize = new System.Drawing.Size(461, 485);
+            this.Controls.Add(this.labelAddressNumber);
+            this.Controls.Add(this.labelStreet);
+            this.Controls.Add(this.numericUpDownAddressNumber);
+            this.Controls.Add(this.comboBoxStreets);
+            this.Controls.Add(this.checkBoxCurrentAddress);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxNotes);
             this.Controls.Add(this.checkBoxOwner);
@@ -374,6 +439,7 @@ namespace GraduationProject.Forms
             this.groupBoxCovid19.PerformLayout();
             this.groupBoxOwner.ResumeLayout(false);
             this.groupBoxOwner.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAddressNumber)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -407,5 +473,10 @@ namespace GraduationProject.Forms
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.RichTextBox textBoxNotes;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBoxCurrentAddress;
+        private System.Windows.Forms.ComboBox comboBoxStreets;
+        private System.Windows.Forms.NumericUpDown numericUpDownAddressNumber;
+        private System.Windows.Forms.Label labelStreet;
+        private System.Windows.Forms.Label labelAddressNumber;
     }
 }

@@ -24,7 +24,8 @@ namespace GraduationProject.Forms
             { "Кози", "numGoats"},
             { "Коне", "numHorses"},
             { "Магарета", "numDonkeys"},
-            { "Пернати", "numFeathered"}
+            { "Пернати", "numFeathered"},
+            { "Свине", "numPigs" }
         };
 
         //Свойства    
@@ -43,22 +44,19 @@ namespace GraduationProject.Forms
         //Показване на панела за търсене по обитатели
         private void buttonSearchByInhabitant_Click(object sender, EventArgs e)
         {
-            panelSearchByInhabitant.BringToFront();
-            selectedTab = panelSearchByInhabitant;
+            ShowPanel(panelSearchByInhabitant, (Button)sender);
         }
 
         //Показване на панела за търсене по добитък
         private void buttonSearchByAnimals_Click(object sender, EventArgs e)
         {
-            panelSearchByAnimal.BringToFront();
-            selectedTab = panelSearchByAnimal;
+            ShowPanel(panelSearchByAnimal, (Button)sender);
         }
 
         //Показване на панела за търсене по улица
         private void buttonSearchByStreet_Click(object sender, EventArgs e)
         {
-            panelSearchByStreet.BringToFront();
-            selectedTab = panelSearchByStreet;
+            ShowPanel(panelSearchByStreet, (Button)sender);
         }
 
         //Натискане на бутона "Търсене"
@@ -127,5 +125,37 @@ namespace GraduationProject.Forms
             return -1;
         }
 
+        //Показване на избран панел
+        void ShowPanel(Panel panel, Button button)
+        {
+            panel.BringToFront();
+            selectedTab = panel;
+            buttonSearchByInhabitant.BackColor = SystemColors.ButtonFace;
+            buttonSearchByAnimals.BackColor = SystemColors.ButtonFace;
+            buttonSearchByStreet.BackColor = SystemColors.ButtonFace;
+            button.BackColor = Color.White;
+        }
+
+        //Изчертаване на елемент на коммбобокс
+        private void comboBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            var combo = sender as ComboBox;
+            SolidBrush solidBrush;
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(0, 79, 33)), e.Bounds);
+                solidBrush = new SolidBrush(Color.White);
+            }
+            else
+            {
+                e.Graphics.FillRectangle(new SolidBrush(SystemColors.Window), e.Bounds);
+                solidBrush = new SolidBrush(Color.Black);
+            }
+
+            e.Graphics.DrawString(combo.Items[e.Index].ToString(),
+                                          e.Font,
+                                          solidBrush,
+                                          new Point(e.Bounds.X, e.Bounds.Y));
+        }
     }
 }

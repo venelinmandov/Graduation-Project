@@ -14,6 +14,7 @@ namespace GraduationProject.Forms
         ConnectionHelper connectionHelper = new ConnectionHelper();
         AddressesFiltersForm addressesFilterForm = new AddressesFiltersForm();
         InhabitantsFilterForm inhabitantsFilterForm = new InhabitantsFilterForm();
+        Panel selectedTab;
 
         Dictionary<int, string> habitabillity = new Dictionary<int, string>(){
             { 0, "Пустеещ" } ,
@@ -38,9 +39,17 @@ namespace GraduationProject.Forms
         public ReferenceForm()
         {
             InitializeComponent();
+            selectedTab = tabAddresses;
         }
 
         #region Адреси
+
+        //Показване на панела за търсене на адреси
+        private void buttonAddresses_Click(object sender, EventArgs e)
+        {
+            selectedTab = tabAddresses;
+            tabAddresses.BringToFront();
+        }
 
         //Отваряне на формата за избор на филтър при тъсене на адреси
         private void buttonFiltersAddresses_Click(object sender, EventArgs e)
@@ -58,6 +67,9 @@ namespace GraduationProject.Forms
             {
                 dataGridViewAddresses.RowCount++;
                 dataGridViewAddresses.Rows[dataGridViewAddresses.RowCount - 1].Cells[0].Value = "Обитатели";
+                ((DataGridViewButtonCell)dataGridViewAddresses.Rows[dataGridViewAddresses.RowCount - 1].Cells[0]).FlatStyle = FlatStyle.Flat;
+                ((DataGridViewButtonCell)dataGridViewAddresses.Rows[dataGridViewAddresses.RowCount - 1].Cells[0]).Style.BackColor = SystemColors.ButtonFace;
+
                 dataGridViewAddresses.Rows[dataGridViewAddresses.RowCount - 1].Cells[1].Value = addresses[i].streetName;
                 dataGridViewAddresses.Rows[dataGridViewAddresses.RowCount - 1].Cells[2].Value = addresses[i].Number;
                 dataGridViewAddresses.Rows[dataGridViewAddresses.RowCount - 1].Cells[3].Value = addresses[i].Squaring;
@@ -70,12 +82,19 @@ namespace GraduationProject.Forms
                 dataGridViewAddresses.Rows[dataGridViewAddresses.RowCount - 1].Cells[10].Value = addresses[i].NumHorses;
                 dataGridViewAddresses.Rows[dataGridViewAddresses.RowCount - 1].Cells[11].Value = addresses[i].NumDonkeys;
                 dataGridViewAddresses.Rows[dataGridViewAddresses.RowCount - 1].Cells[12].Value = addresses[i].NumFeathered;
-                dataGridViewAddresses.Rows[dataGridViewAddresses.RowCount - 1].Cells[13].Value = addresses[i].NumWalnutTrees;
+                dataGridViewAddresses.Rows[dataGridViewAddresses.RowCount - 1].Cells[13].Value = addresses[i].NumPigs;
+                dataGridViewAddresses.Rows[dataGridViewAddresses.RowCount - 1].Cells[14].Value = addresses[i].NumWalnutTrees;
                
             }
         }
         #endregion
         #region Обитатели
+        //Показване на панела за търсене на обитатели
+        private void buttonInhabitants_Click(object sender, EventArgs e)
+        {
+            selectedTab = tabInhabitants;
+            tabInhabitants.BringToFront();
+        }
 
         //Отваряне на формата за избор на филтър при тъсене на обитатели
         private void buttonFiltersInhabitants_Click(object sender, EventArgs e)
@@ -146,8 +165,13 @@ namespace GraduationProject.Forms
                 List<Models.Person> persons = new Models.Person().Get(connectionHelper, addressesFilterForm.Addresses[e.RowIndex]);
                 labelCriteriaInhabitants.Text = $"По адрес: {addressesFilterForm.Addresses[e.RowIndex].streetName} {addressesFilterForm.Addresses[e.RowIndex].Number}";
                 ShowInhabitants(residents,persons);
-                tabControl.SelectedTab = tabInhabitants;
+                selectedTab = tabInhabitants;
+                tabInhabitants.BringToFront();
             }
         }
+
+       
+
+        
     }
 }

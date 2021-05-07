@@ -40,7 +40,7 @@ namespace GraduationProject.Models
         {
             long id;
             string query = @$"INSERT INTO GuestsInQuarantine ({fields})
-                            VALUES (@fName, @mName, @lName, @gender, @addrId, @rel, @note)";
+                            VALUES (@fName, @mName, @lName, @gender, @addrId, @currAddrId @rel, @note)";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", Firstname);
@@ -50,7 +50,10 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
-
+            if (CurrentAddressId == -1)
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@currAddrId", System.DBNull.Value);
+            else
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@currAddrId", CurrentAddressId);
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlCommand.CommandText = "SELECT last_insert_rowid()";
             id = (long)connectionHelper.sqlCommand.ExecuteScalar();
@@ -61,11 +64,13 @@ namespace GraduationProject.Models
         }
 
         //GET
-        public List<Person> Get(ConnectionHelper connectionHelper, Address address = null)
+        public List<Person> Get(ConnectionHelper connectionHelper, Address address = null, Address.AddressType addressType = Address.AddressType.Permanent)
         {
             List<Person> persons = new List<Person>();
             Person person;
-            string whereClause = address != null ? " WHERE addressId = @addrId" : "";
+            string addressField = Address.FieldName[addressType];
+            
+            string whereClause = address != null ? $" WHERE {addressField} = @addrId" : "";
             string query = @$"SELECT id,{fields} FROM GuestsInQuarantine " + whereClause;
             connectionHelper.NewConnection(query);
             if(address != null)
@@ -133,9 +138,10 @@ namespace GraduationProject.Models
         }
 
         //DELETE
-        public void Delete(ConnectionHelper connectionHelper,Address address)
+        public void Delete(ConnectionHelper connectionHelper,Address address, Address.AddressType addressType = Address.AddressType.Permanent)
         {
-            string query = "DELETE FROM GuestsInQuarantine WHERE addressId = @addrId";
+            string addressField = Address.FieldName[addressType];
+            string query = $"DELETE FROM GuestsInQuarantine WHERE {addressField} = @addrId";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", address.Id);
@@ -160,7 +166,7 @@ namespace GraduationProject.Models
                              SET firstname = @fname, middlename = @mName,
                                 lastname = @lName, note = @note,
                                 gender = @gender, addressId = @addrId,
-                                relationToOwner = @rel
+                                currentAddressId = @currAddrId ,relationToOwner = @rel
                              WHERE id = @id";
 
             connectionHelper.NewConnection(query);
@@ -170,6 +176,10 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@lName", Lastname);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@gender", Gender);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
+            if (CurrentAddressId == -1)
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@currAddrId", System.DBNull.Value);
+            else
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@currAddrId", CurrentAddressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
             connectionHelper.sqlCommand.ExecuteNonQuery();

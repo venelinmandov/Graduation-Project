@@ -34,15 +34,13 @@ namespace GraduationProject.Forms
         //Показване на панела за търсене по адрес
         private void buttonSearchByAddress_Click(object sender, EventArgs e)
         {
-            panelSearchByAddress.BringToFront();
-            selectedTab = panelSearchByAddress;
+            ShowPanel(panelSearchByAddress,(Button)sender);
         }
 
         //Показване на панела за търсене по имена
         private void buttonSearchByNames_Click(object sender, EventArgs e)
         {
-            panelSearchByNames.BringToFront();
-            selectedTab = panelSearchByNames;
+            ShowPanel(panelSearchByNames, (Button)sender);
         }
 
         //Натискане на бутона "търсене" 
@@ -112,6 +110,39 @@ namespace GraduationProject.Forms
             }
             errorProvider.Clear();
             Hide();
+        }
+
+
+        //Показване на избран панел
+        void ShowPanel(Panel panel, Button button)
+        {
+            panel.BringToFront();
+            selectedTab = panel;
+            buttonSearchByAddress.BackColor = SystemColors.ButtonFace;
+            buttonSearchByNames.BackColor = SystemColors.ButtonFace;
+            button.BackColor = Color.White;
+        }
+
+        //Изчертаване на елемент на коммбобокс
+        private void comboBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            var combo = sender as ComboBox;
+            SolidBrush solidBrush;
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(0, 79, 33)), e.Bounds);
+                solidBrush = new SolidBrush(Color.White);
+            }
+            else
+            {
+                e.Graphics.FillRectangle(new SolidBrush(SystemColors.Window), e.Bounds);
+                solidBrush = new SolidBrush(Color.Black);
+            }
+
+            e.Graphics.DrawString(combo.Items[e.Index].ToString(),
+                                          e.Font,
+                                          solidBrush,
+                                          new Point(e.Bounds.X, e.Bounds.Y));
         }
     }
 }

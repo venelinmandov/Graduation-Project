@@ -176,7 +176,7 @@ namespace GraduationProject.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "DogsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DogsForm";
+            this.Text = "Кучета";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDogs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

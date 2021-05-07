@@ -58,6 +58,7 @@ namespace GraduationProject
                     address.NumHorses = (int)numericUpDownHorses.Value;
                     address.NumDonkeys = (int)numericUpDownDonkeys.Value;
                     address.NumFeathered = (int)numericUpDownFeathered.Value;
+                    address.NumPigs = (int)numericUpDownPigs.Value;
                     address.NumWalnutTrees = (int)numericUpDownWalnut.Value;
 
                     if (panelAdd == selectedTab)
@@ -173,6 +174,7 @@ namespace GraduationProject
             numericUpDownResBuildings.Value = 0;
             numericUpDownSheep.Value = 0;
             numericUpDownSquaring.Value = 0;
+            numericUpDownPigs.Value = 0;
             numericUpDownWalnut.Value = 0;
             textBoxDogs.Text = "0";
             labelStreetName.Text = streets[listBoxStreets.SelectedIndex].Name;
@@ -201,6 +203,7 @@ namespace GraduationProject
             numericUpDownHorses.Value = address.NumHorses;
             numericUpDownDonkeys.Value = address.NumDonkeys;
             numericUpDownFeathered.Value = address.NumFeathered;
+            numericUpDownPigs.Value = address.NumPigs;
             numericUpDownWalnut.Value = address.NumWalnutTrees;
             labelStreetName.Text = address.streetName;
             SetGroupBoxValue(address.Habitallity, radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry);
@@ -523,11 +526,11 @@ namespace GraduationProject
             {
                 ClearInfo();
                 address = null;
-                buttonSave.Enabled = false;
+                buttonSaveAddr.Enabled = false;
                 buttonDeleteAddr.Enabled = false;
                 return;
             };
-            buttonSave.Enabled = true;
+            buttonSaveAddr.Enabled = true;
             buttonDeleteAddr.Enabled = true;
             address = addresses[listBoxAddresses.SelectedIndex];
             ShowSelectedAddress();
@@ -603,6 +606,6 @@ namespace GraduationProject
             labelStreetName.Text = streets[listBoxStreets.SelectedIndex].Name;
         }
 
-       
+        
     }
 }

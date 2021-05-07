@@ -58,13 +58,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=4.0.2.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
-  <data name="buttonDeleteAddr.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="buttonSaveAddr.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAK1JREFUOE/t
-        0j0KwkAQhuHpPIaWQW9ir1eJdl5Au9iJvbWCh7D1MIJ/75di2Sxr3GhSCH7wFDszOywhVpM1LngEVCvQ
-        KAPo8hm7gGrq9ZGcEXRpUZ6qUU09zUQzR/iKI969UDNhbwa7QwNtuMG2OLVkg26SIf+SdrhMEPsmTUzh
-        0ulC/V9D75xa+y98PZha++GFKyy9c2qtsnAMf/gT2uHSwwFXxIbr6M4e7DB7Aot86qoZE42YAAAAAElF
-        TkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAOZJREFUOE/t
+        lTsKwkAURdPoPqzF0j1YaOmmdAn2CoIbcBuCG7DS0kYEf/eMDoyTi8QErLxwzPB87zBxJCmUhbiJ+xcc
+        xUp0RCnIdmL5uubDG8F3wJraVlzFXnTFW2igmXBNZTAWMaxjbSjOoiSloY6QDMRJHESPAqGhrpCkOw2/
+        KQ1NhATpRXBQoeGTcCYQAGtquZCsBacfGqJwKlKZg39FX+SJmwkfUdgSbD/uyOFkxAqb5DfCthgJd6sO
+        epkhVljlUHImglhhLLrdONysL1bMX/icdQ9Y1lWgN53loVvrFeCQo5g/APfOyrNQ51FnAAAAAElFTkSu
+        QmCC
 </value>
   </data>
   <metadata name="firstNameCol.UserAddedColumn" type="System.Boolean, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
@@ -82,17 +83,29 @@
   <metadata name="GuestCol.UserAddedColumn" type="System.Boolean, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
     <value>True</value>
   </metadata>
-  <data name="buttonSave.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="buttonDeleteAddr.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAOZJREFUOE/t
-        lTsKwkAURdPoPqzF0j1YaOmmdAn2CoIbcBuCG7DS0kYEf/eMDoyTi8QErLxwzPB87zBxJCmUhbiJ+xcc
-        xUp0RCnIdmL5uubDG8F3wJraVlzFXnTFW2igmXBNZTAWMaxjbSjOoiSloY6QDMRJHESPAqGhrpCkOw2/
-        KQ1NhATpRXBQoeGTcCYQAGtquZCsBacfGqJwKlKZg39FX+SJmwkfUdgSbD/uyOFkxAqb5DfCthgJd6sO
-        epkhVljlUHImglhhLLrdONysL1bMX/icdQ9Y1lWgN53loVvrFeCQo5g/APfOyrNQ51FnAAAAAElFTkSu
-        QmCC
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAK1JREFUOE/t
+        0j0KwkAQhuHpPIaWQW9ir1eJdl5Au9iJvbWCh7D1MIJ/75di2Sxr3GhSCH7wFDszOywhVpM1LngEVCvQ
+        KAPo8hm7gGrq9ZGcEXRpUZ6qUU09zUQzR/iKI969UDNhbwa7QwNtuMG2OLVkg26SIf+SdrhMEPsmTUzh
+        0ulC/V9D75xa+y98PZha++GFKyy9c2qtsnAMf/gT2uHSwwFXxIbr6M4e7DB7Aot86qoZE42YAAAAAElF
+        TkSuQmCC
+</value>
+  </data>
+  <data name="buttonVIewDogs.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAYxJREFUSEvtlL1KA0EUhRcLG1slRjP33vlJAgEtfA5Lwb9CUBB8A39aCwsfw0LQ
+        R7Cw8QUEJQoWKmnyDkbv3cyE3bi70U0KCw8cFuae+c6ymUk0SRnEDY30wr4zi6bulycjXdNLFumD/Sk2
+        SB2tdcOPx5MlWndKWYt4EgpiAzz5SHkZoh2G9TTAmy85Tpb4WDkFeIAlSo76a3gfBwGgamvWjXIdwMQb
+        WMPw4EEJ0D4izssvfzUcynFPI+4WwRO+id9ClDHMcs8B7El+NByfm0otxHBRGBhFjzw8y7IDvSbZkXA+
+        NSm4KAz52136pUyVgotCoKigNFwUQgUFU3wQNjkzuKUpM1xOoc9+VwjmFfDJOWDISmaJgrbAlyuVGbHf
+        klYI5xUw+JBnXSJqctkWZ/slCbgBuOUzT35LWj8p8MBXa63i3Db/Wz4k4TIfv6Bf0nbOzbVarel4BnQa
+        ZqULisR35/y/oFB/rADxnZ/XvzLfYn4WF/Cbd0NoHDeqjVmPTEuDXp1AyYXHDSmKvgDkP1NnQzhp0wAA
+        AABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
-    <value>76</value>
+    <value>25</value>
   </metadata>
 </root>

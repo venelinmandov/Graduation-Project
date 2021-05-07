@@ -18,13 +18,26 @@ namespace GraduationProject.Models
         public int NumHorses { get; set; } = 0;
         public int NumDonkeys { get; set; } = 0;
         public int NumFeathered { get; set; } = 0;
+        public int NumPigs { get; set; } = 0;
         public int NumWalnutTrees { get; set; } = 0;
+
+        public static Dictionary<AddressType, string> FieldName
+        {
+            get => new Dictionary<AddressType, string>
+        {
+            { AddressType.Permanent,"AddressId"},
+            { AddressType.Current,"CurrentAddressId"}
+        };}
+
 
         public string streetName;
 
+        public enum AddressType { Permanent, Current };
+
+        
         //SELECT клауза
         string selectClause = @"SELECT DISTINCT Addresses.id, streetId, number, squaring, habitallity, numResBuildings,
-                                numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numWalnutTrees, Streets.name";
+                                numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numPigs, numWalnutTrees, Streets.name";
 
         public override string ToString() => streetName + " " + Number.ToString();
        
@@ -45,8 +58,9 @@ namespace GraduationProject.Models
             NumHorses = reader.GetInt32(10);
             NumDonkeys = reader.GetInt32(11);
             NumFeathered = reader.GetInt32(12);
-            NumWalnutTrees = reader.GetInt32(13);
-            streetName = reader.GetString(14);
+            NumPigs = reader.GetInt32(13);
+            NumWalnutTrees = reader.GetInt32(14);
+            streetName = reader.GetString(15);
         }
 
         //Заявки
@@ -56,8 +70,8 @@ namespace GraduationProject.Models
         {
             long id;
             string query = @"INSERT INTO Addresses 
-                            (streetId, number, squaring, habitallity, numResBuildings, numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numWalnutTrees )
-                            VALUES (@StrId, @num, @sq, @hab, @resB, @agrB, @cows, @sheep, @goats, @horses, @donkeys, @feathered, @Walnut); ";
+                            (streetId, number, squaring, habitallity, numResBuildings, numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numPigs, numWalnutTrees )
+                            VALUES (@StrId, @num, @sq, @hab, @resB, @agrB, @cows, @sheep, @goats, @horses, @donkeys, @feathered, @pigs, @Walnut); ";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@StrId", StreetId);
@@ -72,6 +86,7 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@horses", NumHorses);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@donkeys", NumDonkeys);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@feathered", NumFeathered);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@pigs", NumPigs);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@Walnut", NumWalnutTrees);
 
             connectionHelper.sqlCommand.ExecuteNonQuery();
@@ -212,7 +227,9 @@ namespace GraduationProject.Models
                 return null;
             } 
             address.Fill(reader);
-           
+            reader.Close();
+            connectionHelper.sqlConnection.Close();
+
             return address;
         }
 
@@ -248,6 +265,19 @@ namespace GraduationProject.Models
             new Person().Delete(connectionHelper, this);
             new Resident().Delete(connectionHelper, this);
 
+            foreach (Person person in new Person().Get(connectionHelper, this, AddressType.Current))
+            {
+                person.CurrentAddressId = -1;
+                person.Update(connectionHelper);
+            }
+            foreach (Resident resident in new Resident().Get(connectionHelper, this, AddressType.Current))
+            {
+                resident.CurrentAddressId = -1;
+                resident.Update(connectionHelper);
+            }
+
+
+
             string query = "DELETE FROM Addresses WHERE id = @id";
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@id", Id);
@@ -263,7 +293,7 @@ namespace GraduationProject.Models
                                 habitallity = @hab,     numResBuildings = @numRes,  numAgrBuildings = @numAgr,
                                 numCows = @numCows,     numSheep = @numSheep,       numGoats = @numGoats,
                                 numHorses = @numHorses, numDonkeys = @numDonkeys,   numFeathered = @numFeathered,
-                                numWalnutTrees = @numWalnut
+                                numPigs = @numPigs,     numWalnutTrees = @numWalnut
                              WHERE id = @id";
 
             connectionHelper.NewConnection(query);
@@ -281,6 +311,7 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@numHorses", NumHorses);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@numDonkeys", NumDonkeys);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@numFeathered", NumFeathered);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@numPigs", NumPigs);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@numWalnut", NumWalnutTrees);
 
             connectionHelper.sqlCommand.ExecuteNonQuery();

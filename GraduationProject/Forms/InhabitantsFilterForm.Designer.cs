@@ -60,18 +60,18 @@ namespace GraduationProject.Forms
             this.groupBox.Controls.Add(this.radioButtonAll);
             this.groupBox.Controls.Add(this.radioButtonGuest);
             this.groupBox.Controls.Add(this.radioButtonResident);
-            this.groupBox.Location = new System.Drawing.Point(244, 19);
+            this.groupBox.Location = new System.Drawing.Point(244, 18);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(125, 81);
+            this.groupBox.Size = new System.Drawing.Size(125, 76);
             this.groupBox.TabIndex = 6;
             this.groupBox.TabStop = false;
             // 
             // radioButtonAll
             // 
             this.radioButtonAll.AutoSize = true;
-            this.radioButtonAll.Location = new System.Drawing.Point(6, 56);
+            this.radioButtonAll.Location = new System.Drawing.Point(6, 52);
             this.radioButtonAll.Name = "radioButtonAll";
-            this.radioButtonAll.Size = new System.Drawing.Size(65, 19);
+            this.radioButtonAll.Size = new System.Drawing.Size(67, 18);
             this.radioButtonAll.TabIndex = 2;
             this.radioButtonAll.TabStop = true;
             this.radioButtonAll.Text = "Всички";
@@ -80,9 +80,9 @@ namespace GraduationProject.Forms
             // radioButtonGuest
             // 
             this.radioButtonGuest.AutoSize = true;
-            this.radioButtonGuest.Location = new System.Drawing.Point(6, 33);
+            this.radioButtonGuest.Location = new System.Drawing.Point(6, 31);
             this.radioButtonGuest.Name = "radioButtonGuest";
-            this.radioButtonGuest.Size = new System.Drawing.Size(118, 19);
+            this.radioButtonGuest.Size = new System.Drawing.Size(126, 18);
             this.radioButtonGuest.TabIndex = 1;
             this.radioButtonGuest.TabStop = true;
             this.radioButtonGuest.Text = "Гост в карантина";
@@ -91,9 +91,9 @@ namespace GraduationProject.Forms
             // radioButtonResident
             // 
             this.radioButtonResident.AutoSize = true;
-            this.radioButtonResident.Location = new System.Drawing.Point(6, 12);
+            this.radioButtonResident.Location = new System.Drawing.Point(6, 11);
             this.radioButtonResident.Name = "radioButtonResident";
-            this.radioButtonResident.Size = new System.Drawing.Size(61, 19);
+            this.radioButtonResident.Size = new System.Drawing.Size(61, 18);
             this.radioButtonResident.TabIndex = 0;
             this.radioButtonResident.TabStop = true;
             this.radioButtonResident.Text = "Жител";
@@ -101,63 +101,71 @@ namespace GraduationProject.Forms
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(11, 198);
+            this.buttonSearch.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
+            this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSearch.Location = new System.Drawing.Point(11, 185);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonSearch.Size = new System.Drawing.Size(75, 21);
             this.buttonSearch.TabIndex = 9;
             this.buttonSearch.Text = "Търсене";
-            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.UseVisualStyleBackColor = false;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // buttonSearchByAddress
             // 
-            this.buttonSearchByAddress.Location = new System.Drawing.Point(0, 22);
+            this.buttonSearchByAddress.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonSearchByAddress.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
+            this.buttonSearchByAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSearchByAddress.Location = new System.Drawing.Point(0, 21);
             this.buttonSearchByAddress.Name = "buttonSearchByAddress";
-            this.buttonSearchByAddress.Size = new System.Drawing.Size(96, 40);
+            this.buttonSearchByAddress.Size = new System.Drawing.Size(96, 38);
             this.buttonSearchByAddress.TabIndex = 13;
             this.buttonSearchByAddress.Text = "Търсене по адрес";
-            this.buttonSearchByAddress.UseVisualStyleBackColor = true;
+            this.buttonSearchByAddress.UseVisualStyleBackColor = false;
             this.buttonSearchByAddress.Click += new System.EventHandler(this.buttonSearchByAddress_Click);
             // 
             // labelStreet
             // 
             this.labelStreet.AutoSize = true;
-            this.labelStreet.Location = new System.Drawing.Point(11, 19);
+            this.labelStreet.Location = new System.Drawing.Point(11, 18);
             this.labelStreet.Name = "labelStreet";
-            this.labelStreet.Size = new System.Drawing.Size(41, 15);
+            this.labelStreet.Size = new System.Drawing.Size(43, 14);
             this.labelStreet.TabIndex = 7;
             this.labelStreet.Text = "Улица";
             // 
             // textBoxLastname
             // 
-            this.textBoxLastname.Location = new System.Drawing.Point(73, 77);
+            this.textBoxLastname.Location = new System.Drawing.Point(73, 72);
             this.textBoxLastname.Name = "textBoxLastname";
-            this.textBoxLastname.Size = new System.Drawing.Size(154, 23);
+            this.textBoxLastname.Size = new System.Drawing.Size(154, 22);
             this.textBoxLastname.TabIndex = 5;
             // 
             // labelLastname
             // 
             this.labelLastname.AutoSize = true;
-            this.labelLastname.Location = new System.Drawing.Point(11, 85);
+            this.labelLastname.Location = new System.Drawing.Point(11, 79);
             this.labelLastname.Name = "labelLastname";
-            this.labelLastname.Size = new System.Drawing.Size(58, 15);
+            this.labelLastname.Size = new System.Drawing.Size(59, 14);
             this.labelLastname.TabIndex = 4;
             this.labelLastname.Text = "Фамилия";
             // 
             // textBoxMiddlename
             // 
-            this.textBoxMiddlename.Location = new System.Drawing.Point(73, 48);
+            this.textBoxMiddlename.Location = new System.Drawing.Point(73, 45);
             this.textBoxMiddlename.Name = "textBoxMiddlename";
-            this.textBoxMiddlename.Size = new System.Drawing.Size(154, 23);
+            this.textBoxMiddlename.Size = new System.Drawing.Size(154, 22);
             this.textBoxMiddlename.TabIndex = 3;
             // 
             // comboBoxStreet
             // 
+            this.comboBoxStreet.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.comboBoxStreet.FormattingEnabled = true;
-            this.comboBoxStreet.Location = new System.Drawing.Point(11, 45);
+            this.comboBoxStreet.Location = new System.Drawing.Point(11, 42);
             this.comboBoxStreet.Name = "comboBoxStreet";
             this.comboBoxStreet.Size = new System.Drawing.Size(163, 23);
             this.comboBoxStreet.TabIndex = 8;
+            this.comboBoxStreet.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBox_DrawItem);
             // 
             // panelSearchByAddress
             // 
@@ -165,30 +173,30 @@ namespace GraduationProject.Forms
             this.panelSearchByAddress.Controls.Add(this.numericUpDownNumber);
             this.panelSearchByAddress.Controls.Add(this.comboBoxStreet);
             this.panelSearchByAddress.Controls.Add(this.labelStreet);
-            this.panelSearchByAddress.Location = new System.Drawing.Point(0, 60);
+            this.panelSearchByAddress.Location = new System.Drawing.Point(0, 56);
             this.panelSearchByAddress.Name = "panelSearchByAddress";
-            this.panelSearchByAddress.Size = new System.Drawing.Size(391, 122);
+            this.panelSearchByAddress.Size = new System.Drawing.Size(391, 114);
             this.panelSearchByAddress.TabIndex = 12;
             // 
             // labelNumber
             // 
             this.labelNumber.AutoSize = true;
-            this.labelNumber.Location = new System.Drawing.Point(181, 19);
+            this.labelNumber.Location = new System.Drawing.Point(181, 18);
             this.labelNumber.Name = "labelNumber";
-            this.labelNumber.Size = new System.Drawing.Size(45, 15);
+            this.labelNumber.Size = new System.Drawing.Size(44, 14);
             this.labelNumber.TabIndex = 10;
             this.labelNumber.Text = "Номер";
             // 
             // numericUpDownNumber
             // 
-            this.numericUpDownNumber.Location = new System.Drawing.Point(181, 45);
+            this.numericUpDownNumber.Location = new System.Drawing.Point(181, 42);
             this.numericUpDownNumber.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numericUpDownNumber.Name = "numericUpDownNumber";
-            this.numericUpDownNumber.Size = new System.Drawing.Size(46, 23);
+            this.numericUpDownNumber.Size = new System.Drawing.Size(46, 22);
             this.numericUpDownNumber.TabIndex = 9;
             this.numericUpDownNumber.Value = new decimal(new int[] {
             1,
@@ -199,17 +207,17 @@ namespace GraduationProject.Forms
             // labelMiddlename
             // 
             this.labelMiddlename.AutoSize = true;
-            this.labelMiddlename.Location = new System.Drawing.Point(11, 56);
+            this.labelMiddlename.Location = new System.Drawing.Point(11, 52);
             this.labelMiddlename.Name = "labelMiddlename";
-            this.labelMiddlename.Size = new System.Drawing.Size(56, 15);
+            this.labelMiddlename.Size = new System.Drawing.Size(56, 14);
             this.labelMiddlename.TabIndex = 2;
             this.labelMiddlename.Text = "Презиме";
             // 
             // textBoxFirstname
             // 
-            this.textBoxFirstname.Location = new System.Drawing.Point(73, 19);
+            this.textBoxFirstname.Location = new System.Drawing.Point(73, 18);
             this.textBoxFirstname.Name = "textBoxFirstname";
-            this.textBoxFirstname.Size = new System.Drawing.Size(154, 23);
+            this.textBoxFirstname.Size = new System.Drawing.Size(154, 22);
             this.textBoxFirstname.TabIndex = 1;
             // 
             // labelTitle
@@ -217,7 +225,7 @@ namespace GraduationProject.Forms
             this.labelTitle.AutoSize = true;
             this.labelTitle.Location = new System.Drawing.Point(0, 2);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(193, 15);
+            this.labelTitle.Size = new System.Drawing.Size(202, 14);
             this.labelTitle.TabIndex = 10;
             this.labelTitle.Text = "Критерии за търсене на обитател:";
             // 
@@ -230,45 +238,50 @@ namespace GraduationProject.Forms
             this.panelSearchByNames.Controls.Add(this.labelMiddlename);
             this.panelSearchByNames.Controls.Add(this.textBoxFirstname);
             this.panelSearchByNames.Controls.Add(this.labelFirstname);
-            this.panelSearchByNames.Location = new System.Drawing.Point(0, 60);
+            this.panelSearchByNames.Location = new System.Drawing.Point(0, 56);
             this.panelSearchByNames.Name = "panelSearchByNames";
-            this.panelSearchByNames.Size = new System.Drawing.Size(391, 122);
+            this.panelSearchByNames.Size = new System.Drawing.Size(391, 114);
             this.panelSearchByNames.TabIndex = 11;
             // 
             // labelFirstname
             // 
             this.labelFirstname.AutoSize = true;
-            this.labelFirstname.Location = new System.Drawing.Point(36, 27);
+            this.labelFirstname.Location = new System.Drawing.Point(36, 25);
             this.labelFirstname.Name = "labelFirstname";
-            this.labelFirstname.Size = new System.Drawing.Size(31, 15);
+            this.labelFirstname.Size = new System.Drawing.Size(30, 14);
             this.labelFirstname.TabIndex = 0;
             this.labelFirstname.Text = "Име";
             // 
             // buttonSearchByNames
             // 
-            this.buttonSearchByNames.Location = new System.Drawing.Point(94, 22);
+            this.buttonSearchByNames.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonSearchByNames.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
+            this.buttonSearchByNames.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSearchByNames.Location = new System.Drawing.Point(95, 21);
             this.buttonSearchByNames.Name = "buttonSearchByNames";
-            this.buttonSearchByNames.Size = new System.Drawing.Size(96, 40);
+            this.buttonSearchByNames.Size = new System.Drawing.Size(96, 38);
             this.buttonSearchByNames.TabIndex = 14;
             this.buttonSearchByNames.Text = "Търсене по имена";
-            this.buttonSearchByNames.UseVisualStyleBackColor = true;
+            this.buttonSearchByNames.UseVisualStyleBackColor = false;
             this.buttonSearchByNames.Click += new System.EventHandler(this.buttonSearchByNames_Click);
             // 
             // InhabitantsFilterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(392, 234);
-            this.Controls.Add(this.buttonSearch);
-            this.Controls.Add(this.buttonSearchByAddress);
-            this.Controls.Add(this.labelTitle);
-            this.Controls.Add(this.buttonSearchByNames);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
+            this.ClientSize = new System.Drawing.Size(392, 216);
             this.Controls.Add(this.panelSearchByAddress);
+            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.panelSearchByNames);
+            this.Controls.Add(this.buttonSearchByAddress);
+            this.Controls.Add(this.buttonSearchByNames);
+            this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "InhabitantsFilterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "InhabitantsFilterForm";
+            this.Text = "Филтри";
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
             this.panelSearchByAddress.ResumeLayout(false);

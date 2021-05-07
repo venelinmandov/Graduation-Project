@@ -92,7 +92,6 @@ namespace GraduationProject.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "InputBoxForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "InputBoxForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InputBoxForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
