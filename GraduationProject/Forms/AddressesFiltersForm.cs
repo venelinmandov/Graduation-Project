@@ -36,7 +36,7 @@ namespace GraduationProject.Forms
         public AddressesFiltersForm()
         {
             InitializeComponent();
-            selectedTab = panelSearchByInhabitant;
+            setActiveTab(panelSearchByInhabitant, buttonSearchByInhabitant);
             streets = new Models.Street().Get(connectionHelper);
             comboBoxStreets.Items.AddRange(streets.ToArray());
         }
@@ -44,19 +44,19 @@ namespace GraduationProject.Forms
         //Показване на панела за търсене по обитатели
         private void buttonSearchByInhabitant_Click(object sender, EventArgs e)
         {
-            ShowPanel(panelSearchByInhabitant, (Button)sender);
+            setActiveTab(panelSearchByInhabitant, (Button)sender);
         }
 
         //Показване на панела за търсене по добитък
         private void buttonSearchByAnimals_Click(object sender, EventArgs e)
         {
-            ShowPanel(panelSearchByAnimal, (Button)sender);
+            setActiveTab(panelSearchByAnimal, (Button)sender);
         }
 
         //Показване на панела за търсене по улица
         private void buttonSearchByStreet_Click(object sender, EventArgs e)
         {
-            ShowPanel(panelSearchByStreet, (Button)sender);
+            setActiveTab(panelSearchByStreet, (Button)sender);
         }
 
         //Натискане на бутона "Търсене"
@@ -126,17 +126,21 @@ namespace GraduationProject.Forms
         }
 
         //Показване на избран панел
-        void ShowPanel(Panel panel, Button button)
+        void setActiveTab(Panel panel, Button button)
         {
             panel.BringToFront();
             selectedTab = panel;
-            buttonSearchByInhabitant.BackColor = SystemColors.ButtonFace;
-            buttonSearchByAnimals.BackColor = SystemColors.ButtonFace;
-            buttonSearchByStreet.BackColor = SystemColors.ButtonFace;
-            button.BackColor = Color.White;
+            Button[] buttons = new Button[] { buttonSearchByAnimals, buttonSearchByInhabitant, buttonSearchByStreet };
+            foreach (Button otherButton in buttons)
+            {
+                otherButton.FlatAppearance.BorderSize = 0;
+                otherButton.BackColor = SystemColors.ButtonFace;
+            }
+            button.FlatAppearance.BorderSize = 1;
+            button.BackColor = SystemColors.ButtonHighlight;
         }
 
-        //Изчертаване на елемент на коммбобокс
+        //Изчертаване на елемент на комбобокс
         private void comboBox_DrawItem(object sender, DrawItemEventArgs e)
         {
             var combo = sender as ComboBox;
@@ -157,5 +161,7 @@ namespace GraduationProject.Forms
                                           solidBrush,
                                           new Point(e.Bounds.X, e.Bounds.Y));
         }
+
+      
     }
 }

@@ -128,9 +128,9 @@ namespace GraduationProject
             // textBoxSearchAddr
             // 
             this.textBoxSearchAddr.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxSearchAddr.Location = new System.Drawing.Point(3, 31);
+            this.textBoxSearchAddr.Location = new System.Drawing.Point(3, 35);
             this.textBoxSearchAddr.Name = "textBoxSearchAddr";
-            this.textBoxSearchAddr.Size = new System.Drawing.Size(136, 23);
+            this.textBoxSearchAddr.Size = new System.Drawing.Size(117, 23);
             this.textBoxSearchAddr.TabIndex = 1;
             // 
             // comboBoxCriteria
@@ -143,9 +143,9 @@ namespace GraduationProject
             this.comboBoxCriteria.Items.AddRange(new object[] {
             "Улица",
             "Жител/Гост"});
-            this.comboBoxCriteria.Location = new System.Drawing.Point(73, 4);
+            this.comboBoxCriteria.Location = new System.Drawing.Point(70, 6);
             this.comboBoxCriteria.Name = "comboBoxCriteria";
-            this.comboBoxCriteria.Size = new System.Drawing.Size(140, 24);
+            this.comboBoxCriteria.Size = new System.Drawing.Size(111, 24);
             this.comboBoxCriteria.TabIndex = 2;
             this.comboBoxCriteria.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBoxCriteria_DrawItem);
             // 
@@ -155,9 +155,10 @@ namespace GraduationProject
             this.buttonSearchAddress.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
             this.buttonSearchAddress.FlatAppearance.BorderSize = 0;
             this.buttonSearchAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSearchAddress.Location = new System.Drawing.Point(143, 31);
+            this.buttonSearchAddress.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonSearchAddress.Location = new System.Drawing.Point(123, 35);
             this.buttonSearchAddress.Name = "buttonSearchAddress";
-            this.buttonSearchAddress.Size = new System.Drawing.Size(70, 22);
+            this.buttonSearchAddress.Size = new System.Drawing.Size(60, 23);
             this.buttonSearchAddress.TabIndex = 8;
             this.buttonSearchAddress.Text = "Търсене";
             this.buttonSearchAddress.UseVisualStyleBackColor = false;
@@ -167,23 +168,23 @@ namespace GraduationProject
             // 
             this.labelCriteria.AutoSize = true;
             this.labelCriteria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelCriteria.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelCriteria.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelCriteria.ForeColor = System.Drawing.Color.White;
-            this.labelCriteria.Location = new System.Drawing.Point(3, 7);
+            this.labelCriteria.Location = new System.Drawing.Point(3, 8);
             this.labelCriteria.Name = "labelCriteria";
-            this.labelCriteria.Size = new System.Drawing.Size(67, 15);
+            this.labelCriteria.Size = new System.Drawing.Size(66, 16);
             this.labelCriteria.TabIndex = 7;
             this.labelCriteria.Text = "Критерий:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 5);
+            this.label3.Location = new System.Drawing.Point(3, 6);
             this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.label3.Size = new System.Drawing.Size(47, 25);
+            this.label3.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
+            this.label3.Size = new System.Drawing.Size(46, 28);
             this.label3.TabIndex = 2;
             this.label3.Text = "Улица:";
             // 
@@ -193,12 +194,12 @@ namespace GraduationProject
             this.listBoxStreets.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
             this.listBoxStreets.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBoxStreets.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.listBoxStreets.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listBoxStreets.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxStreets.FormattingEnabled = true;
             this.listBoxStreets.ItemHeight = 15;
-            this.listBoxStreets.Location = new System.Drawing.Point(3, 33);
+            this.listBoxStreets.Location = new System.Drawing.Point(3, 38);
             this.listBoxStreets.Name = "listBoxStreets";
-            this.listBoxStreets.Size = new System.Drawing.Size(210, 405);
+            this.listBoxStreets.Size = new System.Drawing.Size(180, 450);
             this.listBoxStreets.TabIndex = 1;
             this.listBoxStreets.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBoxStreets_DrawItem);
             this.listBoxStreets.SelectedIndexChanged += new System.EventHandler(this.listBoxStreets_SelectedIndexChanged);
@@ -208,9 +209,9 @@ namespace GraduationProject
             // 
             this.textBoxSearchStr.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxSearchStr.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxSearchStr.Location = new System.Drawing.Point(53, 5);
+            this.textBoxSearchStr.Location = new System.Drawing.Point(49, 7);
             this.textBoxSearchStr.Name = "textBoxSearchStr";
-            this.textBoxSearchStr.Size = new System.Drawing.Size(160, 23);
+            this.textBoxSearchStr.Size = new System.Drawing.Size(134, 23);
             this.textBoxSearchStr.TabIndex = 0;
             this.textBoxSearchStr.TextChanged += new System.EventHandler(this.textBoxSearchStr_TextChanged);
             // 
@@ -220,36 +221,39 @@ namespace GraduationProject
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listBoxAddresses.AutoScroll = true;
             this.listBoxAddresses.DesolateColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(79)))), ((int)(((byte)(55)))));
+            this.listBoxAddresses.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxAddresses.InhabitedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
             this.listBoxAddresses.ItemsColor = System.Drawing.Color.DeepSkyBlue;
-            this.listBoxAddresses.Location = new System.Drawing.Point(3, 58);
+            this.listBoxAddresses.Location = new System.Drawing.Point(3, 66);
+            this.listBoxAddresses.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.listBoxAddresses.Name = "listBoxAddresses";
             this.listBoxAddresses.SelectedIndex = -1;
             this.listBoxAddresses.SelectedItemColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.listBoxAddresses.Size = new System.Drawing.Size(210, 430);
+            this.listBoxAddresses.Size = new System.Drawing.Size(180, 464);
             this.listBoxAddresses.TabIndex = 35;
             this.listBoxAddresses.TemporarilyColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(187)))), ((int)(((byte)(0)))));
             this.listBoxAddresses.SelectedIndexChanged += new System.EventHandler(this.listBoxUserControl_SelectedIndexChanged);
             // 
             // contextMenuStripStreets
             // 
+            this.contextMenuStripStreets.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.contextMenuStripStreets.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemRemoveStr,
             this.toolStripMenuItemRenameStr});
             this.contextMenuStripStreets.Name = "contextMenuStripStreets";
-            this.contextMenuStripStreets.Size = new System.Drawing.Size(157, 48);
+            this.contextMenuStripStreets.Size = new System.Drawing.Size(160, 48);
             // 
             // toolStripMenuItemRemoveStr
             // 
             this.toolStripMenuItemRemoveStr.Name = "toolStripMenuItemRemoveStr";
-            this.toolStripMenuItemRemoveStr.Size = new System.Drawing.Size(156, 22);
+            this.toolStripMenuItemRemoveStr.Size = new System.Drawing.Size(159, 22);
             this.toolStripMenuItemRemoveStr.Text = "Премахване";
             this.toolStripMenuItemRemoveStr.Click += new System.EventHandler(this.toolStripMenuItemRemoveStr_click);
             // 
             // toolStripMenuItemRenameStr
             // 
             this.toolStripMenuItemRenameStr.Name = "toolStripMenuItemRenameStr";
-            this.toolStripMenuItemRenameStr.Size = new System.Drawing.Size(156, 22);
+            this.toolStripMenuItemRenameStr.Size = new System.Drawing.Size(159, 22);
             this.toolStripMenuItemRenameStr.Text = "Преименуване";
             this.toolStripMenuItemRenameStr.Click += new System.EventHandler(this.toolStripMenuItemRenameStr_click);
             // 
@@ -262,9 +266,9 @@ namespace GraduationProject
             this.panelSearch.Controls.Add(this.comboBoxCriteria);
             this.panelSearch.Controls.Add(this.textBoxSearchAddr);
             this.panelSearch.Controls.Add(this.listBoxAddresses);
-            this.panelSearch.Location = new System.Drawing.Point(2, 39);
+            this.panelSearch.Location = new System.Drawing.Point(2, 45);
             this.panelSearch.Name = "panelSearch";
-            this.panelSearch.Size = new System.Drawing.Size(217, 488);
+            this.panelSearch.Size = new System.Drawing.Size(186, 611);
             this.panelSearch.TabIndex = 9;
             // 
             // panelAdd
@@ -275,21 +279,22 @@ namespace GraduationProject
             this.panelAdd.Controls.Add(this.textBoxSearchStr);
             this.panelAdd.Controls.Add(this.listBoxStreets);
             this.panelAdd.Controls.Add(this.label3);
-            this.panelAdd.Location = new System.Drawing.Point(2, 39);
+            this.panelAdd.Location = new System.Drawing.Point(2, 45);
             this.panelAdd.Name = "panelAdd";
-            this.panelAdd.Size = new System.Drawing.Size(217, 488);
+            this.panelAdd.Size = new System.Drawing.Size(186, 534);
             this.panelAdd.TabIndex = 9;
             // 
             // buttonAddStr
             // 
             this.buttonAddStr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonAddStr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.buttonAddStr.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.buttonAddStr.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(79)))), ((int)(((byte)(33)))));
+            this.buttonAddStr.FlatAppearance.BorderSize = 0;
             this.buttonAddStr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddStr.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonAddStr.Location = new System.Drawing.Point(3, 455);
+            this.buttonAddStr.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonAddStr.Location = new System.Drawing.Point(3, 506);
             this.buttonAddStr.Name = "buttonAddStr";
-            this.buttonAddStr.Size = new System.Drawing.Size(210, 30);
+            this.buttonAddStr.Size = new System.Drawing.Size(180, 24);
             this.buttonAddStr.TabIndex = 35;
             this.buttonAddStr.Text = "Добавяне на улица";
             this.buttonAddStr.UseVisualStyleBackColor = false;
@@ -300,11 +305,11 @@ namespace GraduationProject
             this.buttonEdit.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(79)))), ((int)(((byte)(33)))));
             this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEdit.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonEdit.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonEdit.ForeColor = System.Drawing.Color.Black;
-            this.buttonEdit.Location = new System.Drawing.Point(2, 1);
+            this.buttonEdit.Location = new System.Drawing.Point(1, 1);
             this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(120, 37);
+            this.buttonEdit.Size = new System.Drawing.Size(103, 42);
             this.buttonEdit.TabIndex = 3;
             this.buttonEdit.Text = "Редактиране на адрес";
             this.buttonEdit.UseVisualStyleBackColor = false;
@@ -315,11 +320,11 @@ namespace GraduationProject
             this.buttonAdd.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(79)))), ((int)(((byte)(33)))));
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdd.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonAdd.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonAdd.ForeColor = System.Drawing.Color.Black;
-            this.buttonAdd.Location = new System.Drawing.Point(120, 1);
+            this.buttonAdd.Location = new System.Drawing.Point(103, 1);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(99, 37);
+            this.buttonAdd.Size = new System.Drawing.Size(85, 42);
             this.buttonAdd.TabIndex = 10;
             this.buttonAdd.Text = "Нов адрес";
             this.buttonAdd.UseVisualStyleBackColor = false;
@@ -329,24 +334,25 @@ namespace GraduationProject
             // 
             this.numericUpDownSquaring.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numericUpDownSquaring.DecimalPlaces = 3;
-            this.numericUpDownSquaring.Location = new System.Drawing.Point(322, 76);
+            this.numericUpDownSquaring.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.numericUpDownSquaring.Location = new System.Drawing.Point(314, 87);
             this.numericUpDownSquaring.Maximum = new decimal(new int[] {
             30000,
             0,
             0,
             0});
             this.numericUpDownSquaring.Name = "numericUpDownSquaring";
-            this.numericUpDownSquaring.Size = new System.Drawing.Size(122, 22);
+            this.numericUpDownSquaring.Size = new System.Drawing.Size(66, 22);
             this.numericUpDownSquaring.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(201, 78);
+            this.label1.Location = new System.Drawing.Point(171, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 14);
+            this.label1.Size = new System.Drawing.Size(81, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Квадратура:";
             // 
@@ -355,10 +361,11 @@ namespace GraduationProject
             this.groupBoxHabitabillity.Controls.Add(this.radioButtonTemporariry);
             this.groupBoxHabitabillity.Controls.Add(this.radioButtonInhabited);
             this.groupBoxHabitabillity.Controls.Add(this.radioButtonDesolate);
+            this.groupBoxHabitabillity.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBoxHabitabillity.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxHabitabillity.Location = new System.Drawing.Point(17, 69);
+            this.groupBoxHabitabillity.Location = new System.Drawing.Point(15, 79);
             this.groupBoxHabitabillity.Name = "groupBoxHabitabillity";
-            this.groupBoxHabitabillity.Size = new System.Drawing.Size(178, 103);
+            this.groupBoxHabitabillity.Size = new System.Drawing.Size(153, 118);
             this.groupBoxHabitabillity.TabIndex = 2;
             this.groupBoxHabitabillity.TabStop = false;
             this.groupBoxHabitabillity.Text = "Обитаемост";
@@ -367,9 +374,9 @@ namespace GraduationProject
             // 
             this.radioButtonTemporariry.AutoSize = true;
             this.radioButtonTemporariry.ForeColor = System.Drawing.Color.Black;
-            this.radioButtonTemporariry.Location = new System.Drawing.Point(18, 78);
+            this.radioButtonTemporariry.Location = new System.Drawing.Point(15, 89);
             this.radioButtonTemporariry.Name = "radioButtonTemporariry";
-            this.radioButtonTemporariry.Size = new System.Drawing.Size(140, 18);
+            this.radioButtonTemporariry.Size = new System.Drawing.Size(143, 20);
             this.radioButtonTemporariry.TabIndex = 2;
             this.radioButtonTemporariry.TabStop = true;
             this.radioButtonTemporariry.Text = "Временно обитаван";
@@ -379,9 +386,9 @@ namespace GraduationProject
             // 
             this.radioButtonInhabited.AutoSize = true;
             this.radioButtonInhabited.ForeColor = System.Drawing.Color.Black;
-            this.radioButtonInhabited.Location = new System.Drawing.Point(18, 54);
+            this.radioButtonInhabited.Location = new System.Drawing.Point(15, 62);
             this.radioButtonInhabited.Name = "radioButtonInhabited";
-            this.radioButtonInhabited.Size = new System.Drawing.Size(81, 18);
+            this.radioButtonInhabited.Size = new System.Drawing.Size(82, 20);
             this.radioButtonInhabited.TabIndex = 1;
             this.radioButtonInhabited.TabStop = true;
             this.radioButtonInhabited.Text = "Обитаван";
@@ -391,9 +398,9 @@ namespace GraduationProject
             // 
             this.radioButtonDesolate.AutoSize = true;
             this.radioButtonDesolate.ForeColor = System.Drawing.Color.Black;
-            this.radioButtonDesolate.Location = new System.Drawing.Point(18, 33);
+            this.radioButtonDesolate.Location = new System.Drawing.Point(15, 38);
             this.radioButtonDesolate.Name = "radioButtonDesolate";
-            this.radioButtonDesolate.Size = new System.Drawing.Size(73, 18);
+            this.radioButtonDesolate.Size = new System.Drawing.Size(79, 20);
             this.radioButtonDesolate.TabIndex = 0;
             this.radioButtonDesolate.TabStop = true;
             this.radioButtonDesolate.Text = "Пустеещ";
@@ -402,169 +409,179 @@ namespace GraduationProject
             // numericUpDownResBuildings
             // 
             this.numericUpDownResBuildings.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDownResBuildings.Location = new System.Drawing.Point(406, 102);
+            this.numericUpDownResBuildings.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.numericUpDownResBuildings.Location = new System.Drawing.Point(347, 117);
             this.numericUpDownResBuildings.Name = "numericUpDownResBuildings";
-            this.numericUpDownResBuildings.Size = new System.Drawing.Size(38, 22);
+            this.numericUpDownResBuildings.Size = new System.Drawing.Size(33, 22);
             this.numericUpDownResBuildings.TabIndex = 3;
             // 
             // labelResBuildings
             // 
             this.labelResBuildings.AutoSize = true;
-            this.labelResBuildings.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelResBuildings.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelResBuildings.ForeColor = System.Drawing.Color.Black;
-            this.labelResBuildings.Location = new System.Drawing.Point(203, 110);
+            this.labelResBuildings.Location = new System.Drawing.Point(171, 119);
             this.labelResBuildings.Name = "labelResBuildings";
-            this.labelResBuildings.Size = new System.Drawing.Size(129, 14);
+            this.labelResBuildings.Size = new System.Drawing.Size(133, 16);
             this.labelResBuildings.TabIndex = 4;
             this.labelResBuildings.Text = "Жилищни постройки:";
             // 
             // numericUpDownAgrBuildings
             // 
             this.numericUpDownAgrBuildings.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDownAgrBuildings.Location = new System.Drawing.Point(406, 129);
+            this.numericUpDownAgrBuildings.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.numericUpDownAgrBuildings.Location = new System.Drawing.Point(347, 147);
             this.numericUpDownAgrBuildings.Name = "numericUpDownAgrBuildings";
-            this.numericUpDownAgrBuildings.Size = new System.Drawing.Size(38, 22);
+            this.numericUpDownAgrBuildings.Size = new System.Drawing.Size(33, 22);
             this.numericUpDownAgrBuildings.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(201, 131);
+            this.label2.Location = new System.Drawing.Point(171, 150);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(175, 14);
+            this.label2.Size = new System.Drawing.Size(178, 16);
             this.label2.TabIndex = 6;
             this.label2.Text = "Селскостопански постройки:";
             // 
             // numericUpDownCows
             // 
             this.numericUpDownCows.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDownCows.Location = new System.Drawing.Point(78, 31);
+            this.numericUpDownCows.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.numericUpDownCows.Location = new System.Drawing.Point(67, 35);
             this.numericUpDownCows.Name = "numericUpDownCows";
-            this.numericUpDownCows.Size = new System.Drawing.Size(38, 22);
+            this.numericUpDownCows.Size = new System.Drawing.Size(33, 22);
             this.numericUpDownCows.TabIndex = 7;
             // 
             // labelCows
             // 
             this.labelCows.AutoSize = true;
-            this.labelCows.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelCows.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelCows.ForeColor = System.Drawing.Color.Black;
-            this.labelCows.Location = new System.Drawing.Point(26, 33);
+            this.labelCows.Location = new System.Drawing.Point(22, 38);
             this.labelCows.Name = "labelCows";
-            this.labelCows.Size = new System.Drawing.Size(46, 14);
+            this.labelCows.Size = new System.Drawing.Size(47, 16);
             this.labelCows.TabIndex = 8;
             this.labelCows.Text = "Крави:";
             // 
             // numericUpDownGoats
             // 
-            this.numericUpDownGoats.Location = new System.Drawing.Point(78, 23);
+            this.numericUpDownGoats.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.numericUpDownGoats.Location = new System.Drawing.Point(67, 26);
             this.numericUpDownGoats.Name = "numericUpDownGoats";
-            this.numericUpDownGoats.Size = new System.Drawing.Size(38, 22);
+            this.numericUpDownGoats.Size = new System.Drawing.Size(33, 22);
             this.numericUpDownGoats.TabIndex = 9;
             // 
             // labelGoats
             // 
             this.labelGoats.AutoSize = true;
-            this.labelGoats.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelGoats.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelGoats.ForeColor = System.Drawing.Color.Black;
-            this.labelGoats.Location = new System.Drawing.Point(34, 25);
+            this.labelGoats.Location = new System.Drawing.Point(29, 29);
             this.labelGoats.Name = "labelGoats";
-            this.labelGoats.Size = new System.Drawing.Size(38, 14);
+            this.labelGoats.Size = new System.Drawing.Size(39, 16);
             this.labelGoats.TabIndex = 10;
             this.labelGoats.Text = "Кози:";
             // 
             // numericUpDownHorses
             // 
             this.numericUpDownHorses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDownHorses.Location = new System.Drawing.Point(174, 31);
+            this.numericUpDownHorses.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.numericUpDownHorses.Location = new System.Drawing.Point(149, 35);
             this.numericUpDownHorses.Name = "numericUpDownHorses";
-            this.numericUpDownHorses.Size = new System.Drawing.Size(38, 22);
+            this.numericUpDownHorses.Size = new System.Drawing.Size(33, 22);
             this.numericUpDownHorses.TabIndex = 11;
             // 
             // labelHorses
             // 
             this.labelHorses.AutoSize = true;
-            this.labelHorses.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelHorses.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelHorses.ForeColor = System.Drawing.Color.Black;
-            this.labelHorses.Location = new System.Drawing.Point(130, 35);
+            this.labelHorses.Location = new System.Drawing.Point(111, 40);
             this.labelHorses.Name = "labelHorses";
-            this.labelHorses.Size = new System.Drawing.Size(38, 14);
+            this.labelHorses.Size = new System.Drawing.Size(40, 16);
             this.labelHorses.TabIndex = 12;
             this.labelHorses.Text = "Коне:";
             // 
             // numericUpDownSheep
             // 
             this.numericUpDownSheep.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDownSheep.Location = new System.Drawing.Point(174, 21);
+            this.numericUpDownSheep.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.numericUpDownSheep.Location = new System.Drawing.Point(151, 24);
             this.numericUpDownSheep.Name = "numericUpDownSheep";
-            this.numericUpDownSheep.Size = new System.Drawing.Size(38, 22);
+            this.numericUpDownSheep.Size = new System.Drawing.Size(33, 22);
             this.numericUpDownSheep.TabIndex = 13;
             // 
             // labelSheep
             // 
             this.labelSheep.AutoSize = true;
-            this.labelSheep.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelSheep.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSheep.ForeColor = System.Drawing.Color.Black;
-            this.labelSheep.Location = new System.Drawing.Point(130, 25);
+            this.labelSheep.Location = new System.Drawing.Point(111, 29);
             this.labelSheep.Name = "labelSheep";
-            this.labelSheep.Size = new System.Drawing.Size(38, 14);
+            this.labelSheep.Size = new System.Drawing.Size(42, 16);
             this.labelSheep.TabIndex = 14;
             this.labelSheep.Text = "Овце:";
             // 
             // numericUpDownDonkeys
             // 
             this.numericUpDownDonkeys.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDownDonkeys.Location = new System.Drawing.Point(287, 31);
+            this.numericUpDownDonkeys.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.numericUpDownDonkeys.Location = new System.Drawing.Point(253, 35);
             this.numericUpDownDonkeys.Name = "numericUpDownDonkeys";
-            this.numericUpDownDonkeys.Size = new System.Drawing.Size(38, 22);
+            this.numericUpDownDonkeys.Size = new System.Drawing.Size(33, 22);
             this.numericUpDownDonkeys.TabIndex = 15;
             // 
             // labelDonkeys
             // 
             this.labelDonkeys.AutoSize = true;
-            this.labelDonkeys.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDonkeys.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelDonkeys.ForeColor = System.Drawing.Color.Black;
-            this.labelDonkeys.Location = new System.Drawing.Point(218, 35);
+            this.labelDonkeys.Location = new System.Drawing.Point(187, 40);
             this.labelDonkeys.Name = "labelDonkeys";
-            this.labelDonkeys.Size = new System.Drawing.Size(65, 14);
+            this.labelDonkeys.Size = new System.Drawing.Size(67, 16);
             this.labelDonkeys.TabIndex = 16;
             this.labelDonkeys.Text = "Магарета:";
             // 
             // numericUpDownFeathered
             // 
             this.numericUpDownFeathered.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDownFeathered.Location = new System.Drawing.Point(78, 28);
+            this.numericUpDownFeathered.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.numericUpDownFeathered.Location = new System.Drawing.Point(67, 32);
             this.numericUpDownFeathered.Name = "numericUpDownFeathered";
-            this.numericUpDownFeathered.Size = new System.Drawing.Size(38, 22);
+            this.numericUpDownFeathered.Size = new System.Drawing.Size(33, 22);
             this.numericUpDownFeathered.TabIndex = 17;
             // 
             // labelFeathered
             // 
             this.labelFeathered.AutoSize = true;
+            this.labelFeathered.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelFeathered.ForeColor = System.Drawing.Color.Black;
-            this.labelFeathered.Location = new System.Drawing.Point(14, 30);
+            this.labelFeathered.Location = new System.Drawing.Point(6, 34);
             this.labelFeathered.Name = "labelFeathered";
-            this.labelFeathered.Size = new System.Drawing.Size(58, 14);
+            this.labelFeathered.Size = new System.Drawing.Size(60, 16);
             this.labelFeathered.TabIndex = 18;
             this.labelFeathered.Text = "Пернати:";
             // 
             // numericUpDownWalnut
             // 
             this.numericUpDownWalnut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDownWalnut.Location = new System.Drawing.Point(270, 444);
+            this.numericUpDownWalnut.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.numericUpDownWalnut.Location = new System.Drawing.Point(264, 500);
             this.numericUpDownWalnut.Name = "numericUpDownWalnut";
-            this.numericUpDownWalnut.Size = new System.Drawing.Size(38, 22);
+            this.numericUpDownWalnut.Size = new System.Drawing.Size(33, 22);
             this.numericUpDownWalnut.TabIndex = 19;
             // 
             // labelWalnut
             // 
             this.labelWalnut.AutoSize = true;
-            this.labelWalnut.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelWalnut.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelWalnut.ForeColor = System.Drawing.Color.Black;
-            this.labelWalnut.Location = new System.Drawing.Point(155, 444);
+            this.labelWalnut.Location = new System.Drawing.Point(146, 504);
             this.labelWalnut.Name = "labelWalnut";
-            this.labelWalnut.Size = new System.Drawing.Size(109, 14);
+            this.labelWalnut.Size = new System.Drawing.Size(116, 16);
             this.labelWalnut.TabIndex = 20;
             this.labelWalnut.Text = "Орехови дървета:";
             // 
@@ -572,15 +589,15 @@ namespace GraduationProject
             // 
             this.numericUpDownNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numericUpDownNumber.Enabled = false;
-            this.numericUpDownNumber.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.numericUpDownNumber.Location = new System.Drawing.Point(170, 7);
+            this.numericUpDownNumber.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.numericUpDownNumber.Location = new System.Drawing.Point(171, 20);
             this.numericUpDownNumber.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numericUpDownNumber.Name = "numericUpDownNumber";
-            this.numericUpDownNumber.Size = new System.Drawing.Size(59, 43);
+            this.numericUpDownNumber.Size = new System.Drawing.Size(51, 39);
             this.numericUpDownNumber.TabIndex = 26;
             this.numericUpDownNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDownNumber.Value = new decimal(new int[] {
@@ -596,12 +613,12 @@ namespace GraduationProject
             this.buttonSaveAddr.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
             this.buttonSaveAddr.FlatAppearance.BorderSize = 0;
             this.buttonSaveAddr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSaveAddr.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonSaveAddr.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonSaveAddr.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveAddr.Image")));
             this.buttonSaveAddr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSaveAddr.Location = new System.Drawing.Point(17, 487);
+            this.buttonSaveAddr.Location = new System.Drawing.Point(15, 534);
             this.buttonSaveAddr.Name = "buttonSaveAddr";
-            this.buttonSaveAddr.Size = new System.Drawing.Size(123, 27);
+            this.buttonSaveAddr.Size = new System.Drawing.Size(128, 31);
             this.buttonSaveAddr.TabIndex = 32;
             this.buttonSaveAddr.Text = "  Запис";
             this.buttonSaveAddr.UseVisualStyleBackColor = false;
@@ -610,11 +627,11 @@ namespace GraduationProject
             // labelDogs
             // 
             this.labelDogs.AutoSize = true;
-            this.labelDogs.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDogs.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelDogs.ForeColor = System.Drawing.Color.Black;
-            this.labelDogs.Location = new System.Drawing.Point(18, 444);
+            this.labelDogs.Location = new System.Drawing.Point(15, 504);
             this.labelDogs.Name = "labelDogs";
-            this.labelDogs.Size = new System.Drawing.Size(50, 14);
+            this.labelDogs.Size = new System.Drawing.Size(52, 16);
             this.labelDogs.TabIndex = 37;
             this.labelDogs.Text = "Кучета:";
             // 
@@ -628,19 +645,19 @@ namespace GraduationProject
             this.panelResidents.Controls.Add(this.buttonEditPerson);
             this.panelResidents.Controls.Add(this.buttonRemovePerson);
             this.panelResidents.Controls.Add(this.buttonAddPerson);
-            this.panelResidents.Location = new System.Drawing.Point(450, 7);
+            this.panelResidents.Location = new System.Drawing.Point(386, 0);
             this.panelResidents.Name = "panelResidents";
-            this.panelResidents.Size = new System.Drawing.Size(887, 564);
+            this.panelResidents.Size = new System.Drawing.Size(632, 578);
             this.panelResidents.TabIndex = 39;
             // 
             // labelInhabitants
             // 
             this.labelInhabitants.AutoSize = true;
-            this.labelInhabitants.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelInhabitants.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelInhabitants.ForeColor = System.Drawing.Color.Black;
-            this.labelInhabitants.Location = new System.Drawing.Point(17, 12);
+            this.labelInhabitants.Location = new System.Drawing.Point(15, 14);
             this.labelInhabitants.Name = "labelInhabitants";
-            this.labelInhabitants.Size = new System.Drawing.Size(118, 25);
+            this.labelInhabitants.Size = new System.Drawing.Size(120, 24);
             this.labelInhabitants.TabIndex = 22;
             this.labelInhabitants.Text = "Обитатели";
             // 
@@ -685,7 +702,7 @@ namespace GraduationProject
             this.dataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView.EnableHeadersVisualStyles = false;
             this.dataGridView.GridColor = System.Drawing.Color.Silver;
-            this.dataGridView.Location = new System.Drawing.Point(15, 45);
+            this.dataGridView.Location = new System.Drawing.Point(15, 51);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
@@ -702,7 +719,7 @@ namespace GraduationProject
             this.dataGridView.RowTemplate.Height = 25;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.ShowCellToolTips = false;
-            this.dataGridView.Size = new System.Drawing.Size(535, 433);
+            this.dataGridView.Size = new System.Drawing.Size(604, 488);
             this.dataGridView.TabIndex = 28;
             this.dataGridView.Resize += new System.EventHandler(this.dataGridView_Resize);
             // 
@@ -753,9 +770,10 @@ namespace GraduationProject
             this.buttonEditPerson.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
             this.buttonEditPerson.FlatAppearance.BorderSize = 0;
             this.buttonEditPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEditPerson.Location = new System.Drawing.Point(120, 486);
+            this.buttonEditPerson.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonEditPerson.Location = new System.Drawing.Point(119, 545);
             this.buttonEditPerson.Name = "buttonEditPerson";
-            this.buttonEditPerson.Size = new System.Drawing.Size(93, 21);
+            this.buttonEditPerson.Size = new System.Drawing.Size(98, 24);
             this.buttonEditPerson.TabIndex = 34;
             this.buttonEditPerson.Text = "Редактиране";
             this.buttonEditPerson.UseVisualStyleBackColor = false;
@@ -768,9 +786,10 @@ namespace GraduationProject
             this.buttonRemovePerson.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
             this.buttonRemovePerson.FlatAppearance.BorderSize = 0;
             this.buttonRemovePerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRemovePerson.Location = new System.Drawing.Point(229, 486);
+            this.buttonRemovePerson.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonRemovePerson.Location = new System.Drawing.Point(223, 545);
             this.buttonRemovePerson.Name = "buttonRemovePerson";
-            this.buttonRemovePerson.Size = new System.Drawing.Size(88, 21);
+            this.buttonRemovePerson.Size = new System.Drawing.Size(98, 24);
             this.buttonRemovePerson.TabIndex = 33;
             this.buttonRemovePerson.Text = "Премахване";
             this.buttonRemovePerson.UseVisualStyleBackColor = false;
@@ -783,9 +802,10 @@ namespace GraduationProject
             this.buttonAddPerson.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
             this.buttonAddPerson.FlatAppearance.BorderSize = 0;
             this.buttonAddPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddPerson.Location = new System.Drawing.Point(16, 486);
+            this.buttonAddPerson.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonAddPerson.Location = new System.Drawing.Point(15, 545);
             this.buttonAddPerson.Name = "buttonAddPerson";
-            this.buttonAddPerson.Size = new System.Drawing.Size(88, 21);
+            this.buttonAddPerson.Size = new System.Drawing.Size(98, 24);
             this.buttonAddPerson.TabIndex = 31;
             this.buttonAddPerson.Text = "Добавяне";
             this.buttonAddPerson.UseVisualStyleBackColor = false;
@@ -794,11 +814,11 @@ namespace GraduationProject
             // labelStreetName
             // 
             this.labelStreetName.AutoSize = true;
-            this.labelStreetName.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelStreetName.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelStreetName.ForeColor = System.Drawing.Color.Black;
-            this.labelStreetName.Location = new System.Drawing.Point(17, 25);
+            this.labelStreetName.Location = new System.Drawing.Point(15, 29);
             this.labelStreetName.Name = "labelStreetName";
-            this.labelStreetName.Size = new System.Drawing.Size(146, 25);
+            this.labelStreetName.Size = new System.Drawing.Size(150, 24);
             this.labelStreetName.TabIndex = 35;
             this.labelStreetName.Text = "Име на улица";
             // 
@@ -809,12 +829,12 @@ namespace GraduationProject
             this.buttonDeleteAddr.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
             this.buttonDeleteAddr.FlatAppearance.BorderSize = 0;
             this.buttonDeleteAddr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDeleteAddr.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonDeleteAddr.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonDeleteAddr.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteAddr.Image")));
             this.buttonDeleteAddr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDeleteAddr.Location = new System.Drawing.Point(157, 487);
+            this.buttonDeleteAddr.Location = new System.Drawing.Point(161, 534);
             this.buttonDeleteAddr.Name = "buttonDeleteAddr";
-            this.buttonDeleteAddr.Size = new System.Drawing.Size(123, 27);
+            this.buttonDeleteAddr.Size = new System.Drawing.Size(129, 31);
             this.buttonDeleteAddr.TabIndex = 40;
             this.buttonDeleteAddr.Text = "     Изтриване";
             this.buttonDeleteAddr.UseVisualStyleBackColor = false;
@@ -848,9 +868,9 @@ namespace GraduationProject
             this.panelAddressInfo.Controls.Add(this.numericUpDownSquaring);
             this.panelAddressInfo.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.panelAddressInfo.ForeColor = System.Drawing.Color.Black;
-            this.panelAddressInfo.Location = new System.Drawing.Point(221, 1);
+            this.panelAddressInfo.Location = new System.Drawing.Point(189, 1);
             this.panelAddressInfo.Name = "panelAddressInfo";
-            this.panelAddressInfo.Size = new System.Drawing.Size(1013, 526);
+            this.panelAddressInfo.Size = new System.Drawing.Size(1018, 578);
             this.panelAddressInfo.TabIndex = 8;
             // 
             // buttonVIewDogs
@@ -859,11 +879,11 @@ namespace GraduationProject
             this.buttonVIewDogs.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
             this.buttonVIewDogs.FlatAppearance.BorderSize = 0;
             this.buttonVIewDogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonVIewDogs.Font = new System.Drawing.Font("Roboto", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonVIewDogs.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonVIewDogs.Image = ((System.Drawing.Image)(resources.GetObject("buttonVIewDogs.Image")));
-            this.buttonVIewDogs.Location = new System.Drawing.Point(108, 434);
+            this.buttonVIewDogs.Location = new System.Drawing.Point(104, 492);
             this.buttonVIewDogs.Name = "buttonVIewDogs";
-            this.buttonVIewDogs.Size = new System.Drawing.Size(32, 30);
+            this.buttonVIewDogs.Size = new System.Drawing.Size(27, 29);
             this.buttonVIewDogs.TabIndex = 35;
             this.buttonVIewDogs.UseVisualStyleBackColor = false;
             this.buttonVIewDogs.Click += new System.EventHandler(this.textBoxDogs_Click);
@@ -872,9 +892,10 @@ namespace GraduationProject
             // 
             this.groupBoxSmallCattle.Controls.Add(this.labelFeathered);
             this.groupBoxSmallCattle.Controls.Add(this.numericUpDownFeathered);
-            this.groupBoxSmallCattle.Location = new System.Drawing.Point(50, 360);
+            this.groupBoxSmallCattle.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBoxSmallCattle.Location = new System.Drawing.Point(43, 411);
             this.groupBoxSmallCattle.Name = "groupBoxSmallCattle";
-            this.groupBoxSmallCattle.Size = new System.Drawing.Size(359, 65);
+            this.groupBoxSmallCattle.Size = new System.Drawing.Size(308, 74);
             this.groupBoxSmallCattle.TabIndex = 43;
             this.groupBoxSmallCattle.TabStop = false;
             this.groupBoxSmallCattle.Text = "Дребен добитък";
@@ -887,9 +908,10 @@ namespace GraduationProject
             this.groupBoxAveargeCattle.Controls.Add(this.numericUpDownGoats);
             this.groupBoxAveargeCattle.Controls.Add(this.labelGoats);
             this.groupBoxAveargeCattle.Controls.Add(this.labelSheep);
-            this.groupBoxAveargeCattle.Location = new System.Drawing.Point(50, 280);
+            this.groupBoxAveargeCattle.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBoxAveargeCattle.Location = new System.Drawing.Point(43, 320);
             this.groupBoxAveargeCattle.Name = "groupBoxAveargeCattle";
-            this.groupBoxAveargeCattle.Size = new System.Drawing.Size(359, 65);
+            this.groupBoxAveargeCattle.Size = new System.Drawing.Size(308, 74);
             this.groupBoxAveargeCattle.TabIndex = 42;
             this.groupBoxAveargeCattle.TabStop = false;
             this.groupBoxAveargeCattle.Text = "Среден добитък";
@@ -897,19 +919,20 @@ namespace GraduationProject
             // numericUpDownPigs
             // 
             this.numericUpDownPigs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDownPigs.Location = new System.Drawing.Point(287, 21);
+            this.numericUpDownPigs.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.numericUpDownPigs.Location = new System.Drawing.Point(253, 21);
             this.numericUpDownPigs.Name = "numericUpDownPigs";
-            this.numericUpDownPigs.Size = new System.Drawing.Size(38, 22);
+            this.numericUpDownPigs.Size = new System.Drawing.Size(33, 22);
             this.numericUpDownPigs.TabIndex = 15;
             // 
             // labelPigs
             // 
             this.labelPigs.AutoSize = true;
-            this.labelPigs.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelPigs.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelPigs.ForeColor = System.Drawing.Color.Black;
-            this.labelPigs.Location = new System.Drawing.Point(236, 25);
+            this.labelPigs.Location = new System.Drawing.Point(202, 29);
             this.labelPigs.Name = "labelPigs";
-            this.labelPigs.Size = new System.Drawing.Size(45, 14);
+            this.labelPigs.Size = new System.Drawing.Size(48, 16);
             this.labelPigs.TabIndex = 16;
             this.labelPigs.Text = "Свине:";
             // 
@@ -921,9 +944,10 @@ namespace GraduationProject
             this.groupBoxCattle.Controls.Add(this.numericUpDownHorses);
             this.groupBoxCattle.Controls.Add(this.labelHorses);
             this.groupBoxCattle.Controls.Add(this.labelDonkeys);
-            this.groupBoxCattle.Location = new System.Drawing.Point(50, 197);
+            this.groupBoxCattle.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBoxCattle.Location = new System.Drawing.Point(43, 225);
             this.groupBoxCattle.Name = "groupBoxCattle";
-            this.groupBoxCattle.Size = new System.Drawing.Size(359, 65);
+            this.groupBoxCattle.Size = new System.Drawing.Size(308, 74);
             this.groupBoxCattle.TabIndex = 41;
             this.groupBoxCattle.TabStop = false;
             this.groupBoxCattle.Text = "Едър добитък";
@@ -932,27 +956,28 @@ namespace GraduationProject
             // 
             this.textBoxDogs.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxDogs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxDogs.Location = new System.Drawing.Point(64, 442);
+            this.textBoxDogs.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxDogs.Location = new System.Drawing.Point(66, 500);
             this.textBoxDogs.Name = "textBoxDogs";
             this.textBoxDogs.ReadOnly = true;
-            this.textBoxDogs.Size = new System.Drawing.Size(38, 22);
+            this.textBoxDogs.Size = new System.Drawing.Size(33, 22);
             this.textBoxDogs.TabIndex = 38;
             this.textBoxDogs.Text = "0";
             // 
             // InsertDataForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(79)))), ((int)(((byte)(33)))));
-            this.ClientSize = new System.Drawing.Size(1235, 528);
+            this.ClientSize = new System.Drawing.Size(1209, 581);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.panelAddressInfo);
             this.Controls.Add(this.panelSearch);
             this.Controls.Add(this.panelAdd);
-            this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.MinimumSize = new System.Drawing.Size(1251, 567);
+            this.MinimumSize = new System.Drawing.Size(1225, 620);
             this.Name = "InsertDataForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Въвеждане на данни";

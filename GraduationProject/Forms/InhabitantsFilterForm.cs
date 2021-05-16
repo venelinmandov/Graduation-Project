@@ -28,19 +28,19 @@ namespace GraduationProject.Forms
             InitializeComponent();
             streets = new Models.Street().Get(connectionHelper);
             comboBoxStreet.Items.AddRange(streets.ToArray());
-            selectedTab = panelSearchByAddress;
+            SetActiveTab(panelSearchByAddress, buttonSearchByAddress);
         }
 
         //Показване на панела за търсене по адрес
         private void buttonSearchByAddress_Click(object sender, EventArgs e)
         {
-            ShowPanel(panelSearchByAddress,(Button)sender);
+            SetActiveTab(panelSearchByAddress,(Button)sender);
         }
 
         //Показване на панела за търсене по имена
         private void buttonSearchByNames_Click(object sender, EventArgs e)
         {
-            ShowPanel(panelSearchByNames, (Button)sender);
+            SetActiveTab(panelSearchByNames, (Button)sender);
         }
 
         //Натискане на бутона "търсене" 
@@ -114,14 +114,20 @@ namespace GraduationProject.Forms
 
 
         //Показване на избран панел
-        void ShowPanel(Panel panel, Button button)
+        void SetActiveTab(Panel panel, Button button)
         {
             panel.BringToFront();
             selectedTab = panel;
-            buttonSearchByAddress.BackColor = SystemColors.ButtonFace;
-            buttonSearchByNames.BackColor = SystemColors.ButtonFace;
-            button.BackColor = Color.White;
+            Button[] buttons = new Button[] { buttonSearchByAddress, buttonSearchByNames };
+            foreach (Button otherButton in buttons)
+            {
+                otherButton.FlatAppearance.BorderSize = 0;
+                otherButton.BackColor = SystemColors.ButtonFace;
+            }
+            button.FlatAppearance.BorderSize = 1;
+            button.BackColor = SystemColors.ButtonHighlight;
         }
+
 
         //Изчертаване на елемент на коммбобокс
         private void comboBox_DrawItem(object sender, DrawItemEventArgs e)
@@ -143,6 +149,11 @@ namespace GraduationProject.Forms
                                           e.Font,
                                           solidBrush,
                                           new Point(e.Bounds.X, e.Bounds.Y));
+        }
+
+        private void InhabitantsFilterForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

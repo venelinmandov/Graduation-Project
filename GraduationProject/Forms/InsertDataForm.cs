@@ -286,6 +286,8 @@ namespace GraduationProject
         //Изтриване на улица от базата данни
         private void toolStripMenuItemRemoveStr_click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Сигурни ли сте, че искате да изтриете улицата?", "Изтриване на улица", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.No) return;
             Street selectedStreet = streets[listBoxStreets.SelectedIndex];
             if (new Address().Get(connectionHelper, selectedStreet).Count == 0)
             {
@@ -385,7 +387,10 @@ namespace GraduationProject
         //Изтриване на жител/гост
         private void buttonRemoveResident_Click(object sender, EventArgs e)
         {
+           
             if (dataGridView.RowCount == 0) return;
+            DialogResult dialogResult = MessageBox.Show("Сигурни ли сте, че искате да изтриете жителя/госта?", "Изтриване на жител гост", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.No) return;
             int currentIndex = dataGridView.CurrentCell.RowIndex;
 
                 if (currentIndex < residents.Count)

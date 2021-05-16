@@ -292,11 +292,7 @@ namespace GraduationProject.Forms
             Hide();
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        //Променено е състоянието на отметката "текущ адрес"
         private void checkBoxCurrentAddress_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxCurrentAddress.Checked)

@@ -39,7 +39,12 @@ namespace GraduationProject.Forms
         public ReferenceForm()
         {
             InitializeComponent();
-            selectedTab = tabAddresses;
+            SetActiveTab(tabAddresses,buttonAddresses);
+
+            foreach (Control control in Controls)
+            {
+                control.Enter += (object sender, EventArgs e) => this.ActiveControl = null;
+            }
         }
 
         #region Адреси
@@ -47,8 +52,7 @@ namespace GraduationProject.Forms
         //Показване на панела за търсене на адреси
         private void buttonAddresses_Click(object sender, EventArgs e)
         {
-            selectedTab = tabAddresses;
-            tabAddresses.BringToFront();
+            SetActiveTab(tabAddresses, (Button)sender);
         }
 
         //Отваряне на формата за избор на филтър при тъсене на адреси
@@ -92,8 +96,7 @@ namespace GraduationProject.Forms
         //Показване на панела за търсене на обитатели
         private void buttonInhabitants_Click(object sender, EventArgs e)
         {
-            selectedTab = tabInhabitants;
-            tabInhabitants.BringToFront();
+            SetActiveTab(tabInhabitants, (Button)sender);
         }
 
         //Отваряне на формата за избор на филтър при тъсене на обитатели
@@ -170,8 +173,19 @@ namespace GraduationProject.Forms
             }
         }
 
-       
+        //Показване на избрания таб
+        void SetActiveTab(Panel panel, Button button)
+        {
+            panel.BringToFront();
+            selectedTab = panel;
+            buttonAddresses.FlatAppearance.BorderSize = 0;
+            buttonAddresses.BackColor = SystemColors.ButtonFace;
+            buttonInhabitants.FlatAppearance.BorderSize = 0;
+            buttonInhabitants.BackColor = SystemColors.ButtonFace;
+            button.FlatAppearance.BorderSize = 1;
+            button.BackColor = SystemColors.ButtonHighlight;
 
+        }
         
     }
 }

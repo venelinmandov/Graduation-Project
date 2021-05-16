@@ -60,18 +60,18 @@ namespace GraduationProject.Forms
             this.groupBox.Controls.Add(this.radioButtonAll);
             this.groupBox.Controls.Add(this.radioButtonGuest);
             this.groupBox.Controls.Add(this.radioButtonResident);
-            this.groupBox.Location = new System.Drawing.Point(244, 18);
+            this.groupBox.Location = new System.Drawing.Point(244, 19);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(125, 76);
+            this.groupBox.Size = new System.Drawing.Size(136, 81);
             this.groupBox.TabIndex = 6;
             this.groupBox.TabStop = false;
             // 
             // radioButtonAll
             // 
             this.radioButtonAll.AutoSize = true;
-            this.radioButtonAll.Location = new System.Drawing.Point(6, 52);
+            this.radioButtonAll.Location = new System.Drawing.Point(6, 56);
             this.radioButtonAll.Name = "radioButtonAll";
-            this.radioButtonAll.Size = new System.Drawing.Size(67, 18);
+            this.radioButtonAll.Size = new System.Drawing.Size(65, 19);
             this.radioButtonAll.TabIndex = 2;
             this.radioButtonAll.TabStop = true;
             this.radioButtonAll.Text = "Всички";
@@ -80,9 +80,9 @@ namespace GraduationProject.Forms
             // radioButtonGuest
             // 
             this.radioButtonGuest.AutoSize = true;
-            this.radioButtonGuest.Location = new System.Drawing.Point(6, 31);
+            this.radioButtonGuest.Location = new System.Drawing.Point(6, 33);
             this.radioButtonGuest.Name = "radioButtonGuest";
-            this.radioButtonGuest.Size = new System.Drawing.Size(126, 18);
+            this.radioButtonGuest.Size = new System.Drawing.Size(121, 19);
             this.radioButtonGuest.TabIndex = 1;
             this.radioButtonGuest.TabStop = true;
             this.radioButtonGuest.Text = "Гост в карантина";
@@ -91,9 +91,9 @@ namespace GraduationProject.Forms
             // radioButtonResident
             // 
             this.radioButtonResident.AutoSize = true;
-            this.radioButtonResident.Location = new System.Drawing.Point(6, 11);
+            this.radioButtonResident.Location = new System.Drawing.Point(6, 12);
             this.radioButtonResident.Name = "radioButtonResident";
-            this.radioButtonResident.Size = new System.Drawing.Size(61, 18);
+            this.radioButtonResident.Size = new System.Drawing.Size(62, 19);
             this.radioButtonResident.TabIndex = 0;
             this.radioButtonResident.TabStop = true;
             this.radioButtonResident.Text = "Жител";
@@ -104,9 +104,9 @@ namespace GraduationProject.Forms
             this.buttonSearch.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
             this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSearch.Location = new System.Drawing.Point(11, 185);
+            this.buttonSearch.Location = new System.Drawing.Point(7, 188);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 21);
+            this.buttonSearch.Size = new System.Drawing.Size(81, 27);
             this.buttonSearch.TabIndex = 9;
             this.buttonSearch.Text = "Търсене";
             this.buttonSearch.UseVisualStyleBackColor = false;
@@ -144,9 +144,9 @@ namespace GraduationProject.Forms
             // labelLastname
             // 
             this.labelLastname.AutoSize = true;
-            this.labelLastname.Location = new System.Drawing.Point(11, 79);
+            this.labelLastname.Location = new System.Drawing.Point(8, 79);
             this.labelLastname.Name = "labelLastname";
-            this.labelLastname.Size = new System.Drawing.Size(59, 14);
+            this.labelLastname.Size = new System.Drawing.Size(60, 15);
             this.labelLastname.TabIndex = 4;
             this.labelLastname.Text = "Фамилия";
             // 
@@ -207,9 +207,9 @@ namespace GraduationProject.Forms
             // labelMiddlename
             // 
             this.labelMiddlename.AutoSize = true;
-            this.labelMiddlename.Location = new System.Drawing.Point(11, 52);
+            this.labelMiddlename.Location = new System.Drawing.Point(9, 51);
             this.labelMiddlename.Name = "labelMiddlename";
-            this.labelMiddlename.Size = new System.Drawing.Size(56, 14);
+            this.labelMiddlename.Size = new System.Drawing.Size(59, 15);
             this.labelMiddlename.TabIndex = 2;
             this.labelMiddlename.Text = "Презиме";
             // 
@@ -238,17 +238,17 @@ namespace GraduationProject.Forms
             this.panelSearchByNames.Controls.Add(this.labelMiddlename);
             this.panelSearchByNames.Controls.Add(this.textBoxFirstname);
             this.panelSearchByNames.Controls.Add(this.labelFirstname);
-            this.panelSearchByNames.Location = new System.Drawing.Point(0, 56);
+            this.panelSearchByNames.Location = new System.Drawing.Point(0, 60);
             this.panelSearchByNames.Name = "panelSearchByNames";
-            this.panelSearchByNames.Size = new System.Drawing.Size(391, 114);
+            this.panelSearchByNames.Size = new System.Drawing.Size(391, 122);
             this.panelSearchByNames.TabIndex = 11;
             // 
             // labelFirstname
             // 
             this.labelFirstname.AutoSize = true;
-            this.labelFirstname.Location = new System.Drawing.Point(36, 25);
+            this.labelFirstname.Location = new System.Drawing.Point(36, 22);
             this.labelFirstname.Name = "labelFirstname";
-            this.labelFirstname.Size = new System.Drawing.Size(30, 14);
+            this.labelFirstname.Size = new System.Drawing.Size(32, 15);
             this.labelFirstname.TabIndex = 0;
             this.labelFirstname.Text = "Име";
             // 
@@ -257,7 +257,7 @@ namespace GraduationProject.Forms
             this.buttonSearchByNames.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonSearchByNames.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
             this.buttonSearchByNames.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSearchByNames.Location = new System.Drawing.Point(95, 21);
+            this.buttonSearchByNames.Location = new System.Drawing.Point(97, 21);
             this.buttonSearchByNames.Name = "buttonSearchByNames";
             this.buttonSearchByNames.Size = new System.Drawing.Size(96, 38);
             this.buttonSearchByNames.TabIndex = 14;
@@ -267,21 +267,22 @@ namespace GraduationProject.Forms
             // 
             // InhabitantsFilterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
-            this.ClientSize = new System.Drawing.Size(392, 216);
-            this.Controls.Add(this.panelSearchByAddress);
+            this.ClientSize = new System.Drawing.Size(392, 219);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.panelSearchByNames);
+            this.Controls.Add(this.panelSearchByAddress);
             this.Controls.Add(this.buttonSearchByAddress);
             this.Controls.Add(this.buttonSearchByNames);
-            this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "InhabitantsFilterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Филтри";
+            this.Load += new System.EventHandler(this.InhabitantsFilterForm_Load);
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
             this.panelSearchByAddress.ResumeLayout(false);

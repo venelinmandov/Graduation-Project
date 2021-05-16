@@ -39,10 +39,10 @@ namespace GraduationProject
             this.buttonAddPerson.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
             this.buttonAddPerson.FlatAppearance.BorderSize = 0;
             this.buttonAddPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddPerson.Font = new System.Drawing.Font("Roboto", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonAddPerson.Location = new System.Drawing.Point(12, 12);
+            this.buttonAddPerson.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonAddPerson.Location = new System.Drawing.Point(9, 13);
             this.buttonAddPerson.Name = "buttonAddPerson";
-            this.buttonAddPerson.Size = new System.Drawing.Size(191, 87);
+            this.buttonAddPerson.Size = new System.Drawing.Size(191, 84);
             this.buttonAddPerson.TabIndex = 32;
             this.buttonAddPerson.Text = "Справки";
             this.buttonAddPerson.UseVisualStyleBackColor = false;
@@ -54,10 +54,10 @@ namespace GraduationProject
             this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Roboto", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(209, 12);
+            this.button1.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(209, 13);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(191, 87);
+            this.button1.Size = new System.Drawing.Size(191, 84);
             this.button1.TabIndex = 33;
             this.button1.Text = "Въвеждане на данни";
             this.button1.UseVisualStyleBackColor = false;
@@ -65,14 +65,14 @@ namespace GraduationProject
             // 
             // MenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(410, 109);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonAddPerson);
-            this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
