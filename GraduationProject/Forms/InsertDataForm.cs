@@ -43,11 +43,10 @@ namespace GraduationProject
                     if (panelAdd == selectedTab)
                     {
                         address = new Address();
+                        address.StreetId = streets[listBoxStreets.SelectedIndex].Id;
+                        address.Number = (int)numericUpDownNumber.Value;
+
                     }
-
-
-                    address.StreetId = streets[listBoxStreets.SelectedIndex].Id;
-                    address.Number = (int)numericUpDownNumber.Value;
                     address.Squaring = (double)numericUpDownSquaring.Value;
                     address.Habitallity = habitabillityValue;
                     address.NumResBuildings = (int)numericUpDownResBuildings.Value;

@@ -117,9 +117,9 @@ namespace GraduationProject.Forms
             this.buttonSearchByAddress.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonSearchByAddress.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
             this.buttonSearchByAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSearchByAddress.Location = new System.Drawing.Point(0, 21);
+            this.buttonSearchByAddress.Location = new System.Drawing.Point(0, 19);
             this.buttonSearchByAddress.Name = "buttonSearchByAddress";
-            this.buttonSearchByAddress.Size = new System.Drawing.Size(96, 38);
+            this.buttonSearchByAddress.Size = new System.Drawing.Size(96, 40);
             this.buttonSearchByAddress.TabIndex = 13;
             this.buttonSearchByAddress.Text = "Търсене по адрес";
             this.buttonSearchByAddress.UseVisualStyleBackColor = false;
@@ -130,7 +130,7 @@ namespace GraduationProject.Forms
             this.labelStreet.AutoSize = true;
             this.labelStreet.Location = new System.Drawing.Point(11, 18);
             this.labelStreet.Name = "labelStreet";
-            this.labelStreet.Size = new System.Drawing.Size(43, 14);
+            this.labelStreet.Size = new System.Drawing.Size(42, 15);
             this.labelStreet.TabIndex = 7;
             this.labelStreet.Text = "Улица";
             // 
@@ -138,7 +138,7 @@ namespace GraduationProject.Forms
             // 
             this.textBoxLastname.Location = new System.Drawing.Point(73, 72);
             this.textBoxLastname.Name = "textBoxLastname";
-            this.textBoxLastname.Size = new System.Drawing.Size(154, 22);
+            this.textBoxLastname.Size = new System.Drawing.Size(154, 21);
             this.textBoxLastname.TabIndex = 5;
             // 
             // labelLastname
@@ -154,7 +154,7 @@ namespace GraduationProject.Forms
             // 
             this.textBoxMiddlename.Location = new System.Drawing.Point(73, 45);
             this.textBoxMiddlename.Name = "textBoxMiddlename";
-            this.textBoxMiddlename.Size = new System.Drawing.Size(154, 22);
+            this.textBoxMiddlename.Size = new System.Drawing.Size(154, 21);
             this.textBoxMiddlename.TabIndex = 3;
             // 
             // comboBoxStreet
@@ -163,7 +163,7 @@ namespace GraduationProject.Forms
             this.comboBoxStreet.FormattingEnabled = true;
             this.comboBoxStreet.Location = new System.Drawing.Point(11, 42);
             this.comboBoxStreet.Name = "comboBoxStreet";
-            this.comboBoxStreet.Size = new System.Drawing.Size(163, 23);
+            this.comboBoxStreet.Size = new System.Drawing.Size(163, 22);
             this.comboBoxStreet.TabIndex = 8;
             this.comboBoxStreet.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBox_DrawItem);
             // 
@@ -175,7 +175,7 @@ namespace GraduationProject.Forms
             this.panelSearchByAddress.Controls.Add(this.labelStreet);
             this.panelSearchByAddress.Location = new System.Drawing.Point(0, 56);
             this.panelSearchByAddress.Name = "panelSearchByAddress";
-            this.panelSearchByAddress.Size = new System.Drawing.Size(391, 114);
+            this.panelSearchByAddress.Size = new System.Drawing.Size(391, 122);
             this.panelSearchByAddress.TabIndex = 12;
             // 
             // labelNumber
@@ -183,7 +183,7 @@ namespace GraduationProject.Forms
             this.labelNumber.AutoSize = true;
             this.labelNumber.Location = new System.Drawing.Point(181, 18);
             this.labelNumber.Name = "labelNumber";
-            this.labelNumber.Size = new System.Drawing.Size(44, 14);
+            this.labelNumber.Size = new System.Drawing.Size(46, 15);
             this.labelNumber.TabIndex = 10;
             this.labelNumber.Text = "Номер";
             // 
@@ -196,7 +196,7 @@ namespace GraduationProject.Forms
             0,
             0});
             this.numericUpDownNumber.Name = "numericUpDownNumber";
-            this.numericUpDownNumber.Size = new System.Drawing.Size(46, 22);
+            this.numericUpDownNumber.Size = new System.Drawing.Size(46, 21);
             this.numericUpDownNumber.TabIndex = 9;
             this.numericUpDownNumber.Value = new decimal(new int[] {
             1,
@@ -217,7 +217,7 @@ namespace GraduationProject.Forms
             // 
             this.textBoxFirstname.Location = new System.Drawing.Point(73, 18);
             this.textBoxFirstname.Name = "textBoxFirstname";
-            this.textBoxFirstname.Size = new System.Drawing.Size(154, 22);
+            this.textBoxFirstname.Size = new System.Drawing.Size(154, 21);
             this.textBoxFirstname.TabIndex = 1;
             // 
             // labelTitle
@@ -225,7 +225,7 @@ namespace GraduationProject.Forms
             this.labelTitle.AutoSize = true;
             this.labelTitle.Location = new System.Drawing.Point(0, 2);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(202, 14);
+            this.labelTitle.Size = new System.Drawing.Size(202, 15);
             this.labelTitle.TabIndex = 10;
             this.labelTitle.Text = "Критерии за търсене на обитател:";
             // 
@@ -238,7 +238,7 @@ namespace GraduationProject.Forms
             this.panelSearchByNames.Controls.Add(this.labelMiddlename);
             this.panelSearchByNames.Controls.Add(this.textBoxFirstname);
             this.panelSearchByNames.Controls.Add(this.labelFirstname);
-            this.panelSearchByNames.Location = new System.Drawing.Point(0, 60);
+            this.panelSearchByNames.Location = new System.Drawing.Point(0, 56);
             this.panelSearchByNames.Name = "panelSearchByNames";
             this.panelSearchByNames.Size = new System.Drawing.Size(391, 122);
             this.panelSearchByNames.TabIndex = 11;
@@ -257,9 +257,9 @@ namespace GraduationProject.Forms
             this.buttonSearchByNames.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonSearchByNames.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
             this.buttonSearchByNames.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSearchByNames.Location = new System.Drawing.Point(97, 21);
+            this.buttonSearchByNames.Location = new System.Drawing.Point(97, 19);
             this.buttonSearchByNames.Name = "buttonSearchByNames";
-            this.buttonSearchByNames.Size = new System.Drawing.Size(96, 38);
+            this.buttonSearchByNames.Size = new System.Drawing.Size(96, 40);
             this.buttonSearchByNames.TabIndex = 14;
             this.buttonSearchByNames.Text = "Търсене по имена";
             this.buttonSearchByNames.UseVisualStyleBackColor = false;
@@ -271,10 +271,10 @@ namespace GraduationProject.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
             this.ClientSize = new System.Drawing.Size(392, 219);
+            this.Controls.Add(this.panelSearchByAddress);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.panelSearchByNames);
-            this.Controls.Add(this.panelSearchByAddress);
             this.Controls.Add(this.buttonSearchByAddress);
             this.Controls.Add(this.buttonSearchByNames);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
