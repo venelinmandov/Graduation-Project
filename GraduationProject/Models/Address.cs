@@ -9,7 +9,7 @@ namespace GraduationProject.Models
         public int StreetId { get; set; }
         public int Number { get; set; }
         public double Squaring { get; set; } = 0;
-        public int Habitallity { get; set; } = 0; // 0 - пустеещ, 1 - обитаван, 2 - временно обитаван
+        public AddressHabitabillity Habitallity { get; set; } = 0;
         public int NumResBuildings { get; set; } = 0;
         public int NumAgrBuildings { get; set; } = 0;
         public int NumCows { get; set; } = 0;
@@ -33,6 +33,7 @@ namespace GraduationProject.Models
         public string streetName;
 
         public enum AddressType { Permanent, Current };
+        public enum AddressHabitabillity { Desolate, Inhabited, TemporaryInhabited };
 
         
         //SELECT клауза
@@ -49,7 +50,7 @@ namespace GraduationProject.Models
             StreetId = reader.GetInt32(1);
             Number = reader.GetInt32(2);
             Squaring = reader.GetDouble(3);
-            Habitallity = reader.GetInt32(4);
+            Habitallity = (AddressHabitabillity)reader.GetInt32(4);
             NumResBuildings = reader.GetInt32(5);
             NumAgrBuildings = reader.GetInt32(6);
             NumCows = reader.GetInt32(7);
@@ -172,11 +173,23 @@ namespace GraduationProject.Models
 
         }
 
-        public List<Address> Get(ConnectionHelper connectionHelper, string anamal)
+        public List<Address> Get(ConnectionHelper connectionHelper, string animal)
         {
-            string query = $"{selectClause} FROM Addresses, Streets WHERE Streets.id = Addresses.streetId AND {anamal} > 0";
+            string query = $"{selectClause} FROM Addresses, Streets WHERE Streets.id = Addresses.streetId AND {animal} > 0";
 
             connectionHelper.NewConnection(query);
+            return ExecuteGetQuery(connectionHelper);
+        }
+
+        public List<Address> Get(ConnectionHelper connectionHelper, Dog.DogType dogType = Dog.DogType.All)
+        {
+            string dogTypeCondition = dogType == Dog.DogType.All ? "" : " AND Dogs.type = @type";
+            string query = $@"{selectClause} FROM Addresses, Dogs, Streets
+                            WHERE Addresses.streetId = Streets.id AND Dogs.addressId = Addresses.id{dogTypeCondition} ORDER BY  name, number";
+
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@type",dogType);
+
             return ExecuteGetQuery(connectionHelper);
         }
 
@@ -193,23 +206,7 @@ namespace GraduationProject.Models
         }
 
         
-        private List<Address> ExecuteGetQuery(ConnectionHelper connectionHelper)
-        {
-            List<Address> addresses = new List<Address>();
-            Address address;
-            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
-            while (reader.Read())
-            {
-                address = new Address();
-                address.Fill(reader);
-                addresses.Add(address);
-
-            }
-            reader.Close();
-            connectionHelper.sqlConnection.Close();
-            return addresses;
-
-        }
+       
         public Address Get(ConnectionHelper connectionHelper, int id)
         {
             Address address = new Address();
@@ -256,7 +253,23 @@ namespace GraduationProject.Models
             connectionHelper.sqlConnection.Close();
             return address;
         }
+        private List<Address> ExecuteGetQuery(ConnectionHelper connectionHelper)
+        {
+            List<Address> addresses = new List<Address>();
+            Address address;
+            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                address = new Address();
+                address.Fill(reader);
+                addresses.Add(address);
 
+            }
+            reader.Close();
+            connectionHelper.sqlConnection.Close();
+            return addresses;
+
+        }
 
         //DELETE
         public void Delete(ConnectionHelper connectionHelper)

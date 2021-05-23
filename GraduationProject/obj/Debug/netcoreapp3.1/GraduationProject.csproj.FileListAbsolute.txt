@@ -31,7 +31,6 @@ D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\wi
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.PersonsForm.resources
-D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Controls.ListBoxUserControl.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.DogsForm.resources
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\EntityFramework.dll
@@ -46,4 +45,12 @@ D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationP
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.ReferenceForm.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.AddressesFiltersForm.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.InhabitantsFilterForm.resources
-D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.csprojAssemblyReference.cache
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.ReferenceFormMain.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.ListBoxUserControl.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.ReferencesInhabitantsMenu.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.ReferencesMenu.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.ReferencesSearchByAddress.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.ReferencesSearchByAnimals.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.ShowAddress.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.ShowAddresses.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.Inhabitants.ReferencesInhabitantsSearchByName.resources

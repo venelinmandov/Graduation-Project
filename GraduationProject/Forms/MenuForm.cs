@@ -26,7 +26,7 @@ namespace GraduationProject
         private void buttonAddPerson_Click(object sender, EventArgs e)
         {
             Hide();
-            new Forms.ReferenceForm().ShowDialog();
+            new Forms.ReferenceFormMain().ShowDialog();
             Show();
         }
     }

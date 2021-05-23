@@ -44,7 +44,7 @@ namespace GraduationProject
             this.label3 = new System.Windows.Forms.Label();
             this.listBoxStreets = new System.Windows.Forms.ListBox();
             this.textBoxSearchStr = new System.Windows.Forms.TextBox();
-            this.listBoxAddresses = new GraduationProject.Controls.ListBoxUserControl();
+            this.listBoxAddresses = new GraduationProject.UserControls.ListBoxUserControl();
             this.contextMenuStripStreets = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemRemoveStr = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemRenameStr = new System.Windows.Forms.ToolStripMenuItem();
@@ -232,6 +232,7 @@ namespace GraduationProject
             this.listBoxAddresses.Size = new System.Drawing.Size(180, 464);
             this.listBoxAddresses.TabIndex = 35;
             this.listBoxAddresses.TemporarilyColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(187)))), ((int)(((byte)(0)))));
+            this.listBoxAddresses.WithDifferentColors = true;
             this.listBoxAddresses.SelectedIndexChanged += new System.EventHandler(this.listBoxUserControl_SelectedIndexChanged);
             // 
             // contextMenuStripStreets
@@ -1030,7 +1031,7 @@ namespace GraduationProject
         private System.Windows.Forms.Panel panelAdd;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonAdd;
-        private Controls.ListBoxUserControl listBoxAddresses;
+        private UserControls.ListBoxUserControl listBoxAddresses;
         private System.Windows.Forms.Button buttonAddStr;
         private System.Windows.Forms.NumericUpDown numericUpDownSquaring;
         private System.Windows.Forms.Label label1;

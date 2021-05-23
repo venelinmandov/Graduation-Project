@@ -49,7 +49,7 @@ namespace GraduationProject
                     address.StreetId = streets[listBoxStreets.SelectedIndex].Id;
                     address.Number = (int)numericUpDownNumber.Value;
                     address.Squaring = (double)numericUpDownSquaring.Value;
-                    address.Habitallity = habitabillityValue;
+                    address.Habitallity = (Address.AddressHabitabillity)habitabillityValue;
                     address.NumResBuildings = (int)numericUpDownResBuildings.Value;
                     address.NumAgrBuildings = (int)numericUpDownAgrBuildings.Value;
                     address.NumCows = (int)numericUpDownCows.Value;
@@ -206,7 +206,7 @@ namespace GraduationProject
             numericUpDownPigs.Value = address.NumPigs;
             numericUpDownWalnut.Value = address.NumWalnutTrees;
             labelStreetName.Text = address.streetName;
-            SetGroupBoxValue(address.Habitallity, radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry);
+            SetGroupBoxValue((int)address.Habitallity, radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry);
 
             residents = new Resident().Get(connectionHelper, address);
             guests = new Person().Get(connectionHelper, address);

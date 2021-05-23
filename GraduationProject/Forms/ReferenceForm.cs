@@ -1,9 +1,7 @@
-﻿using System;
+﻿using GraduationProject.Models;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace GraduationProject.Forms
@@ -16,10 +14,10 @@ namespace GraduationProject.Forms
         InhabitantsFilterForm inhabitantsFilterForm = new InhabitantsFilterForm();
         Panel selectedTab;
 
-        Dictionary<int, string> habitabillity = new Dictionary<int, string>(){
-            { 0, "Пустеещ" } ,
-            { 1, "Обитаван" },
-            { 2, "Временно обитаван" }};
+        Dictionary<Address.AddressHabitabillity, string> habitabillity = new Dictionary<Address.AddressHabitabillity, string>(){
+            { Address.AddressHabitabillity.Desolate, "Пустеещ" } ,
+            { Address.AddressHabitabillity.Inhabited, "Обитаван" },
+            { Address.AddressHabitabillity.TemporaryInhabited, "Временно обитаван" }};
 
         Dictionary<int, string> gender = new Dictionary<int, string>(){
             { 0, "Мъж" } ,

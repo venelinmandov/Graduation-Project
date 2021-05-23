@@ -1,5 +1,5 @@
 ﻿
-namespace GraduationProject.Controls
+namespace GraduationProject.UserControls
 {
     partial class ListBoxUserControl
     {

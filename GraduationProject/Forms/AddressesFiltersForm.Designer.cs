@@ -296,12 +296,12 @@ namespace GraduationProject.Forms
             this.ClientSize = new System.Drawing.Size(396, 217);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.buttonSearch);
-            this.Controls.Add(this.panelSearchByInhabitant);
-            this.Controls.Add(this.panelSearchByStreet);
             this.Controls.Add(this.panelSearchByAnimal);
             this.Controls.Add(this.buttonSearchByInhabitant);
             this.Controls.Add(this.buttonSearchByAnimals);
             this.Controls.Add(this.buttonSearchByStreet);
+            this.Controls.Add(this.panelSearchByInhabitant);
+            this.Controls.Add(this.panelSearchByStreet);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddressesFiltersForm";

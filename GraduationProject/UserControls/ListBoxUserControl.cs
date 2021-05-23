@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using GraduationProject.Models;
 
-namespace GraduationProject.Controls
+namespace GraduationProject.UserControls
 {
     public partial class ListBoxUserControl : UserControl
     {
@@ -14,13 +15,21 @@ namespace GraduationProject.Controls
         public Color DesolateColor { get; set; }
         public Color InhabitedColor { get; set; }
         public Color TemporarilyColor { get; set; }
+        public Color ItemBorderColor { get; set; }
+        public ContentAlignment ItemTextAlignment { get; set; }
 
         Color selectedButtonColor;
         public int SelectedIndex { get; set; }
 
+        public bool WithDifferentColors { get; set; }
+
         [Browsable(true)][Category("Action")]
         [Description("Invoked when index is changed")]
         public event EventHandler SelectedIndexChanged;
+
+        [Browsable(true)][Category("Action")]
+        [Description("Item clicked")]
+        public event EventHandler ItemClicked;
         public ListBoxUserControl()
         {
             InitializeComponent();
@@ -40,10 +49,10 @@ namespace GraduationProject.Controls
                 button.FlatStyle = FlatStyle.Flat;
                 button.BackColor = ItemsColor;
                 button.Dock = DockStyle.Top;
+                button.Click += ButtonClick;
                 Controls.Add(button);
                 button.BringToFront();
-                button.Click += buttonClick;
-                button.Paint += buttonOnPaint;
+                button.Paint += ButtonOnPaint;
 
 
                 buttons.Add(button);
@@ -62,7 +71,7 @@ namespace GraduationProject.Controls
             SelectedIndex = -1;
             
             
-            foreach (Models.Address address in addresses)
+            foreach (Address address in addresses)
             {
                 Button button = new Button();
                 button.Text = address.ToString();
@@ -70,17 +79,24 @@ namespace GraduationProject.Controls
                 button.FlatStyle = FlatStyle.Flat;
                 
                 button.Dock = DockStyle.Top;
-                
-                button.Click += buttonClick;
-                button.Paint += buttonOnPaint;
-
-                switch (address.Habitallity)
+                button.TextAlign = ItemTextAlignment;
+                button.Click += ButtonClick;
+                button.Paint += ButtonOnPaint;
+                if (WithDifferentColors)
                 {
-                    case 0: button.BackColor = DesolateColor; break;
-                    case 1: button.BackColor = InhabitedColor; break;
-                    case 2: button.BackColor = TemporarilyColor;break;
-                    default:  button.BackColor = ItemsColor;break;
+                    switch (address.Habitallity)
+                    {
+                        case Address.AddressHabitabillity.Desolate: button.BackColor = DesolateColor; break;
+                        case Address.AddressHabitabillity.Inhabited: button.BackColor = InhabitedColor; break;
+                        case Address.AddressHabitabillity.TemporaryInhabited: button.BackColor = TemporarilyColor; break;
+                        default: button.BackColor = ItemsColor; break;
+                    }
                 }
+                else
+                {
+                    button.BackColor = ItemsColor;
+                }
+                
                 Controls.Add(button);
                 button.BringToFront();
                 buttons.Add(button);
@@ -107,7 +123,7 @@ namespace GraduationProject.Controls
 
 
         //Обработчик на събитие натискане на ляв бутон на мишката върху елемент 
-        private void buttonClick(object buttonClicked, EventArgs eventArgs)
+        private void ButtonClick(object buttonClicked, EventArgs eventArgs)
         {
             for (int i = 0; i < buttons.Count; i++)
             {
@@ -117,13 +133,15 @@ namespace GraduationProject.Controls
                     break;
                 }
             }
+            if (ItemClicked != null)
+                ItemClicked(SelectedIndex, new EventArgs());
         }
 
         //Изчертаване на рамка на елемент
-        private  void buttonOnPaint(object sender, PaintEventArgs e)
+        private  void ButtonOnPaint(object sender, PaintEventArgs e)
         {
             Button button = (Button)sender;
-            Pen pen = new Pen(Color.FromArgb(28, 97, 81), 1);
+            Pen pen = new Pen(ItemBorderColor);
             Rectangle rectangle = new Rectangle(0, 0, button.Width - 1, button.Height-1);
             e.Graphics.DrawRectangle(pen, rectangle);
         }
