@@ -54,3 +54,9 @@ D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationP
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.ShowAddress.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.ShowAddresses.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.Inhabitants.ReferencesInhabitantsSearchByName.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.csprojAssemblyReference.cache
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.ShowInhabitants.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.Inhabitants.ShowInhabitant.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.Inhabitants.ReferenceInhabitantsSearchByReg.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.Inhabitants.ReferencesInhabitantsByProperty.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.Inhabitants.ReferencesInhabitantsByResidence.resources

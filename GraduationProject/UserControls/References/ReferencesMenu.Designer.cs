@@ -51,6 +51,9 @@ namespace GraduationProject.UserControls
             // 
             // buttonQuarantines
             // 
+            this.buttonQuarantines.FlatAppearance.BorderSize = 0;
+            this.buttonQuarantines.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonQuarantines.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonQuarantines.Location = new System.Drawing.Point(440, 208);
             this.buttonQuarantines.Name = "buttonQuarantines";
             this.buttonQuarantines.Size = new System.Drawing.Size(179, 60);
@@ -60,6 +63,9 @@ namespace GraduationProject.UserControls
             // 
             // buttonTrees
             // 
+            this.buttonTrees.FlatAppearance.BorderSize = 0;
+            this.buttonTrees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTrees.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonTrees.Location = new System.Drawing.Point(658, 208);
             this.buttonTrees.Name = "buttonTrees";
             this.buttonTrees.Size = new System.Drawing.Size(179, 60);
@@ -69,6 +75,9 @@ namespace GraduationProject.UserControls
             // 
             // buttonPropeties
             // 
+            this.buttonPropeties.FlatAppearance.BorderSize = 0;
+            this.buttonPropeties.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPropeties.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonPropeties.Location = new System.Drawing.Point(225, 208);
             this.buttonPropeties.Name = "buttonPropeties";
             this.buttonPropeties.Size = new System.Drawing.Size(179, 60);
@@ -78,6 +87,9 @@ namespace GraduationProject.UserControls
             // 
             // buttonCattle
             // 
+            this.buttonCattle.FlatAppearance.BorderSize = 0;
+            this.buttonCattle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCattle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonCattle.Location = new System.Drawing.Point(658, 103);
             this.buttonCattle.Name = "buttonCattle";
             this.buttonCattle.Size = new System.Drawing.Size(179, 60);
@@ -88,6 +100,9 @@ namespace GraduationProject.UserControls
             // 
             // buttonInhabitants
             // 
+            this.buttonInhabitants.FlatAppearance.BorderSize = 0;
+            this.buttonInhabitants.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInhabitants.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonInhabitants.Location = new System.Drawing.Point(440, 103);
             this.buttonInhabitants.Name = "buttonInhabitants";
             this.buttonInhabitants.Size = new System.Drawing.Size(179, 60);
@@ -98,6 +113,9 @@ namespace GraduationProject.UserControls
             // 
             // buttonAddresses
             // 
+            this.buttonAddresses.FlatAppearance.BorderSize = 0;
+            this.buttonAddresses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddresses.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonAddresses.Location = new System.Drawing.Point(225, 103);
             this.buttonAddresses.Name = "buttonAddresses";
             this.buttonAddresses.Size = new System.Drawing.Size(179, 60);
@@ -108,8 +126,8 @@ namespace GraduationProject.UserControls
             // 
             // ReferencesMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.buttonQuarantines);

@@ -29,10 +29,10 @@ namespace GraduationProject.UserControls.References.Inhabitants
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxFirstname = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
             this.labelMiddlename = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxMiddlename = new System.Windows.Forms.TextBox();
             this.labelLastname = new System.Windows.Forms.Label();
             this.textBoxLastname = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -40,12 +40,12 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBoxName
+            // textBoxFirstname
             // 
-            this.textBoxName.Location = new System.Drawing.Point(68, 42);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(251, 21);
-            this.textBoxName.TabIndex = 0;
+            this.textBoxFirstname.Location = new System.Drawing.Point(68, 42);
+            this.textBoxFirstname.Name = "textBoxFirstname";
+            this.textBoxFirstname.Size = new System.Drawing.Size(251, 21);
+            this.textBoxFirstname.TabIndex = 0;
             // 
             // labelName
             // 
@@ -67,12 +67,12 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelMiddlename.TabIndex = 3;
             this.labelMiddlename.Text = "Презиме:";
             // 
-            // textBox2
+            // textBoxMiddlename
             // 
-            this.textBox2.Location = new System.Drawing.Point(68, 94);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(251, 21);
-            this.textBox2.TabIndex = 2;
+            this.textBoxMiddlename.Location = new System.Drawing.Point(68, 94);
+            this.textBoxMiddlename.Name = "textBoxMiddlename";
+            this.textBoxMiddlename.Size = new System.Drawing.Size(251, 21);
+            this.textBoxMiddlename.TabIndex = 2;
             // 
             // labelLastname
             // 
@@ -94,11 +94,11 @@ namespace GraduationProject.UserControls.References.Inhabitants
             // panel1
             // 
             this.panel1.Controls.Add(this.buttonShow);
-            this.panel1.Controls.Add(this.textBoxName);
+            this.panel1.Controls.Add(this.textBoxFirstname);
             this.panel1.Controls.Add(this.labelLastname);
             this.panel1.Controls.Add(this.labelName);
             this.panel1.Controls.Add(this.textBoxLastname);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.textBoxMiddlename);
             this.panel1.Controls.Add(this.labelMiddlename);
             this.panel1.Location = new System.Drawing.Point(324, 46);
             this.panel1.Name = "panel1";
@@ -115,11 +115,12 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.buttonShow.TabIndex = 6;
             this.buttonShow.Text = "Покажи";
             this.buttonShow.UseVisualStyleBackColor = true;
+            this.buttonShow.Click += new System.EventHandler(this.buttonShow_Click);
             // 
             // ReferencesInhabitantsSearchByName
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -133,10 +134,10 @@ namespace GraduationProject.UserControls.References.Inhabitants
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxFirstname;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelMiddlename;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxMiddlename;
         private System.Windows.Forms.Label labelLastname;
         private System.Windows.Forms.TextBox textBoxLastname;
         private System.Windows.Forms.Panel panel1;

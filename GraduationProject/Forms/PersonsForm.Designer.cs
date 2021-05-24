@@ -437,6 +437,7 @@ namespace GraduationProject.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PersonsForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PersonsForm_FormClosed);
+            this.Load += new System.EventHandler(this.PersonsForm_Load);
             this.groupBoxGender.ResumeLayout(false);
             this.groupBoxGender.PerformLayout();
             this.groupBoxAddressReg.ResumeLayout(false);

@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using GraduationProject.Models;
 using GraduationProject.Forms;
+using System.Linq;
 namespace GraduationProject.UserControls.References
 {
     public partial class ShowAddresses : UserControl
@@ -20,8 +21,13 @@ namespace GraduationProject.UserControls.References
         {
             InitializeComponent();
             this.addresses = addresses;
+            if (addresses.Count == 0)
+            {
+                labelNoAddresses.Visible = true;
+                listBoxAddresses.Visible = false;
+            }
             listBoxAddresses.ItemClicked += ShowAddress;
-            listBoxAddresses.AddList(addresses);
+            listBoxAddresses.AddList(addresses.Cast<object>().ToList());
 
         }
 

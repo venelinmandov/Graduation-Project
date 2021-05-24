@@ -41,7 +41,12 @@ namespace GraduationProject.Forms
             this.textBoxDogName = new System.Windows.Forms.TextBox();
             this.checkBoxNoNumber = new System.Windows.Forms.CheckBox();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.radioButtonGuard = new System.Windows.Forms.RadioButton();
+            this.radioButtonHunting = new System.Windows.Forms.RadioButton();
+            this.radioButtonDomestic = new System.Windows.Forms.RadioButton();
+            this.groupBoxDogType = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDogs)).BeginInit();
+            this.groupBoxDogType.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewDogs
@@ -95,7 +100,7 @@ namespace GraduationProject.Forms
             this.dataGridViewDogs.RowHeadersVisible = false;
             this.dataGridViewDogs.RowTemplate.Height = 25;
             this.dataGridViewDogs.ShowCellToolTips = false;
-            this.dataGridViewDogs.Size = new System.Drawing.Size(279, 177);
+            this.dataGridViewDogs.Size = new System.Drawing.Size(279, 216);
             this.dataGridViewDogs.TabIndex = 0;
             this.dataGridViewDogs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDogs_CellClick);
             this.dataGridViewDogs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDogs_CellContentClick);
@@ -130,7 +135,7 @@ namespace GraduationProject.Forms
             // 
             this.textBoxDogName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxDogName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxDogName.Location = new System.Drawing.Point(308, 13);
+            this.textBoxDogName.Location = new System.Drawing.Point(304, 14);
             this.textBoxDogName.Name = "textBoxDogName";
             this.textBoxDogName.Size = new System.Drawing.Size(185, 21);
             this.textBoxDogName.TabIndex = 1;
@@ -140,7 +145,7 @@ namespace GraduationProject.Forms
             this.checkBoxNoNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxNoNumber.AutoSize = true;
             this.checkBoxNoNumber.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkBoxNoNumber.Location = new System.Drawing.Point(308, 52);
+            this.checkBoxNoNumber.Location = new System.Drawing.Point(304, 52);
             this.checkBoxNoNumber.Name = "checkBoxNoNumber";
             this.checkBoxNoNumber.Size = new System.Drawing.Size(98, 19);
             this.checkBoxNoNumber.TabIndex = 2;
@@ -155,7 +160,7 @@ namespace GraduationProject.Forms
             this.buttonAdd.FlatAppearance.BorderSize = 0;
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonAdd.Location = new System.Drawing.Point(308, 80);
+            this.buttonAdd.Location = new System.Drawing.Point(308, 205);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(94, 23);
             this.buttonAdd.TabIndex = 3;
@@ -163,12 +168,57 @@ namespace GraduationProject.Forms
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
+            // radioButtonGuard
+            // 
+            this.radioButtonGuard.AutoSize = true;
+            this.radioButtonGuard.Location = new System.Drawing.Point(17, 20);
+            this.radioButtonGuard.Name = "radioButtonGuard";
+            this.radioButtonGuard.Size = new System.Drawing.Size(86, 19);
+            this.radioButtonGuard.TabIndex = 4;
+            this.radioButtonGuard.TabStop = true;
+            this.radioButtonGuard.Text = "Куче пазач";
+            this.radioButtonGuard.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonHuntingDog
+            // 
+            this.radioButtonHunting.AutoSize = true;
+            this.radioButtonHunting.Location = new System.Drawing.Point(17, 45);
+            this.radioButtonHunting.Name = "radioButtonHuntingDog";
+            this.radioButtonHunting.Size = new System.Drawing.Size(122, 19);
+            this.radioButtonHunting.TabIndex = 5;
+            this.radioButtonHunting.TabStop = true;
+            this.radioButtonHunting.Text = "Ловджийско куче";
+            this.radioButtonHunting.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonDomestic
+            // 
+            this.radioButtonDomestic.AutoSize = true;
+            this.radioButtonDomestic.Location = new System.Drawing.Point(17, 70);
+            this.radioButtonDomestic.Name = "radioButtonDomestic";
+            this.radioButtonDomestic.Size = new System.Drawing.Size(135, 19);
+            this.radioButtonDomestic.TabIndex = 6;
+            this.radioButtonDomestic.TabStop = true;
+            this.radioButtonDomestic.Text = "Домашен любимец";
+            this.radioButtonDomestic.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxDogType
+            // 
+            this.groupBoxDogType.Controls.Add(this.radioButtonGuard);
+            this.groupBoxDogType.Controls.Add(this.radioButtonDomestic);
+            this.groupBoxDogType.Controls.Add(this.radioButtonHunting);
+            this.groupBoxDogType.Location = new System.Drawing.Point(297, 77);
+            this.groupBoxDogType.Name = "groupBoxDogType";
+            this.groupBoxDogType.Size = new System.Drawing.Size(200, 100);
+            this.groupBoxDogType.TabIndex = 7;
+            this.groupBoxDogType.TabStop = false;
+            // 
             // DogsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
-            this.ClientSize = new System.Drawing.Size(505, 201);
+            this.ClientSize = new System.Drawing.Size(505, 240);
+            this.Controls.Add(this.groupBoxDogType);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.checkBoxNoNumber);
             this.Controls.Add(this.textBoxDogName);
@@ -179,6 +229,8 @@ namespace GraduationProject.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Кучета";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDogs)).EndInit();
+            this.groupBoxDogType.ResumeLayout(false);
+            this.groupBoxDogType.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,5 +245,9 @@ namespace GraduationProject.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSealNumber;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.RadioButton radioButtonGuard;
+        private System.Windows.Forms.RadioButton radioButtonHunting;
+        private System.Windows.Forms.RadioButton radioButtonDomestic;
+        private System.Windows.Forms.GroupBox groupBoxDogType;
     }
 }

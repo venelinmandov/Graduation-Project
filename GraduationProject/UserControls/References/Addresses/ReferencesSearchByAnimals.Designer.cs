@@ -69,6 +69,8 @@ namespace GraduationProject.UserControls.References
             // 
             // buttonShowCattle
             // 
+            this.buttonShowCattle.FlatAppearance.BorderSize = 0;
+            this.buttonShowCattle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShowCattle.Location = new System.Drawing.Point(62, 153);
             this.buttonShowCattle.Name = "buttonShowCattle";
             this.buttonShowCattle.Size = new System.Drawing.Size(75, 23);
@@ -119,6 +121,8 @@ namespace GraduationProject.UserControls.References
             // 
             // buttonShowDogs
             // 
+            this.buttonShowDogs.FlatAppearance.BorderSize = 0;
+            this.buttonShowDogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShowDogs.Location = new System.Drawing.Point(64, 153);
             this.buttonShowDogs.Name = "buttonShowDogs";
             this.buttonShowDogs.Size = new System.Drawing.Size(75, 23);
@@ -188,8 +192,8 @@ namespace GraduationProject.UserControls.References
             // 
             // ReferencesSearchByAnimals
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.panelDogs);
             this.Controls.Add(this.panelCattle);

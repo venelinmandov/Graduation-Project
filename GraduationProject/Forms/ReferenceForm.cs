@@ -23,14 +23,15 @@ namespace GraduationProject.Forms
             { 0, "Мъж" } ,
             { 1, "Жена" }};
 
-        Dictionary<int, string> covid19 = new Dictionary<int, string>(){
-            { 0, "Няма" } ,
-            { 1, "Има" },
-            { 2, "Контактен" }};
-        Dictionary<int, string> addressRegistration = new Dictionary<int, string>(){
-            { 0, "Няма" } ,
-            { 1, "Има" },
-            { 2, "Временна" }};
+        Dictionary<Person.Covid19Enum, string> covid19 = new Dictionary<Person.Covid19Enum, string>(){
+            { Person.Covid19Enum.No, "Няма" } ,
+            { Person.Covid19Enum.Yes, "Има" },
+            { Person.Covid19Enum.Contact, "Контактен" }};
+
+        Dictionary<Resident.AddressRegistration, string> addressRegistration = new Dictionary<Resident.AddressRegistration, string>(){
+            { Resident.AddressRegistration.No, "Няма" } ,
+            { Resident.AddressRegistration.Yes, "Има" },
+            { Resident.AddressRegistration.Temporary, "Временна" }};
 
 
         //Конструктор

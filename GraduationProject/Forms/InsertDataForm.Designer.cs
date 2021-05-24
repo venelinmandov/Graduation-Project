@@ -223,6 +223,7 @@ namespace GraduationProject
             this.listBoxAddresses.DesolateColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(79)))), ((int)(((byte)(55)))));
             this.listBoxAddresses.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxAddresses.InhabitedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(186)))));
+            this.listBoxAddresses.ItemBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(79)))), ((int)(((byte)(33)))));
             this.listBoxAddresses.ItemsColor = System.Drawing.Color.DeepSkyBlue;
             this.listBoxAddresses.Location = new System.Drawing.Point(3, 66);
             this.listBoxAddresses.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -232,7 +233,6 @@ namespace GraduationProject
             this.listBoxAddresses.Size = new System.Drawing.Size(180, 464);
             this.listBoxAddresses.TabIndex = 35;
             this.listBoxAddresses.TemporarilyColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(187)))), ((int)(((byte)(0)))));
-            this.listBoxAddresses.WithDifferentColors = true;
             this.listBoxAddresses.SelectedIndexChanged += new System.EventHandler(this.listBoxUserControl_SelectedIndexChanged);
             // 
             // contextMenuStripStreets

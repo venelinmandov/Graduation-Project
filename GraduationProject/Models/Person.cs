@@ -16,8 +16,16 @@ namespace GraduationProject.Models
         public int CurrentAddressId { get; set; }
         public string RelToOwner { get; set; }
         public string Note { get; set; }
+        public Covid19Enum Covid19 { get; set; }
 
-        protected static string fields = "firstname, middlename, lastname, gender, addressId, currentAddressId, relationToOwner, note";
+        protected static string fields = "firstname, middlename, lastname, gender, addressId, currentAddressId, relationToOwner, note, covid19";
+
+        public enum Covid19Enum { No,Yes,Contact };
+
+        public override string ToString()
+        {
+            return $"{Firstname} {Middlename} {Lastname}";
+        }
 
         //Запълване на обекта с информация
         public virtual void Fill(SQLiteDataReader reader)
@@ -31,6 +39,7 @@ namespace GraduationProject.Models
             CurrentAddressId = reader.IsDBNull(6)? -1 : reader.GetInt32(6);
             RelToOwner = reader.GetString(7);
             Note = reader.GetString(8);
+            Covid19 = (Covid19Enum)reader.GetInt32(9);
         }
 
         //Заявки
@@ -40,7 +49,7 @@ namespace GraduationProject.Models
         {
             long id;
             string query = @$"INSERT INTO GuestsInQuarantine ({fields})
-                            VALUES (@fName, @mName, @lName, @gender, @addrId, @currAddrId @rel, @note)";
+                            VALUES (@fName, @mName, @lName, @gender, @addrId, @currAddrId @rel, @note, @covid19)";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", Firstname);
@@ -50,6 +59,7 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@covid19", Covid19);
             if (CurrentAddressId == -1)
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@currAddrId", System.DBNull.Value);
             else
@@ -166,7 +176,8 @@ namespace GraduationProject.Models
                              SET firstname = @fname, middlename = @mName,
                                 lastname = @lName, note = @note,
                                 gender = @gender, addressId = @addrId,
-                                currentAddressId = @currAddrId ,relationToOwner = @rel
+                                currentAddressId = @currAddrId ,relationToOwner = @rel,
+                                covid19 = @covid19
                              WHERE id = @id";
 
             connectionHelper.NewConnection(query);
@@ -182,6 +193,7 @@ namespace GraduationProject.Models
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@currAddrId", CurrentAddressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@covid19", Covid19);
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();
         }

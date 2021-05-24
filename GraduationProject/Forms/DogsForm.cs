@@ -8,12 +8,13 @@ namespace GraduationProject.Forms
 {
     public partial class DogsForm : Form
     {
+        ErrorProvider errorProvider = new ErrorProvider();
         List<Dog> dogs;
         Address address;
         ConnectionHelper connectionHelper = new ConnectionHelper();
         bool editing = false;
         string currentCellText;
-        
+
         public DogsForm(List<Dog> dogsArg)
         {
             InitializeComponent();
@@ -35,7 +36,6 @@ namespace GraduationProject.Forms
                 dataGridViewDogs.RowCount++;
                 dataGridViewDogs.Rows[dataGridViewDogs.RowCount - 1].Cells[0].Value = i + 1;
                 dataGridViewDogs.Rows[dataGridViewDogs.RowCount - 1].Cells[1].Value = dogs[i];
-
             }
         }
 
@@ -86,6 +86,7 @@ namespace GraduationProject.Forms
         {
             Regex regex = new Regex(@"^\d{15}$");
             string sealNum;
+            Dog.DogType dogType;
 
             if (!checkBoxNoNumber.Checked)
             {
@@ -103,7 +104,21 @@ namespace GraduationProject.Forms
             }
             textBoxDogName.Text = "";
 
-            Dog newDog = new Dog() { SealNumber = sealNum };
+            dogType = GetDogType();
+            if (dogType == Dog.DogType.All)
+            {
+                errorProvider.SetError(groupBoxDogType, "Моля изберете опция");
+                return;
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
+
+            Dog newDog = new Dog() {
+                SealNumber = sealNum,
+                Type = dogType
+            };
 
             if (address != null)
             {
@@ -158,5 +173,29 @@ namespace GraduationProject.Forms
                 dataGridViewDogs.CurrentCell.Value = currentCellText;
 
         }
+
+        RadioButton GetRadioButton(Dog.DogType dogType)
+        {
+            switch (dogType)
+            {
+                case Dog.DogType.DomesticDog: return radioButtonDomestic;
+                case Dog.DogType.GuardDog:return radioButtonGuard;
+                case Dog.DogType.HuntingDog:return radioButtonHunting;
+                default: return null;
+            } 
+        }
+
+        Dog.DogType GetDogType()
+        {
+            if (radioButtonDomestic.Checked)
+                return Dog.DogType.DomesticDog;
+            else if (radioButtonHunting.Checked)
+                return Dog.DogType.HuntingDog;
+            else if (radioButtonGuard.Checked)
+                return Dog.DogType.GuardDog;
+            else return Dog.DogType.All;
+                    
+        }
+ 
     }
 }

@@ -3,19 +3,20 @@ using System.Data.SQLite;
 
 namespace GraduationProject.Models
 {
-    public class Resident:Person, Model<Resident>
+    public class Resident:Person
     {
-        public int AddressReg { get; set; } //0 - няма, 1 - има, 2 - временна
-        public int Covid19 { get; set; }
+        public AddressRegistration AddressReg { get; set; } //0 - няма, 1 - има, 2 - временна
+
 
         private new string fields = Person.fields + ", addressReg, covid19";
+
+        public enum AddressRegistration {No, Yes, Temporary };
 
         //Запълане на обекта с информация
         public override void Fill(SQLiteDataReader reader)
         {
             base.Fill(reader);
-            AddressReg = reader.GetInt32(9);
-            Covid19 = reader.GetInt32(10); //0 - няма, 1 - има, 2 - контактен  
+            AddressReg = (AddressRegistration)reader.GetInt32(10); 
             
         }
 
@@ -116,11 +117,32 @@ namespace GraduationProject.Models
 
             return residents;
 
+        }
+
+        public List<Resident> Get(ConnectionHelper connectionHelper, AddressRegistration addressRegistration)
+        {
+            List<Resident> residents = new List<Resident>();
+            Resident resident;
+            string query = $"SELECT id, {fields} FROM Residents WHERE AddressReg = @reg";
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@reg", addressRegistration);
+            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                resident = new Resident();
+                resident.Fill(reader);
+                residents.Add(resident);
+            };
+            reader.Close();
+            connectionHelper.sqlConnection.Close();
+
+            return residents;
+            
 
         }
 
 
-        List<Resident> Model<Resident>.Get(ConnectionHelper connectionHelper)
+        public new List<Resident> Get(ConnectionHelper connectionHelper)
         {
             return Get(connectionHelper,null);
         }

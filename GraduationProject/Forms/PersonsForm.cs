@@ -92,8 +92,8 @@ namespace GraduationProject.Forms
             if (radioButtonHousehold.Checked)
             {
                 Resident residentToShow = (Resident)personToShow;
-                SetGroupBoxValue(residentToShow.AddressReg,radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
-                SetGroupBoxValue(residentToShow.Covid19, radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
+                SetGroupBoxValue((int)residentToShow.AddressReg,radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
+                SetGroupBoxValue((int)residentToShow.Covid19, radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
             }
 
             if (personToShow.CurrentAddressId != -1)
@@ -260,8 +260,8 @@ namespace GraduationProject.Forms
             if (radioButtonHousehold.Checked)
             {
                 Resident residentToSave = (Resident)person;
-                residentToSave.AddressReg = GetGroupBoxValue(radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
-                residentToSave.Covid19 = GetGroupBoxValue(radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
+                residentToSave.AddressReg = (Resident.AddressRegistration)GetGroupBoxValue(radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
+                residentToSave.Covid19 = (Person.Covid19Enum)GetGroupBoxValue(radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
 
             }
 
@@ -313,5 +313,9 @@ namespace GraduationProject.Forms
             }
         }
 
+        private void PersonsForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

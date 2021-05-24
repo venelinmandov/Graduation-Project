@@ -21,7 +21,6 @@ namespace GraduationProject.UserControls
         Color selectedButtonColor;
         public int SelectedIndex { get; set; }
 
-        public bool WithDifferentColors { get; set; }
 
         [Browsable(true)][Category("Action")]
         [Description("Invoked when index is changed")]
@@ -49,6 +48,7 @@ namespace GraduationProject.UserControls
                 button.FlatStyle = FlatStyle.Flat;
                 button.BackColor = ItemsColor;
                 button.Dock = DockStyle.Top;
+                button.TextAlign = ItemTextAlignment;
                 button.Click += ButtonClick;
                 Controls.Add(button);
                 button.BringToFront();
@@ -79,24 +79,15 @@ namespace GraduationProject.UserControls
                 button.FlatStyle = FlatStyle.Flat;
                 
                 button.Dock = DockStyle.Top;
-                button.TextAlign = ItemTextAlignment;
                 button.Click += ButtonClick;
                 button.Paint += ButtonOnPaint;
-                if (WithDifferentColors)
-                {
                     switch (address.Habitallity)
                     {
                         case Address.AddressHabitabillity.Desolate: button.BackColor = DesolateColor; break;
                         case Address.AddressHabitabillity.Inhabited: button.BackColor = InhabitedColor; break;
                         case Address.AddressHabitabillity.TemporaryInhabited: button.BackColor = TemporarilyColor; break;
                         default: button.BackColor = ItemsColor; break;
-                    }
-                }
-                else
-                {
-                    button.BackColor = ItemsColor;
-                }
-                
+                    }     
                 Controls.Add(button);
                 button.BringToFront();
                 buttons.Add(button);

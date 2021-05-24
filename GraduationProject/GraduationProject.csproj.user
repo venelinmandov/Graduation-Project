@@ -4,6 +4,15 @@
     <Compile Update="UserControls\ListBoxUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControls\References\Inhabitants\ReferenceInhabitantsSearchByReg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\References\Inhabitants\ReferencesInhabitantsByProperty.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\References\Inhabitants\ReferencesInhabitantsByResidence.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\References\Inhabitants\ReferencesInhabitantsMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -11,6 +20,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\References\Addresses\ShowAddress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\References\Inhabitants\ShowInhabitant.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\References\ReferencesMenu.cs">

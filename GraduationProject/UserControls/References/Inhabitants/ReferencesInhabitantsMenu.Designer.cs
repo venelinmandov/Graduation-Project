@@ -61,33 +61,48 @@ namespace GraduationProject.UserControls.References
             // 
             // buttonResidenceStatus
             // 
+            this.buttonResidenceStatus.FlatAppearance.BorderSize = 0;
+            this.buttonResidenceStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonResidenceStatus.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonResidenceStatus.Location = new System.Drawing.Point(550, 233);
             this.buttonResidenceStatus.Name = "buttonResidenceStatus";
             this.buttonResidenceStatus.Size = new System.Drawing.Size(179, 60);
             this.buttonResidenceStatus.TabIndex = 18;
             this.buttonResidenceStatus.Text = "Статус на пребиваване";
             this.buttonResidenceStatus.UseVisualStyleBackColor = true;
+            this.buttonResidenceStatus.Click += new System.EventHandler(this.buttonResidenceStatus_Click);
             // 
             // buttonPropetyStatus
             // 
+            this.buttonPropetyStatus.FlatAppearance.BorderSize = 0;
+            this.buttonPropetyStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPropetyStatus.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonPropetyStatus.Location = new System.Drawing.Point(335, 233);
             this.buttonPropetyStatus.Name = "buttonPropetyStatus";
             this.buttonPropetyStatus.Size = new System.Drawing.Size(179, 60);
             this.buttonPropetyStatus.TabIndex = 17;
             this.buttonPropetyStatus.Text = "Статус на собственост";
             this.buttonPropetyStatus.UseVisualStyleBackColor = true;
+            this.buttonPropetyStatus.Click += new System.EventHandler(this.buttonPropetyStatus_Click);
             // 
             // buttonByAddrReg
             // 
+            this.buttonByAddrReg.FlatAppearance.BorderSize = 0;
+            this.buttonByAddrReg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonByAddrReg.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonByAddrReg.Location = new System.Drawing.Point(550, 128);
             this.buttonByAddrReg.Name = "buttonByAddrReg";
             this.buttonByAddrReg.Size = new System.Drawing.Size(179, 60);
             this.buttonByAddrReg.TabIndex = 16;
             this.buttonByAddrReg.Text = "Адресна регистрация";
             this.buttonByAddrReg.UseVisualStyleBackColor = true;
+            this.buttonByAddrReg.Click += new System.EventHandler(this.buttonByAddrReg_Click);
             // 
             // buttonByName
             // 
+            this.buttonByName.FlatAppearance.BorderSize = 0;
+            this.buttonByName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonByName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonByName.Location = new System.Drawing.Point(335, 128);
             this.buttonByName.Name = "buttonByName";
             this.buttonByName.Size = new System.Drawing.Size(179, 60);
@@ -98,8 +113,8 @@ namespace GraduationProject.UserControls.References
             // 
             // ReferencesInhabitantsMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.buttonResidenceStatus);
             this.Controls.Add(this.buttonPropetyStatus);

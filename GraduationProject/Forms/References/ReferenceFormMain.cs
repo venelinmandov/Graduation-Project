@@ -12,7 +12,7 @@ namespace GraduationProject.Forms
 {
     public partial class ReferenceFormMain : Form
     {
-        string previousState; 
+        Stack<UserControl> userControls = new Stack<UserControl>();
         public ReferenceFormMain()
         {
             InitializeComponent();
@@ -41,50 +41,91 @@ namespace GraduationProject.Forms
             switch (eventData.panelName)
             {
                 case "menu":
-                    panelContents.Controls.Clear();
                     ReferencesMenu referencesMenu = new ReferencesMenu();
                     panelContents.Controls.Add(referencesMenu);
+                    referencesMenu.BringToFront();
                     referencesMenu.ButtonClicked += MenuButtonClicked;
-                    previousState = "";
                     break;
                 case "addresses":
-                    panelContents.Controls.Clear();
                     UserControls.References.ReferencesSearchByAddress byAddressControl = new UserControls.References.ReferencesSearchByAddress();
+                    userControls.Push(byAddressControl);
                     byAddressControl.SearchButtonClicked += MenuButtonClicked;
                     panelContents.Controls.Add(byAddressControl);
-                    previousState = "menu";
+                    byAddressControl.BringToFront();
                     break;
                 case "animals":
-                    panelContents.Controls.Clear();
                     UserControls.References.ReferencesSearchByAnimals searchByAnimals = new UserControls.References.ReferencesSearchByAnimals();
+                    userControls.Push(searchByAnimals);
                     searchByAnimals.SearchButtonClicked += MenuButtonClicked;
                     panelContents.Controls.Add(searchByAnimals);
-                    previousState = "menu";
+                    searchByAnimals.BringToFront();
                     break;
                 case "showAddress":
-                    panelContents.Controls.Clear();
-                    panelContents.Controls.Add(new UserControls.References.ShowAddress((Address)eventData.data));
-                    previousState = "menu";
+                    UserControls.References.ShowAddress showAddress = new UserControls.References.ShowAddress((Address)eventData.data);
+                    panelContents.Controls.Add(showAddress);
+                    showAddress.BringToFront();
+                    userControls.Push(showAddress);
                     break;
                 case "showAddresses":
-                    panelContents.Controls.Clear();
                     UserControls.References.ShowAddresses showAddresses = new UserControls.References.ShowAddresses((List<Address>)eventData.data);
+                    userControls.Push(showAddresses);
                     showAddresses.AddressClicked += MenuButtonClicked;
                     panelContents.Controls.Add(showAddresses);
-                    previousState = "menu";
+                    showAddresses.BringToFront();
                     break;
                 case "inhabitants":
-                    panelContents.Controls.Clear();
                     UserControls.References.ReferencesInhabitantsMenu referencesInhabitantsMenu = new UserControls.References.ReferencesInhabitantsMenu();
+                    userControls.Push(referencesInhabitantsMenu);
                     referencesInhabitantsMenu.buttonClicked += MenuButtonClicked;
                     panelContents.Controls.Add(referencesInhabitantsMenu);
-                    previousState = "menu";
+                    referencesInhabitantsMenu.BringToFront();
                     break;
                 case "inhabitantsByName":
-                    panelContents.Controls.Clear();
                     UserControls.References.Inhabitants.ReferencesInhabitantsSearchByName inhabitantsSearchByName = new UserControls.References.Inhabitants.ReferencesInhabitantsSearchByName();
+                    userControls.Push(inhabitantsSearchByName);
+                    inhabitantsSearchByName.ShowButtonClicked += MenuButtonClicked;
                     panelContents.Controls.Add(inhabitantsSearchByName);
-                    previousState = "menu";
+                    inhabitantsSearchByName.BringToFront();
+                    break;
+                case "inhabitantsByReg":
+                    UserControls.References.Inhabitants.ReferenceInhabitantsSearchByReg inhabitantsSearchByReg = new UserControls.References.Inhabitants.ReferenceInhabitantsSearchByReg();
+                    userControls.Push(inhabitantsSearchByReg);
+                    inhabitantsSearchByReg.ShowButtonClicked += MenuButtonClicked;
+                    panelContents.Controls.Add(inhabitantsSearchByReg);
+                    inhabitantsSearchByReg.BringToFront();
+                    break;
+                case "inhabitantsByProp":
+                    UserControls.References.Inhabitants.ReferencesInhabitantsByProperty inhabitantsSearchByProp = new UserControls.References.Inhabitants.ReferencesInhabitantsByProperty();
+                    userControls.Push(inhabitantsSearchByProp);
+                    inhabitantsSearchByProp.ShowButtonClicked += MenuButtonClicked;
+                    panelContents.Controls.Add(inhabitantsSearchByProp);
+                    inhabitantsSearchByProp.BringToFront();
+                    break;
+                case "inhabitantsByResidence":
+                    UserControls.References.Inhabitants.ReferencesInhabitantsByResidence inhabitantsSearchByResidence = new UserControls.References.Inhabitants.ReferencesInhabitantsByResidence();
+                    userControls.Push(inhabitantsSearchByResidence);
+                    inhabitantsSearchByResidence.ShowButtonClicked += MenuButtonClicked;
+                    panelContents.Controls.Add(inhabitantsSearchByResidence);
+                    inhabitantsSearchByResidence.BringToFront();
+                    break;
+                case "showInhabitants":
+                    UserControls.References.ShowInhabitants showInhabitants = new UserControls.References.ShowInhabitants((UserControls.References.ShowInhabitants.PersonsStruct)eventData.data);
+                    userControls.Push(showInhabitants);
+                    showInhabitants.InhabitantClicked += MenuButtonClicked;
+                    panelContents.Controls.Add(showInhabitants);
+                    showInhabitants.BringToFront();
+                    break;
+                case "showGuest":
+                    UserControls.References.Inhabitants.ShowInhabitant showGuest = new UserControls.References.Inhabitants.ShowInhabitant((Person)eventData.data);
+                    userControls.Push(showGuest);
+                    panelContents.Controls.Add(showGuest);
+                    showGuest.BringToFront();
+                    break;
+                case "showResident":
+                    UserControls.References.Inhabitants.ShowInhabitant showResident = new UserControls.References.Inhabitants.ShowInhabitant((Resident)eventData.data);
+                    userControls.Push(showResident);
+                    panelContents.Controls.Add(showResident);
+                    showResident.BringToFront();
                     break;
 
                 default: break;
@@ -95,12 +136,8 @@ namespace GraduationProject.Forms
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            MenuButtonClicked(new EventData(previousState), new EventArgs());
-        }
-
-        private void ShowAddress(object sender, EventArgs e)
-        {
-            MenuButtonClicked(new EventData(previousState), new EventArgs());
+            if (userControls.Count != 0)
+                panelContents.Controls.Remove(userControls.Pop());
         }
     }
 }

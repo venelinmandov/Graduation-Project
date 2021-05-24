@@ -90,6 +90,8 @@ namespace GraduationProject.UserControls.References
             // 
             // buttonSearch
             // 
+            this.buttonSearch.FlatAppearance.BorderSize = 0;
+            this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearch.Location = new System.Drawing.Point(342, 227);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(106, 23);
@@ -100,8 +102,8 @@ namespace GraduationProject.UserControls.References
             // 
             // ReferencesSearchByAddress
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.labelNumber);

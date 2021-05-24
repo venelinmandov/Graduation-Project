@@ -31,6 +31,7 @@ namespace GraduationProject.UserControls.References
         {
             this.labelTitle = new System.Windows.Forms.Label();
             this.listBoxAddresses = new GraduationProject.UserControls.ListBoxUserControl();
+            this.labelNoAddresses = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -48,12 +49,12 @@ namespace GraduationProject.UserControls.References
             // listBoxAddresses
             // 
             this.listBoxAddresses.AutoScroll = true;
-            this.listBoxAddresses.ItemTextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.listBoxAddresses.DesolateColor = System.Drawing.Color.Empty;
             this.listBoxAddresses.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxAddresses.InhabitedColor = System.Drawing.Color.Empty;
             this.listBoxAddresses.ItemBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.listBoxAddresses.ItemsColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.listBoxAddresses.ItemTextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.listBoxAddresses.Location = new System.Drawing.Point(264, 109);
             this.listBoxAddresses.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.listBoxAddresses.Name = "listBoxAddresses";
@@ -62,13 +63,26 @@ namespace GraduationProject.UserControls.References
             this.listBoxAddresses.Size = new System.Drawing.Size(534, 196);
             this.listBoxAddresses.TabIndex = 3;
             this.listBoxAddresses.TemporarilyColor = System.Drawing.Color.Empty;
-            this.listBoxAddresses.WithDifferentColors = false;
+            // 
+            // labelNoAddresses
+            // 
+            this.labelNoAddresses.AutoSize = true;
+            this.labelNoAddresses.BackColor = System.Drawing.Color.Transparent;
+            this.labelNoAddresses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelNoAddresses.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelNoAddresses.Location = new System.Drawing.Point(264, 155);
+            this.labelNoAddresses.Name = "labelNoAddresses";
+            this.labelNoAddresses.Size = new System.Drawing.Size(538, 27);
+            this.labelNoAddresses.TabIndex = 5;
+            this.labelNoAddresses.Text = "Няма намерени адреси по посочения критерий";
+            this.labelNoAddresses.Visible = false;
             // 
             // ShowAddresses
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.labelNoAddresses);
             this.Controls.Add(this.listBoxAddresses);
             this.Controls.Add(this.labelTitle);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -83,5 +97,6 @@ namespace GraduationProject.UserControls.References
 
         private System.Windows.Forms.Label labelTitle;
         private ListBoxUserControl listBoxAddresses;
+        private System.Windows.Forms.Label labelNoAddresses;
     }
 }
