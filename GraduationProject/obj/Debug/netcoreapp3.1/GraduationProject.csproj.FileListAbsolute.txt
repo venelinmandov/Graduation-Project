@@ -40,12 +40,10 @@ D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\li
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\SQLite.Interop.dll
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SQLite.Interop.dll
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll
-D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.MenuForm.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.InsertDataForm.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.ReferenceForm.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.AddressesFiltersForm.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.InhabitantsFilterForm.resources
-D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.ReferenceFormMain.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.ListBoxUserControl.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.ReferencesInhabitantsMenu.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.ReferencesMenu.resources
@@ -60,3 +58,7 @@ D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationP
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.Inhabitants.ReferenceInhabitantsSearchByReg.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.Inhabitants.ReferencesInhabitantsByProperty.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.Inhabitants.ReferencesInhabitantsByResidence.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.MainForm.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.MenuUserControl.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.Addresses.ReferencesSearchByHabitabillity.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.Addresses.ReferencesSearchByTrees.resources

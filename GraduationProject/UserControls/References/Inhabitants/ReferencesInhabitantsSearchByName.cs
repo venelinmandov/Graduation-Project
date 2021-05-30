@@ -33,7 +33,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
                 residents = residents
             };
 
-            ShowButtonClicked(new ReferenceFormMain.EventData("showInhabitants",personsStruct),e);
+            ShowButtonClicked(new MainForm.EventData("showInhabitants",personsStruct),e);
         }
     }
 }

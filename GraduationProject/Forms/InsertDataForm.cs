@@ -37,19 +37,20 @@ namespace GraduationProject
             if ( selectedTab == panelSearch || !AddressExist(streets[listBoxStreets.SelectedIndex], (int)numericUpDownNumber.Value))
             {
                 int habitabillityValue;
-                if ((habitabillityValue = GetGroupBoxValue(radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry)) != -1)
+                if ((habitabillityValue = GetGroupBoxValue(radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry, radioButtonOutOfRegulation)) != -1)
                 {
                     errorProvider.SetError(groupBoxHabitabillity, "");
                     if (panelAdd == selectedTab)
                     {
                         address = new Address();
+                        address.StreetId = streets[listBoxStreets.SelectedIndex].Id;
+
                     }
 
 
-                    address.StreetId = streets[listBoxStreets.SelectedIndex].Id;
                     address.Number = (int)numericUpDownNumber.Value;
                     address.Squaring = (double)numericUpDownSquaring.Value;
-                    address.Habitallity = (Address.AddressHabitabillity)habitabillityValue;
+                    address.Habitallity = (Address.AddressHabitability)habitabillityValue;
                     address.NumResBuildings = (int)numericUpDownResBuildings.Value;
                     address.NumAgrBuildings = (int)numericUpDownAgrBuildings.Value;
                     address.NumCows = (int)numericUpDownCows.Value;
@@ -179,7 +180,7 @@ namespace GraduationProject
             textBoxDogs.Text = "0";
             labelStreetName.Text = streets[listBoxStreets.SelectedIndex].Name;
 
-            RadioButton[] radioButtons = new RadioButton[] { radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry };
+            RadioButton[] radioButtons = new RadioButton[] { radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry, radioButtonOutOfRegulation };
             foreach (RadioButton radioButton in radioButtons)
             {
                 if (radioButton.Checked)
@@ -206,7 +207,7 @@ namespace GraduationProject
             numericUpDownPigs.Value = address.NumPigs;
             numericUpDownWalnut.Value = address.NumWalnutTrees;
             labelStreetName.Text = address.streetName;
-            SetGroupBoxValue((int)address.Habitallity, radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry);
+            SetGroupBoxValue((int)address.Habitallity, radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry, radioButtonOutOfRegulation);
 
             residents = new Resident().Get(connectionHelper, address);
             guests = new Person().Get(connectionHelper, address);

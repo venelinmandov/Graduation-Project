@@ -47,7 +47,7 @@ namespace GraduationProject.UserControls.References
             {
                 if (people[selectedIndex] == person)
                 {
-                    InhabitantClicked(new ReferenceFormMain.EventData("showGuest",person), eventArgs);
+                    InhabitantClicked(new MainForm.EventData("showGuest",person), eventArgs);
                     return;
                 }
             }
@@ -55,7 +55,7 @@ namespace GraduationProject.UserControls.References
             {
                 if (people[selectedIndex] == resident)
                 {
-                    InhabitantClicked(new ReferenceFormMain.EventData("showResident", resident), eventArgs);
+                    InhabitantClicked(new MainForm.EventData("showResident", resident), eventArgs);
                     return;
                 }
             }

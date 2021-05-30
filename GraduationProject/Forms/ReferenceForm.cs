@@ -14,10 +14,10 @@ namespace GraduationProject.Forms
         InhabitantsFilterForm inhabitantsFilterForm = new InhabitantsFilterForm();
         Panel selectedTab;
 
-        Dictionary<Address.AddressHabitabillity, string> habitabillity = new Dictionary<Address.AddressHabitabillity, string>(){
-            { Address.AddressHabitabillity.Desolate, "Пустеещ" } ,
-            { Address.AddressHabitabillity.Inhabited, "Обитаван" },
-            { Address.AddressHabitabillity.TemporaryInhabited, "Временно обитаван" }};
+        Dictionary<Address.AddressHabitability, string> habitabillity = new Dictionary<Address.AddressHabitability, string>(){
+            { Address.AddressHabitability.Desolate, "Пустеещ" } ,
+            { Address.AddressHabitability.Inhabited, "Обитаван" },
+            { Address.AddressHabitability.TemporaryInhabited, "Временно обитаван" }};
 
         Dictionary<int, string> gender = new Dictionary<int, string>(){
             { 0, "Мъж" } ,

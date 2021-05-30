@@ -56,6 +56,7 @@ namespace GraduationProject
             this.numericUpDownSquaring = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxHabitabillity = new System.Windows.Forms.GroupBox();
+            this.radioButtonOutOfRegulation = new System.Windows.Forms.RadioButton();
             this.radioButtonTemporariry = new System.Windows.Forms.RadioButton();
             this.radioButtonInhabited = new System.Windows.Forms.RadioButton();
             this.radioButtonDesolate = new System.Windows.Forms.RadioButton();
@@ -359,6 +360,7 @@ namespace GraduationProject
             // 
             // groupBoxHabitabillity
             // 
+            this.groupBoxHabitabillity.Controls.Add(this.radioButtonOutOfRegulation);
             this.groupBoxHabitabillity.Controls.Add(this.radioButtonTemporariry);
             this.groupBoxHabitabillity.Controls.Add(this.radioButtonInhabited);
             this.groupBoxHabitabillity.Controls.Add(this.radioButtonDesolate);
@@ -366,16 +368,28 @@ namespace GraduationProject
             this.groupBoxHabitabillity.ForeColor = System.Drawing.Color.Black;
             this.groupBoxHabitabillity.Location = new System.Drawing.Point(15, 79);
             this.groupBoxHabitabillity.Name = "groupBoxHabitabillity";
-            this.groupBoxHabitabillity.Size = new System.Drawing.Size(153, 118);
+            this.groupBoxHabitabillity.Size = new System.Drawing.Size(150, 118);
             this.groupBoxHabitabillity.TabIndex = 2;
             this.groupBoxHabitabillity.TabStop = false;
             this.groupBoxHabitabillity.Text = "Обитаемост";
+            // 
+            // radioButtonOutOfRegulation
+            // 
+            this.radioButtonOutOfRegulation.AutoSize = true;
+            this.radioButtonOutOfRegulation.ForeColor = System.Drawing.Color.Black;
+            this.radioButtonOutOfRegulation.Location = new System.Drawing.Point(6, 90);
+            this.radioButtonOutOfRegulation.Name = "radioButtonOutOfRegulation";
+            this.radioButtonOutOfRegulation.Size = new System.Drawing.Size(127, 20);
+            this.radioButtonOutOfRegulation.TabIndex = 3;
+            this.radioButtonOutOfRegulation.TabStop = true;
+            this.radioButtonOutOfRegulation.Text = "Извън регулация";
+            this.radioButtonOutOfRegulation.UseVisualStyleBackColor = true;
             // 
             // radioButtonTemporariry
             // 
             this.radioButtonTemporariry.AutoSize = true;
             this.radioButtonTemporariry.ForeColor = System.Drawing.Color.Black;
-            this.radioButtonTemporariry.Location = new System.Drawing.Point(15, 89);
+            this.radioButtonTemporariry.Location = new System.Drawing.Point(6, 67);
             this.radioButtonTemporariry.Name = "radioButtonTemporariry";
             this.radioButtonTemporariry.Size = new System.Drawing.Size(143, 20);
             this.radioButtonTemporariry.TabIndex = 2;
@@ -387,7 +401,7 @@ namespace GraduationProject
             // 
             this.radioButtonInhabited.AutoSize = true;
             this.radioButtonInhabited.ForeColor = System.Drawing.Color.Black;
-            this.radioButtonInhabited.Location = new System.Drawing.Point(15, 62);
+            this.radioButtonInhabited.Location = new System.Drawing.Point(6, 44);
             this.radioButtonInhabited.Name = "radioButtonInhabited";
             this.radioButtonInhabited.Size = new System.Drawing.Size(82, 20);
             this.radioButtonInhabited.TabIndex = 1;
@@ -399,7 +413,7 @@ namespace GraduationProject
             // 
             this.radioButtonDesolate.AutoSize = true;
             this.radioButtonDesolate.ForeColor = System.Drawing.Color.Black;
-            this.radioButtonDesolate.Location = new System.Drawing.Point(15, 38);
+            this.radioButtonDesolate.Location = new System.Drawing.Point(6, 21);
             this.radioButtonDesolate.Name = "radioButtonDesolate";
             this.radioButtonDesolate.Size = new System.Drawing.Size(79, 20);
             this.radioButtonDesolate.TabIndex = 0;
@@ -1081,6 +1095,7 @@ namespace GraduationProject
         private System.Windows.Forms.TextBox textBoxDogs;
         private System.Windows.Forms.NumericUpDown numericUpDownPigs;
         private System.Windows.Forms.Label labelPigs;
+        private System.Windows.Forms.RadioButton radioButtonOutOfRegulation;
     }
 }
 

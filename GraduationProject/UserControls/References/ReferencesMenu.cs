@@ -21,18 +21,29 @@ namespace GraduationProject.UserControls
 
         private void buttonAddresses_Click(object sender, EventArgs e)
         {
-            ButtonClicked(new ReferenceFormMain.EventData("addresses"), new EventArgs());
+            ButtonClicked(new MainForm.EventData("addresses"), new EventArgs());
         }
 
         private void buttonCattle_Click(object sender, EventArgs e)
         {
-            ButtonClicked(new ReferenceFormMain.EventData("animals"), new EventArgs());
+            ButtonClicked(new MainForm.EventData("animals"), new EventArgs());
         }
 
         private void buttonInhabitants_Click(object sender, EventArgs e)
         {
-            ButtonClicked(new ReferenceFormMain.EventData("inhabitants"), new EventArgs());
+            ButtonClicked(new MainForm.EventData("inhabitants"), new EventArgs());
 
+        }
+
+        private void buttonPropeties_Click(object sender, EventArgs e)
+        {
+            ButtonClicked(new MainForm.EventData("properties"), new EventArgs());
+
+        }
+
+        private void buttonTrees_Click(object sender, EventArgs e)
+        {
+            ButtonClicked(new MainForm.EventData("trees"), new EventArgs());
         }
     }
 }

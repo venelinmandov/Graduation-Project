@@ -35,7 +35,7 @@ namespace GraduationProject.UserControls.References
         {
             if (comboBoxCattle.Text == "") return;
             List<Address> addresses = new Address().Get(connectionHelper,animals[comboBoxCattle.Text]);
-            SearchButtonClicked(new ReferenceFormMain.EventData("showAddresses", addresses), new EventArgs());
+            SearchButtonClicked(new MainForm.EventData("showAddresses", addresses), new EventArgs());
         }
 
         private void buttonShowDogs_Click(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace GraduationProject.UserControls.References
             else
                 return;
 
-            SearchButtonClicked(new ReferenceFormMain.EventData("showAddresses", addresses), new EventArgs());
+            SearchButtonClicked(new MainForm.EventData("showAddresses", addresses), new EventArgs());
 
         }
     }

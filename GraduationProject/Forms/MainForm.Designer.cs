@@ -1,7 +1,7 @@
 ﻿
 namespace GraduationProject.Forms
 {
-    partial class ReferenceFormMain
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace GraduationProject.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReferenceFormMain));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelContents = new System.Windows.Forms.Panel();
             this.buttonBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -54,7 +54,7 @@ namespace GraduationProject.Forms
             this.buttonBack.UseVisualStyleBackColor = true;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
-            // ReferenceFormMain
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -66,7 +66,7 @@ namespace GraduationProject.Forms
             this.Controls.Add(this.panelContents);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "ReferenceFormMain";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReferenceFormMain";
             this.ResumeLayout(false);

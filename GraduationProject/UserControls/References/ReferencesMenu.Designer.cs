@@ -72,6 +72,7 @@ namespace GraduationProject.UserControls
             this.buttonTrees.TabIndex = 11;
             this.buttonTrees.Text = "Защитени дървесни видове";
             this.buttonTrees.UseVisualStyleBackColor = true;
+            this.buttonTrees.Click += new System.EventHandler(this.buttonTrees_Click);
             // 
             // buttonPropeties
             // 
@@ -84,6 +85,7 @@ namespace GraduationProject.UserControls
             this.buttonPropeties.TabIndex = 9;
             this.buttonPropeties.Text = "Данни за имоти";
             this.buttonPropeties.UseVisualStyleBackColor = true;
+            this.buttonPropeties.Click += new System.EventHandler(this.buttonPropeties_Click);
             // 
             // buttonCattle
             // 

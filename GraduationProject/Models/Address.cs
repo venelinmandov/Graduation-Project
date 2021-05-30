@@ -9,7 +9,7 @@ namespace GraduationProject.Models
         public int StreetId { get; set; }
         public int Number { get; set; }
         public double Squaring { get; set; } = 0;
-        public AddressHabitabillity Habitallity { get; set; } = 0;
+        public AddressHabitability Habitallity { get; set; } = 0;
         public int NumResBuildings { get; set; } = 0;
         public int NumAgrBuildings { get; set; } = 0;
         public int NumCows { get; set; } = 0;
@@ -20,6 +20,9 @@ namespace GraduationProject.Models
         public int NumFeathered { get; set; } = 0;
         public int NumPigs { get; set; } = 0;
         public int NumWalnutTrees { get; set; } = 0;
+        public int NumMulberryTrees { get; set; } = 0;
+        public int NumOldTrees { get; set; } = 0;
+        public int NumCenturyOldTrees { get; set; } = 0;
 
         public static Dictionary<AddressType, string> FieldName
         {
@@ -33,12 +36,12 @@ namespace GraduationProject.Models
         public string streetName;
 
         public enum AddressType { Permanent, Current };
-        public enum AddressHabitabillity { Desolate, Inhabited, TemporaryInhabited };
+        public enum AddressHabitability { Desolate, Inhabited, TemporaryInhabited, OutOfRegulation };
 
         
         //SELECT клауза
-        string selectClause = @"SELECT DISTINCT Addresses.id, streetId, number, squaring, habitallity, numResBuildings,
-                                numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numPigs, numWalnutTrees, Streets.name";
+        string selectClause = @"SELECT DISTINCT Addresses.id, streetId, number, squaring, habitability, numResBuildings,
+                                numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numPigs, numWalnutTrees, numMulberryTrees, numOldTrees, numCenturyOldTrees, Streets.name";
 
         public override string ToString() => streetName + " " + Number.ToString();
        
@@ -50,7 +53,7 @@ namespace GraduationProject.Models
             StreetId = reader.GetInt32(1);
             Number = reader.GetInt32(2);
             Squaring = reader.GetDouble(3);
-            Habitallity = (AddressHabitabillity)reader.GetInt32(4);
+            Habitallity = (AddressHabitability)reader.GetInt32(4);
             NumResBuildings = reader.GetInt32(5);
             NumAgrBuildings = reader.GetInt32(6);
             NumCows = reader.GetInt32(7);
@@ -61,7 +64,10 @@ namespace GraduationProject.Models
             NumFeathered = reader.GetInt32(12);
             NumPigs = reader.GetInt32(13);
             NumWalnutTrees = reader.GetInt32(14);
-            streetName = reader.GetString(15);
+            NumMulberryTrees = reader.GetInt32(15);
+            NumOldTrees = reader.GetInt32(16);
+            NumCenturyOldTrees = reader.GetInt32(17);
+            streetName = reader.GetString(18);
         }
 
         //Заявки
@@ -71,8 +77,8 @@ namespace GraduationProject.Models
         {
             long id;
             string query = @"INSERT INTO Addresses 
-                            (streetId, number, squaring, habitallity, numResBuildings, numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numPigs, numWalnutTrees )
-                            VALUES (@StrId, @num, @sq, @hab, @resB, @agrB, @cows, @sheep, @goats, @horses, @donkeys, @feathered, @pigs, @Walnut); ";
+                            (streetId, number, squaring, habitability, numResBuildings, numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numPigs, numWalnutTrees, numMulberryTrees, numOldTrees, numCenturyOldTrees,  )
+                            VALUES (@StrId, @num, @sq, @hab, @resB, @agrB, @cows, @sheep, @goats, @horses, @donkeys, @feathered, @pigs, @Walnut, @Mulberry, @Old, @Century)";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@StrId", StreetId);
@@ -89,6 +95,9 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@feathered", NumFeathered);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@pigs", NumPigs);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@Walnut", NumWalnutTrees);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@Mulberry", NumMulberryTrees);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@Old", NumOldTrees);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@Century", NumCenturyOldTrees);
 
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlCommand.CommandText = "SELECT last_insert_rowid()";
@@ -100,6 +109,17 @@ namespace GraduationProject.Models
         }
 
         //GET
+        public List<Address> Get(ConnectionHelper connectionHelper)
+        {
+            string query = @$"{selectClause} FROM Addresses, Streets 
+                            WHERE Addresses.streetId = Streets.id 
+                            ORDER BY  name, number";
+
+            connectionHelper.NewConnection(query);
+
+            return ExecuteGetQuery(connectionHelper);
+        }
+
         public List<Address> Get(ConnectionHelper connectionHelper, Street street)
         {
             string query = $"{selectClause} FROM Addresses, Streets WHERE Addresses.streetId = Streets.id AND streetId = @strId ORDER BY number";
@@ -173,9 +193,9 @@ namespace GraduationProject.Models
 
         }
 
-        public List<Address> Get(ConnectionHelper connectionHelper, string animal)
+        public List<Address> Get(ConnectionHelper connectionHelper, string columnName)
         {
-            string query = $"{selectClause} FROM Addresses, Streets WHERE Streets.id = Addresses.streetId AND {animal} > 0";
+            string query = $"{selectClause} FROM Addresses, Streets WHERE Streets.id = Addresses.streetId AND {columnName} > 0";
 
             connectionHelper.NewConnection(query);
             return ExecuteGetQuery(connectionHelper);
@@ -194,16 +214,7 @@ namespace GraduationProject.Models
         }
 
 
-        public List<Address> Get(ConnectionHelper connectionHelper)
-        {
-            string query = @$"{selectClause} FROM Addresses, Streets 
-                            WHERE Addresses.streetId = Streets.id 
-                            ORDER BY  name, number";
-               
-            connectionHelper.NewConnection(query);
-
-            return ExecuteGetQuery(connectionHelper);
-        }
+        
 
         
        
@@ -252,6 +263,16 @@ namespace GraduationProject.Models
             reader.Close();
             connectionHelper.sqlConnection.Close();
             return address;
+        }
+
+        public List<Address> Get(ConnectionHelper connectionHelper, AddressHabitability addressHabitabillity)
+        {
+
+            string query = @$"{selectClause} FROM Addresses, Streets 
+                            WHERE Streets.id = Addresses.streetId AND Addresses.habitability = @habitability";
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@habitability", addressHabitabillity);
+            return ExecuteGetQuery(connectionHelper);
         }
         private List<Address> ExecuteGetQuery(ConnectionHelper connectionHelper)
         {
@@ -302,11 +323,12 @@ namespace GraduationProject.Models
         public void Update(ConnectionHelper connectionHelper)
         {
             string query = @"UPDATE Addresses
-                            SET streetId = @strId,      number = @num,              squaring = @sq,
-                                habitallity = @hab,     numResBuildings = @numRes,  numAgrBuildings = @numAgr,
-                                numCows = @numCows,     numSheep = @numSheep,       numGoats = @numGoats,
-                                numHorses = @numHorses, numDonkeys = @numDonkeys,   numFeathered = @numFeathered,
-                                numPigs = @numPigs,     numWalnutTrees = @numWalnut
+                            SET streetId = @strId,      number = @num,                  squaring = @sq,
+                                habitability = @hab,     numResBuildings = @numRes,     numAgrBuildings = @numAgr,
+                                numCows = @numCows,     numSheep = @numSheep,           numGoats = @numGoats,
+                                numHorses = @numHorses, numDonkeys = @numDonkeys,       numFeathered = @numFeathered,
+                                numPigs = @numPigs,     numWalnutTrees = @numWalnut,    numMulberryTrees = @mulberry,
+                                numOldTrees = @old,     numCenturyOldTrees = @century
                              WHERE id = @id";
 
             connectionHelper.NewConnection(query);
@@ -326,6 +348,9 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@numFeathered", NumFeathered);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@numPigs", NumPigs);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@numWalnut", NumWalnutTrees);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@mulberry", NumMulberryTrees);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@old", NumOldTrees);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@century", NumCenturyOldTrees);
 
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();

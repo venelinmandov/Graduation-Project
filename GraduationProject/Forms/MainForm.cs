@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
+﻿using GraduationProject.Models;
 using GraduationProject.UserControls;
-using GraduationProject.Models;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace GraduationProject.Forms
 {
-    public partial class ReferenceFormMain : Form
+    public partial class MainForm : Form
     {
         Stack<UserControl> userControls = new Stack<UserControl>();
-        public ReferenceFormMain()
+        public MainForm()
         {
             InitializeComponent();
             MenuButtonClicked(new EventData("menu"), new EventArgs());
@@ -41,7 +37,15 @@ namespace GraduationProject.Forms
             switch (eventData.panelName)
             {
                 case "menu":
+                    MenuUserControl menuUserControl = new MenuUserControl();
+                    panelContents.Controls.Add(menuUserControl);
+                    menuUserControl.BringToFront();
+                    menuUserControl.ButtonClicked += MenuButtonClicked;
+                    break;
+                #region Справки
+                case "references":
                     ReferencesMenu referencesMenu = new ReferencesMenu();
+                    userControls.Push(referencesMenu);
                     panelContents.Controls.Add(referencesMenu);
                     referencesMenu.BringToFront();
                     referencesMenu.ButtonClicked += MenuButtonClicked;
@@ -59,6 +63,20 @@ namespace GraduationProject.Forms
                     searchByAnimals.SearchButtonClicked += MenuButtonClicked;
                     panelContents.Controls.Add(searchByAnimals);
                     searchByAnimals.BringToFront();
+                    break;
+                case "properties":
+                    UserControls.References.Addresses.ReferencesSearchByHabitabillity referencesSearchByHabitabillity = new UserControls.References.Addresses.ReferencesSearchByHabitabillity();
+                    userControls.Push(referencesSearchByHabitabillity);
+                    referencesSearchByHabitabillity.ShowButtonClicked += MenuButtonClicked;
+                    panelContents.Controls.Add(referencesSearchByHabitabillity);
+                    referencesSearchByHabitabillity.BringToFront();
+                    break;
+                case "trees":
+                    UserControls.References.Addresses.ReferencesSearchByTrees referencesSearchByTrees = new UserControls.References.Addresses.ReferencesSearchByTrees();
+                    userControls.Push(referencesSearchByTrees);
+                    referencesSearchByTrees.ShowButtonClicked += MenuButtonClicked;
+                    panelContents.Controls.Add(referencesSearchByTrees);
+                    referencesSearchByTrees.BringToFront();
                     break;
                 case "showAddress":
                     UserControls.References.ShowAddress showAddress = new UserControls.References.ShowAddress((Address)eventData.data);
@@ -127,7 +145,14 @@ namespace GraduationProject.Forms
                     panelContents.Controls.Add(showResident);
                     showResident.BringToFront();
                     break;
-
+                #endregion
+                #region Въвеждане на данни
+                case "insertData":
+                    Hide();
+                    new InsertDataForm().ShowDialog();
+                    Show();
+                    break;
+                #endregion
                 default: break;
                     
             }

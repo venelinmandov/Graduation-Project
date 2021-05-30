@@ -21,24 +21,24 @@ namespace GraduationProject.UserControls.References
 
         private void buttonByName_Click(object sender, EventArgs e)
         {
-            buttonClicked(new ReferenceFormMain.EventData("inhabitantsByName"),e);
+            buttonClicked(new MainForm.EventData("inhabitantsByName"),e);
         }
 
         private void buttonByAddrReg_Click(object sender, EventArgs e)
         {
-            buttonClicked(new ReferenceFormMain.EventData("inhabitantsByReg"), e);
+            buttonClicked(new MainForm.EventData("inhabitantsByReg"), e);
             
         }
 
         private void buttonPropetyStatus_Click(object sender, EventArgs e)
         {
-            buttonClicked(new ReferenceFormMain.EventData("inhabitantsByProp"), e);
+            buttonClicked(new MainForm.EventData("inhabitantsByProp"), e);
             
         }
 
         private void buttonResidenceStatus_Click(object sender, EventArgs e)
         {
-            buttonClicked(new ReferenceFormMain.EventData("inhabitantsByResidence"), e);  
+            buttonClicked(new MainForm.EventData("inhabitantsByResidence"), e);  
         }
     }
 }

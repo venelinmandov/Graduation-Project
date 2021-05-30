@@ -34,20 +34,25 @@ namespace GraduationProject.UserControls.References
         {
             comboBoxNumber.Items.Clear();
             addresses = new Address().Get(connectionHelper, streets[comboBoxStreet.SelectedIndex]);
-            if (addresses.Count == 0) return;
-
-            foreach (Address address in addresses)
+            if (addresses.Count > 0)
             {
-                comboBoxNumber.Items.Add(address.Number);
+                foreach (Address address in addresses)
+                {
+                    comboBoxNumber.Items.Add(address.Number);
+                }
+                comboBoxNumber.SelectedIndex = 0;  
             }
-            
+            else
+            {
+                comboBoxNumber.Text = "";
+            }
         }
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             if (comboBoxStreet.Text == "" || comboBoxNumber.Text == "") return;
             Address adr = (from Address in addresses where Address.Number == int.Parse(comboBoxNumber.Text) select Address).First();
-            SearchButtonClicked(new ReferenceFormMain.EventData("showAddress", adr), new EventArgs());
+            SearchButtonClicked(new MainForm.EventData("showAddress", adr), new EventArgs());
         }
     }
 }

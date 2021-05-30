@@ -46,9 +46,10 @@ namespace GraduationProject.UserControls.References
             labelSquaringValue.Text = address.Squaring.ToString();
             switch (address.Habitallity)
             {
-                case Address.AddressHabitabillity.Desolate: labelHabitabillityValue.Text = "Пустеещ";break;
-                case Address.AddressHabitabillity.Inhabited: labelHabitabillityValue.Text = "Обитаван";break;
-                case Address.AddressHabitabillity.TemporaryInhabited: labelHabitabillityValue.Text = "Временно обитаван";break;
+                case Address.AddressHabitability.Desolate: labelHabitabillityValue.Text = "Пустеещ";break;
+                case Address.AddressHabitability.Inhabited: labelHabitabillityValue.Text = "Обитаван";break;
+                case Address.AddressHabitability.TemporaryInhabited: labelHabitabillityValue.Text = "Временно обитаван";break;
+                case Address.AddressHabitability.OutOfRegulation: labelHabitabillityValue.Text = "Извън регулация";break;
             }
 
             labelResidentalValue.Text = address.NumResBuildings.ToString();
@@ -62,6 +63,9 @@ namespace GraduationProject.UserControls.References
             labelPigsValue.Text = address.NumPigs.ToString();
             labelFeatheredValue.Text = address.NumFeathered.ToString();
             labelWalnutTreesValue.Text = address.NumWalnutTrees.ToString();
+            labelMulBerryTreesValue.Text = address.NumMulberryTrees.ToString();
+            labelOldTreesValue.Text = address.NumOldTrees.ToString();
+            labelCenturyOldTreesValue.Text = address.NumCenturyOldTrees.ToString();
             List<Dog> dogs = new Dog().Get(new ConnectionHelper(), address);
             foreach (Dog dog in dogs)
             {

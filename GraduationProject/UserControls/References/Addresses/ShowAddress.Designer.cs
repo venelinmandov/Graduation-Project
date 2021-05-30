@@ -72,9 +72,15 @@ namespace GraduationProject.UserControls.References
             this.labelGuardDogs = new System.Windows.Forms.Label();
             this.labelTitleDigs = new System.Windows.Forms.Label();
             this.panelTrees = new System.Windows.Forms.Panel();
+            this.labelMulBerryTreesValue = new System.Windows.Forms.Label();
+            this.labelMulBerryTrees = new System.Windows.Forms.Label();
             this.labelWalnutTreesValue = new System.Windows.Forms.Label();
             this.labelWalnutTrees = new System.Windows.Forms.Label();
             this.labelTitleTrees = new System.Windows.Forms.Label();
+            this.labelCenturyOldTreesValue = new System.Windows.Forms.Label();
+            this.labelCenturyOldTrees = new System.Windows.Forms.Label();
+            this.labelOldTreesValue = new System.Windows.Forms.Label();
+            this.labelOldTrees = new System.Windows.Forms.Label();
             this.panelBuildings.SuspendLayout();
             this.panelAnimals.SuspendLayout();
             this.panelDogs.SuspendLayout();
@@ -568,6 +574,12 @@ namespace GraduationProject.UserControls.References
             // 
             // panelTrees
             // 
+            this.panelTrees.Controls.Add(this.labelCenturyOldTreesValue);
+            this.panelTrees.Controls.Add(this.labelCenturyOldTrees);
+            this.panelTrees.Controls.Add(this.labelOldTreesValue);
+            this.panelTrees.Controls.Add(this.labelOldTrees);
+            this.panelTrees.Controls.Add(this.labelMulBerryTreesValue);
+            this.panelTrees.Controls.Add(this.labelMulBerryTrees);
             this.panelTrees.Controls.Add(this.labelWalnutTreesValue);
             this.panelTrees.Controls.Add(this.labelWalnutTrees);
             this.panelTrees.Controls.Add(this.labelTitleTrees);
@@ -576,12 +588,34 @@ namespace GraduationProject.UserControls.References
             this.panelTrees.Size = new System.Drawing.Size(712, 300);
             this.panelTrees.TabIndex = 42;
             // 
+            // labelMulBerryTreesValue
+            // 
+            this.labelMulBerryTreesValue.AutoSize = true;
+            this.labelMulBerryTreesValue.BackColor = System.Drawing.Color.Transparent;
+            this.labelMulBerryTreesValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelMulBerryTreesValue.Location = new System.Drawing.Point(294, 120);
+            this.labelMulBerryTreesValue.Name = "labelMulBerryTreesValue";
+            this.labelMulBerryTreesValue.Size = new System.Drawing.Size(26, 18);
+            this.labelMulBerryTreesValue.TabIndex = 28;
+            this.labelMulBerryTreesValue.Text = "10";
+            // 
+            // labelMulBerryTrees
+            // 
+            this.labelMulBerryTrees.AutoSize = true;
+            this.labelMulBerryTrees.BackColor = System.Drawing.Color.Transparent;
+            this.labelMulBerryTrees.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelMulBerryTrees.Location = new System.Drawing.Point(62, 120);
+            this.labelMulBerryTrees.Name = "labelMulBerryTrees";
+            this.labelMulBerryTrees.Size = new System.Drawing.Size(94, 19);
+            this.labelMulBerryTrees.TabIndex = 27;
+            this.labelMulBerryTrees.Text = "- Черници:";
+            // 
             // labelWalnutTreesValue
             // 
             this.labelWalnutTreesValue.AutoSize = true;
             this.labelWalnutTreesValue.BackColor = System.Drawing.Color.Transparent;
             this.labelWalnutTreesValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelWalnutTreesValue.Location = new System.Drawing.Point(227, 96);
+            this.labelWalnutTreesValue.Location = new System.Drawing.Point(294, 96);
             this.labelWalnutTreesValue.Name = "labelWalnutTreesValue";
             this.labelWalnutTreesValue.Size = new System.Drawing.Size(26, 18);
             this.labelWalnutTreesValue.TabIndex = 26;
@@ -608,6 +642,50 @@ namespace GraduationProject.UserControls.References
             this.labelTitleTrees.Size = new System.Drawing.Size(361, 29);
             this.labelTitleTrees.TabIndex = 13;
             this.labelTitleTrees.Text = "Защитени Дървесни видове:";
+            // 
+            // labelCenturyOldTreesValue
+            // 
+            this.labelCenturyOldTreesValue.AutoSize = true;
+            this.labelCenturyOldTreesValue.BackColor = System.Drawing.Color.Transparent;
+            this.labelCenturyOldTreesValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelCenturyOldTreesValue.Location = new System.Drawing.Point(294, 168);
+            this.labelCenturyOldTreesValue.Name = "labelCenturyOldTreesValue";
+            this.labelCenturyOldTreesValue.Size = new System.Drawing.Size(26, 18);
+            this.labelCenturyOldTreesValue.TabIndex = 32;
+            this.labelCenturyOldTreesValue.Text = "10";
+            // 
+            // labelCenturyOldTrees
+            // 
+            this.labelCenturyOldTrees.AutoSize = true;
+            this.labelCenturyOldTrees.BackColor = System.Drawing.Color.Transparent;
+            this.labelCenturyOldTrees.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelCenturyOldTrees.Location = new System.Drawing.Point(62, 168);
+            this.labelCenturyOldTrees.Name = "labelCenturyOldTrees";
+            this.labelCenturyOldTrees.Size = new System.Drawing.Size(165, 19);
+            this.labelCenturyOldTrees.TabIndex = 31;
+            this.labelCenturyOldTrees.Text = "- Вековни дървета:";
+            // 
+            // labelOldTreesValue
+            // 
+            this.labelOldTreesValue.AutoSize = true;
+            this.labelOldTreesValue.BackColor = System.Drawing.Color.Transparent;
+            this.labelOldTreesValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelOldTreesValue.Location = new System.Drawing.Point(294, 144);
+            this.labelOldTreesValue.Name = "labelOldTreesValue";
+            this.labelOldTreesValue.Size = new System.Drawing.Size(26, 18);
+            this.labelOldTreesValue.TabIndex = 30;
+            this.labelOldTreesValue.Text = "10";
+            // 
+            // labelOldTrees
+            // 
+            this.labelOldTrees.AutoSize = true;
+            this.labelOldTrees.BackColor = System.Drawing.Color.Transparent;
+            this.labelOldTrees.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelOldTrees.Location = new System.Drawing.Point(62, 144);
+            this.labelOldTrees.Name = "labelOldTrees";
+            this.labelOldTrees.Size = new System.Drawing.Size(231, 19);
+            this.labelOldTrees.TabIndex = 29;
+            this.labelOldTrees.Text = "- Дървета над 20 г. възраст:";
             // 
             // ShowAddress
             // 
@@ -691,5 +769,12 @@ namespace GraduationProject.UserControls.References
         private System.Windows.Forms.Label labelWalnutTreesValue;
         private System.Windows.Forms.Label labelWalnutTrees;
         private System.Windows.Forms.Label labelTitleTrees;
+        private System.Windows.Forms.Label labelMulBerryTreesValue;
+        private System.Windows.Forms.Label labelMulBerryTrees;
+        private System.Windows.Forms.Label labelCenturyOldTreesValue;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelOldTreesValue;
+        private System.Windows.Forms.Label labelOldTrees;
+        private System.Windows.Forms.Label labelCenturyOldTrees;
     }
 }

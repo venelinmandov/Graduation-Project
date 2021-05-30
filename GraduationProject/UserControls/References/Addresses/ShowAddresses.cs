@@ -34,7 +34,7 @@ namespace GraduationProject.UserControls.References
         private void ShowAddress(object sender, EventArgs eventArgs)
         {
             int selectedIndex = (int)sender;
-            AddressClicked(new ReferenceFormMain.EventData("showAddress", addresses[selectedIndex]), eventArgs);
+            AddressClicked(new MainForm.EventData("showAddress", addresses[selectedIndex]), eventArgs);
 
         }
     }
