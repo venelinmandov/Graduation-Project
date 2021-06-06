@@ -11,6 +11,19 @@ namespace GraduationProject.UserControls.References
 {
     public partial class ShowAddress : UserControl
     {
+        Dictionary<Quarantine.QuarantineType, string> quarntineDict = new Dictionary<Quarantine.QuarantineType, string>()
+        {
+            {Quarantine.QuarantineType.Inhabitants, "хора" },
+            {Quarantine.QuarantineType.Cows, "крави" },
+            {Quarantine.QuarantineType.Sheep, "овце" },
+            {Quarantine.QuarantineType.Goats, "кози" },
+            {Quarantine.QuarantineType.Horses, "коне" },
+            {Quarantine.QuarantineType.Donkeys, "магарета" },
+            {Quarantine.QuarantineType.Feathered, "пернати" },
+            {Quarantine.QuarantineType.Pigs, "свине" },
+            {Quarantine.QuarantineType.Dogs, "кучета" },
+        };
+
         public ShowAddress(Address address)
         {
             InitializeComponent();
@@ -19,28 +32,63 @@ namespace GraduationProject.UserControls.References
             
         }
 
+        /// <summary>
+        /// Показване на панела със постройките
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonBuildings_Click(object sender, EventArgs e)
         {
             panelBuildings.BringToFront();
         }
 
+        /// <summary>
+        /// Показване на панела със селскостопанските животни
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAnimals_Click(object sender, EventArgs e)
         {
             panelAnimals.BringToFront();
         }
 
+        /// <summary>
+        /// Показване на панела със кучетата
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonDogs_Click(object sender, EventArgs e)
         {
             panelDogs.BringToFront();
         }
 
+        /// <summary>
+        /// Показване на панела със защитените дървестни видове
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonTrees_Click(object sender, EventArgs e)
         {
             panelTrees.BringToFront();
         }
 
+        /// <summary>
+        /// Показване на панела със карантините
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonQuarantines_Click(object sender, EventArgs e)
+        {
+            panelQuarantines.BringToFront();
+        }
+
+        /// <summary>
+        /// Показване на даните на адреса
+        /// </summary>
+        /// <param name="address"></param>
         void DisplayAddress(Address address)
         {
+            List<Quarantine> quarantines = new Quarantine().Get(new ConnectionHelper(),address);
             int guardDogs = 0, huntingDogs = 0, domesticDogs = 0;
             labelAddress.Text = address.ToString();
             labelSquaringValue.Text = address.Squaring.ToString();
@@ -77,12 +125,37 @@ namespace GraduationProject.UserControls.References
             labelHuntingDogsValue.Text = huntingDogs.ToString();
             labelDomesticDogsValue.Text = domesticDogs.ToString();
 
+            if (quarantines.Count == 0)
+            {
+                labelQuarantines.Text += "няма карантини.";
+            }
+            else if (quarantines.Count == 1)
+            {
+                labelQuarantines.Text += "има карантина на "+ quarntineDict[quarantines[0].Type] + ".";
 
-        }
+            }
+            else
+            {
+                List<string> animalNames = new List<string>();
+                labelQuarantines.Text += "има карантини на ";
+                for (int i = 0; i < quarantines.Count; i++)
+                {
+                    if (quarantines[i].Type == Quarantine.QuarantineType.Inhabitants)
+                        labelQuarantines.Text += "хора";
+                    else
+                    {
+                        animalNames.Add(quarntineDict[quarantines[i].Type]);
+                    }
+                }
+                if (animalNames.Count != 0)
+                {
+                    labelQuarantines.Text += $" и \nселскостопански животни: {string.Join(", ",animalNames)}";
+                }
+                labelQuarantines.Text += ".";
+            }
+            
 
-        private void panelDogs_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
+        }   
     }
 }

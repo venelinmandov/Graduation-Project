@@ -37,6 +37,10 @@ namespace GraduationProject.UserControls.References.Inhabitants
             {Resident.AddressRegistration.Temporary, "Настоящ асдрес" }
         };
 
+        /// <summary>
+        /// Показване на информацията за госта
+        /// </summary>
+        /// <param name="person"></param>
         void ShowPerson(Person person)
         {
             labelFirstnameValue.Text = person.Firstname;
@@ -53,6 +57,11 @@ namespace GraduationProject.UserControls.References.Inhabitants
             richTextBoxNotes.Text = person.Note;
           
         }
+
+        /// <summary>
+        /// Показване на информацията за жителя
+        /// </summary>
+        /// <param name="resident"></param>
         void ShowResident(Resident resident)
         {
             if (resident.RelToOwner == "Собственик")

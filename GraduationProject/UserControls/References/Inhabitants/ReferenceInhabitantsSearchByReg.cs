@@ -23,9 +23,14 @@ namespace GraduationProject.UserControls.References.Inhabitants
         [Description("Invoked when show button was clicked.")]
         public event EventHandler ShowButtonClicked;
 
+        /// <summary>
+        /// Показавне на жителите/гостите с дадената адресна речистрациа
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonShow_Click(object sender, EventArgs e)
         {
-            UserControls.References.ShowInhabitants.PersonsStruct personsStruct;
+            ShowInhabitants.PersonsStruct personsStruct;
             ConnectionHelper connectionHelper = new ConnectionHelper();
 
             if (radioButtonYes.Checked)

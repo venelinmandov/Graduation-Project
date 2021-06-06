@@ -13,6 +13,7 @@ namespace GraduationProject.Forms
         {
             InitializeComponent();
             MenuButtonClicked(new EventData("menu"), new EventArgs());
+            buttonBack.Visible = false;
 
 
         }
@@ -41,107 +42,122 @@ namespace GraduationProject.Forms
                     panelContents.Controls.Add(menuUserControl);
                     menuUserControl.BringToFront();
                     menuUserControl.ButtonClicked += MenuButtonClicked;
+                    menuUserControl.Location = new System.Drawing.Point(0,55);
                     break;
                 #region Справки
                 case "references":
                     ReferencesMenu referencesMenu = new ReferencesMenu();
-                    userControls.Push(referencesMenu);
+                    AddControl(referencesMenu);
                     panelContents.Controls.Add(referencesMenu);
                     referencesMenu.BringToFront();
                     referencesMenu.ButtonClicked += MenuButtonClicked;
                     break;
                 case "addresses":
                     UserControls.References.ReferencesSearchByAddress byAddressControl = new UserControls.References.ReferencesSearchByAddress();
-                    userControls.Push(byAddressControl);
+                    AddControl(byAddressControl);
                     byAddressControl.SearchButtonClicked += MenuButtonClicked;
                     panelContents.Controls.Add(byAddressControl);
                     byAddressControl.BringToFront();
                     break;
                 case "animals":
                     UserControls.References.ReferencesSearchByAnimals searchByAnimals = new UserControls.References.ReferencesSearchByAnimals();
-                    userControls.Push(searchByAnimals);
+                    AddControl(searchByAnimals);
                     searchByAnimals.SearchButtonClicked += MenuButtonClicked;
                     panelContents.Controls.Add(searchByAnimals);
                     searchByAnimals.BringToFront();
                     break;
                 case "properties":
                     UserControls.References.Addresses.ReferencesSearchByHabitabillity referencesSearchByHabitabillity = new UserControls.References.Addresses.ReferencesSearchByHabitabillity();
-                    userControls.Push(referencesSearchByHabitabillity);
+                    AddControl(referencesSearchByHabitabillity);
                     referencesSearchByHabitabillity.ShowButtonClicked += MenuButtonClicked;
                     panelContents.Controls.Add(referencesSearchByHabitabillity);
                     referencesSearchByHabitabillity.BringToFront();
                     break;
                 case "trees":
                     UserControls.References.Addresses.ReferencesSearchByTrees referencesSearchByTrees = new UserControls.References.Addresses.ReferencesSearchByTrees();
-                    userControls.Push(referencesSearchByTrees);
+                    AddControl(referencesSearchByTrees);
                     referencesSearchByTrees.ShowButtonClicked += MenuButtonClicked;
                     panelContents.Controls.Add(referencesSearchByTrees);
                     referencesSearchByTrees.BringToFront();
                     break;
+                case "quarantines":
+                    UserControls.References.Addresses.ReferencesSearchByQuarantines referencesSearchByQuarantines = new UserControls.References.Addresses.ReferencesSearchByQuarantines();
+                    AddControl(referencesSearchByQuarantines);
+                    referencesSearchByQuarantines.ShowButtonClicked += MenuButtonClicked;
+                    panelContents.Controls.Add(referencesSearchByQuarantines);
+                    referencesSearchByQuarantines.BringToFront();
+                    break;
+                case "animalQuarantine":
+                    UserControls.References.Addresses.ReferencesSearchByAnimalQuarantines referencesSearchByAnimalQuarantines = new UserControls.References.Addresses.ReferencesSearchByAnimalQuarantines();
+                    AddControl(referencesSearchByAnimalQuarantines);
+                    referencesSearchByAnimalQuarantines.ShowButtonClicked += MenuButtonClicked;
+                    panelContents.Controls.Add(referencesSearchByAnimalQuarantines);
+                    referencesSearchByAnimalQuarantines.BringToFront();
+                    break;
                 case "showAddress":
                     UserControls.References.ShowAddress showAddress = new UserControls.References.ShowAddress((Address)eventData.data);
                     panelContents.Controls.Add(showAddress);
+                    AddControl(showAddress);
                     showAddress.BringToFront();
-                    userControls.Push(showAddress);
                     break;
                 case "showAddresses":
                     UserControls.References.ShowAddresses showAddresses = new UserControls.References.ShowAddresses((List<Address>)eventData.data);
-                    userControls.Push(showAddresses);
+                    AddControl(showAddresses);
                     showAddresses.AddressClicked += MenuButtonClicked;
                     panelContents.Controls.Add(showAddresses);
                     showAddresses.BringToFront();
                     break;
                 case "inhabitants":
                     UserControls.References.ReferencesInhabitantsMenu referencesInhabitantsMenu = new UserControls.References.ReferencesInhabitantsMenu();
-                    userControls.Push(referencesInhabitantsMenu);
+                    AddControl(referencesInhabitantsMenu);
                     referencesInhabitantsMenu.buttonClicked += MenuButtonClicked;
                     panelContents.Controls.Add(referencesInhabitantsMenu);
                     referencesInhabitantsMenu.BringToFront();
                     break;
                 case "inhabitantsByName":
                     UserControls.References.Inhabitants.ReferencesInhabitantsSearchByName inhabitantsSearchByName = new UserControls.References.Inhabitants.ReferencesInhabitantsSearchByName();
-                    userControls.Push(inhabitantsSearchByName);
+                    AddControl(inhabitantsSearchByName);
                     inhabitantsSearchByName.ShowButtonClicked += MenuButtonClicked;
                     panelContents.Controls.Add(inhabitantsSearchByName);
                     inhabitantsSearchByName.BringToFront();
                     break;
                 case "inhabitantsByReg":
                     UserControls.References.Inhabitants.ReferenceInhabitantsSearchByReg inhabitantsSearchByReg = new UserControls.References.Inhabitants.ReferenceInhabitantsSearchByReg();
-                    userControls.Push(inhabitantsSearchByReg);
+                    AddControl(inhabitantsSearchByReg);
                     inhabitantsSearchByReg.ShowButtonClicked += MenuButtonClicked;
                     panelContents.Controls.Add(inhabitantsSearchByReg);
                     inhabitantsSearchByReg.BringToFront();
                     break;
                 case "inhabitantsByProp":
                     UserControls.References.Inhabitants.ReferencesInhabitantsByProperty inhabitantsSearchByProp = new UserControls.References.Inhabitants.ReferencesInhabitantsByProperty();
-                    userControls.Push(inhabitantsSearchByProp);
+                    AddControl(inhabitantsSearchByProp);
                     inhabitantsSearchByProp.ShowButtonClicked += MenuButtonClicked;
                     panelContents.Controls.Add(inhabitantsSearchByProp);
                     inhabitantsSearchByProp.BringToFront();
                     break;
                 case "inhabitantsByResidence":
                     UserControls.References.Inhabitants.ReferencesInhabitantsByResidence inhabitantsSearchByResidence = new UserControls.References.Inhabitants.ReferencesInhabitantsByResidence();
-                    userControls.Push(inhabitantsSearchByResidence);
+                    AddControl(inhabitantsSearchByResidence);
                     inhabitantsSearchByResidence.ShowButtonClicked += MenuButtonClicked;
                     panelContents.Controls.Add(inhabitantsSearchByResidence);
                     inhabitantsSearchByResidence.BringToFront();
                     break;
                 case "showInhabitants":
                     UserControls.References.ShowInhabitants showInhabitants = new UserControls.References.ShowInhabitants((UserControls.References.ShowInhabitants.PersonsStruct)eventData.data);
-                    userControls.Push(showInhabitants);
+                    AddControl(showInhabitants);
                     showInhabitants.InhabitantClicked += MenuButtonClicked;
                     panelContents.Controls.Add(showInhabitants);
                     showInhabitants.BringToFront();
                     break;
                 case "showGuest":
                     UserControls.References.Inhabitants.ShowInhabitant showGuest = new UserControls.References.Inhabitants.ShowInhabitant((Person)eventData.data);
-                    userControls.Push(showGuest);
+                    AddControl(showGuest);
                     panelContents.Controls.Add(showGuest);
                     showGuest.BringToFront();
                     break;
                 case "showResident":
                     UserControls.References.Inhabitants.ShowInhabitant showResident = new UserControls.References.Inhabitants.ShowInhabitant((Resident)eventData.data);
-                    userControls.Push(showResident);
+                    AddControl(showResident);
                     panelContents.Controls.Add(showResident);
                     showResident.BringToFront();
                     break;
@@ -162,7 +178,23 @@ namespace GraduationProject.Forms
         private void buttonBack_Click(object sender, EventArgs e)
         {
             if (userControls.Count != 0)
+            {
                 panelContents.Controls.Remove(userControls.Pop());
+                if (userControls.Count == 0)
+                    buttonBack.Visible = false;
+            }
+        }
+
+        void AddControl(UserControl userControl)
+        {
+            userControls.Push(userControl);
+            buttonBack.Visible = true;
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

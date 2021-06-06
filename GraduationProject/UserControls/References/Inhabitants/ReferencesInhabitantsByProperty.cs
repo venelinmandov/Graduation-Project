@@ -22,6 +22,11 @@ namespace GraduationProject.UserControls.References.Inhabitants
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Показване на жителите/гостите със избрания статус на собственост
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonShow_Click(object sender, EventArgs e)
         {
             ConnectionHelper connectionHelper = new ConnectionHelper();

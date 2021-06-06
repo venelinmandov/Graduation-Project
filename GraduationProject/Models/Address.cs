@@ -24,6 +24,9 @@ namespace GraduationProject.Models
         public int NumOldTrees { get; set; } = 0;
         public int NumCenturyOldTrees { get; set; } = 0;
 
+        public string streetName;
+
+        //Dictionaries
         public static Dictionary<AddressType, string> FieldName
         {
             get => new Dictionary<AddressType, string>
@@ -33,10 +36,12 @@ namespace GraduationProject.Models
         };}
 
 
-        public string streetName;
-
+        
+        //Enums
         public enum AddressType { Permanent, Current };
         public enum AddressHabitability { Desolate, Inhabited, TemporaryInhabited, OutOfRegulation };
+
+
 
         
         //SELECT клауза
@@ -109,6 +114,12 @@ namespace GraduationProject.Models
         }
 
         //GET
+
+        /// <summary>
+        /// Всички адреси
+        /// </summary>
+        /// <param name="connectionHelper"></param>
+        /// <returns></returns>
         public List<Address> Get(ConnectionHelper connectionHelper)
         {
             string query = @$"{selectClause} FROM Addresses, Streets 
@@ -120,6 +131,12 @@ namespace GraduationProject.Models
             return ExecuteGetQuery(connectionHelper);
         }
 
+        /// <summary>
+        /// Адреси по дадена улица
+        /// </summary>
+        /// <param name="connectionHelper"></param>
+        /// <param name="street"></param>
+        /// <returns></returns>
         public List<Address> Get(ConnectionHelper connectionHelper, Street street)
         {
             string query = $"{selectClause} FROM Addresses, Streets WHERE Addresses.streetId = Streets.id AND streetId = @strId ORDER BY number";
@@ -130,6 +147,15 @@ namespace GraduationProject.Models
             return ExecuteGetQuery(connectionHelper);
         }
 
+        /// <summary>
+        /// Адреси по име/имена на обитател 
+        /// </summary>
+        /// <param name="connectionHelper"></param>
+        /// <param name="option"></param>
+        /// <param name="personFirstName"></param>
+        /// <param name="personMiddleName"></param>
+        /// <param name="personLastNameName"></param>
+        /// <returns></returns>
         public List<Address> Get(ConnectionHelper connectionHelper, int option, string personFirstName, string personMiddleName, string personLastNameName)
         {
            
@@ -177,10 +203,10 @@ namespace GraduationProject.Models
             switch (option)
             {
                 case 0: tables += " ,Residents"; whereClause += "Residents.addressId = Addresses.id AND " + MakeWhereElementsString("Residents"); break;
-                case 1: tables += " ,GuestsInQuarantine"; whereClause += "GuestsInQuarantine.addressId = Addresses.id AND " + MakeWhereElementsString("GuestsInQuarantine"); break;
-                case 2: tables += " ,Residents, GuestsInQuarantine";
-                    whereClause += "Residents.addressId = Addresses.id AND GuestsInQuarantine.addressId = Addresses.id AND (("
-                        + MakeWhereElementsString("Residents") + ") OR (" + MakeWhereElementsString("GuestsInQuarantine") + "))"; break;
+                case 1: tables += " ,Guests"; whereClause += "Guests.addressId = Addresses.id AND " + MakeWhereElementsString("Guests"); break;
+                case 2: tables += " ,Residents, Guests";
+                    whereClause += "Residents.addressId = Addresses.id AND Guests.addressId = Addresses.id AND (("
+                        + MakeWhereElementsString("Residents") + ") OR (" + MakeWhereElementsString("Guests") + "))"; break;
                 default: tables += "";break;            
             }
 
@@ -193,6 +219,12 @@ namespace GraduationProject.Models
 
         }
 
+        /// <summary>
+        /// Адреси стойността на чиито оказана колона има стоност по-голяма от 0
+        /// </summary>
+        /// <param name="connectionHelper"></param>
+        /// <param name="columnName"></param>
+        /// <returns></returns>
         public List<Address> Get(ConnectionHelper connectionHelper, string columnName)
         {
             string query = $"{selectClause} FROM Addresses, Streets WHERE Streets.id = Addresses.streetId AND {columnName} > 0";
@@ -213,11 +245,12 @@ namespace GraduationProject.Models
             return ExecuteGetQuery(connectionHelper);
         }
 
-
-        
-
-        
-       
+        /// <summary>
+        /// Адрес с оказаното id
+        /// </summary>
+        /// <param name="connectionHelper"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Address Get(ConnectionHelper connectionHelper, int id)
         {
             Address address = new Address();
@@ -241,6 +274,13 @@ namespace GraduationProject.Models
             return address;
         }
 
+        /// <summary>
+        /// Адрес по оказана улица и номер
+        /// </summary>
+        /// <param name="connectionHelper"></param>
+        /// <param name="streetId"></param>
+        /// <param name="number"></param>
+        /// <returns></returns>
         public Address Get(ConnectionHelper connectionHelper, int streetId, int number)
         {
 
@@ -265,15 +305,38 @@ namespace GraduationProject.Models
             return address;
         }
 
+        /// <summary>
+        /// Адреси с оказаната обитаемост
+        /// </summary>
+        /// <param name="connectionHelper"></param>
+        /// <param name="addressHabitabillity"></param>
+        /// <returns></returns>
         public List<Address> Get(ConnectionHelper connectionHelper, AddressHabitability addressHabitabillity)
         {
-
             string query = @$"{selectClause} FROM Addresses, Streets 
                             WHERE Streets.id = Addresses.streetId AND Addresses.habitability = @habitability";
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@habitability", addressHabitabillity);
             return ExecuteGetQuery(connectionHelper);
         }
+       
+        /// <summary>
+        /// Адреси в посочена карантина
+        /// </summary>
+        /// <param name="connectionHelper"></param>
+        /// <param name="quarantineType"></param>
+        /// <returns></returns>
+        public List<Address> Get(ConnectionHelper connectionHelper, Quarantine.QuarantineType quarantineType)
+        {
+            string query = @$"{selectClause} FROM Addresses, Streets, Quarantines
+                            WHERE Streets.id = Addresses.streetId AND Quarantines.addressId = Addresses.id
+                            AND Quarantines.type = @type";
+
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@type", quarantineType);
+            return ExecuteGetQuery(connectionHelper);
+        }
+
         private List<Address> ExecuteGetQuery(ConnectionHelper connectionHelper)
         {
             List<Address> addresses = new List<Address>();
@@ -284,12 +347,10 @@ namespace GraduationProject.Models
                 address = new Address();
                 address.Fill(reader);
                 addresses.Add(address);
-
             }
             reader.Close();
             connectionHelper.sqlConnection.Close();
             return addresses;
-
         }
 
         //DELETE

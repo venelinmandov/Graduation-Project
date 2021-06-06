@@ -20,6 +20,11 @@ namespace GraduationProject.UserControls.References.Inhabitants
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Показване на жителите/гостите със въведеното име/имена
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonShow_Click(object sender, EventArgs e)
         {
             if (textBoxFirstname.Text.Trim() == "" && textBoxMiddlename.Text.Trim() == "" && textBoxLastname.Text.Trim() == "")

@@ -48,7 +48,7 @@ namespace GraduationProject.Models
         public int Insert(ConnectionHelper connectionHelper)
         {
             long id;
-            string query = @$"INSERT INTO GuestsInQuarantine ({fields})
+            string query = @$"INSERT INTO Guests ({fields})
                             VALUES (@fName, @mName, @lName, @gender, @addrId, @currAddrId @rel, @note, @covid19)";
 
             connectionHelper.NewConnection(query);
@@ -81,7 +81,7 @@ namespace GraduationProject.Models
             string addressField = Address.FieldName[addressType];
             
             string whereClause = address != null ? $" WHERE {addressField} = @addrId" : "";
-            string query = @$"SELECT id,{fields} FROM GuestsInQuarantine " + whereClause;
+            string query = @$"SELECT id,{fields} FROM Guests " + whereClause;
             connectionHelper.NewConnection(query);
             if(address != null)
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId",address.Id);
@@ -114,22 +114,22 @@ namespace GraduationProject.Models
             if (personFirstName != "")
             {
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@firstname", personFirstName);
-                elements.Add("GuestsInQuarantine.firstname = @firstname");
+                elements.Add("Guests.firstname = @firstname");
             }
             if (personMiddleName != "")
             {
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@middleName", personMiddleName);
-                elements.Add("GuestsInQuarantine.middlename = @middleName");
+                elements.Add("Guests.middlename = @middleName");
             }
             if (personLastNameName != "")
             {
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@lastName", personLastNameName);
-                elements.Add("GuestsInQuarantine.lastname = @lastName");
+                elements.Add("Guests.lastname = @lastName");
             }
                 
             whereClause = string.Join(" AND ", elements);
 
-            string query = $@"SELECT id,{fields} FROM GuestsInQuarantine WHERE {whereClause}";
+            string query = $@"SELECT id,{fields} FROM Guests WHERE {whereClause}";
             connectionHelper.sqlCommand.CommandText = query;
 
             SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
@@ -151,7 +151,7 @@ namespace GraduationProject.Models
         public void Delete(ConnectionHelper connectionHelper,Address address, Address.AddressType addressType = Address.AddressType.Permanent)
         {
             string addressField = Address.FieldName[addressType];
-            string query = $"DELETE FROM GuestsInQuarantine WHERE {addressField} = @addrId";
+            string query = $"DELETE FROM Guests WHERE {addressField} = @addrId";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", address.Id);
@@ -161,7 +161,7 @@ namespace GraduationProject.Models
 
         public void Delete(ConnectionHelper connectionHelper)
         {
-            string query = "DELETE FROM GuestsInQuarantine WHERE id = @id";
+            string query = "DELETE FROM Guests WHERE id = @id";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@id", Id);
@@ -172,7 +172,7 @@ namespace GraduationProject.Models
         //UPDATE
         public void Update(ConnectionHelper connectionHelper)
         {
-            string query = @"UPDATE GuestsInQuarantine
+            string query = @"UPDATE Guests
                              SET firstname = @fname, middlename = @mName,
                                 lastname = @lName, note = @note,
                                 gender = @gender, addressId = @addrId,

@@ -35,28 +35,32 @@ namespace GraduationProject.UserControls
             // 
             // buttonReferences
             // 
+            this.buttonReferences.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
             this.buttonReferences.FlatAppearance.BorderSize = 0;
             this.buttonReferences.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonReferences.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonReferences.Location = new System.Drawing.Point(181, 115);
+            this.buttonReferences.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonReferences.Location = new System.Drawing.Point(200, 68);
             this.buttonReferences.Name = "buttonReferences";
             this.buttonReferences.Size = new System.Drawing.Size(259, 82);
             this.buttonReferences.TabIndex = 16;
             this.buttonReferences.Text = "Справки";
-            this.buttonReferences.UseVisualStyleBackColor = true;
+            this.buttonReferences.UseVisualStyleBackColor = false;
             this.buttonReferences.Click += new System.EventHandler(this.buttonReferences_Click);
             // 
             // buttonInsertData
             // 
+            this.buttonInsertData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
             this.buttonInsertData.FlatAppearance.BorderSize = 0;
             this.buttonInsertData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInsertData.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonInsertData.Location = new System.Drawing.Point(592, 115);
+            this.buttonInsertData.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonInsertData.Location = new System.Drawing.Point(622, 68);
             this.buttonInsertData.Name = "buttonInsertData";
             this.buttonInsertData.Size = new System.Drawing.Size(259, 82);
             this.buttonInsertData.TabIndex = 17;
             this.buttonInsertData.Text = "Въвеждане на данни";
-            this.buttonInsertData.UseVisualStyleBackColor = true;
+            this.buttonInsertData.UseVisualStyleBackColor = false;
             this.buttonInsertData.Click += new System.EventHandler(this.buttonInsertData_Click);
             // 
             // MenuUserControl
@@ -68,7 +72,7 @@ namespace GraduationProject.UserControls
             this.Controls.Add(this.buttonReferences);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "MenuUserControl";
-            this.Size = new System.Drawing.Size(1081, 329);
+            this.Size = new System.Drawing.Size(1081, 218);
             this.ResumeLayout(false);
 
         }

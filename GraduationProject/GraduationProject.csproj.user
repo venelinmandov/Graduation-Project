@@ -10,7 +10,13 @@
     <Compile Update="UserControls\MenuUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControls\References\Addresses\ReferencesSearchByAnimalQuarantines.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\References\Addresses\ReferencesSearchByHabitabillity.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\References\Addresses\ReferencesSearchByQuarantines.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\References\Addresses\ReferencesSearchByTrees.cs">

@@ -22,6 +22,11 @@ namespace GraduationProject.UserControls.References.Addresses
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Показване на адресите, на които се отглежда дадения дървесен вид със специален статут
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonShow_Click(object sender, EventArgs e)
         {
             string columnName;

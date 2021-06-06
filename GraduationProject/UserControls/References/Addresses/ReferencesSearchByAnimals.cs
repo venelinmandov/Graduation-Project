@@ -31,6 +31,11 @@ namespace GraduationProject.UserControls.References
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Показване на адресите, на които се отглежда избраното селскостопанско животно
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonShowCattle_Click(object sender, EventArgs e)
         {
             if (comboBoxCattle.Text == "") return;
@@ -38,6 +43,11 @@ namespace GraduationProject.UserControls.References
             SearchButtonClicked(new MainForm.EventData("showAddresses", addresses), new EventArgs());
         }
 
+        /// <summary>
+        /// Показване на адресите, на които се отглежда избрания вид куче
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonShowDogs_Click(object sender, EventArgs e)
         {
             List<Address> addresses;

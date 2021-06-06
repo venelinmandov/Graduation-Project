@@ -21,6 +21,11 @@ namespace GraduationProject.UserControls.References.Addresses
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Показване на адресите със съответния статус на обитаване
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonShow_Click(object sender, EventArgs e)
         {
             Address.AddressHabitability addressHabitabillity;

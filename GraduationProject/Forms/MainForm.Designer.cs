@@ -37,16 +37,16 @@ namespace GraduationProject.Forms
             // panelContents
             // 
             this.panelContents.BackColor = System.Drawing.Color.Transparent;
-            this.panelContents.Location = new System.Drawing.Point(-1, 102);
+            this.panelContents.Location = new System.Drawing.Point(0, 102);
             this.panelContents.Name = "panelContents";
-            this.panelContents.Size = new System.Drawing.Size(1082, 366);
+            this.panelContents.Size = new System.Drawing.Size(1081, 329);
             this.panelContents.TabIndex = 0;
             // 
             // buttonBack
             // 
             this.buttonBack.FlatAppearance.BorderSize = 0;
             this.buttonBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBack.Location = new System.Drawing.Point(32, 35);
+            this.buttonBack.Location = new System.Drawing.Point(32, 43);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(104, 23);
             this.buttonBack.TabIndex = 1;
@@ -69,6 +69,7 @@ namespace GraduationProject.Forms
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReferenceFormMain";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 
         }

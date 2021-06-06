@@ -45,5 +45,11 @@ namespace GraduationProject.UserControls
         {
             ButtonClicked(new MainForm.EventData("trees"), new EventArgs());
         }
+
+        private void buttonQuarantines_Click(object sender, EventArgs e)
+        {
+            ButtonClicked(new MainForm.EventData("quarantines"), new EventArgs());
+
+        }
     }
 }

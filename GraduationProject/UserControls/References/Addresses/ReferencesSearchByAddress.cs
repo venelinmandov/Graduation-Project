@@ -30,6 +30,11 @@ namespace GraduationProject.UserControls.References
             comboBoxStreet.Items.AddRange(streets.ToArray());
         }
 
+        /// <summary>
+        /// Актуализиране на комбобокса със номера на адреси при избор на улица 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxStreet_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBoxNumber.Items.Clear();
@@ -48,6 +53,11 @@ namespace GraduationProject.UserControls.References
             }
         }
 
+        /// <summary>
+        /// Визуализиране на информацията за избрания адрес
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             if (comboBoxStreet.Text == "" || comboBoxNumber.Text == "") return;
