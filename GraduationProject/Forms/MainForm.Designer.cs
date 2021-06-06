@@ -31,7 +31,8 @@ namespace GraduationProject.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelContents = new System.Windows.Forms.Panel();
-            this.buttonBack = new System.Windows.Forms.Button();
+            this.pictureBoxBack = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContents
@@ -42,17 +43,16 @@ namespace GraduationProject.Forms
             this.panelContents.Size = new System.Drawing.Size(1081, 329);
             this.panelContents.TabIndex = 0;
             // 
-            // buttonBack
+            // pictureBox1
             // 
-            this.buttonBack.FlatAppearance.BorderSize = 0;
-            this.buttonBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBack.Location = new System.Drawing.Point(32, 43);
-            this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(104, 23);
-            this.buttonBack.TabIndex = 1;
-            this.buttonBack.Text = "Назад";
-            this.buttonBack.UseVisualStyleBackColor = true;
-            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            this.pictureBoxBack.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxBack.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBoxBack.Location = new System.Drawing.Point(48, 12);
+            this.pictureBoxBack.Name = "pictureBox1";
+            this.pictureBoxBack.Size = new System.Drawing.Size(100, 78);
+            this.pictureBoxBack.TabIndex = 2;
+            this.pictureBoxBack.TabStop = false;
+            this.pictureBoxBack.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // MainForm
             // 
@@ -62,14 +62,14 @@ namespace GraduationProject.Forms
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1081, 539);
-            this.Controls.Add(this.buttonBack);
+            this.Controls.Add(this.pictureBoxBack);
             this.Controls.Add(this.panelContents);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReferenceFormMain";
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -77,6 +77,6 @@ namespace GraduationProject.Forms
         #endregion
 
         private System.Windows.Forms.Panel panelContents;
-        private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.PictureBox pictureBoxBack;
     }
 }

@@ -29,38 +29,38 @@ namespace GraduationProject.UserControls.References.Addresses
         private void buttonShow_Click(object sender, EventArgs e)
         {
             List<Address> addresses;
-            Quarantine.QuarantineType quarantineType;
+            AnimalsQuarantine.AnimalEnum quarantineType;
             if (radioButtonCows.Checked)
             {
-                quarantineType = Quarantine.QuarantineType.Cows;
+                quarantineType = AnimalsQuarantine.AnimalEnum.Cows;
             }
             else if (radioButtonHorses.Checked)
             {
-                quarantineType = Quarantine.QuarantineType.Horses;
+                quarantineType = AnimalsQuarantine.AnimalEnum.Horses;
             }
             else if (radioButtonDonkeys.Checked)
             {
-                quarantineType = Quarantine.QuarantineType.Donkeys;
+                quarantineType = AnimalsQuarantine.AnimalEnum.Donkeys;
             }
             else if (radioButtonGoats.Checked)
             {
-                quarantineType = Quarantine.QuarantineType.Goats;
+                quarantineType = AnimalsQuarantine.AnimalEnum.Goats;
             }
             else if (radioButtonSheep.Checked)
             {
-                quarantineType = Quarantine.QuarantineType.Sheep;
+                quarantineType = AnimalsQuarantine.AnimalEnum.Sheep;
             }
             else if (radioButtonPigs.Checked)
             {
-                quarantineType = Quarantine.QuarantineType.Pigs;
+                quarantineType = AnimalsQuarantine.AnimalEnum.Pigs;
             }
             else if (radioButtonFeathered.Checked)
             {
-                quarantineType = Quarantine.QuarantineType.Feathered;
+                quarantineType = AnimalsQuarantine.AnimalEnum.Feathered;
             }
             else if (radioButtonDogs.Checked)
             {
-                quarantineType = Quarantine.QuarantineType.Dogs;
+                quarantineType = AnimalsQuarantine.AnimalEnum.Dogs;
             }
             else return;
 

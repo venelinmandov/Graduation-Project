@@ -5,31 +5,36 @@ using System.Text;
 
 namespace GraduationProject.Models
 {
-    public class Quarantine : Model<Quarantine>
+    public class InhabitantsQuarantine : Model<InhabitantsQuarantine>
     {
         public int Id { get; set; }
         public int AddressId { get; set; }
-        public QuarantineType Type { get; set; }
+        public int Disease { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
 
-
-        public enum QuarantineType { Inhabitants, Cows, Sheep, Goats, Horses, Donkeys, Feathered, Pigs, Dogs };
 
         public void Fill(SQLiteDataReader reader)
         {
             Id = reader.GetInt32(0);
             AddressId = reader.GetInt32(1);
-            Type = (QuarantineType)reader.GetInt32(2);
+            Disease = reader.GetInt32(2);
+            StartDate = reader.GetString(3);
+            EndDate = reader.GetString(4);
         }
 
         //INSERT
         public int Insert(ConnectionHelper connectionHelper)
         {
             long id;
-            string query = "INSERT INTO Quarantines (addressId, type) VALUES (@addrId, @type)";
+            string query = @"INSERT INTO InhabitantsQuarantines (addressId, disease, startDate, endDate) 
+                            VALUES (@addrId, @animal, @disease, @startDate, @endDate )";
             connectionHelper.NewConnection(query);
 
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@type", Type);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@disease", Disease);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@startDate", StartDate);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@endDate", EndDate);
 
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlCommand.CommandText = "SELECT last_insert_rowid()";
@@ -41,12 +46,12 @@ namespace GraduationProject.Models
         }
 
         //GET
-        public List<Quarantine> Get(ConnectionHelper connectionHelper, Address address)
+        public List<InhabitantsQuarantine> Get(ConnectionHelper connectionHelper, Address address)
         {
 
-            List<Quarantine> quarantines = new List<Quarantine>();
-            Quarantine quarantine;
-            string query = @"SELECT id, addressId, type FROM Quarantines
+            List<InhabitantsQuarantine> quarantines = new List<InhabitantsQuarantine>();
+            InhabitantsQuarantine quarantine;
+            string query = @"SELECT id, addressId, disease, startDate, endDate FROM InhabitantsQuarantines
                             WHERE addressId = @addrId";
 
             connectionHelper.NewConnection(query);
@@ -54,7 +59,7 @@ namespace GraduationProject.Models
             SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
             while (reader.Read())
             {
-                quarantine = new Quarantine();
+                quarantine = new InhabitantsQuarantine();
                 quarantine.Fill(reader);
                 quarantines.Add(quarantine);
             }
@@ -63,18 +68,18 @@ namespace GraduationProject.Models
             return quarantines;
         }
 
-        public List<Quarantine> Get(ConnectionHelper connectionHelper)
+        public List<InhabitantsQuarantine> Get(ConnectionHelper connectionHelper)
         {
 
-            List<Quarantine> quarantines = new List<Quarantine>();
-            Quarantine quarantine;
-            string query = @"SELECT id, addressId, type FROM Quarantines";
+            List<InhabitantsQuarantine> quarantines = new List<InhabitantsQuarantine>();
+            InhabitantsQuarantine quarantine;
+            string query = @"SELECT id, addressId, disease, startDate, endDate FROM InhabitantsQuarantines";
 
             connectionHelper.NewConnection(query);
             SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
             while (reader.Read())
             {
-                quarantine = new Quarantine();
+                quarantine = new InhabitantsQuarantine();
                 quarantine.Fill(reader);
                 quarantines.Add(quarantine);
             }
@@ -86,7 +91,7 @@ namespace GraduationProject.Models
         //DELETE
         public void Delete(ConnectionHelper connectionHelper)
         {
-            string query = "DELETE FROM Quarantines WHERE id = @id";
+            string query = "DELETE FROM InhabitantsQuarantines WHERE id = @id";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@id", Id);
@@ -97,13 +102,18 @@ namespace GraduationProject.Models
         //UPDATE
         public void Update(ConnectionHelper connectionHelper)
         {
-            string query = "UPDATE Quarantines SET, type = @type WHERE id = @id";
+            string query = @"UPDATE InhabitantsQuarantines SET, 
+                           disease = @disease, startDate = @startDate,
+                            endDate = @endDate
+                            WHERE id = @id";
 
-            connectionHelper.NewConnection(query);   
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@type", Type);
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@disease", Disease);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@startDate", StartDate);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@endDate", EndDate);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@id", Id);
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();
-        }        
+        }
     }
 }

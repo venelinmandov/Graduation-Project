@@ -35,6 +35,8 @@ namespace GraduationProject.UserControls.References
             this.labelStreet = new System.Windows.Forms.Label();
             this.labelNumber = new System.Windows.Forms.Label();
             this.buttonSearch = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -43,7 +45,7 @@ namespace GraduationProject.UserControls.References
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelTitle.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTitle.Location = new System.Drawing.Point(467, 60);
+            this.labelTitle.Location = new System.Drawing.Point(485, 36);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(114, 33);
             this.labelTitle.TabIndex = 0;
@@ -52,16 +54,16 @@ namespace GraduationProject.UserControls.References
             // comboBoxStreet
             // 
             this.comboBoxStreet.FormattingEnabled = true;
-            this.comboBoxStreet.Location = new System.Drawing.Point(342, 150);
+            this.comboBoxStreet.Location = new System.Drawing.Point(45, 50);
             this.comboBoxStreet.Name = "comboBoxStreet";
-            this.comboBoxStreet.Size = new System.Drawing.Size(239, 23);
+            this.comboBoxStreet.Size = new System.Drawing.Size(192, 23);
             this.comboBoxStreet.TabIndex = 1;
             this.comboBoxStreet.SelectedIndexChanged += new System.EventHandler(this.comboBoxStreet_SelectedIndexChanged);
             // 
             // comboBoxNumber
             // 
             this.comboBoxNumber.FormattingEnabled = true;
-            this.comboBoxNumber.Location = new System.Drawing.Point(613, 150);
+            this.comboBoxNumber.Location = new System.Drawing.Point(261, 50);
             this.comboBoxNumber.Name = "comboBoxNumber";
             this.comboBoxNumber.Size = new System.Drawing.Size(67, 23);
             this.comboBoxNumber.TabIndex = 2;
@@ -71,7 +73,7 @@ namespace GraduationProject.UserControls.References
             this.labelStreet.AutoSize = true;
             this.labelStreet.BackColor = System.Drawing.Color.Transparent;
             this.labelStreet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelStreet.Location = new System.Drawing.Point(342, 129);
+            this.labelStreet.Location = new System.Drawing.Point(45, 29);
             this.labelStreet.Name = "labelStreet";
             this.labelStreet.Size = new System.Drawing.Size(45, 15);
             this.labelStreet.TabIndex = 3;
@@ -82,7 +84,7 @@ namespace GraduationProject.UserControls.References
             this.labelNumber.AutoSize = true;
             this.labelNumber.BackColor = System.Drawing.Color.Transparent;
             this.labelNumber.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelNumber.Location = new System.Drawing.Point(613, 129);
+            this.labelNumber.Location = new System.Drawing.Point(261, 29);
             this.labelNumber.Name = "labelNumber";
             this.labelNumber.Size = new System.Drawing.Size(46, 15);
             this.labelNumber.TabIndex = 4;
@@ -92,7 +94,7 @@ namespace GraduationProject.UserControls.References
             // 
             this.buttonSearch.FlatAppearance.BorderSize = 0;
             this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSearch.Location = new System.Drawing.Point(342, 227);
+            this.buttonSearch.Location = new System.Drawing.Point(45, 127);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(106, 23);
             this.buttonSearch.TabIndex = 5;
@@ -100,20 +102,30 @@ namespace GraduationProject.UserControls.References
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.comboBoxStreet);
+            this.panel1.Controls.Add(this.buttonSearch);
+            this.panel1.Controls.Add(this.comboBoxNumber);
+            this.panel1.Controls.Add(this.labelNumber);
+            this.panel1.Controls.Add(this.labelStreet);
+            this.panel1.Location = new System.Drawing.Point(357, 103);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(375, 172);
+            this.panel1.TabIndex = 6;
+            // 
             // ReferencesSearchByAddress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Controls.Add(this.buttonSearch);
-            this.Controls.Add(this.labelNumber);
-            this.Controls.Add(this.labelStreet);
-            this.Controls.Add(this.comboBoxNumber);
-            this.Controls.Add(this.comboBoxStreet);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelTitle);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "ReferencesSearchByAddress";
             this.Size = new System.Drawing.Size(1081, 329);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,5 +139,6 @@ namespace GraduationProject.UserControls.References
         private System.Windows.Forms.Label labelStreet;
         private System.Windows.Forms.Label labelNumber;
         private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.Panel panel1;
     }
 }

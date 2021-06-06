@@ -11,25 +11,26 @@ namespace GraduationProject.UserControls.References
 {
     public partial class ShowAddress : UserControl
     {
-        Dictionary<Quarantine.QuarantineType, string> quarntineDict = new Dictionary<Quarantine.QuarantineType, string>()
+        Button activeButton;
+
+        Dictionary<AnimalsQuarantine.AnimalEnum, string> animalsDict = new Dictionary<AnimalsQuarantine.AnimalEnum, string>()
         {
-            {Quarantine.QuarantineType.Inhabitants, "хора" },
-            {Quarantine.QuarantineType.Cows, "крави" },
-            {Quarantine.QuarantineType.Sheep, "овце" },
-            {Quarantine.QuarantineType.Goats, "кози" },
-            {Quarantine.QuarantineType.Horses, "коне" },
-            {Quarantine.QuarantineType.Donkeys, "магарета" },
-            {Quarantine.QuarantineType.Feathered, "пернати" },
-            {Quarantine.QuarantineType.Pigs, "свине" },
-            {Quarantine.QuarantineType.Dogs, "кучета" },
+            {AnimalsQuarantine.AnimalEnum.Cows, "крави" },
+            {AnimalsQuarantine.AnimalEnum.Sheep, "овце" },
+            {AnimalsQuarantine.AnimalEnum.Goats, "кози" },
+            {AnimalsQuarantine.AnimalEnum.Horses, "коне" },
+            {AnimalsQuarantine.AnimalEnum.Donkeys, "магарета" },
+            {AnimalsQuarantine.AnimalEnum.Feathered, "пернати" },
+            {AnimalsQuarantine.AnimalEnum.Pigs, "свине" },
+            {AnimalsQuarantine.AnimalEnum.Dogs, "кучета" },
         };
 
         public ShowAddress(Address address)
         {
             InitializeComponent();
-            panelBuildings.BringToFront();
+            activeButton = buttonBuildings;
+            SetActivePanel(panelBuildings, buttonBuildings);
             DisplayAddress(address);
-            
         }
 
         /// <summary>
@@ -39,7 +40,7 @@ namespace GraduationProject.UserControls.References
         /// <param name="e"></param>
         private void buttonBuildings_Click(object sender, EventArgs e)
         {
-            panelBuildings.BringToFront();
+            SetActivePanel(panelBuildings,(Button)sender);
         }
 
         /// <summary>
@@ -49,7 +50,8 @@ namespace GraduationProject.UserControls.References
         /// <param name="e"></param>
         private void buttonAnimals_Click(object sender, EventArgs e)
         {
-            panelAnimals.BringToFront();
+            SetActivePanel(panelAnimals, (Button)sender);
+
         }
 
         /// <summary>
@@ -59,7 +61,8 @@ namespace GraduationProject.UserControls.References
         /// <param name="e"></param>
         private void buttonDogs_Click(object sender, EventArgs e)
         {
-            panelDogs.BringToFront();
+            SetActivePanel(panelDogs, (Button)sender);
+
         }
 
         /// <summary>
@@ -69,7 +72,8 @@ namespace GraduationProject.UserControls.References
         /// <param name="e"></param>
         private void buttonTrees_Click(object sender, EventArgs e)
         {
-            panelTrees.BringToFront();
+            SetActivePanel(panelTrees, (Button)sender);
+
         }
 
         /// <summary>
@@ -79,7 +83,24 @@ namespace GraduationProject.UserControls.References
         /// <param name="e"></param>
         private void buttonQuarantines_Click(object sender, EventArgs e)
         {
-            panelQuarantines.BringToFront();
+            SetActivePanel(panelQuarantines, (Button)sender);
+
+        }
+
+        /// <summary>
+        /// Показва се избрания панел. И съответния бутон се визуализира като активен.
+        /// </summary>
+        /// <param name="panel"></param>
+        /// <param name="button"></param>
+        void SetActivePanel(Panel panel, Button button)
+        {
+            panel.BringToFront();
+            activeButton.BackColor = Color.FromArgb(170, 255, 255, 255);
+            activeButton.ForeColor = SystemColors.ControlText;
+            activeButton = button;
+            activeButton.BackColor = Color.FromArgb(50, 80, 40);
+            activeButton.ForeColor = SystemColors.Control;
+            panel.BringToFront();
         }
 
         /// <summary>
@@ -88,7 +109,8 @@ namespace GraduationProject.UserControls.References
         /// <param name="address"></param>
         void DisplayAddress(Address address)
         {
-            List<Quarantine> quarantines = new Quarantine().Get(new ConnectionHelper(),address);
+            List<AnimalsQuarantine> animalQuarantines = new AnimalsQuarantine().Get(new ConnectionHelper(),address);
+            List<InhabitantsQuarantine> inhabitantsQuarantines = new InhabitantsQuarantine().Get(new ConnectionHelper(),address);
             int guardDogs = 0, huntingDogs = 0, domesticDogs = 0;
             labelAddress.Text = address.ToString();
             labelSquaringValue.Text = address.Squaring.ToString();
@@ -125,35 +147,24 @@ namespace GraduationProject.UserControls.References
             labelHuntingDogsValue.Text = huntingDogs.ToString();
             labelDomesticDogsValue.Text = domesticDogs.ToString();
 
-            if (quarantines.Count == 0)
+            if (animalQuarantines.Count == 0 && inhabitantsQuarantines.Count == 0)
             {
                 labelQuarantines.Text += "няма карантини.";
             }
-            else if (quarantines.Count == 1)
-            {
-                labelQuarantines.Text += "има карантина на "+ quarntineDict[quarantines[0].Type] + ".";
-
-            }
             else
             {
-                List<string> animalNames = new List<string>();
-                labelQuarantines.Text += "има карантини на ";
-                for (int i = 0; i < quarantines.Count; i++)
+                labelQuarantines.Text += "има карантинирани:\n";
+                foreach (InhabitantsQuarantine inhabitantsQuarantine in inhabitantsQuarantines)
                 {
-                    if (quarantines[i].Type == Quarantine.QuarantineType.Inhabitants)
-                        labelQuarantines.Text += "хора";
-                    else
-                    {
-                        animalNames.Add(quarntineDict[quarantines[i].Type]);
-                    }
+                labelQuarantines.Text += $"\t - обитатели от {inhabitantsQuarantine.StartDate} до {inhabitantsQuarantine.EndDate} с диагноза {inhabitantsQuarantine.Disease}\n";
                 }
-                if (animalNames.Count != 0)
+                foreach (AnimalsQuarantine animalsQuarantine  in animalQuarantines)
                 {
-                    labelQuarantines.Text += $" и \nселскостопански животни: {string.Join(", ",animalNames)}";
+                    labelQuarantines.Text += $"\t - {animalsDict[animalsQuarantine.Animal]} от {animalsQuarantine.StartDate} до {animalsQuarantine.EndDate} с диагноза {animalsQuarantine.Disease}\n";
                 }
-                labelQuarantines.Text += ".";
+
             }
-            
+
 
 
         }   

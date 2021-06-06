@@ -13,7 +13,7 @@ namespace GraduationProject.Forms
         {
             InitializeComponent();
             MenuButtonClicked(new EventData("menu"), new EventArgs());
-            buttonBack.Visible = false;
+            pictureBoxBack.Visible = false;
 
 
         }
@@ -175,26 +175,21 @@ namespace GraduationProject.Forms
 
         }
 
-        private void buttonBack_Click(object sender, EventArgs e)
+        void AddControl(UserControl userControl)
+        {
+            userControls.Push(userControl);
+            pictureBoxBack.Visible = true;
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (userControls.Count != 0)
             {
                 panelContents.Controls.Remove(userControls.Pop());
                 if (userControls.Count == 0)
-                    buttonBack.Visible = false;
+                    pictureBoxBack.Visible = false;
             }
-        }
-
-        void AddControl(UserControl userControl)
-        {
-            userControls.Push(userControl);
-            buttonBack.Visible = true;
-
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

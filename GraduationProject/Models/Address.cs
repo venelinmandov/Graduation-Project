@@ -326,7 +326,7 @@ namespace GraduationProject.Models
         /// <param name="connectionHelper"></param>
         /// <param name="quarantineType"></param>
         /// <returns></returns>
-        public List<Address> Get(ConnectionHelper connectionHelper, Quarantine.QuarantineType quarantineType)
+        public List<Address> Get(ConnectionHelper connectionHelper, AnimalsQuarantine.AnimalEnum quarantineType)
         {
             string query = @$"{selectClause} FROM Addresses, Streets, Quarantines
                             WHERE Streets.id = Addresses.streetId AND Quarantines.addressId = Addresses.id
