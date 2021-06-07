@@ -29,6 +29,10 @@ namespace GraduationProject.UserControls.References
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelAddress = new System.Windows.Forms.Label();
             this.labelHabitabillity = new System.Windows.Forms.Label();
             this.labelHabitabillityValue = new System.Windows.Forms.Label();
@@ -36,25 +40,36 @@ namespace GraduationProject.UserControls.References
             this.labelSquaring = new System.Windows.Forms.Label();
             this.buttonBuildings = new System.Windows.Forms.Button();
             this.buttonAnimals = new System.Windows.Forms.Button();
-            this.buttonDogs = new System.Windows.Forms.Button();
             this.buttonTrees = new System.Windows.Forms.Button();
             this.panelBuildings = new System.Windows.Forms.Panel();
+            this.panelInhabitants = new System.Windows.Forms.Panel();
+            this.labelOwnerValue = new System.Windows.Forms.Label();
+            this.labelOwner = new System.Windows.Forms.Label();
+            this.buttonGuests = new System.Windows.Forms.Button();
+            this.buttonResidents = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.labelTitleInhabitants = new System.Windows.Forms.Label();
             this.labelTitleBuldings = new System.Windows.Forms.Label();
             this.labelAgriculturalValue = new System.Windows.Forms.Label();
             this.labelAgricultural = new System.Windows.Forms.Label();
             this.labelResidentalValue = new System.Windows.Forms.Label();
             this.labelResidental = new System.Windows.Forms.Label();
             this.panelAnimals = new System.Windows.Forms.Panel();
+            this.labelDomesticDogsValue = new System.Windows.Forms.Label();
+            this.labelHuntingDogsValue = new System.Windows.Forms.Label();
+            this.labelGuardDogsValue = new System.Windows.Forms.Label();
+            this.labelDomesticDogs = new System.Windows.Forms.Label();
+            this.labelHuntingDogs = new System.Windows.Forms.Label();
+            this.labelGuardDogs = new System.Windows.Forms.Label();
             this.labelFeatheredValue = new System.Windows.Forms.Label();
             this.labelFeathered = new System.Windows.Forms.Label();
-            this.labelCattleSmall = new System.Windows.Forms.Label();
             this.labelPigsValue = new System.Windows.Forms.Label();
             this.labelSheepValue = new System.Windows.Forms.Label();
             this.labelGoatsValue = new System.Windows.Forms.Label();
             this.labelPigs = new System.Windows.Forms.Label();
             this.labelSheep = new System.Windows.Forms.Label();
             this.labelGoats = new System.Windows.Forms.Label();
-            this.labelCattleMedium = new System.Windows.Forms.Label();
+            this.labelDogs = new System.Windows.Forms.Label();
             this.labelDonkeysValue = new System.Windows.Forms.Label();
             this.labelHorsesValue = new System.Windows.Forms.Label();
             this.labelCowsValue = new System.Windows.Forms.Label();
@@ -62,15 +77,7 @@ namespace GraduationProject.UserControls.References
             this.labelHorses = new System.Windows.Forms.Label();
             this.labelCows = new System.Windows.Forms.Label();
             this.labelTitleAnimals = new System.Windows.Forms.Label();
-            this.labelCattleBig = new System.Windows.Forms.Label();
-            this.panelDogs = new System.Windows.Forms.Panel();
-            this.labelDomesticDogsValue = new System.Windows.Forms.Label();
-            this.labelHuntingDogsValue = new System.Windows.Forms.Label();
-            this.labelGuardDogsValue = new System.Windows.Forms.Label();
-            this.labelDomesticDogs = new System.Windows.Forms.Label();
-            this.labelHuntingDogs = new System.Windows.Forms.Label();
-            this.labelGuardDogs = new System.Windows.Forms.Label();
-            this.labelTitleDogs = new System.Windows.Forms.Label();
+            this.labelCattle = new System.Windows.Forms.Label();
             this.panelTrees = new System.Windows.Forms.Panel();
             this.labelCenturyOldTreesValue = new System.Windows.Forms.Label();
             this.labelCenturyOldTrees = new System.Windows.Forms.Label();
@@ -83,13 +90,20 @@ namespace GraduationProject.UserControls.References
             this.labelTitleTrees = new System.Windows.Forms.Label();
             this.buttonQuarantines = new System.Windows.Forms.Button();
             this.panelQuarantines = new System.Windows.Forms.Panel();
+            this.dataGridViewQuarantines = new System.Windows.Forms.DataGridView();
+            this.ObjectCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diagnosysCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startDateCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endDateCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelQuarantines = new System.Windows.Forms.Label();
             this.labelTitleQuarantines = new System.Windows.Forms.Label();
+            this.buttonInhabitants = new System.Windows.Forms.Button();
             this.panelBuildings.SuspendLayout();
+            this.panelInhabitants.SuspendLayout();
             this.panelAnimals.SuspendLayout();
-            this.panelDogs.SuspendLayout();
             this.panelTrees.SuspendLayout();
             this.panelQuarantines.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewQuarantines)).BeginInit();
             this.SuspendLayout();
             // 
             // labelAddress
@@ -163,25 +177,13 @@ namespace GraduationProject.UserControls.References
             // 
             this.buttonAnimals.FlatAppearance.BorderSize = 0;
             this.buttonAnimals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAnimals.Location = new System.Drawing.Point(36, 200);
+            this.buttonAnimals.Location = new System.Drawing.Point(36, 229);
             this.buttonAnimals.Name = "buttonAnimals";
             this.buttonAnimals.Size = new System.Drawing.Size(196, 23);
             this.buttonAnimals.TabIndex = 6;
             this.buttonAnimals.Text = "Селскостопански животни";
             this.buttonAnimals.UseVisualStyleBackColor = true;
             this.buttonAnimals.Click += new System.EventHandler(this.buttonAnimals_Click);
-            // 
-            // buttonDogs
-            // 
-            this.buttonDogs.FlatAppearance.BorderSize = 0;
-            this.buttonDogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDogs.Location = new System.Drawing.Point(36, 229);
-            this.buttonDogs.Name = "buttonDogs";
-            this.buttonDogs.Size = new System.Drawing.Size(196, 23);
-            this.buttonDogs.TabIndex = 7;
-            this.buttonDogs.Text = "Кучета";
-            this.buttonDogs.UseVisualStyleBackColor = true;
-            this.buttonDogs.Click += new System.EventHandler(this.buttonDogs_Click);
             // 
             // buttonTrees
             // 
@@ -206,6 +208,81 @@ namespace GraduationProject.UserControls.References
             this.panelBuildings.Name = "panelBuildings";
             this.panelBuildings.Size = new System.Drawing.Size(712, 300);
             this.panelBuildings.TabIndex = 12;
+            // 
+            // panelInhabitants
+            // 
+            this.panelInhabitants.Controls.Add(this.labelOwnerValue);
+            this.panelInhabitants.Controls.Add(this.labelOwner);
+            this.panelInhabitants.Controls.Add(this.buttonGuests);
+            this.panelInhabitants.Controls.Add(this.buttonResidents);
+            this.panelInhabitants.Controls.Add(this.listBox1);
+            this.panelInhabitants.Controls.Add(this.labelTitleInhabitants);
+            this.panelInhabitants.Location = new System.Drawing.Point(316, 13);
+            this.panelInhabitants.Name = "panelInhabitants";
+            this.panelInhabitants.Size = new System.Drawing.Size(712, 300);
+            this.panelInhabitants.TabIndex = 17;
+            // 
+            // labelOwnerValue
+            // 
+            this.labelOwnerValue.AutoSize = true;
+            this.labelOwnerValue.Location = new System.Drawing.Point(37, 118);
+            this.labelOwnerValue.Name = "labelOwnerValue";
+            this.labelOwnerValue.Size = new System.Drawing.Size(77, 15);
+            this.labelOwnerValue.TabIndex = 49;
+            this.labelOwnerValue.Text = "Собственик:";
+            // 
+            // labelOwner
+            // 
+            this.labelOwner.AutoSize = true;
+            this.labelOwner.Location = new System.Drawing.Point(37, 102);
+            this.labelOwner.Name = "labelOwner";
+            this.labelOwner.Size = new System.Drawing.Size(77, 15);
+            this.labelOwner.TabIndex = 48;
+            this.labelOwner.Text = "Собственик:";
+            // 
+            // buttonGuests
+            // 
+            this.buttonGuests.BackColor = System.Drawing.Color.Gray;
+            this.buttonGuests.FlatAppearance.BorderSize = 0;
+            this.buttonGuests.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGuests.Location = new System.Drawing.Point(384, 70);
+            this.buttonGuests.Name = "buttonGuests";
+            this.buttonGuests.Size = new System.Drawing.Size(159, 23);
+            this.buttonGuests.TabIndex = 47;
+            this.buttonGuests.Text = "Гости";
+            this.buttonGuests.UseVisualStyleBackColor = false;
+            // 
+            // buttonResidents
+            // 
+            this.buttonResidents.BackColor = System.Drawing.Color.Gray;
+            this.buttonResidents.FlatAppearance.BorderSize = 0;
+            this.buttonResidents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonResidents.Location = new System.Drawing.Point(216, 70);
+            this.buttonResidents.Name = "buttonResidents";
+            this.buttonResidents.Size = new System.Drawing.Size(159, 23);
+            this.buttonResidents.TabIndex = 46;
+            this.buttonResidents.Text = "Членове на семейството";
+            this.buttonResidents.UseVisualStyleBackColor = false;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(216, 101);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(327, 184);
+            this.listBox1.TabIndex = 14;
+            // 
+            // labelTitleInhabitants
+            // 
+            this.labelTitleInhabitants.AutoSize = true;
+            this.labelTitleInhabitants.BackColor = System.Drawing.Color.Transparent;
+            this.labelTitleInhabitants.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelTitleInhabitants.Location = new System.Drawing.Point(37, 34);
+            this.labelTitleInhabitants.Name = "labelTitleInhabitants";
+            this.labelTitleInhabitants.Size = new System.Drawing.Size(146, 29);
+            this.labelTitleInhabitants.TabIndex = 13;
+            this.labelTitleInhabitants.Text = "Обитатели:";
             // 
             // labelTitleBuldings
             // 
@@ -264,16 +341,21 @@ namespace GraduationProject.UserControls.References
             // 
             // panelAnimals
             // 
+            this.panelAnimals.Controls.Add(this.labelDomesticDogsValue);
+            this.panelAnimals.Controls.Add(this.labelHuntingDogsValue);
+            this.panelAnimals.Controls.Add(this.labelGuardDogsValue);
+            this.panelAnimals.Controls.Add(this.labelDomesticDogs);
+            this.panelAnimals.Controls.Add(this.labelHuntingDogs);
+            this.panelAnimals.Controls.Add(this.labelGuardDogs);
             this.panelAnimals.Controls.Add(this.labelFeatheredValue);
             this.panelAnimals.Controls.Add(this.labelFeathered);
-            this.panelAnimals.Controls.Add(this.labelCattleSmall);
             this.panelAnimals.Controls.Add(this.labelPigsValue);
             this.panelAnimals.Controls.Add(this.labelSheepValue);
             this.panelAnimals.Controls.Add(this.labelGoatsValue);
             this.panelAnimals.Controls.Add(this.labelPigs);
             this.panelAnimals.Controls.Add(this.labelSheep);
             this.panelAnimals.Controls.Add(this.labelGoats);
-            this.panelAnimals.Controls.Add(this.labelCattleMedium);
+            this.panelAnimals.Controls.Add(this.labelDogs);
             this.panelAnimals.Controls.Add(this.labelDonkeysValue);
             this.panelAnimals.Controls.Add(this.labelHorsesValue);
             this.panelAnimals.Controls.Add(this.labelCowsValue);
@@ -281,20 +363,86 @@ namespace GraduationProject.UserControls.References
             this.panelAnimals.Controls.Add(this.labelHorses);
             this.panelAnimals.Controls.Add(this.labelCows);
             this.panelAnimals.Controls.Add(this.labelTitleAnimals);
-            this.panelAnimals.Controls.Add(this.labelCattleBig);
+            this.panelAnimals.Controls.Add(this.labelCattle);
             this.panelAnimals.Location = new System.Drawing.Point(316, 13);
             this.panelAnimals.Name = "panelAnimals";
             this.panelAnimals.Size = new System.Drawing.Size(712, 300);
             this.panelAnimals.TabIndex = 17;
             // 
+            // labelDomesticDogsValue
+            // 
+            this.labelDomesticDogsValue.AutoSize = true;
+            this.labelDomesticDogsValue.BackColor = System.Drawing.Color.Transparent;
+            this.labelDomesticDogsValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDomesticDogsValue.Location = new System.Drawing.Point(460, 168);
+            this.labelDomesticDogsValue.Name = "labelDomesticDogsValue";
+            this.labelDomesticDogsValue.Size = new System.Drawing.Size(26, 18);
+            this.labelDomesticDogsValue.TabIndex = 46;
+            this.labelDomesticDogsValue.Text = "10";
+            // 
+            // labelHuntingDogsValue
+            // 
+            this.labelHuntingDogsValue.AutoSize = true;
+            this.labelHuntingDogsValue.BackColor = System.Drawing.Color.Transparent;
+            this.labelHuntingDogsValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelHuntingDogsValue.Location = new System.Drawing.Point(460, 149);
+            this.labelHuntingDogsValue.Name = "labelHuntingDogsValue";
+            this.labelHuntingDogsValue.Size = new System.Drawing.Size(26, 18);
+            this.labelHuntingDogsValue.TabIndex = 45;
+            this.labelHuntingDogsValue.Text = "10";
+            // 
+            // labelGuardDogsValue
+            // 
+            this.labelGuardDogsValue.AutoSize = true;
+            this.labelGuardDogsValue.BackColor = System.Drawing.Color.Transparent;
+            this.labelGuardDogsValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelGuardDogsValue.Location = new System.Drawing.Point(460, 130);
+            this.labelGuardDogsValue.Name = "labelGuardDogsValue";
+            this.labelGuardDogsValue.Size = new System.Drawing.Size(26, 18);
+            this.labelGuardDogsValue.TabIndex = 44;
+            this.labelGuardDogsValue.Text = "10";
+            // 
+            // labelDomesticDogs
+            // 
+            this.labelDomesticDogs.AutoSize = true;
+            this.labelDomesticDogs.BackColor = System.Drawing.Color.Transparent;
+            this.labelDomesticDogs.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelDomesticDogs.Location = new System.Drawing.Point(277, 168);
+            this.labelDomesticDogs.Name = "labelDomesticDogs";
+            this.labelDomesticDogs.Size = new System.Drawing.Size(155, 19);
+            this.labelDomesticDogs.TabIndex = 43;
+            this.labelDomesticDogs.Text = "- Домашни кучета:";
+            // 
+            // labelHuntingDogs
+            // 
+            this.labelHuntingDogs.AutoSize = true;
+            this.labelHuntingDogs.BackColor = System.Drawing.Color.Transparent;
+            this.labelHuntingDogs.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelHuntingDogs.Location = new System.Drawing.Point(277, 149);
+            this.labelHuntingDogs.Name = "labelHuntingDogs";
+            this.labelHuntingDogs.Size = new System.Drawing.Size(180, 19);
+            this.labelHuntingDogs.TabIndex = 42;
+            this.labelHuntingDogs.Text = "- Ловджийски кучета:";
+            // 
+            // labelGuardDogs
+            // 
+            this.labelGuardDogs.AutoSize = true;
+            this.labelGuardDogs.BackColor = System.Drawing.Color.Transparent;
+            this.labelGuardDogs.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelGuardDogs.Location = new System.Drawing.Point(277, 130);
+            this.labelGuardDogs.Name = "labelGuardDogs";
+            this.labelGuardDogs.Size = new System.Drawing.Size(127, 19);
+            this.labelGuardDogs.TabIndex = 41;
+            this.labelGuardDogs.Text = "- Кучета пазач:";
+            // 
             // labelFeatheredValue
             // 
             this.labelFeatheredValue.AutoSize = true;
             this.labelFeatheredValue.BackColor = System.Drawing.Color.Transparent;
-            this.labelFeatheredValue.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelFeatheredValue.Location = new System.Drawing.Point(525, 123);
+            this.labelFeatheredValue.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelFeatheredValue.Location = new System.Drawing.Point(610, 96);
             this.labelFeatheredValue.Name = "labelFeatheredValue";
-            this.labelFeatheredValue.Size = new System.Drawing.Size(21, 16);
+            this.labelFeatheredValue.Size = new System.Drawing.Size(28, 23);
             this.labelFeatheredValue.TabIndex = 40;
             this.labelFeatheredValue.Text = "10";
             // 
@@ -302,32 +450,21 @@ namespace GraduationProject.UserControls.References
             // 
             this.labelFeathered.AutoSize = true;
             this.labelFeathered.BackColor = System.Drawing.Color.Transparent;
-            this.labelFeathered.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelFeathered.Location = new System.Drawing.Point(446, 123);
+            this.labelFeathered.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelFeathered.Location = new System.Drawing.Point(516, 96);
             this.labelFeathered.Name = "labelFeathered";
-            this.labelFeathered.Size = new System.Drawing.Size(74, 16);
+            this.labelFeathered.Size = new System.Drawing.Size(97, 22);
             this.labelFeathered.TabIndex = 37;
-            this.labelFeathered.Text = "- Пернати:";
-            // 
-            // labelCattleSmall
-            // 
-            this.labelCattleSmall.AutoSize = true;
-            this.labelCattleSmall.BackColor = System.Drawing.Color.Transparent;
-            this.labelCattleSmall.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelCattleSmall.Location = new System.Drawing.Point(406, 95);
-            this.labelCattleSmall.Name = "labelCattleSmall";
-            this.labelCattleSmall.Size = new System.Drawing.Size(140, 19);
-            this.labelCattleSmall.TabIndex = 36;
-            this.labelCattleSmall.Text = "Дребен добитък";
+            this.labelFeathered.Text = "Пернати:";
             // 
             // labelPigsValue
             // 
             this.labelPigsValue.AutoSize = true;
             this.labelPigsValue.BackColor = System.Drawing.Color.Transparent;
-            this.labelPigsValue.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelPigsValue.Location = new System.Drawing.Point(342, 155);
+            this.labelPigsValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelPigsValue.Location = new System.Drawing.Point(184, 226);
             this.labelPigsValue.Name = "labelPigsValue";
-            this.labelPigsValue.Size = new System.Drawing.Size(21, 16);
+            this.labelPigsValue.Size = new System.Drawing.Size(26, 18);
             this.labelPigsValue.TabIndex = 35;
             this.labelPigsValue.Text = "10";
             // 
@@ -335,10 +472,10 @@ namespace GraduationProject.UserControls.References
             // 
             this.labelSheepValue.AutoSize = true;
             this.labelSheepValue.BackColor = System.Drawing.Color.Transparent;
-            this.labelSheepValue.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelSheepValue.Location = new System.Drawing.Point(342, 139);
+            this.labelSheepValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelSheepValue.Location = new System.Drawing.Point(184, 206);
             this.labelSheepValue.Name = "labelSheepValue";
-            this.labelSheepValue.Size = new System.Drawing.Size(21, 16);
+            this.labelSheepValue.Size = new System.Drawing.Size(26, 18);
             this.labelSheepValue.TabIndex = 34;
             this.labelSheepValue.Text = "10";
             // 
@@ -346,10 +483,10 @@ namespace GraduationProject.UserControls.References
             // 
             this.labelGoatsValue.AutoSize = true;
             this.labelGoatsValue.BackColor = System.Drawing.Color.Transparent;
-            this.labelGoatsValue.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelGoatsValue.Location = new System.Drawing.Point(342, 123);
+            this.labelGoatsValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelGoatsValue.Location = new System.Drawing.Point(184, 187);
             this.labelGoatsValue.Name = "labelGoatsValue";
-            this.labelGoatsValue.Size = new System.Drawing.Size(21, 16);
+            this.labelGoatsValue.Size = new System.Drawing.Size(26, 18);
             this.labelGoatsValue.TabIndex = 33;
             this.labelGoatsValue.Text = "10";
             // 
@@ -357,10 +494,10 @@ namespace GraduationProject.UserControls.References
             // 
             this.labelPigs.AutoSize = true;
             this.labelPigs.BackColor = System.Drawing.Color.Transparent;
-            this.labelPigs.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelPigs.Location = new System.Drawing.Point(260, 155);
+            this.labelPigs.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelPigs.Location = new System.Drawing.Point(86, 225);
             this.labelPigs.Name = "labelPigs";
-            this.labelPigs.Size = new System.Drawing.Size(60, 16);
+            this.labelPigs.Size = new System.Drawing.Size(75, 19);
             this.labelPigs.TabIndex = 32;
             this.labelPigs.Text = "- Свине:";
             // 
@@ -368,10 +505,10 @@ namespace GraduationProject.UserControls.References
             // 
             this.labelSheep.AutoSize = true;
             this.labelSheep.BackColor = System.Drawing.Color.Transparent;
-            this.labelSheep.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelSheep.Location = new System.Drawing.Point(260, 139);
+            this.labelSheep.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelSheep.Location = new System.Drawing.Point(86, 206);
             this.labelSheep.Name = "labelSheep";
-            this.labelSheep.Size = new System.Drawing.Size(53, 16);
+            this.labelSheep.Size = new System.Drawing.Size(65, 19);
             this.labelSheep.TabIndex = 31;
             this.labelSheep.Text = "- Овце:";
             // 
@@ -379,32 +516,32 @@ namespace GraduationProject.UserControls.References
             // 
             this.labelGoats.AutoSize = true;
             this.labelGoats.BackColor = System.Drawing.Color.Transparent;
-            this.labelGoats.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelGoats.Location = new System.Drawing.Point(260, 123);
+            this.labelGoats.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelGoats.Location = new System.Drawing.Point(86, 187);
             this.labelGoats.Name = "labelGoats";
-            this.labelGoats.Size = new System.Drawing.Size(50, 16);
+            this.labelGoats.Size = new System.Drawing.Size(62, 19);
             this.labelGoats.TabIndex = 30;
             this.labelGoats.Text = "- Кози:";
             // 
-            // labelCattleMedium
+            // labelDogs
             // 
-            this.labelCattleMedium.AutoSize = true;
-            this.labelCattleMedium.BackColor = System.Drawing.Color.Transparent;
-            this.labelCattleMedium.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelCattleMedium.Location = new System.Drawing.Point(222, 94);
-            this.labelCattleMedium.Name = "labelCattleMedium";
-            this.labelCattleMedium.Size = new System.Drawing.Size(141, 19);
-            this.labelCattleMedium.TabIndex = 29;
-            this.labelCattleMedium.Text = "Среден добитък";
+            this.labelDogs.AutoSize = true;
+            this.labelDogs.BackColor = System.Drawing.Color.Transparent;
+            this.labelDogs.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelDogs.Location = new System.Drawing.Point(328, 96);
+            this.labelDogs.Name = "labelDogs";
+            this.labelDogs.Size = new System.Drawing.Size(75, 22);
+            this.labelDogs.TabIndex = 29;
+            this.labelDogs.Text = "Кучета";
             // 
             // labelDonkeysValue
             // 
             this.labelDonkeysValue.AutoSize = true;
             this.labelDonkeysValue.BackColor = System.Drawing.Color.Transparent;
-            this.labelDonkeysValue.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelDonkeysValue.Location = new System.Drawing.Point(164, 155);
+            this.labelDonkeysValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDonkeysValue.Location = new System.Drawing.Point(184, 168);
             this.labelDonkeysValue.Name = "labelDonkeysValue";
-            this.labelDonkeysValue.Size = new System.Drawing.Size(21, 16);
+            this.labelDonkeysValue.Size = new System.Drawing.Size(26, 18);
             this.labelDonkeysValue.TabIndex = 28;
             this.labelDonkeysValue.Text = "10";
             // 
@@ -412,10 +549,10 @@ namespace GraduationProject.UserControls.References
             // 
             this.labelHorsesValue.AutoSize = true;
             this.labelHorsesValue.BackColor = System.Drawing.Color.Transparent;
-            this.labelHorsesValue.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelHorsesValue.Location = new System.Drawing.Point(164, 139);
+            this.labelHorsesValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelHorsesValue.Location = new System.Drawing.Point(184, 151);
             this.labelHorsesValue.Name = "labelHorsesValue";
-            this.labelHorsesValue.Size = new System.Drawing.Size(21, 16);
+            this.labelHorsesValue.Size = new System.Drawing.Size(26, 18);
             this.labelHorsesValue.TabIndex = 27;
             this.labelHorsesValue.Text = "10";
             // 
@@ -423,10 +560,10 @@ namespace GraduationProject.UserControls.References
             // 
             this.labelCowsValue.AutoSize = true;
             this.labelCowsValue.BackColor = System.Drawing.Color.Transparent;
-            this.labelCowsValue.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelCowsValue.Location = new System.Drawing.Point(164, 123);
+            this.labelCowsValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelCowsValue.Location = new System.Drawing.Point(184, 130);
             this.labelCowsValue.Name = "labelCowsValue";
-            this.labelCowsValue.Size = new System.Drawing.Size(21, 16);
+            this.labelCowsValue.Size = new System.Drawing.Size(26, 18);
             this.labelCowsValue.TabIndex = 26;
             this.labelCowsValue.Text = "10";
             // 
@@ -434,10 +571,10 @@ namespace GraduationProject.UserControls.References
             // 
             this.labelDonkeys.AutoSize = true;
             this.labelDonkeys.BackColor = System.Drawing.Color.Transparent;
-            this.labelDonkeys.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelDonkeys.Location = new System.Drawing.Point(85, 155);
+            this.labelDonkeys.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelDonkeys.Location = new System.Drawing.Point(86, 168);
             this.labelDonkeys.Name = "labelDonkeys";
-            this.labelDonkeys.Size = new System.Drawing.Size(81, 16);
+            this.labelDonkeys.Size = new System.Drawing.Size(98, 19);
             this.labelDonkeys.TabIndex = 20;
             this.labelDonkeys.Text = "- Магарета:";
             // 
@@ -445,10 +582,10 @@ namespace GraduationProject.UserControls.References
             // 
             this.labelHorses.AutoSize = true;
             this.labelHorses.BackColor = System.Drawing.Color.Transparent;
-            this.labelHorses.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelHorses.Location = new System.Drawing.Point(85, 139);
+            this.labelHorses.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelHorses.Location = new System.Drawing.Point(86, 149);
             this.labelHorses.Name = "labelHorses";
-            this.labelHorses.Size = new System.Drawing.Size(51, 16);
+            this.labelHorses.Size = new System.Drawing.Size(63, 19);
             this.labelHorses.TabIndex = 19;
             this.labelHorses.Text = "- Коне:";
             // 
@@ -456,10 +593,10 @@ namespace GraduationProject.UserControls.References
             // 
             this.labelCows.AutoSize = true;
             this.labelCows.BackColor = System.Drawing.Color.Transparent;
-            this.labelCows.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelCows.Location = new System.Drawing.Point(85, 123);
+            this.labelCows.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelCows.Location = new System.Drawing.Point(86, 130);
             this.labelCows.Name = "labelCows";
-            this.labelCows.Size = new System.Drawing.Size(59, 16);
+            this.labelCows.Size = new System.Drawing.Size(73, 19);
             this.labelCows.TabIndex = 18;
             this.labelCows.Text = "- Крави:";
             // 
@@ -474,107 +611,16 @@ namespace GraduationProject.UserControls.References
             this.labelTitleAnimals.TabIndex = 13;
             this.labelTitleAnimals.Text = "Селскостопански животни:";
             // 
-            // labelCattleBig
+            // labelCattle
             // 
-            this.labelCattleBig.AutoSize = true;
-            this.labelCattleBig.BackColor = System.Drawing.Color.Transparent;
-            this.labelCattleBig.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelCattleBig.Location = new System.Drawing.Point(62, 96);
-            this.labelCattleBig.Name = "labelCattleBig";
-            this.labelCattleBig.Size = new System.Drawing.Size(124, 19);
-            this.labelCattleBig.TabIndex = 13;
-            this.labelCattleBig.Text = "Едър добитък";
-            // 
-            // panelDogs
-            // 
-            this.panelDogs.Controls.Add(this.labelDomesticDogsValue);
-            this.panelDogs.Controls.Add(this.labelHuntingDogsValue);
-            this.panelDogs.Controls.Add(this.labelGuardDogsValue);
-            this.panelDogs.Controls.Add(this.labelDomesticDogs);
-            this.panelDogs.Controls.Add(this.labelHuntingDogs);
-            this.panelDogs.Controls.Add(this.labelGuardDogs);
-            this.panelDogs.Controls.Add(this.labelTitleDogs);
-            this.panelDogs.Location = new System.Drawing.Point(316, 13);
-            this.panelDogs.Name = "panelDogs";
-            this.panelDogs.Size = new System.Drawing.Size(712, 300);
-            this.panelDogs.TabIndex = 41;
-            // 
-            // labelDomesticDogsValue
-            // 
-            this.labelDomesticDogsValue.AutoSize = true;
-            this.labelDomesticDogsValue.BackColor = System.Drawing.Color.Transparent;
-            this.labelDomesticDogsValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelDomesticDogsValue.Location = new System.Drawing.Point(245, 149);
-            this.labelDomesticDogsValue.Name = "labelDomesticDogsValue";
-            this.labelDomesticDogsValue.Size = new System.Drawing.Size(26, 18);
-            this.labelDomesticDogsValue.TabIndex = 28;
-            this.labelDomesticDogsValue.Text = "10";
-            // 
-            // labelHuntingDogsValue
-            // 
-            this.labelHuntingDogsValue.AutoSize = true;
-            this.labelHuntingDogsValue.BackColor = System.Drawing.Color.Transparent;
-            this.labelHuntingDogsValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelHuntingDogsValue.Location = new System.Drawing.Point(245, 123);
-            this.labelHuntingDogsValue.Name = "labelHuntingDogsValue";
-            this.labelHuntingDogsValue.Size = new System.Drawing.Size(26, 18);
-            this.labelHuntingDogsValue.TabIndex = 27;
-            this.labelHuntingDogsValue.Text = "10";
-            // 
-            // labelGuardDogsValue
-            // 
-            this.labelGuardDogsValue.AutoSize = true;
-            this.labelGuardDogsValue.BackColor = System.Drawing.Color.Transparent;
-            this.labelGuardDogsValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelGuardDogsValue.Location = new System.Drawing.Point(245, 97);
-            this.labelGuardDogsValue.Name = "labelGuardDogsValue";
-            this.labelGuardDogsValue.Size = new System.Drawing.Size(26, 18);
-            this.labelGuardDogsValue.TabIndex = 26;
-            this.labelGuardDogsValue.Text = "10";
-            // 
-            // labelDomesticDogs
-            // 
-            this.labelDomesticDogs.AutoSize = true;
-            this.labelDomesticDogs.BackColor = System.Drawing.Color.Transparent;
-            this.labelDomesticDogs.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelDomesticDogs.Location = new System.Drawing.Point(62, 148);
-            this.labelDomesticDogs.Name = "labelDomesticDogs";
-            this.labelDomesticDogs.Size = new System.Drawing.Size(155, 19);
-            this.labelDomesticDogs.TabIndex = 20;
-            this.labelDomesticDogs.Text = "- Домашни кучета:";
-            // 
-            // labelHuntingDogs
-            // 
-            this.labelHuntingDogs.AutoSize = true;
-            this.labelHuntingDogs.BackColor = System.Drawing.Color.Transparent;
-            this.labelHuntingDogs.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelHuntingDogs.Location = new System.Drawing.Point(62, 122);
-            this.labelHuntingDogs.Name = "labelHuntingDogs";
-            this.labelHuntingDogs.Size = new System.Drawing.Size(180, 19);
-            this.labelHuntingDogs.TabIndex = 19;
-            this.labelHuntingDogs.Text = "- Ловджийски кучета:";
-            // 
-            // labelGuardDogs
-            // 
-            this.labelGuardDogs.AutoSize = true;
-            this.labelGuardDogs.BackColor = System.Drawing.Color.Transparent;
-            this.labelGuardDogs.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelGuardDogs.Location = new System.Drawing.Point(62, 96);
-            this.labelGuardDogs.Name = "labelGuardDogs";
-            this.labelGuardDogs.Size = new System.Drawing.Size(127, 19);
-            this.labelGuardDogs.TabIndex = 18;
-            this.labelGuardDogs.Text = "- Кучета пазач:";
-            // 
-            // labelTitleDogs
-            // 
-            this.labelTitleDogs.AutoSize = true;
-            this.labelTitleDogs.BackColor = System.Drawing.Color.Transparent;
-            this.labelTitleDogs.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelTitleDogs.Location = new System.Drawing.Point(37, 34);
-            this.labelTitleDogs.Name = "labelTitleDogs";
-            this.labelTitleDogs.Size = new System.Drawing.Size(99, 29);
-            this.labelTitleDogs.TabIndex = 13;
-            this.labelTitleDogs.Text = "Кучета:";
+            this.labelCattle.AutoSize = true;
+            this.labelCattle.BackColor = System.Drawing.Color.Transparent;
+            this.labelCattle.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelCattle.Location = new System.Drawing.Point(62, 96);
+            this.labelCattle.Name = "labelCattle";
+            this.labelCattle.Size = new System.Drawing.Size(184, 22);
+            this.labelCattle.TabIndex = 13;
+            this.labelCattle.Text = "Домашни животни";
             // 
             // panelTrees
             // 
@@ -705,6 +751,7 @@ namespace GraduationProject.UserControls.References
             // 
             // panelQuarantines
             // 
+            this.panelQuarantines.Controls.Add(this.dataGridViewQuarantines);
             this.panelQuarantines.Controls.Add(this.labelQuarantines);
             this.panelQuarantines.Controls.Add(this.labelTitleQuarantines);
             this.panelQuarantines.Location = new System.Drawing.Point(316, 13);
@@ -712,15 +759,108 @@ namespace GraduationProject.UserControls.References
             this.panelQuarantines.Size = new System.Drawing.Size(712, 300);
             this.panelQuarantines.TabIndex = 44;
             // 
+            // dataGridViewQuarantines
+            // 
+            this.dataGridViewQuarantines.AllowUserToAddRows = false;
+            this.dataGridViewQuarantines.AllowUserToDeleteRows = false;
+            this.dataGridViewQuarantines.AllowUserToResizeColumns = false;
+            this.dataGridViewQuarantines.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewQuarantines.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewQuarantines.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewQuarantines.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewQuarantines.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewQuarantines.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewQuarantines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewQuarantines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ObjectCol,
+            this.diagnosysCol,
+            this.startDateCol,
+            this.endDateCol});
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewQuarantines.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewQuarantines.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridViewQuarantines.EnableHeadersVisualStyles = false;
+            this.dataGridViewQuarantines.GridColor = System.Drawing.SystemColors.ScrollBar;
+            this.dataGridViewQuarantines.Location = new System.Drawing.Point(37, 82);
+            this.dataGridViewQuarantines.MultiSelect = false;
+            this.dataGridViewQuarantines.Name = "dataGridViewQuarantines";
+            this.dataGridViewQuarantines.ReadOnly = true;
+            this.dataGridViewQuarantines.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewQuarantines.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewQuarantines.RowHeadersVisible = false;
+            this.dataGridViewQuarantines.RowTemplate.Height = 25;
+            this.dataGridViewQuarantines.ShowCellToolTips = false;
+            this.dataGridViewQuarantines.Size = new System.Drawing.Size(641, 203);
+            this.dataGridViewQuarantines.TabIndex = 17;
+            // 
+            // ObjectCol
+            // 
+            this.ObjectCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ObjectCol.FillWeight = 263.9594F;
+            this.ObjectCol.HeaderText = "Обект на карантината";
+            this.ObjectCol.Name = "ObjectCol";
+            this.ObjectCol.ReadOnly = true;
+            this.ObjectCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ObjectCol.Width = 130;
+            // 
+            // diagnosysCol
+            // 
+            this.diagnosysCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.diagnosysCol.FillWeight = 45.34687F;
+            this.diagnosysCol.HeaderText = "Диагноза";
+            this.diagnosysCol.Name = "diagnosysCol";
+            this.diagnosysCol.ReadOnly = true;
+            this.diagnosysCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // startDateCol
+            // 
+            this.startDateCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.startDateCol.FillWeight = 45.34687F;
+            this.startDateCol.HeaderText = "Начало на карантината";
+            this.startDateCol.Name = "startDateCol";
+            this.startDateCol.ReadOnly = true;
+            this.startDateCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // endDateCol
+            // 
+            this.endDateCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.endDateCol.FillWeight = 45.34687F;
+            this.endDateCol.HeaderText = "Край на карантината";
+            this.endDateCol.Name = "endDateCol";
+            this.endDateCol.ReadOnly = true;
+            this.endDateCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // labelQuarantines
             // 
+            this.labelQuarantines.AutoSize = true;
             this.labelQuarantines.BackColor = System.Drawing.Color.Transparent;
-            this.labelQuarantines.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelQuarantines.Location = new System.Drawing.Point(62, 96);
+            this.labelQuarantines.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelQuarantines.Location = new System.Drawing.Point(37, 95);
             this.labelQuarantines.Name = "labelQuarantines";
-            this.labelQuarantines.Size = new System.Drawing.Size(570, 90);
+            this.labelQuarantines.Size = new System.Drawing.Size(256, 22);
             this.labelQuarantines.TabIndex = 15;
-            this.labelQuarantines.Text = "В Този имот ";
+            this.labelQuarantines.Text = "В Този имот няма карантини";
             // 
             // labelTitleQuarantines
             // 
@@ -733,16 +873,30 @@ namespace GraduationProject.UserControls.References
             this.labelTitleQuarantines.TabIndex = 14;
             this.labelTitleQuarantines.Text = "Карантини в този имот:";
             // 
+            // buttonInhabitants
+            // 
+            this.buttonInhabitants.FlatAppearance.BorderSize = 0;
+            this.buttonInhabitants.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInhabitants.Location = new System.Drawing.Point(36, 200);
+            this.buttonInhabitants.Name = "buttonInhabitants";
+            this.buttonInhabitants.Size = new System.Drawing.Size(196, 23);
+            this.buttonInhabitants.TabIndex = 45;
+            this.buttonInhabitants.Text = "Обитатели";
+            this.buttonInhabitants.UseVisualStyleBackColor = true;
+            this.buttonInhabitants.Click += new System.EventHandler(this.buttonInhabitants_Click);
+            // 
             // ShowAddress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Controls.Add(this.panelQuarantines);
+            this.Controls.Add(this.panelInhabitants);
             this.Controls.Add(this.panelBuildings);
+            this.Controls.Add(this.buttonInhabitants);
+            this.Controls.Add(this.panelAnimals);
+            this.Controls.Add(this.panelQuarantines);
             this.Controls.Add(this.buttonQuarantines);
             this.Controls.Add(this.buttonTrees);
-            this.Controls.Add(this.buttonDogs);
             this.Controls.Add(this.buttonAnimals);
             this.Controls.Add(this.buttonBuildings);
             this.Controls.Add(this.labelSquaringValue);
@@ -750,22 +904,21 @@ namespace GraduationProject.UserControls.References
             this.Controls.Add(this.labelHabitabillityValue);
             this.Controls.Add(this.labelHabitabillity);
             this.Controls.Add(this.labelAddress);
-            this.Controls.Add(this.panelDogs);
-            this.Controls.Add(this.panelAnimals);
             this.Controls.Add(this.panelTrees);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "ShowAddress";
             this.Size = new System.Drawing.Size(1081, 329);
             this.panelBuildings.ResumeLayout(false);
             this.panelBuildings.PerformLayout();
+            this.panelInhabitants.ResumeLayout(false);
+            this.panelInhabitants.PerformLayout();
             this.panelAnimals.ResumeLayout(false);
             this.panelAnimals.PerformLayout();
-            this.panelDogs.ResumeLayout(false);
-            this.panelDogs.PerformLayout();
             this.panelTrees.ResumeLayout(false);
             this.panelTrees.PerformLayout();
             this.panelQuarantines.ResumeLayout(false);
             this.panelQuarantines.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewQuarantines)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -780,7 +933,6 @@ namespace GraduationProject.UserControls.References
         private System.Windows.Forms.Label labelSquaring;
         private System.Windows.Forms.Button buttonBuildings;
         private System.Windows.Forms.Button buttonAnimals;
-        private System.Windows.Forms.Button buttonDogs;
         private System.Windows.Forms.Button buttonTrees;
         private System.Windows.Forms.Panel panelBuildings;
         private System.Windows.Forms.Label labelTitleBuldings;
@@ -790,7 +942,7 @@ namespace GraduationProject.UserControls.References
         private System.Windows.Forms.Label labelResidental;
         private System.Windows.Forms.Panel panelAnimals;
         private System.Windows.Forms.Label labelTitleAnimals;
-        private System.Windows.Forms.Label labelCattleBig;
+        private System.Windows.Forms.Label labelCattle;
         private System.Windows.Forms.Label labelDonkeys;
         private System.Windows.Forms.Label labelHorses;
         private System.Windows.Forms.Label labelCows;
@@ -799,22 +951,13 @@ namespace GraduationProject.UserControls.References
         private System.Windows.Forms.Label labelCowsValue;
         private System.Windows.Forms.Label labelFeatheredValue;
         private System.Windows.Forms.Label labelFeathered;
-        private System.Windows.Forms.Label labelCattleSmall;
         private System.Windows.Forms.Label labelPigsValue;
         private System.Windows.Forms.Label labelSheepValue;
         private System.Windows.Forms.Label labelGoatsValue;
         private System.Windows.Forms.Label labelPigs;
         private System.Windows.Forms.Label labelSheep;
         private System.Windows.Forms.Label labelGoats;
-        private System.Windows.Forms.Label labelCattleMedium;
-        private System.Windows.Forms.Panel panelDogs;
-        private System.Windows.Forms.Label labelDomesticDogsValue;
-        private System.Windows.Forms.Label labelHuntingDogsValue;
-        private System.Windows.Forms.Label labelGuardDogsValue;
-        private System.Windows.Forms.Label labelDomesticDogs;
-        private System.Windows.Forms.Label labelHuntingDogs;
-        private System.Windows.Forms.Label labelGuardDogs;
-        private System.Windows.Forms.Label labelTitleDogs;
+        private System.Windows.Forms.Label labelDogs;
         private System.Windows.Forms.Panel panelTrees;
         private System.Windows.Forms.Label labelWalnutTreesValue;
         private System.Windows.Forms.Label labelWalnutTrees;
@@ -829,5 +972,24 @@ namespace GraduationProject.UserControls.References
         private System.Windows.Forms.Panel panelQuarantines;
         private System.Windows.Forms.Label labelTitleQuarantines;
         private System.Windows.Forms.Label labelQuarantines;
+        private System.Windows.Forms.DataGridView dataGridViewQuarantines;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ObjectCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn diagnosysCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn startDateCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endDateCol;
+        private System.Windows.Forms.Label labelDomesticDogsValue;
+        private System.Windows.Forms.Label labelHuntingDogsValue;
+        private System.Windows.Forms.Label labelGuardDogsValue;
+        private System.Windows.Forms.Label labelDomesticDogs;
+        private System.Windows.Forms.Label labelHuntingDogs;
+        private System.Windows.Forms.Label labelGuardDogs;
+        private System.Windows.Forms.Button buttonInhabitants;
+        private System.Windows.Forms.Panel panelInhabitants;
+        private System.Windows.Forms.Label labelTitleInhabitants;
+        private System.Windows.Forms.Button buttonGuests;
+        private System.Windows.Forms.Button buttonResidents;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label labelOwnerValue;
+        private System.Windows.Forms.Label labelOwner;
     }
 }

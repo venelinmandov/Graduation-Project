@@ -9,7 +9,7 @@ namespace GraduationProject.Models
     {
         public int Id { get; set; }
         public int AddressId { get; set; }
-        public int Disease { get; set; }
+        public int DiseaseId { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }
 
@@ -18,7 +18,7 @@ namespace GraduationProject.Models
         {
             Id = reader.GetInt32(0);
             AddressId = reader.GetInt32(1);
-            Disease = reader.GetInt32(2);
+            DiseaseId = reader.GetInt32(2);
             StartDate = reader.GetString(3);
             EndDate = reader.GetString(4);
         }
@@ -32,7 +32,7 @@ namespace GraduationProject.Models
             connectionHelper.NewConnection(query);
 
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@disease", Disease);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@disease", DiseaseId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@startDate", StartDate);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@endDate", EndDate);
 
@@ -108,7 +108,7 @@ namespace GraduationProject.Models
                             WHERE id = @id";
 
             connectionHelper.NewConnection(query);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@disease", Disease);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@disease", DiseaseId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@startDate", StartDate);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@endDate", EndDate);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@id", Id);

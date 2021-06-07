@@ -191,5 +191,17 @@ namespace GraduationProject.Forms
                     pictureBoxBack.Visible = false;
             }
         }
+
+        private void pictureBoxBack_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBoxBack.Size = new System.Drawing.Size(pictureBoxBack.Size.Width + 4, pictureBoxBack.Size.Height + 4);
+            pictureBoxBack.Location = new System.Drawing.Point(pictureBoxBack.Location.X - 2, pictureBoxBack.Location.Y - 2);
+        }
+
+        private void pictureBoxBack_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBoxBack.Size = new System.Drawing.Size(pictureBoxBack.Size.Width - 4, pictureBoxBack.Size.Height - 4);
+            pictureBoxBack.Location = new System.Drawing.Point(pictureBoxBack.Location.X + 2, pictureBoxBack.Location.Y + 2);
+        }
     }
 }

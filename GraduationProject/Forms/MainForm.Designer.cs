@@ -43,16 +43,19 @@ namespace GraduationProject.Forms
             this.panelContents.Size = new System.Drawing.Size(1081, 329);
             this.panelContents.TabIndex = 0;
             // 
-            // pictureBox1
+            // pictureBoxBack
             // 
             this.pictureBoxBack.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxBack.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBoxBack.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxBack.Image")));
             this.pictureBoxBack.Location = new System.Drawing.Point(48, 12);
-            this.pictureBoxBack.Name = "pictureBox1";
-            this.pictureBoxBack.Size = new System.Drawing.Size(100, 78);
+            this.pictureBoxBack.Name = "pictureBoxBack";
+            this.pictureBoxBack.Size = new System.Drawing.Size(78, 78);
+            this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxBack.TabIndex = 2;
             this.pictureBoxBack.TabStop = false;
             this.pictureBoxBack.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBoxBack.MouseEnter += new System.EventHandler(this.pictureBoxBack_MouseEnter);
+            this.pictureBoxBack.MouseLeave += new System.EventHandler(this.pictureBoxBack_MouseLeave);
             // 
             // MainForm
             // 

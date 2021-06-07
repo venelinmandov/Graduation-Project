@@ -6,11 +6,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using GraduationProject.Models;
+using System.Linq;
 
 namespace GraduationProject.UserControls.References
 {
     public partial class ShowAddress : UserControl
     {
+        ConnectionHelper connectionHelper = new ConnectionHelper();
         Button activeButton;
 
         Dictionary<AnimalsQuarantine.AnimalEnum, string> animalsDict = new Dictionary<AnimalsQuarantine.AnimalEnum, string>()
@@ -55,17 +57,6 @@ namespace GraduationProject.UserControls.References
         }
 
         /// <summary>
-        /// Показване на панела със кучетата
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonDogs_Click(object sender, EventArgs e)
-        {
-            SetActivePanel(panelDogs, (Button)sender);
-
-        }
-
-        /// <summary>
         /// Показване на панела със защитените дървестни видове
         /// </summary>
         /// <param name="sender"></param>
@@ -85,6 +76,16 @@ namespace GraduationProject.UserControls.References
         {
             SetActivePanel(panelQuarantines, (Button)sender);
 
+        }
+
+        /// <summary>
+        /// Показване на панела със обитателите
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonInhabitants_Click(object sender, EventArgs e)
+        {
+            SetActivePanel(panelInhabitants, (Button)sender);
         }
 
         /// <summary>
@@ -109,9 +110,8 @@ namespace GraduationProject.UserControls.References
         /// <param name="address"></param>
         void DisplayAddress(Address address)
         {
-            List<AnimalsQuarantine> animalQuarantines = new AnimalsQuarantine().Get(new ConnectionHelper(),address);
-            List<InhabitantsQuarantine> inhabitantsQuarantines = new InhabitantsQuarantine().Get(new ConnectionHelper(),address);
-            int guardDogs = 0, huntingDogs = 0, domesticDogs = 0;
+
+            
             labelAddress.Text = address.ToString();
             labelSquaringValue.Text = address.Squaring.ToString();
             switch (address.Habitallity)
@@ -122,8 +122,31 @@ namespace GraduationProject.UserControls.References
                 case Address.AddressHabitability.OutOfRegulation: labelHabitabillityValue.Text = "Извън регулация";break;
             }
 
+            ShowBuildings(address);
+            ShowAnimals(address);
+            ShowTrees(address);
+            ShowQuarantines(address);
+            ShowInhabitants(address);
+            
+        }
+
+        /// <summary>
+        /// Показване на сградите
+        /// </summary>
+        /// <param name="address"></param>
+        void ShowBuildings(Address address)
+        {
             labelResidentalValue.Text = address.NumResBuildings.ToString();
             labelAgriculturalValue.Text = address.NumAgrBuildings.ToString();
+        }
+
+        /// <summary>
+        /// Показване на селскостопанските животни
+        /// </summary>
+        /// <param name="address"></param>
+        void ShowAnimals(Address address)
+        {
+            int guardDogs = 0, huntingDogs = 0, domesticDogs = 0;
 
             labelCowsValue.Text = address.NumCows.ToString();
             labelHorsesValue.Text = address.NumHorses.ToString();
@@ -132,10 +155,6 @@ namespace GraduationProject.UserControls.References
             labelSheepValue.Text = address.NumSheep.ToString();
             labelPigsValue.Text = address.NumPigs.ToString();
             labelFeatheredValue.Text = address.NumFeathered.ToString();
-            labelWalnutTreesValue.Text = address.NumWalnutTrees.ToString();
-            labelMulBerryTreesValue.Text = address.NumMulberryTrees.ToString();
-            labelOldTreesValue.Text = address.NumOldTrees.ToString();
-            labelCenturyOldTreesValue.Text = address.NumCenturyOldTrees.ToString();
             List<Dog> dogs = new Dog().Get(new ConnectionHelper(), address);
             foreach (Dog dog in dogs)
             {
@@ -146,27 +165,89 @@ namespace GraduationProject.UserControls.References
             labelGuardDogsValue.Text = guardDogs.ToString();
             labelHuntingDogsValue.Text = huntingDogs.ToString();
             labelDomesticDogsValue.Text = domesticDogs.ToString();
+        }
+
+        /// <summary>
+        /// Показване на дърветата със специален статут
+        /// </summary>
+        /// <param name="address"></param>
+        void ShowTrees(Address address)
+        {
+            labelWalnutTreesValue.Text = address.NumWalnutTrees.ToString();
+            labelMulBerryTreesValue.Text = address.NumMulberryTrees.ToString();
+            labelOldTreesValue.Text = address.NumOldTrees.ToString();
+            labelCenturyOldTreesValue.Text = address.NumCenturyOldTrees.ToString();
+        }
+
+        /// <summary>
+        /// Показване на карантините
+        /// </summary>
+        /// <param name="address"></param>
+        void ShowQuarantines(Address address)
+        {
+            List<AnimalsQuarantine> animalQuarantines = new AnimalsQuarantine().Get(connectionHelper, address);
+            List<InhabitantsQuarantine> inhabitantsQuarantines = new InhabitantsQuarantine().Get(connectionHelper, address);
+            List<Disease> inhabitantDiseases = new Disease().Get(connectionHelper, Disease.DiseaseType.Inhabitant);
+            List<Disease> animalDiseases = new Disease().Get(connectionHelper, Disease.DiseaseType.Animal);
 
             if (animalQuarantines.Count == 0 && inhabitantsQuarantines.Count == 0)
             {
-                labelQuarantines.Text += "няма карантини.";
+                labelQuarantines.Visible = true;
+                dataGridViewQuarantines.Visible = false;
             }
             else
             {
+                labelQuarantines.Visible = false;
+                dataGridViewQuarantines.Visible = true;
+                DateTime startDate, endDate;
+                string diagnose;
+                string dateformat = "d MMMM yyyy";
+                int row = 0;
                 labelQuarantines.Text += "има карантинирани:\n";
                 foreach (InhabitantsQuarantine inhabitantsQuarantine in inhabitantsQuarantines)
                 {
-                labelQuarantines.Text += $"\t - обитатели от {inhabitantsQuarantine.StartDate} до {inhabitantsQuarantine.EndDate} с диагноза {inhabitantsQuarantine.Disease}\n";
+                    dataGridViewQuarantines.RowCount++;
+                    startDate = DateTime.Parse(inhabitantsQuarantine.StartDate);
+                    endDate = DateTime.Parse(inhabitantsQuarantine.EndDate);
+                    diagnose = (from d in inhabitantDiseases where d.Id == inhabitantsQuarantine.DiseaseId select d).First().Name;
+                    dataGridViewQuarantines.Rows[row].Cells[0].Value = "обитатели";
+                    dataGridViewQuarantines.Rows[row].Cells[1].Value = diagnose;
+                    dataGridViewQuarantines.Rows[row].Cells[2].Value = startDate.ToString(dateformat);
+                    dataGridViewQuarantines.Rows[row].Cells[3].Value = endDate.ToString(dateformat);
+                    row++;
                 }
-                foreach (AnimalsQuarantine animalsQuarantine  in animalQuarantines)
+                foreach (AnimalsQuarantine animalsQuarantine in animalQuarantines)
                 {
-                    labelQuarantines.Text += $"\t - {animalsDict[animalsQuarantine.Animal]} от {animalsQuarantine.StartDate} до {animalsQuarantine.EndDate} с диагноза {animalsQuarantine.Disease}\n";
+                    dataGridViewQuarantines.RowCount++;
+                    startDate = DateTime.Parse(animalsQuarantine.StartDate);
+                    endDate = DateTime.Parse(animalsQuarantine.EndDate);
+                    diagnose = (from d in animalDiseases where d.Id == animalsQuarantine.Disease select d).First().Name;
+                    dataGridViewQuarantines.Rows[row].Cells[0].Value = animalsDict[animalsQuarantine.Animal];
+                    dataGridViewQuarantines.Rows[row].Cells[1].Value = diagnose;
+                    dataGridViewQuarantines.Rows[row].Cells[2].Value = startDate.ToString(dateformat);
+                    dataGridViewQuarantines.Rows[row].Cells[3].Value = endDate.ToString(dateformat);
+                    row++;
                 }
 
             }
+        }
 
+        void ShowInhabitants(Address address)
+        {
+            List<Person> guests = new Person().Get(connectionHelper, address);
+            List<Resident> residents = new Resident().Get(connectionHelper, address);
+            List<Resident> owners;
+            if ((owners = (from resident in residents where resident.RelToOwner == "Собственик" select resident).ToList()).Count != 0)
+            {
+                labelOwnerValue.Text = $"{owners[0].Firstname} \n {owners[0].Middlename} \n {owners[0].Lastname}";
+            }
+            else 
+            {
+                labelOwnerValue.Text = "Няма";
+            }
 
+        }
 
-        }   
+        
     }
 }
