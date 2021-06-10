@@ -30,39 +30,22 @@ namespace GraduationProject.UserControls.References.Inhabitants
         private void buttonShow_Click(object sender, EventArgs e)
         {
             ConnectionHelper connectionHelper = new ConnectionHelper();
-            ShowInhabitants.PersonsStruct personsStruct;
+            List<Inhabitant> inhabitants;
             if (radioButtonGuest.Checked)
             {
-
-                personsStruct = new ShowInhabitants.PersonsStruct()
-                {
-                    guests = new Person().Get(connectionHelper),
-                    residents = new List<Resident>()
-                };
+                inhabitants = new Inhabitant().Get(connectionHelper, Inhabitant.OwnershipStateEnum.Guest);
             }
-            else
+            else if (radioButtonOwner.Checked)
             {
-                List<Resident> residents = new Resident().Get(connectionHelper);
-                if (radioButtonOwner.Checked)
-                {
-                    personsStruct = new ShowInhabitants.PersonsStruct()
-                    {
-                        guests = new List<Person>(),
-                        residents = residents.Where(resident => resident.RelToOwner == "Собственик").ToList()
-                    };
-                }
-                else if (radioButtonResident.Checked)
-                {
-                    personsStruct = new ShowInhabitants.PersonsStruct()
-                    {
-                        guests = new List<Person>(),
-                        residents = residents.Where(resident => resident.RelToOwner != "Собственик").ToList()
-                    };
-                }
-                else
-                    return;
+                inhabitants = new Inhabitant().Get(connectionHelper, Inhabitant.OwnershipStateEnum.Owner);
             }
-            ShowButtonClicked(new MainForm.EventData("showInhabitants", personsStruct), e);
+            else if (radioButtonResident.Checked)
+            {
+                inhabitants = new Inhabitant().Get(connectionHelper, Inhabitant.OwnershipStateEnum.Resident);
+            }
+            else return;
+               
+            ShowButtonClicked(new MainForm.EventData("showInhabitants", inhabitants), e);
         }
     }
 }

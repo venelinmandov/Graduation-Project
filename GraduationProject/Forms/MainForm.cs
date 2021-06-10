@@ -98,6 +98,7 @@ namespace GraduationProject.Forms
                     UserControls.References.ShowAddress showAddress = new UserControls.References.ShowAddress((Address)eventData.data);
                     panelContents.Controls.Add(showAddress);
                     AddControl(showAddress);
+                    showAddress.InhabitantClicked += MenuButtonClicked;
                     showAddress.BringToFront();
                     break;
                 case "showAddresses":
@@ -143,20 +144,14 @@ namespace GraduationProject.Forms
                     inhabitantsSearchByResidence.BringToFront();
                     break;
                 case "showInhabitants":
-                    UserControls.References.ShowInhabitants showInhabitants = new UserControls.References.ShowInhabitants((UserControls.References.ShowInhabitants.PersonsStruct)eventData.data);
+                    UserControls.References.ShowInhabitants showInhabitants = new UserControls.References.ShowInhabitants((List<Inhabitant>)eventData.data);
                     AddControl(showInhabitants);
                     showInhabitants.InhabitantClicked += MenuButtonClicked;
                     panelContents.Controls.Add(showInhabitants);
                     showInhabitants.BringToFront();
                     break;
-                case "showGuest":
-                    UserControls.References.Inhabitants.ShowInhabitant showGuest = new UserControls.References.Inhabitants.ShowInhabitant((Person)eventData.data);
-                    AddControl(showGuest);
-                    panelContents.Controls.Add(showGuest);
-                    showGuest.BringToFront();
-                    break;
-                case "showResident":
-                    UserControls.References.Inhabitants.ShowInhabitant showResident = new UserControls.References.Inhabitants.ShowInhabitant((Resident)eventData.data);
+                case "showInhabitant":
+                    UserControls.References.Inhabitants.ShowInhabitant showResident = new UserControls.References.Inhabitants.ShowInhabitant((Inhabitant)eventData.data);
                     AddControl(showResident);
                     panelContents.Controls.Add(showResident);
                     showResident.BringToFront();
@@ -165,7 +160,7 @@ namespace GraduationProject.Forms
                 #region Въвеждане на данни
                 case "insertData":
                     Hide();
-                    new InsertDataForm().ShowDialog();
+                    //new InsertDataForm().ShowDialog();
                     Show();
                     break;
                 #endregion

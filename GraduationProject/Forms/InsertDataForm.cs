@@ -14,7 +14,7 @@ namespace GraduationProject
         Address address;
         List<Address> addresses;
         List<Person> guests;
-        List<Resident> residents;
+        List<Inhabitant> residents;
         List<Street> streets;
         List<Dog> dogs;
         Panel selectedTab;
@@ -91,7 +91,7 @@ namespace GraduationProject
                 guest.Insert(connectionHelper);
             }
 
-            foreach (Resident resident in residents)
+            foreach (Inhabitant resident in residents)
             {
                 resident.AddressId = addressId;
                 resident.Insert(connectionHelper);
@@ -160,7 +160,7 @@ namespace GraduationProject
         {
             numericUpDownNumber.Enabled = true;
             buttonDeleteAddr.Enabled = false;
-            residents = new List<Resident>();
+            residents = new List<Inhabitant>();
             guests = new List<Person>();
             dogs = new List<Dog>();
             dataGridView.RowCount = 0;
@@ -209,7 +209,7 @@ namespace GraduationProject
             labelStreetName.Text = address.streetName;
             SetGroupBoxValue((int)address.Habitallity, radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry, radioButtonOutOfRegulation);
 
-            residents = new Resident().Get(connectionHelper, address);
+            residents = new Inhabitant().Get(connectionHelper, address);
             guests = new Person().Get(connectionHelper, address);
             RefreshDataGrid();
 
@@ -356,7 +356,7 @@ namespace GraduationProject
             {
                 if (personsForm.isResident)
                 {
-                    residents.Add(personsForm.getNewResident);
+                    //residents.Add(personsForm.getNewResident);
                 }
                 else
                     guests.Add(personsForm.getNewGuest);
@@ -367,10 +367,10 @@ namespace GraduationProject
             {
                 if (personsForm.isResident)
                 {
-                    Resident newRes = personsForm.getNewResident;
-                    newRes.AddressId = address.Id;
-                    newRes.Insert(connectionHelper);
-                    residents = new Resident().Get(connectionHelper, address);
+                    //Inhabitant newRes = personsForm.getNewResident;
+                    //newRes.AddressId = address.Id;
+                    //newRes.Insert(connectionHelper);
+                    residents = new Inhabitant().Get(connectionHelper, address);
                 }
                 else
                 {

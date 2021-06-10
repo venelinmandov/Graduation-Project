@@ -73,5 +73,27 @@ namespace GraduationProject.UserControls.References
             SearchButtonClicked(new MainForm.EventData("showAddresses", addresses), new EventArgs());
 
         }
+
+        private void comboBoxCattle_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index == -1) return;
+            var combo = sender as ComboBox;
+            SolidBrush solidBrush;
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(50, 80, 40)), e.Bounds);
+                solidBrush = new SolidBrush(SystemColors.Control);
+            }
+            else
+            {
+                e.Graphics.FillRectangle(new SolidBrush(SystemColors.Window), e.Bounds);
+                solidBrush = new SolidBrush(Color.Black);
+            }
+
+            e.Graphics.DrawString(combo.Items[e.Index].ToString(),
+                                          e.Font,
+                                          solidBrush,
+                                          new Point(e.Bounds.X, e.Bounds.Y));
+        }
     }
 }

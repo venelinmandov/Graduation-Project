@@ -34,7 +34,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelTitle = new System.Windows.Forms.Label();
             this.radioButtonWithout = new System.Windows.Forms.RadioButton();
             this.radioButtonTemporary = new System.Windows.Forms.RadioButton();
-            this.radioButtonYes = new System.Windows.Forms.RadioButton();
+            this.radioButtonPermanent = new System.Windows.Forms.RadioButton();
             this.panelDogs.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +44,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.panelDogs.Controls.Add(this.labelTitle);
             this.panelDogs.Controls.Add(this.radioButtonWithout);
             this.panelDogs.Controls.Add(this.radioButtonTemporary);
-            this.panelDogs.Controls.Add(this.radioButtonYes);
+            this.panelDogs.Controls.Add(this.radioButtonPermanent);
             this.panelDogs.Location = new System.Drawing.Point(338, 70);
             this.panelDogs.Name = "panelDogs";
             this.panelDogs.Size = new System.Drawing.Size(364, 196);
@@ -100,15 +100,15 @@ namespace GraduationProject.UserControls.References.Inhabitants
             // 
             // radioButtonYes
             // 
-            this.radioButtonYes.AutoSize = true;
-            this.radioButtonYes.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonYes.Location = new System.Drawing.Point(133, 51);
-            this.radioButtonYes.Name = "radioButtonYes";
-            this.radioButtonYes.Size = new System.Drawing.Size(124, 19);
-            this.radioButtonYes.TabIndex = 0;
-            this.radioButtonYes.TabStop = true;
-            this.radioButtonYes.Text = "Постоянен адрес";
-            this.radioButtonYes.UseVisualStyleBackColor = false;
+            this.radioButtonPermanent.AutoSize = true;
+            this.radioButtonPermanent.BackColor = System.Drawing.Color.Transparent;
+            this.radioButtonPermanent.Location = new System.Drawing.Point(133, 51);
+            this.radioButtonPermanent.Name = "radioButtonYes";
+            this.radioButtonPermanent.Size = new System.Drawing.Size(124, 19);
+            this.radioButtonPermanent.TabIndex = 0;
+            this.radioButtonPermanent.TabStop = true;
+            this.radioButtonPermanent.Text = "Постоянен адрес";
+            this.radioButtonPermanent.UseVisualStyleBackColor = false;
             // 
             // ReferenceInhabitantsSearchByReg
             // 
@@ -132,6 +132,6 @@ namespace GraduationProject.UserControls.References.Inhabitants
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.RadioButton radioButtonWithout;
         private System.Windows.Forms.RadioButton radioButtonTemporary;
-        private System.Windows.Forms.RadioButton radioButtonYes;
+        private System.Windows.Forms.RadioButton radioButtonPermanent;
     }
 }

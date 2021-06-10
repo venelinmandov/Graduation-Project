@@ -358,14 +358,14 @@ namespace GraduationProject.Models
         {
             new Dog().Delete(connectionHelper, this);
             new Person().Delete(connectionHelper, this);
-            new Resident().Delete(connectionHelper, this);
+            new Inhabitant().Delete(connectionHelper, this);
 
             foreach (Person person in new Person().Get(connectionHelper, this, AddressType.Current))
             {
                 person.CurrentAddressId = -1;
                 person.Update(connectionHelper);
             }
-            foreach (Resident resident in new Resident().Get(connectionHelper, this, AddressType.Current))
+            foreach (Inhabitant resident in new Inhabitant().Get(connectionHelper, this, AddressType.Current))
             {
                 resident.CurrentAddressId = -1;
                 resident.Update(connectionHelper);

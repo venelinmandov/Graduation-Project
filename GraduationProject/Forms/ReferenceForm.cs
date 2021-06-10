@@ -23,15 +23,15 @@ namespace GraduationProject.Forms
             { 0, "Мъж" } ,
             { 1, "Жена" }};
 
-        Dictionary<Person.Covid19Enum, string> covid19 = new Dictionary<Person.Covid19Enum, string>(){
-            { Person.Covid19Enum.No, "Няма" } ,
-            { Person.Covid19Enum.Yes, "Има" },
-            { Person.Covid19Enum.Contact, "Контактен" }};
+        Dictionary<Person.QuarantineEnum, string> quarantine = new Dictionary<Person.QuarantineEnum, string>(){
+            { Person.QuarantineEnum.No, "Няма" } ,
+            { Person.QuarantineEnum.Yes, "Има" },
+            { Person.QuarantineEnum.Contact, "Контактен" }};
 
-        Dictionary<Resident.AddressRegistration, string> addressRegistration = new Dictionary<Resident.AddressRegistration, string>(){
-            { Resident.AddressRegistration.No, "Няма" } ,
-            { Resident.AddressRegistration.Yes, "Има" },
-            { Resident.AddressRegistration.Temporary, "Временна" }};
+        Dictionary<Inhabitant.AddressRegistrationEnum, string> addressRegistration = new Dictionary<Inhabitant.AddressRegistrationEnum, string>(){
+            { Inhabitant.AddressRegistrationEnum.No, "Няма" } ,
+            { Inhabitant.AddressRegistrationEnum.Current, "Настоящ адрес" },
+            { Inhabitant.AddressRegistrationEnum.Permanent, "Постоянен адрес" }};
 
 
         //Конструктор
@@ -107,7 +107,7 @@ namespace GraduationProject.Forms
         }
 
         //Показване на обитателите в таблицата
-        void ShowInhabitants(List<Models.Resident> residents, List<Models.Person> guests)
+        void ShowInhabitants(List<Models.Inhabitant> residents, List<Models.Person> guests)
         {
             dataGridViewInhabitants.RowCount = 0;
 
@@ -128,7 +128,7 @@ namespace GraduationProject.Forms
                 dataGridViewInhabitants.Rows[dataGridViewInhabitants.RowCount - 1].Cells[6].Value = residents[i].RelToOwner;
                 dataGridViewInhabitants.Rows[dataGridViewInhabitants.RowCount - 1].Cells[7].Value = "Жител";
                 dataGridViewInhabitants.Rows[dataGridViewInhabitants.RowCount - 1].Cells[8].Value = addressRegistration[residents[i].AddressReg];
-                dataGridViewInhabitants.Rows[dataGridViewInhabitants.RowCount - 1].Cells[9].Value = covid19[residents[i].Covid19];
+                //dataGridViewInhabitants.Rows[dataGridViewInhabitants.RowCount - 1].Cells[9].Value = quarantine[residents[i].Quarantine];
                 dataGridViewInhabitants.Rows[dataGridViewInhabitants.RowCount - 1].Cells[10].Value = residents[i].Note;
 
             }
@@ -163,7 +163,7 @@ namespace GraduationProject.Forms
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                List<Models.Resident> residents = new Models.Resident().Get(connectionHelper, addressesFilterForm.Addresses[e.RowIndex]);
+                List<Models.Inhabitant> residents = new Models.Inhabitant().Get(connectionHelper, addressesFilterForm.Addresses[e.RowIndex]);
                 List<Models.Person> persons = new Models.Person().Get(connectionHelper, addressesFilterForm.Addresses[e.RowIndex]);
                 labelCriteriaInhabitants.Text = $"По адрес: {addressesFilterForm.Addresses[e.RowIndex].streetName} {addressesFilterForm.Addresses[e.RowIndex].Number}";
                 ShowInhabitants(residents,persons);

@@ -56,7 +56,7 @@ namespace GraduationProject.UserControls.References
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonResidenceStatus_Click(object sender, EventArgs e)
+        private void buttonresidenceState_Click(object sender, EventArgs e)
         {
             buttonClicked(new MainForm.EventData("inhabitantsByResidence"), e);  
         }

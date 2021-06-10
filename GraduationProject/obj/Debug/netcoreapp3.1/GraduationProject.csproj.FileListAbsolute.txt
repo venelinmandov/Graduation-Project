@@ -40,7 +40,6 @@ D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\li
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\SQLite.Interop.dll
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SQLite.Interop.dll
 D:\repos\GraduationProject\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll
-D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.InsertDataForm.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.ReferenceForm.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.AddressesFiltersForm.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.InhabitantsFilterForm.resources
@@ -63,4 +62,4 @@ D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationP
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.Addresses.ReferencesSearchByTrees.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.Addresses.ReferencesSearchByAnimalQuarantines.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.References.Addresses.ReferencesSearchByQuarantines.resources
-D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.csprojAssemblyReference.cache
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.csproj.AssemblyReference.cache

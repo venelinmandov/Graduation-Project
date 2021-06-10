@@ -31,7 +31,7 @@ namespace GraduationProject.UserControls.References
         {
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelSearchBy = new System.Windows.Forms.Label();
-            this.buttonResidenceStatus = new System.Windows.Forms.Button();
+            this.buttonresidenceState = new System.Windows.Forms.Button();
             this.buttonPropetyStatus = new System.Windows.Forms.Button();
             this.buttonByAddrReg = new System.Windows.Forms.Button();
             this.buttonByName = new System.Windows.Forms.Button();
@@ -59,20 +59,20 @@ namespace GraduationProject.UserControls.References
             this.labelSearchBy.TabIndex = 14;
             this.labelSearchBy.Text = "Търси по:";
             // 
-            // buttonResidenceStatus
+            // buttonresidenceState
             // 
-            this.buttonResidenceStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
-            this.buttonResidenceStatus.FlatAppearance.BorderSize = 0;
-            this.buttonResidenceStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonResidenceStatus.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonResidenceStatus.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonResidenceStatus.Location = new System.Drawing.Point(556, 200);
-            this.buttonResidenceStatus.Name = "buttonResidenceStatus";
-            this.buttonResidenceStatus.Size = new System.Drawing.Size(179, 60);
-            this.buttonResidenceStatus.TabIndex = 18;
-            this.buttonResidenceStatus.Text = "Статус на пребиваване";
-            this.buttonResidenceStatus.UseVisualStyleBackColor = false;
-            this.buttonResidenceStatus.Click += new System.EventHandler(this.buttonResidenceStatus_Click);
+            this.buttonresidenceState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonresidenceState.FlatAppearance.BorderSize = 0;
+            this.buttonresidenceState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonresidenceState.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonresidenceState.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonresidenceState.Location = new System.Drawing.Point(556, 200);
+            this.buttonresidenceState.Name = "buttonresidenceState";
+            this.buttonresidenceState.Size = new System.Drawing.Size(179, 60);
+            this.buttonresidenceState.TabIndex = 18;
+            this.buttonresidenceState.Text = "Статус на пребиваване";
+            this.buttonresidenceState.UseVisualStyleBackColor = false;
+            this.buttonresidenceState.Click += new System.EventHandler(this.buttonresidenceState_Click);
             // 
             // buttonPropetyStatus
             // 
@@ -124,7 +124,7 @@ namespace GraduationProject.UserControls.References
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Controls.Add(this.buttonResidenceStatus);
+            this.Controls.Add(this.buttonresidenceState);
             this.Controls.Add(this.buttonPropetyStatus);
             this.Controls.Add(this.buttonByAddrReg);
             this.Controls.Add(this.buttonByName);
@@ -142,7 +142,7 @@ namespace GraduationProject.UserControls.References
 
         protected System.Windows.Forms.Label labelTitle;
         protected System.Windows.Forms.Label labelSearchBy;
-        protected System.Windows.Forms.Button buttonResidenceStatus;
+        protected System.Windows.Forms.Button buttonresidenceState;
         protected System.Windows.Forms.Button buttonPropetyStatus;
         protected System.Windows.Forms.Button buttonByAddrReg;
         protected System.Windows.Forms.Button buttonByName;

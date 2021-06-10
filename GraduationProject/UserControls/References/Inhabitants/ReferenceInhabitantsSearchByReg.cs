@@ -30,37 +30,31 @@ namespace GraduationProject.UserControls.References.Inhabitants
         /// <param name="e"></param>
         private void buttonShow_Click(object sender, EventArgs e)
         {
-            ShowInhabitants.PersonsStruct personsStruct;
+            List<Inhabitant> inhabitants;
             ConnectionHelper connectionHelper = new ConnectionHelper();
 
-            if (radioButtonYes.Checked)
+            if (radioButtonPermanent.Checked)
             {
-                personsStruct = new ShowInhabitants.PersonsStruct()
                 {
-                    guests = new List<Person>(),
-                    residents = new Resident().Get(connectionHelper, Resident.AddressRegistration.Yes)
+                    inhabitants = new Inhabitant().Get(connectionHelper, Inhabitant.AddressRegistrationEnum.Permanent);
                 };
             }
             else if (radioButtonTemporary.Checked)
             {
-                personsStruct = new ShowInhabitants.PersonsStruct()
                 {
-                    guests = new List<Person>(),
-                    residents = new Resident().Get(connectionHelper, Resident.AddressRegistration.Temporary)
+                    inhabitants = new Inhabitant().Get(connectionHelper, Inhabitant.AddressRegistrationEnum.Current);
                 };
             }
             else if (radioButtonWithout.Checked)
             {
-                personsStruct = new ShowInhabitants.PersonsStruct()
                 {
-                    guests = new Person().Get(connectionHelper),
-                    residents = new Resident().Get(connectionHelper, Resident.AddressRegistration.No)
+                    inhabitants = new Inhabitant().Get(connectionHelper, Inhabitant.AddressRegistrationEnum.No);
                 };
             }
             else
                 return;
 
-            ShowButtonClicked(new MainForm.EventData("showInhabitants", personsStruct), e);
+            ShowButtonClicked(new MainForm.EventData("showInhabitants", inhabitants), e);
         }
     }
 }

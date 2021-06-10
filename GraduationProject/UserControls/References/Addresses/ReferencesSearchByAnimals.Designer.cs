@@ -92,6 +92,8 @@ namespace GraduationProject.UserControls.References
             // 
             // comboBoxCattle
             // 
+            this.comboBoxCattle.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxCattle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCattle.FormattingEnabled = true;
             this.comboBoxCattle.Items.AddRange(new object[] {
             "Крави",
@@ -103,8 +105,9 @@ namespace GraduationProject.UserControls.References
             "Свине"});
             this.comboBoxCattle.Location = new System.Drawing.Point(83, 74);
             this.comboBoxCattle.Name = "comboBoxCattle";
-            this.comboBoxCattle.Size = new System.Drawing.Size(180, 23);
+            this.comboBoxCattle.Size = new System.Drawing.Size(180, 22);
             this.comboBoxCattle.TabIndex = 0;
+            this.comboBoxCattle.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBoxCattle_DrawItem);
             // 
             // panelDogs
             // 

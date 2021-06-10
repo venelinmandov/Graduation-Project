@@ -29,10 +29,10 @@ namespace GraduationProject.UserControls.References
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelAddress = new System.Windows.Forms.Label();
             this.labelHabitabillity = new System.Windows.Forms.Label();
             this.labelHabitabillityValue = new System.Windows.Forms.Label();
@@ -42,18 +42,25 @@ namespace GraduationProject.UserControls.References
             this.buttonAnimals = new System.Windows.Forms.Button();
             this.buttonTrees = new System.Windows.Forms.Button();
             this.panelBuildings = new System.Windows.Forms.Panel();
-            this.panelInhabitants = new System.Windows.Forms.Panel();
-            this.labelOwnerValue = new System.Windows.Forms.Label();
-            this.labelOwner = new System.Windows.Forms.Label();
-            this.buttonGuests = new System.Windows.Forms.Button();
-            this.buttonResidents = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.labelTitleInhabitants = new System.Windows.Forms.Label();
             this.labelTitleBuldings = new System.Windows.Forms.Label();
             this.labelAgriculturalValue = new System.Windows.Forms.Label();
             this.labelAgricultural = new System.Windows.Forms.Label();
             this.labelResidentalValue = new System.Windows.Forms.Label();
             this.labelResidental = new System.Windows.Forms.Label();
+            this.panelInhabitants = new System.Windows.Forms.Panel();
+            this.buttonShowOwner = new System.Windows.Forms.Button();
+            this.listBoxResidents = new GraduationProject.UserControls.ListBoxUserControl();
+            this.listBoxGuests = new GraduationProject.UserControls.ListBoxUserControl();
+            this.labelOwnerLastnameValue = new System.Windows.Forms.Label();
+            this.labelOwnerLastname = new System.Windows.Forms.Label();
+            this.labelOwnerMiddlenameValue = new System.Windows.Forms.Label();
+            this.labelOwnerMiddlename = new System.Windows.Forms.Label();
+            this.labelOwnerFirstnameValue = new System.Windows.Forms.Label();
+            this.labelOwnerFirstname = new System.Windows.Forms.Label();
+            this.labelOwner = new System.Windows.Forms.Label();
+            this.buttonGuests = new System.Windows.Forms.Button();
+            this.buttonResidents = new System.Windows.Forms.Button();
+            this.labelTitleInhabitants = new System.Windows.Forms.Label();
             this.panelAnimals = new System.Windows.Forms.Panel();
             this.labelDomesticDogsValue = new System.Windows.Forms.Label();
             this.labelHuntingDogsValue = new System.Windows.Forms.Label();
@@ -209,81 +216,6 @@ namespace GraduationProject.UserControls.References
             this.panelBuildings.Size = new System.Drawing.Size(712, 300);
             this.panelBuildings.TabIndex = 12;
             // 
-            // panelInhabitants
-            // 
-            this.panelInhabitants.Controls.Add(this.labelOwnerValue);
-            this.panelInhabitants.Controls.Add(this.labelOwner);
-            this.panelInhabitants.Controls.Add(this.buttonGuests);
-            this.panelInhabitants.Controls.Add(this.buttonResidents);
-            this.panelInhabitants.Controls.Add(this.listBox1);
-            this.panelInhabitants.Controls.Add(this.labelTitleInhabitants);
-            this.panelInhabitants.Location = new System.Drawing.Point(316, 13);
-            this.panelInhabitants.Name = "panelInhabitants";
-            this.panelInhabitants.Size = new System.Drawing.Size(712, 300);
-            this.panelInhabitants.TabIndex = 17;
-            // 
-            // labelOwnerValue
-            // 
-            this.labelOwnerValue.AutoSize = true;
-            this.labelOwnerValue.Location = new System.Drawing.Point(37, 118);
-            this.labelOwnerValue.Name = "labelOwnerValue";
-            this.labelOwnerValue.Size = new System.Drawing.Size(77, 15);
-            this.labelOwnerValue.TabIndex = 49;
-            this.labelOwnerValue.Text = "Собственик:";
-            // 
-            // labelOwner
-            // 
-            this.labelOwner.AutoSize = true;
-            this.labelOwner.Location = new System.Drawing.Point(37, 102);
-            this.labelOwner.Name = "labelOwner";
-            this.labelOwner.Size = new System.Drawing.Size(77, 15);
-            this.labelOwner.TabIndex = 48;
-            this.labelOwner.Text = "Собственик:";
-            // 
-            // buttonGuests
-            // 
-            this.buttonGuests.BackColor = System.Drawing.Color.Gray;
-            this.buttonGuests.FlatAppearance.BorderSize = 0;
-            this.buttonGuests.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGuests.Location = new System.Drawing.Point(384, 70);
-            this.buttonGuests.Name = "buttonGuests";
-            this.buttonGuests.Size = new System.Drawing.Size(159, 23);
-            this.buttonGuests.TabIndex = 47;
-            this.buttonGuests.Text = "Гости";
-            this.buttonGuests.UseVisualStyleBackColor = false;
-            // 
-            // buttonResidents
-            // 
-            this.buttonResidents.BackColor = System.Drawing.Color.Gray;
-            this.buttonResidents.FlatAppearance.BorderSize = 0;
-            this.buttonResidents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonResidents.Location = new System.Drawing.Point(216, 70);
-            this.buttonResidents.Name = "buttonResidents";
-            this.buttonResidents.Size = new System.Drawing.Size(159, 23);
-            this.buttonResidents.TabIndex = 46;
-            this.buttonResidents.Text = "Членове на семейството";
-            this.buttonResidents.UseVisualStyleBackColor = false;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(216, 101);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(327, 184);
-            this.listBox1.TabIndex = 14;
-            // 
-            // labelTitleInhabitants
-            // 
-            this.labelTitleInhabitants.AutoSize = true;
-            this.labelTitleInhabitants.BackColor = System.Drawing.Color.Transparent;
-            this.labelTitleInhabitants.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelTitleInhabitants.Location = new System.Drawing.Point(37, 34);
-            this.labelTitleInhabitants.Name = "labelTitleInhabitants";
-            this.labelTitleInhabitants.Size = new System.Drawing.Size(146, 29);
-            this.labelTitleInhabitants.TabIndex = 13;
-            this.labelTitleInhabitants.Text = "Обитатели:";
-            // 
             // labelTitleBuldings
             // 
             this.labelTitleBuldings.AutoSize = true;
@@ -338,6 +270,193 @@ namespace GraduationProject.UserControls.References
             this.labelResidental.Size = new System.Drawing.Size(191, 19);
             this.labelResidental.TabIndex = 13;
             this.labelResidental.Text = "- Жилищни постройки:";
+            // 
+            // panelInhabitants
+            // 
+            this.panelInhabitants.Controls.Add(this.buttonShowOwner);
+            this.panelInhabitants.Controls.Add(this.listBoxResidents);
+            this.panelInhabitants.Controls.Add(this.listBoxGuests);
+            this.panelInhabitants.Controls.Add(this.labelOwnerLastnameValue);
+            this.panelInhabitants.Controls.Add(this.labelOwnerLastname);
+            this.panelInhabitants.Controls.Add(this.labelOwnerMiddlenameValue);
+            this.panelInhabitants.Controls.Add(this.labelOwnerMiddlename);
+            this.panelInhabitants.Controls.Add(this.labelOwnerFirstnameValue);
+            this.panelInhabitants.Controls.Add(this.labelOwnerFirstname);
+            this.panelInhabitants.Controls.Add(this.labelOwner);
+            this.panelInhabitants.Controls.Add(this.buttonGuests);
+            this.panelInhabitants.Controls.Add(this.buttonResidents);
+            this.panelInhabitants.Controls.Add(this.labelTitleInhabitants);
+            this.panelInhabitants.Location = new System.Drawing.Point(316, 13);
+            this.panelInhabitants.Name = "panelInhabitants";
+            this.panelInhabitants.Size = new System.Drawing.Size(712, 300);
+            this.panelInhabitants.TabIndex = 17;
+            // 
+            // buttonShowOwner
+            // 
+            this.buttonShowOwner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonShowOwner.FlatAppearance.BorderSize = 0;
+            this.buttonShowOwner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonShowOwner.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonShowOwner.Location = new System.Drawing.Point(41, 199);
+            this.buttonShowOwner.Name = "buttonShowOwner";
+            this.buttonShowOwner.Size = new System.Drawing.Size(137, 23);
+            this.buttonShowOwner.TabIndex = 57;
+            this.buttonShowOwner.Text = "Покажи";
+            this.buttonShowOwner.UseVisualStyleBackColor = false;
+            this.buttonShowOwner.Click += new System.EventHandler(this.buttonShowOwner_Click);
+            // 
+            // listBoxResidents
+            // 
+            this.listBoxResidents.AutoScroll = true;
+            this.listBoxResidents.DesolateColor = System.Drawing.Color.Empty;
+            this.listBoxResidents.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listBoxResidents.InhabitedColor = System.Drawing.Color.Empty;
+            this.listBoxResidents.ItemBorderColor = System.Drawing.Color.Empty;
+            this.listBoxResidents.ItemsColor = System.Drawing.Color.Empty;
+            this.listBoxResidents.ItemTextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.listBoxResidents.Location = new System.Drawing.Point(216, 102);
+            this.listBoxResidents.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.listBoxResidents.Name = "listBoxResidents";
+            this.listBoxResidents.SelectedIndex = -1;
+            this.listBoxResidents.SelectedItemColor = System.Drawing.Color.Empty;
+            this.listBoxResidents.Size = new System.Drawing.Size(327, 183);
+            this.listBoxResidents.TabIndex = 50;
+            this.listBoxResidents.TemporarilyColor = System.Drawing.Color.Empty;
+            this.listBoxResidents.ItemClicked += new System.EventHandler(this.listBoxResidents_ItemClicked);
+            // 
+            // listBoxGuests
+            // 
+            this.listBoxGuests.AutoScroll = true;
+            this.listBoxGuests.DesolateColor = System.Drawing.Color.Empty;
+            this.listBoxGuests.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listBoxGuests.InhabitedColor = System.Drawing.Color.Empty;
+            this.listBoxGuests.ItemBorderColor = System.Drawing.Color.Empty;
+            this.listBoxGuests.ItemsColor = System.Drawing.Color.Empty;
+            this.listBoxGuests.ItemTextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.listBoxGuests.Location = new System.Drawing.Point(216, 102);
+            this.listBoxGuests.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.listBoxGuests.Name = "listBoxGuests";
+            this.listBoxGuests.SelectedIndex = -1;
+            this.listBoxGuests.SelectedItemColor = System.Drawing.Color.Empty;
+            this.listBoxGuests.Size = new System.Drawing.Size(327, 183);
+            this.listBoxGuests.TabIndex = 56;
+            this.listBoxGuests.TemporarilyColor = System.Drawing.Color.Empty;
+            this.listBoxGuests.ItemClicked += new System.EventHandler(this.listBoxGuests_ItemClicked);
+            // 
+            // labelOwnerLastnameValue
+            // 
+            this.labelOwnerLastnameValue.AutoSize = true;
+            this.labelOwnerLastnameValue.BackColor = System.Drawing.Color.Transparent;
+            this.labelOwnerLastnameValue.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelOwnerLastnameValue.Location = new System.Drawing.Point(111, 172);
+            this.labelOwnerLastnameValue.Name = "labelOwnerLastnameValue";
+            this.labelOwnerLastnameValue.Size = new System.Drawing.Size(62, 16);
+            this.labelOwnerLastnameValue.TabIndex = 55;
+            this.labelOwnerLastnameValue.Text = "Фамилия";
+            // 
+            // labelOwnerLastname
+            // 
+            this.labelOwnerLastname.AutoSize = true;
+            this.labelOwnerLastname.BackColor = System.Drawing.Color.Transparent;
+            this.labelOwnerLastname.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelOwnerLastname.Location = new System.Drawing.Point(37, 172);
+            this.labelOwnerLastname.Name = "labelOwnerLastname";
+            this.labelOwnerLastname.Size = new System.Drawing.Size(72, 16);
+            this.labelOwnerLastname.TabIndex = 54;
+            this.labelOwnerLastname.Text = "Фамилия:";
+            // 
+            // labelOwnerMiddlenameValue
+            // 
+            this.labelOwnerMiddlenameValue.AutoSize = true;
+            this.labelOwnerMiddlenameValue.BackColor = System.Drawing.Color.Transparent;
+            this.labelOwnerMiddlenameValue.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelOwnerMiddlenameValue.Location = new System.Drawing.Point(111, 152);
+            this.labelOwnerMiddlenameValue.Name = "labelOwnerMiddlenameValue";
+            this.labelOwnerMiddlenameValue.Size = new System.Drawing.Size(59, 16);
+            this.labelOwnerMiddlenameValue.TabIndex = 53;
+            this.labelOwnerMiddlenameValue.Text = "Презиме";
+            // 
+            // labelOwnerMiddlename
+            // 
+            this.labelOwnerMiddlename.AutoSize = true;
+            this.labelOwnerMiddlename.BackColor = System.Drawing.Color.Transparent;
+            this.labelOwnerMiddlename.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelOwnerMiddlename.Location = new System.Drawing.Point(37, 152);
+            this.labelOwnerMiddlename.Name = "labelOwnerMiddlename";
+            this.labelOwnerMiddlename.Size = new System.Drawing.Size(68, 16);
+            this.labelOwnerMiddlename.TabIndex = 52;
+            this.labelOwnerMiddlename.Text = "Презиме:";
+            // 
+            // labelOwnerFirstnameValue
+            // 
+            this.labelOwnerFirstnameValue.AutoSize = true;
+            this.labelOwnerFirstnameValue.BackColor = System.Drawing.Color.Transparent;
+            this.labelOwnerFirstnameValue.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelOwnerFirstnameValue.Location = new System.Drawing.Point(111, 132);
+            this.labelOwnerFirstnameValue.Name = "labelOwnerFirstnameValue";
+            this.labelOwnerFirstnameValue.Size = new System.Drawing.Size(32, 16);
+            this.labelOwnerFirstnameValue.TabIndex = 51;
+            this.labelOwnerFirstnameValue.Text = "Име";
+            // 
+            // labelOwnerFirstname
+            // 
+            this.labelOwnerFirstname.AutoSize = true;
+            this.labelOwnerFirstname.BackColor = System.Drawing.Color.Transparent;
+            this.labelOwnerFirstname.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelOwnerFirstname.Location = new System.Drawing.Point(37, 132);
+            this.labelOwnerFirstname.Name = "labelOwnerFirstname";
+            this.labelOwnerFirstname.Size = new System.Drawing.Size(37, 16);
+            this.labelOwnerFirstname.TabIndex = 49;
+            this.labelOwnerFirstname.Text = "Име:";
+            // 
+            // labelOwner
+            // 
+            this.labelOwner.AutoSize = true;
+            this.labelOwner.BackColor = System.Drawing.Color.Transparent;
+            this.labelOwner.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelOwner.Location = new System.Drawing.Point(37, 102);
+            this.labelOwner.Name = "labelOwner";
+            this.labelOwner.Size = new System.Drawing.Size(118, 22);
+            this.labelOwner.TabIndex = 48;
+            this.labelOwner.Text = "Собственик:";
+            // 
+            // buttonGuests
+            // 
+            this.buttonGuests.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.buttonGuests.FlatAppearance.BorderSize = 0;
+            this.buttonGuests.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGuests.Location = new System.Drawing.Point(384, 70);
+            this.buttonGuests.Name = "buttonGuests";
+            this.buttonGuests.Size = new System.Drawing.Size(159, 23);
+            this.buttonGuests.TabIndex = 47;
+            this.buttonGuests.Text = "Гости";
+            this.buttonGuests.UseVisualStyleBackColor = false;
+            this.buttonGuests.Click += new System.EventHandler(this.buttonGuests_Click);
+            // 
+            // buttonResidents
+            // 
+            this.buttonResidents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonResidents.FlatAppearance.BorderSize = 0;
+            this.buttonResidents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonResidents.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonResidents.Location = new System.Drawing.Point(216, 70);
+            this.buttonResidents.Name = "buttonResidents";
+            this.buttonResidents.Size = new System.Drawing.Size(159, 23);
+            this.buttonResidents.TabIndex = 46;
+            this.buttonResidents.Text = "Членове на семейството";
+            this.buttonResidents.UseVisualStyleBackColor = false;
+            this.buttonResidents.Click += new System.EventHandler(this.buttonResidents_Click);
+            // 
+            // labelTitleInhabitants
+            // 
+            this.labelTitleInhabitants.AutoSize = true;
+            this.labelTitleInhabitants.BackColor = System.Drawing.Color.Transparent;
+            this.labelTitleInhabitants.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelTitleInhabitants.Location = new System.Drawing.Point(37, 34);
+            this.labelTitleInhabitants.Name = "labelTitleInhabitants";
+            this.labelTitleInhabitants.Size = new System.Drawing.Size(146, 29);
+            this.labelTitleInhabitants.TabIndex = 13;
+            this.labelTitleInhabitants.Text = "Обитатели:";
             // 
             // panelAnimals
             // 
@@ -765,33 +884,33 @@ namespace GraduationProject.UserControls.References
             this.dataGridViewQuarantines.AllowUserToDeleteRows = false;
             this.dataGridViewQuarantines.AllowUserToResizeColumns = false;
             this.dataGridViewQuarantines.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewQuarantines.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewQuarantines.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewQuarantines.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridViewQuarantines.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewQuarantines.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewQuarantines.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewQuarantines.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewQuarantines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewQuarantines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ObjectCol,
             this.diagnosysCol,
             this.startDateCol,
             this.endDateCol});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewQuarantines.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewQuarantines.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewQuarantines.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewQuarantines.EnableHeadersVisualStyles = false;
             this.dataGridViewQuarantines.GridColor = System.Drawing.SystemColors.ScrollBar;
@@ -800,14 +919,14 @@ namespace GraduationProject.UserControls.References
             this.dataGridViewQuarantines.Name = "dataGridViewQuarantines";
             this.dataGridViewQuarantines.ReadOnly = true;
             this.dataGridViewQuarantines.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewQuarantines.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewQuarantines.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewQuarantines.RowHeadersVisible = false;
             this.dataGridViewQuarantines.RowTemplate.Height = 25;
             this.dataGridViewQuarantines.ShowCellToolTips = false;
@@ -988,8 +1107,15 @@ namespace GraduationProject.UserControls.References
         private System.Windows.Forms.Label labelTitleInhabitants;
         private System.Windows.Forms.Button buttonGuests;
         private System.Windows.Forms.Button buttonResidents;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label labelOwnerValue;
+        private System.Windows.Forms.Label labelOwnerFirstname;
         private System.Windows.Forms.Label labelOwner;
+        private ListBoxUserControl listBoxResidents;
+        private System.Windows.Forms.Label labelOwnerFirstnameValue;
+        private System.Windows.Forms.Label labelOwnerLastnameValue;
+        private System.Windows.Forms.Label labelOwnerLastname;
+        private System.Windows.Forms.Label labelOwnerMiddlenameValue;
+        private System.Windows.Forms.Label labelOwnerMiddlename;
+        private ListBoxUserControl listBoxGuests;
+        private System.Windows.Forms.Button buttonShowOwner;
     }
 }

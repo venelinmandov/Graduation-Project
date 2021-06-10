@@ -12,30 +12,22 @@ namespace GraduationProject.UserControls.References
 {
     public partial class ShowInhabitants : UserControl
     {
-        PersonsStruct personsStruct;
-        List<Person> people;
+        List<Inhabitant> inhabitants;
         [Browsable(true)]
         [Category("Action")]
         [Description("Invoked when inhabitant is clicked")]
         public EventHandler InhabitantClicked;
 
-        public struct PersonsStruct
-        {
-            public List<Person> guests;
-            public List<Resident> residents;
-        }
-        public ShowInhabitants(PersonsStruct persons)
+        public ShowInhabitants(List<Inhabitant> inhabitantsArg)
         {
             InitializeComponent();
-            this.personsStruct = persons;
-            if (persons.guests.Count == 0 && persons.residents.Count == 0)
+            inhabitants = inhabitantsArg;
+            if (inhabitants.Count == 0)
             {
                 labelNoInhabitants.Visible = true;
                 listBoxInhabitants.Visible = false;
             }
-            people = persons.guests.Concat(persons.residents.Cast<Person>()).ToList();
-            people = people.OrderBy(x => x.Firstname).ToList();
-            listBoxInhabitants.AddList(people.Cast<object>().ToList());
+            listBoxInhabitants.AddList(inhabitants.Cast<object>().ToList());
             listBoxInhabitants.ItemClicked += ShowInhabitantsEvent;
 
         }
@@ -43,22 +35,7 @@ namespace GraduationProject.UserControls.References
         private void ShowInhabitantsEvent(object sender, EventArgs eventArgs)
         {
             int selectedIndex = (int)sender;
-            foreach (Person person in personsStruct.guests)
-            {
-                if (people[selectedIndex] == person)
-                {
-                    InhabitantClicked(new MainForm.EventData("showGuest",person), eventArgs);
-                    return;
-                }
-            }
-            foreach (Resident resident in personsStruct.residents)
-            {
-                if (people[selectedIndex] == resident)
-                {
-                    InhabitantClicked(new MainForm.EventData("showResident", resident), eventArgs);
-                    return;
-                }
-            }
+            InhabitantClicked(new MainForm.EventData("showInhabitant", inhabitants[selectedIndex]), eventArgs);
         }
     }
 }

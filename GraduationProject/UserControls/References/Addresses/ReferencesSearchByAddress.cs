@@ -44,8 +44,9 @@ namespace GraduationProject.UserControls.References
                 foreach (Address address in addresses)
                 {
                     comboBoxNumber.Items.Add(address.Number);
+
                 }
-                comboBoxNumber.SelectedIndex = 0;  
+                comboBoxNumber.SelectedIndex = 0;
             }
             else
             {
@@ -63,6 +64,28 @@ namespace GraduationProject.UserControls.References
             if (comboBoxStreet.Text == "" || comboBoxNumber.Text == "") return;
             Address adr = (from Address in addresses where Address.Number == int.Parse(comboBoxNumber.Text) select Address).First();
             SearchButtonClicked(new MainForm.EventData("showAddress", adr), new EventArgs());
+        }
+
+        private void comboBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index == -1) return;
+            var combo = sender as ComboBox;
+            SolidBrush solidBrush;
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(50, 80, 40)), e.Bounds);
+                solidBrush = new SolidBrush(SystemColors.Control);
+            }
+            else
+            {
+                e.Graphics.FillRectangle(new SolidBrush(SystemColors.Window), e.Bounds);
+                solidBrush = new SolidBrush(Color.Black);
+            }
+
+            e.Graphics.DrawString(combo.Items[e.Index].ToString(),
+                                          e.Font,
+                                          solidBrush,
+                                          new Point(e.Bounds.X, e.Bounds.Y));
         }
     }
 }

@@ -31,27 +31,18 @@ namespace GraduationProject.UserControls.References.Inhabitants
         private void buttonShow_Click(object sender, EventArgs e)
         {
             ConnectionHelper connectionHelper = new ConnectionHelper();
-            ShowInhabitants.PersonsStruct personsStruct;
-            List<Person> persons = new Person().Get(connectionHelper);
-            List<Resident> residents = new Resident().Get(connectionHelper);
+            List<Inhabitant> inhabitants;
             if (radioButtonTemporary.Checked)
             {
-                personsStruct = new ShowInhabitants.PersonsStruct()
-                {
-                    guests = persons.Where(person => person.CurrentAddressId != -1).ToList(),
-                    residents = residents.Where(resident => resident.CurrentAddressId != -1).ToList()
-                };
+                inhabitants = new Inhabitant().Get(connectionHelper, Inhabitant.ResidenceStateEnum.Temporary);
             }
             else if (radioButtonPermanent.Checked)
             {
-                personsStruct = new ShowInhabitants.PersonsStruct()
-                {
-                    guests = persons.Where(person => person.CurrentAddressId == -1).ToList(),
-                    residents = residents.Where(resident => resident.CurrentAddressId == -1).ToList()
-                };
+                inhabitants = new Inhabitant().Get(connectionHelper, Inhabitant.ResidenceStateEnum.Permanent);
+
             }
             else return;
-            ShowButtonClicked(new MainForm.EventData("showInhabitants", personsStruct), e);
+            ShowButtonClicked(new MainForm.EventData("showInhabitants", inhabitants), e);
         }
     }
 }

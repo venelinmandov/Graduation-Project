@@ -64,9 +64,6 @@
     <Compile Update="Forms\InhabitantsFilterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\InsertDataForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Forms\InputBoxForm.cs">
       <SubType>Form</SubType>
     </Compile>

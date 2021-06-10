@@ -30,15 +30,10 @@ namespace GraduationProject.UserControls.References.Inhabitants
             if (textBoxFirstname.Text.Trim() == "" && textBoxMiddlename.Text.Trim() == "" && textBoxLastname.Text.Trim() == "")
                 return;
             ConnectionHelper connectionHelper = new ConnectionHelper();
-            List<Person> persons = new Person().Get(connectionHelper, textBoxFirstname.Text, textBoxMiddlename.Text, textBoxLastname.Text);
-            List<Resident> residents = new Resident().Get(connectionHelper, textBoxFirstname.Text, textBoxMiddlename.Text, textBoxLastname.Text);
-            ShowInhabitants.PersonsStruct personsStruct = new ShowInhabitants.PersonsStruct()
-            {
-                guests = persons,
-                residents = residents
-            };
+            List<Inhabitant> inhabitants = new Inhabitant().Get(connectionHelper, textBoxFirstname.Text, textBoxMiddlename.Text, textBoxLastname.Text);
 
-            ShowButtonClicked(new MainForm.EventData("showInhabitants",personsStruct),e);
+
+            ShowButtonClicked(new MainForm.EventData("showInhabitants", inhabitants),e);
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using GraduationProject.Models;
 using System.Linq;
+using GraduationProject.Forms;
 
 namespace GraduationProject.UserControls.References
 {
@@ -14,6 +15,9 @@ namespace GraduationProject.UserControls.References
     {
         ConnectionHelper connectionHelper = new ConnectionHelper();
         Button activeButton;
+        List<Person> guests;
+        List<Inhabitant> residents;
+        Inhabitant owner;
 
         Dictionary<AnimalsQuarantine.AnimalEnum, string> animalsDict = new Dictionary<AnimalsQuarantine.AnimalEnum, string>()
         {
@@ -26,6 +30,11 @@ namespace GraduationProject.UserControls.References
             {AnimalsQuarantine.AnimalEnum.Pigs, "свине" },
             {AnimalsQuarantine.AnimalEnum.Dogs, "кучета" },
         };
+
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when inhabitant is clicked")]
+        public EventHandler InhabitantClicked;
 
         public ShowAddress(Address address)
         {
@@ -232,22 +241,66 @@ namespace GraduationProject.UserControls.References
             }
         }
 
+        private void buttonResidents_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            listBoxResidents.BringToFront();
+            buttonGuests.BackColor = Color.FromArgb(170, 255, 255, 255);
+            buttonGuests.ForeColor = SystemColors.ControlText;
+            button.BackColor = Color.FromArgb(50, 80, 40);
+            button.ForeColor = SystemColors.Control;
+        }
+
+        private void buttonGuests_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            listBoxGuests.BringToFront();
+            buttonResidents.BackColor = Color.FromArgb(170, 255, 255, 255);
+            buttonResidents.ForeColor = SystemColors.ControlText;
+            button.BackColor = Color.FromArgb(50, 80, 40);
+            button.ForeColor = SystemColors.Control;
+        }
+
         void ShowInhabitants(Address address)
         {
-            List<Person> guests = new Person().Get(connectionHelper, address);
-            List<Resident> residents = new Resident().Get(connectionHelper, address);
-            List<Resident> owners;
+            guests = new Person().Get(connectionHelper, address);
+            residents = new Inhabitant().Get(connectionHelper, address);
+            List<Inhabitant> owners;
             if ((owners = (from resident in residents where resident.RelToOwner == "Собственик" select resident).ToList()).Count != 0)
             {
-                labelOwnerValue.Text = $"{owners[0].Firstname} \n {owners[0].Middlename} \n {owners[0].Lastname}";
+                owner = owners[0];
+                labelOwnerFirstnameValue.Text = owner.Firstname;
+                labelOwnerMiddlenameValue.Text = owner.Middlename;
+                labelOwnerLastnameValue.Text = owner.Lastname;
+                residents.Remove(owner);
+
+                listBoxResidents.AddList(residents.Cast<object>().ToList());
+                listBoxGuests.AddList(guests.Cast<object>().ToList());
+
             }
             else 
             {
-                labelOwnerValue.Text = "Няма";
+                labelOwnerFirstname.Text = "Няма";
             }
 
         }
 
-        
+        private void listBoxResidents_ItemClicked(object sender, EventArgs e)
+        {
+            int selectedIndex = (int)sender;
+            InhabitantClicked(new MainForm.EventData("showInhabitant", residents[selectedIndex]), e);
+        }
+
+        private void listBoxGuests_ItemClicked(object sender, EventArgs e)
+        {
+            int selectedIndex = (int)sender;
+            InhabitantClicked(new MainForm.EventData("showInhabitant", guests[selectedIndex]), e);
+        }
+
+        private void buttonShowOwner_Click(object sender, EventArgs e)
+        {
+            InhabitantClicked(new MainForm.EventData("showInhabitant", owner), e);
+
+        }
     }
 }

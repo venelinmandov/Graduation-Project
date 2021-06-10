@@ -53,20 +53,26 @@ namespace GraduationProject.UserControls.References
             // 
             // comboBoxStreet
             // 
+            this.comboBoxStreet.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxStreet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStreet.FormattingEnabled = true;
             this.comboBoxStreet.Location = new System.Drawing.Point(45, 50);
             this.comboBoxStreet.Name = "comboBoxStreet";
-            this.comboBoxStreet.Size = new System.Drawing.Size(192, 23);
+            this.comboBoxStreet.Size = new System.Drawing.Size(192, 22);
             this.comboBoxStreet.TabIndex = 1;
+            this.comboBoxStreet.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBox_DrawItem);
             this.comboBoxStreet.SelectedIndexChanged += new System.EventHandler(this.comboBoxStreet_SelectedIndexChanged);
             // 
             // comboBoxNumber
             // 
+            this.comboBoxNumber.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxNumber.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNumber.FormattingEnabled = true;
             this.comboBoxNumber.Location = new System.Drawing.Point(261, 50);
             this.comboBoxNumber.Name = "comboBoxNumber";
-            this.comboBoxNumber.Size = new System.Drawing.Size(67, 23);
+            this.comboBoxNumber.Size = new System.Drawing.Size(67, 22);
             this.comboBoxNumber.TabIndex = 2;
+            this.comboBoxNumber.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBox_DrawItem);
             // 
             // labelStreet
             // 

@@ -31,9 +31,9 @@ namespace GraduationProject.Forms
             Text = "Добавяне на жител / гост в карантина";
         }
 
-        public PersonsForm(Resident res): this()
+        public PersonsForm(Inhabitant res): this()
         {
-            person = res;
+           // person = res;
             radioButtonHousehold.Enabled = false;
             radioButtonGuest.Enabled = false;
             radioButtonHousehold.Checked = true;
@@ -58,7 +58,7 @@ namespace GraduationProject.Forms
         //Свойства
         public bool isResident => radioButtonHousehold.Checked;
         public Person getNewGuest => person;
-        public Resident getNewResident => (Resident)person;
+        //public Inhabitant getNewResident => (Inhabitant)person;
 
 
 
@@ -91,9 +91,9 @@ namespace GraduationProject.Forms
             SetGroupBoxValue(personToShow.Gender,radioButtonMale, radioButtonFemale);
             if (radioButtonHousehold.Checked)
             {
-                Resident residentToShow = (Resident)personToShow;
-                SetGroupBoxValue((int)residentToShow.AddressReg,radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
-                SetGroupBoxValue((int)residentToShow.Covid19, radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
+                //Inhabitant residentToShow = (Inhabitant)personToShow;
+                //SetGroupBoxValue((int)residentToShow.AddressReg,radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
+                //SetGroupBoxValue((int)residentToShow.Quarantine, radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
             }
 
             if (personToShow.CurrentAddressId != -1)
@@ -244,7 +244,7 @@ namespace GraduationProject.Forms
             {
                 if (radioButtonHousehold.Checked)
                 {
-                    person = new Resident();
+                    //person = new Inhabitant();
                 }
                 else if (radioButtonGuest.Checked)
                 {
@@ -259,9 +259,9 @@ namespace GraduationProject.Forms
             }
             if (radioButtonHousehold.Checked)
             {
-                Resident residentToSave = (Resident)person;
-                residentToSave.AddressReg = (Resident.AddressRegistration)GetGroupBoxValue(radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
-                residentToSave.Covid19 = (Person.Covid19Enum)GetGroupBoxValue(radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
+                //Inhabitant residentToSave = (Inhabitant)person;
+                //residentToSave.AddressReg = (Inhabitant.AddressRegistration)GetGroupBoxValue(radioButtonAddrRegNo, radioButtonAddrRegYes, radioButtonAddrRegTemp);
+                //residentToSave.Quarantine = (Person.QuarantineEnum)GetGroupBoxValue(radioButtonCovid19No, radioButtonCovid19Yes, radioButtonCovid19Contact);
 
             }
 

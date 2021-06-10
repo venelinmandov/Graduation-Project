@@ -14,7 +14,7 @@ namespace GraduationProject.Forms
         List<Models.Street> streets;
         ConnectionHelper connectionHelper = new ConnectionHelper();
         public List<Models.Person> guests = new List<Models.Person>();
-        public List<Models.Resident> residents = new List<Models.Resident>();
+        public List<Models.Inhabitant> residents = new List<Models.Inhabitant>();
         ErrorProvider errorProvider = new ErrorProvider();
         Panel selectedTab;
         string filter;
@@ -60,7 +60,7 @@ namespace GraduationProject.Forms
                     return;
                 }
                 guests = new Models.Person().Get(connectionHelper, address);
-                residents = new Models.Resident().Get(connectionHelper, address);
+                residents = new Models.Inhabitant().Get(connectionHelper, address);
                 filter = $"По адрес: {comboBoxStreet.Text} {numericUpDownNumber.Value}";
             }
             if (selectedTab == panelSearchByNames)
@@ -82,14 +82,14 @@ namespace GraduationProject.Forms
                     filter += " Фамилия: " + textBoxLastname.Text;
                 if (radioButtonGuest.Checked)
                 {
-                    residents = new List<Models.Resident>();
+                    residents = new List<Models.Inhabitant>();
                     guests = new Models.Person().Get(connectionHelper, textBoxFirstname.Text.Trim(), textBoxMiddlename.Text.Trim(), textBoxLastname.Text.Trim());
                     filter += " - гости в карантина";
                 }
 
                 else if (radioButtonResident.Checked)
                 {
-                    residents = new Models.Resident().Get(connectionHelper, textBoxFirstname.Text.Trim(), textBoxMiddlename.Text.Trim(), textBoxLastname.Text.Trim());
+                    residents = new Models.Inhabitant().Get(connectionHelper, textBoxFirstname.Text.Trim(), textBoxMiddlename.Text.Trim(), textBoxLastname.Text.Trim());
                     guests = new List<Models.Person>();
                     filter += " - жители";
 
@@ -97,7 +97,7 @@ namespace GraduationProject.Forms
                 }
                 else if (radioButtonAll.Checked)
                 {
-                    residents = new Models.Resident().Get(connectionHelper, textBoxFirstname.Text.Trim(), textBoxMiddlename.Text.Trim(), textBoxLastname.Text.Trim());
+                    residents = new Models.Inhabitant().Get(connectionHelper, textBoxFirstname.Text.Trim(), textBoxMiddlename.Text.Trim(), textBoxLastname.Text.Trim());
                     guests = new Models.Person().Get(connectionHelper, textBoxFirstname.Text.Trim(), textBoxMiddlename.Text.Trim(), textBoxLastname.Text.Trim());
                     filter += " - жители, гости в карантина";
 
