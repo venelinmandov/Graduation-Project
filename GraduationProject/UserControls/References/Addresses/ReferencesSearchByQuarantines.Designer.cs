@@ -43,7 +43,7 @@ namespace GraduationProject.UserControls.References.Addresses
             this.panelDogs.Controls.Add(this.labelTitle);
             this.panelDogs.Controls.Add(this.radioButtonAnimals);
             this.panelDogs.Controls.Add(this.radioButtonInhabitants);
-            this.panelDogs.Location = new System.Drawing.Point(338, 70);
+            this.panelDogs.Location = new System.Drawing.Point(358, 67);
             this.panelDogs.Name = "panelDogs";
             this.panelDogs.Size = new System.Drawing.Size(364, 196);
             this.panelDogs.TabIndex = 5;
@@ -53,11 +53,13 @@ namespace GraduationProject.UserControls.References.Addresses
             this.buttonShow.FlatAppearance.BorderSize = 0;
             this.buttonShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShow.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonShow.Location = new System.Drawing.Point(64, 153);
+            this.buttonShow.Image = global::GraduationProject.Properties.Resources.magnifer_small;
+            this.buttonShow.Location = new System.Drawing.Point(46, 151);
             this.buttonShow.Name = "buttonShow";
-            this.buttonShow.Size = new System.Drawing.Size(75, 23);
+            this.buttonShow.Size = new System.Drawing.Size(87, 29);
             this.buttonShow.TabIndex = 5;
             this.buttonShow.Text = "Покажи";
+            this.buttonShow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonShow.UseVisualStyleBackColor = true;
             this.buttonShow.Click += new System.EventHandler(this.buttonShow_Click);
             // 
@@ -76,7 +78,7 @@ namespace GraduationProject.UserControls.References.Addresses
             // 
             this.radioButtonAnimals.AutoSize = true;
             this.radioButtonAnimals.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonAnimals.Location = new System.Drawing.Point(69, 94);
+            this.radioButtonAnimals.Location = new System.Drawing.Point(93, 93);
             this.radioButtonAnimals.Name = "radioButtonAnimals";
             this.radioButtonAnimals.Size = new System.Drawing.Size(190, 19);
             this.radioButtonAnimals.TabIndex = 1;
@@ -88,7 +90,7 @@ namespace GraduationProject.UserControls.References.Addresses
             // 
             this.radioButtonInhabitants.AutoSize = true;
             this.radioButtonInhabitants.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonInhabitants.Location = new System.Drawing.Point(69, 67);
+            this.radioButtonInhabitants.Location = new System.Drawing.Point(93, 69);
             this.radioButtonInhabitants.Name = "radioButtonInhabitants";
             this.radioButtonInhabitants.Size = new System.Drawing.Size(70, 19);
             this.radioButtonInhabitants.TabIndex = 0;
@@ -98,8 +100,8 @@ namespace GraduationProject.UserControls.References.Addresses
             // 
             // ReferencesSearchByQuarantines
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.panelDogs);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

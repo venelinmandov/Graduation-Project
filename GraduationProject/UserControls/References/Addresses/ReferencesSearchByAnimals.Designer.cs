@@ -51,7 +51,7 @@ namespace GraduationProject.UserControls.References
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelTitle.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTitle.Location = new System.Drawing.Point(328, 60);
+            this.labelTitle.Location = new System.Drawing.Point(354, 37);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(367, 33);
             this.labelTitle.TabIndex = 1;
@@ -62,7 +62,7 @@ namespace GraduationProject.UserControls.References
             this.panelCattle.Controls.Add(this.buttonShowCattle);
             this.panelCattle.Controls.Add(this.labelCattle);
             this.panelCattle.Controls.Add(this.comboBoxCattle);
-            this.panelCattle.Location = new System.Drawing.Point(124, 108);
+            this.panelCattle.Location = new System.Drawing.Point(134, 108);
             this.panelCattle.Name = "panelCattle";
             this.panelCattle.Size = new System.Drawing.Size(364, 196);
             this.panelCattle.TabIndex = 2;
@@ -71,11 +71,13 @@ namespace GraduationProject.UserControls.References
             // 
             this.buttonShowCattle.FlatAppearance.BorderSize = 0;
             this.buttonShowCattle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonShowCattle.Location = new System.Drawing.Point(62, 153);
+            this.buttonShowCattle.Image = global::GraduationProject.Properties.Resources.magnifer_small;
+            this.buttonShowCattle.Location = new System.Drawing.Point(46, 153);
             this.buttonShowCattle.Name = "buttonShowCattle";
-            this.buttonShowCattle.Size = new System.Drawing.Size(75, 23);
+            this.buttonShowCattle.Size = new System.Drawing.Size(87, 29);
             this.buttonShowCattle.TabIndex = 4;
-            this.buttonShowCattle.Text = "Покажи";
+            this.buttonShowCattle.Text = "Търсeне";
+            this.buttonShowCattle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonShowCattle.UseVisualStyleBackColor = true;
             this.buttonShowCattle.Click += new System.EventHandler(this.buttonShowCattle_Click);
             // 
@@ -103,7 +105,7 @@ namespace GraduationProject.UserControls.References
             "Магарета",
             "Пернати",
             "Свине"});
-            this.comboBoxCattle.Location = new System.Drawing.Point(83, 74);
+            this.comboBoxCattle.Location = new System.Drawing.Point(92, 83);
             this.comboBoxCattle.Name = "comboBoxCattle";
             this.comboBoxCattle.Size = new System.Drawing.Size(180, 22);
             this.comboBoxCattle.TabIndex = 0;
@@ -117,7 +119,7 @@ namespace GraduationProject.UserControls.References
             this.panelDogs.Controls.Add(this.radioButtonDomesticDog);
             this.panelDogs.Controls.Add(this.radioButtonHuntingDog);
             this.panelDogs.Controls.Add(this.radioButtonGuardDog);
-            this.panelDogs.Location = new System.Drawing.Point(572, 108);
+            this.panelDogs.Location = new System.Drawing.Point(582, 108);
             this.panelDogs.Name = "panelDogs";
             this.panelDogs.Size = new System.Drawing.Size(364, 196);
             this.panelDogs.TabIndex = 3;
@@ -126,11 +128,13 @@ namespace GraduationProject.UserControls.References
             // 
             this.buttonShowDogs.FlatAppearance.BorderSize = 0;
             this.buttonShowDogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonShowDogs.Location = new System.Drawing.Point(64, 153);
+            this.buttonShowDogs.Image = global::GraduationProject.Properties.Resources.magnifer_small;
+            this.buttonShowDogs.Location = new System.Drawing.Point(45, 153);
             this.buttonShowDogs.Name = "buttonShowDogs";
-            this.buttonShowDogs.Size = new System.Drawing.Size(75, 23);
+            this.buttonShowDogs.Size = new System.Drawing.Size(87, 29);
             this.buttonShowDogs.TabIndex = 5;
-            this.buttonShowDogs.Text = "Покажи";
+            this.buttonShowDogs.Text = "Търсeне";
+            this.buttonShowDogs.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonShowDogs.UseVisualStyleBackColor = true;
             this.buttonShowDogs.Click += new System.EventHandler(this.buttonShowDogs_Click);
             // 
@@ -149,7 +153,7 @@ namespace GraduationProject.UserControls.References
             // 
             this.radioButtonDogAll.AutoSize = true;
             this.radioButtonDogAll.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonDogAll.Location = new System.Drawing.Point(133, 128);
+            this.radioButtonDogAll.Location = new System.Drawing.Point(117, 122);
             this.radioButtonDogAll.Name = "radioButtonDogAll";
             this.radioButtonDogAll.Size = new System.Drawing.Size(65, 19);
             this.radioButtonDogAll.TabIndex = 3;
@@ -161,7 +165,7 @@ namespace GraduationProject.UserControls.References
             // 
             this.radioButtonDomesticDog.AutoSize = true;
             this.radioButtonDomesticDog.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonDomesticDog.Location = new System.Drawing.Point(133, 103);
+            this.radioButtonDomesticDog.Location = new System.Drawing.Point(117, 97);
             this.radioButtonDomesticDog.Name = "radioButtonDomesticDog";
             this.radioButtonDomesticDog.Size = new System.Drawing.Size(135, 19);
             this.radioButtonDomesticDog.TabIndex = 2;
@@ -173,7 +177,7 @@ namespace GraduationProject.UserControls.References
             // 
             this.radioButtonHuntingDog.AutoSize = true;
             this.radioButtonHuntingDog.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonHuntingDog.Location = new System.Drawing.Point(133, 78);
+            this.radioButtonHuntingDog.Location = new System.Drawing.Point(117, 72);
             this.radioButtonHuntingDog.Name = "radioButtonHuntingDog";
             this.radioButtonHuntingDog.Size = new System.Drawing.Size(122, 19);
             this.radioButtonHuntingDog.TabIndex = 1;
@@ -185,7 +189,7 @@ namespace GraduationProject.UserControls.References
             // 
             this.radioButtonGuardDog.AutoSize = true;
             this.radioButtonGuardDog.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonGuardDog.Location = new System.Drawing.Point(133, 51);
+            this.radioButtonGuardDog.Location = new System.Drawing.Point(117, 47);
             this.radioButtonGuardDog.Name = "radioButtonGuardDog";
             this.radioButtonGuardDog.Size = new System.Drawing.Size(86, 19);
             this.radioButtonGuardDog.TabIndex = 0;

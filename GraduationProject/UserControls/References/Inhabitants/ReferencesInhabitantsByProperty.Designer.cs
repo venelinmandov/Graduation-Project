@@ -45,7 +45,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.panelDogs.Controls.Add(this.radioButtonGuest);
             this.panelDogs.Controls.Add(this.radioButtonResident);
             this.panelDogs.Controls.Add(this.radioButtonOwner);
-            this.panelDogs.Location = new System.Drawing.Point(338, 70);
+            this.panelDogs.Location = new System.Drawing.Point(358, 69);
             this.panelDogs.Name = "panelDogs";
             this.panelDogs.Size = new System.Drawing.Size(364, 196);
             this.panelDogs.TabIndex = 5;
@@ -54,11 +54,13 @@ namespace GraduationProject.UserControls.References.Inhabitants
             // 
             this.buttonShow.FlatAppearance.BorderSize = 0;
             this.buttonShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonShow.Location = new System.Drawing.Point(64, 153);
+            this.buttonShow.Image = global::GraduationProject.Properties.Resources.magnifer_small;
+            this.buttonShow.Location = new System.Drawing.Point(46, 153);
             this.buttonShow.Name = "buttonShow";
-            this.buttonShow.Size = new System.Drawing.Size(75, 23);
+            this.buttonShow.Size = new System.Drawing.Size(87, 29);
             this.buttonShow.TabIndex = 5;
-            this.buttonShow.Text = "Покажи";
+            this.buttonShow.Text = "Търсeне";
+            this.buttonShow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonShow.UseVisualStyleBackColor = true;
             this.buttonShow.Click += new System.EventHandler(this.buttonShow_Click);
             // 
@@ -77,7 +79,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             // 
             this.radioButtonGuest.AutoSize = true;
             this.radioButtonGuest.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonGuest.Location = new System.Drawing.Point(133, 103);
+            this.radioButtonGuest.Location = new System.Drawing.Point(133, 108);
             this.radioButtonGuest.Name = "radioButtonGuest";
             this.radioButtonGuest.Size = new System.Drawing.Size(49, 19);
             this.radioButtonGuest.TabIndex = 2;
@@ -89,7 +91,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             // 
             this.radioButtonResident.AutoSize = true;
             this.radioButtonResident.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonResident.Location = new System.Drawing.Point(133, 78);
+            this.radioButtonResident.Location = new System.Drawing.Point(133, 84);
             this.radioButtonResident.Name = "radioButtonResident";
             this.radioButtonResident.Size = new System.Drawing.Size(160, 19);
             this.radioButtonResident.TabIndex = 1;
@@ -101,7 +103,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             // 
             this.radioButtonOwner.AutoSize = true;
             this.radioButtonOwner.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonOwner.Location = new System.Drawing.Point(133, 51);
+            this.radioButtonOwner.Location = new System.Drawing.Point(133, 60);
             this.radioButtonOwner.Name = "radioButtonOwner";
             this.radioButtonOwner.Size = new System.Drawing.Size(92, 19);
             this.radioButtonOwner.TabIndex = 0;

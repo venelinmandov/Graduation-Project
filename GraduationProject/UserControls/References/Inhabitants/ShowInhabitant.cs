@@ -21,7 +21,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
 
         Dictionary<Inhabitant.QuarantineEnum, string> covidDict = new Dictionary<Inhabitant.QuarantineEnum, string>()
         {
-            { Inhabitant.QuarantineEnum.Yes,"Има"},
+            { Inhabitant.QuarantineEnum.Yes,"Боледува"},
             { Inhabitant.QuarantineEnum.No,"Няма"},
             { Inhabitant.QuarantineEnum.Contact,"Контактен"}
         };
@@ -30,7 +30,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
         {
             {Inhabitant.AddressRegistrationEnum.No, "Няма в населеното място" },
             {Inhabitant.AddressRegistrationEnum.Permanent, "Постоянен адрес" },
-            {Inhabitant.AddressRegistrationEnum.Current, "Настоящ асдрес" }
+            {Inhabitant.AddressRegistrationEnum.Current, "Настоящ адрес" }
         };
 
         Dictionary<Inhabitant.OwnershipStateEnum, string> ownershipDict = new Dictionary<Inhabitant.OwnershipStateEnum, string>()
@@ -51,6 +51,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             labelMiddlenameValue.Text = inhabitant.Middlename;
             labelLastnameValue.Text = inhabitant.Lastname;
             labelGenderValue.Text = inhabitant.Gender == 0 ? "Мъж" : "Жена";
+            labelPhoneValue.Text = inhabitant.PhoneNumber;
             labelAddressValue.Text = new Address().Get(new ConnectionHelper(), inhabitant.AddressId).ToString();
             labelQuarantineValue.Text = covidDict[inhabitant.Quarantine];
             richTextBoxNotes.Text = inhabitant.Note;
@@ -72,17 +73,21 @@ namespace GraduationProject.UserControls.References.Inhabitants
                 case Inhabitant.AddressRegistrationEnum.Permanent:
                     labelCurrentAddress.Visible = false;
                     labelCurrentAddressValue.Visible = false;
-                    labelPermanentAddressValue.Text = new Address().Get(connectionHelper, inhabitant.PermanentAddressId).ToString();
                     labelQuarantine.Location = new Point(labelQuarantine.Location.X, labelCurrentAddress.Location.Y);
                     labelQuarantineValue.Location = new Point(labelQuarantineValue.Location.X, labelQuarantine.Location.Y);
-                    labelCurrentAddressValue.Text = new Address().Get(connectionHelper, inhabitant.CurrentAddressId).ToString();
+                    labelPermanentAddressValue.Text = new Address().Get(connectionHelper, inhabitant.PermanentAddressId).ToString();
+
                     break;
                 case Inhabitant.AddressRegistrationEnum.Current:
-                    labelPermanentAddressValue.Text = inhabitant.PermanentAddressId == -1 ? "Не е в населеното място" : new Address().Get(connectionHelper, inhabitant.PermanentAddressId).ToString();
+                    labelPermanentAddressValue.Text = inhabitant.PermanentAddressId == -1 ? "Не е в нас. място" : new Address().Get(connectionHelper, inhabitant.PermanentAddressId).ToString();
                     labelCurrentAddressValue.Text = new Address().Get(connectionHelper, inhabitant.CurrentAddressId).ToString();
                     break;
                 case Inhabitant.AddressRegistrationEnum.No:
-                    labelPermanentAddressValue.Text = "Не е в населеното място";
+                    labelCurrentAddress.Visible = false;
+                    labelCurrentAddressValue.Visible = false;
+                    labelQuarantine.Location = new Point(labelQuarantine.Location.X, labelCurrentAddress.Location.Y);
+                    labelQuarantineValue.Location = new Point(labelQuarantineValue.Location.X, labelQuarantine.Location.Y);
+                    labelPermanentAddressValue.Text = "Не е в нас. място";
                     break;
 
             }
@@ -90,6 +95,11 @@ namespace GraduationProject.UserControls.References.Inhabitants
         }
 
         private void labelCurrentAddressValue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelGender_Click(object sender, EventArgs e)
         {
 
         }

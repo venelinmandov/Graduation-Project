@@ -100,7 +100,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.panel1.Controls.Add(this.textBoxLastname);
             this.panel1.Controls.Add(this.textBoxMiddlename);
             this.panel1.Controls.Add(this.labelMiddlename);
-            this.panel1.Location = new System.Drawing.Point(324, 46);
+            this.panel1.Location = new System.Drawing.Point(345, 44);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(389, 242);
             this.panel1.TabIndex = 6;
@@ -109,11 +109,13 @@ namespace GraduationProject.UserControls.References.Inhabitants
             // 
             this.buttonShow.FlatAppearance.BorderSize = 0;
             this.buttonShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonShow.Location = new System.Drawing.Point(68, 195);
+            this.buttonShow.Image = global::GraduationProject.Properties.Resources.magnifer_small;
+            this.buttonShow.Location = new System.Drawing.Point(48, 197);
             this.buttonShow.Name = "buttonShow";
-            this.buttonShow.Size = new System.Drawing.Size(75, 23);
+            this.buttonShow.Size = new System.Drawing.Size(87, 29);
             this.buttonShow.TabIndex = 6;
-            this.buttonShow.Text = "Покажи";
+            this.buttonShow.Text = "Търсeне";
+            this.buttonShow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonShow.UseVisualStyleBackColor = true;
             this.buttonShow.Click += new System.EventHandler(this.buttonShow_Click);
             // 

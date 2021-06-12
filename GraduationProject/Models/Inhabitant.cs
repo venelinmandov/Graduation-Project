@@ -59,7 +59,7 @@ namespace GraduationProject.Models
         //Заявки
 
         //INSERT
-        public new int Insert(ConnectionHelper connectionHelper)
+        public int Insert(ConnectionHelper connectionHelper)
         {
             long id;
             string query = @$"INSERT INTO Inhabitants ({fields})

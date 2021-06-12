@@ -23,6 +23,7 @@ namespace GraduationProject.Models
         public int NumMulberryTrees { get; set; } = 0;
         public int NumOldTrees { get; set; } = 0;
         public int NumCenturyOldTrees { get; set; } = 0;
+        public string Note { get; set; }
 
         public string streetName;
 
@@ -46,7 +47,7 @@ namespace GraduationProject.Models
         
         //SELECT клауза
         string selectClause = @"SELECT DISTINCT Addresses.id, streetId, number, squaring, habitability, numResBuildings,
-                                numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numPigs, numWalnutTrees, numMulberryTrees, numOldTrees, numCenturyOldTrees, Streets.name";
+                                numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numPigs, numWalnutTrees, numMulberryTrees, numOldTrees, numCenturyOldTrees, note, Streets.name";
 
         public override string ToString() => streetName + " " + Number.ToString();
        
@@ -72,7 +73,8 @@ namespace GraduationProject.Models
             NumMulberryTrees = reader.GetInt32(15);
             NumOldTrees = reader.GetInt32(16);
             NumCenturyOldTrees = reader.GetInt32(17);
-            streetName = reader.GetString(18);
+            Note = reader.GetString(18);
+            streetName = reader.GetString(19);
         }
 
         //Заявки
@@ -82,8 +84,8 @@ namespace GraduationProject.Models
         {
             long id;
             string query = @"INSERT INTO Addresses 
-                            (streetId, number, squaring, habitability, numResBuildings, numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numPigs, numWalnutTrees, numMulberryTrees, numOldTrees, numCenturyOldTrees,  )
-                            VALUES (@StrId, @num, @sq, @hab, @resB, @agrB, @cows, @sheep, @goats, @horses, @donkeys, @feathered, @pigs, @Walnut, @Mulberry, @Old, @Century)";
+                            (streetId, number, squaring, habitability, numResBuildings, numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numPigs, numWalnutTrees, numMulberryTrees, numOldTrees, numCenturyOldTrees, note  )
+                            VALUES (@StrId, @num, @sq, @hab, @resB, @agrB, @cows, @sheep, @goats, @horses, @donkeys, @feathered, @pigs, @Walnut, @Mulberry, @Old, @Century, @note)";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@StrId", StreetId);
@@ -103,6 +105,7 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@Mulberry", NumMulberryTrees);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@Old", NumOldTrees);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@Century", NumCenturyOldTrees);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
 
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlCommand.CommandText = "SELECT last_insert_rowid()";
@@ -321,21 +324,33 @@ namespace GraduationProject.Models
         }
        
         /// <summary>
-        /// Адреси в посочена карантина
+        /// Адреси с посочена карантина.
         /// </summary>
         /// <param name="connectionHelper"></param>
-        /// <param name="quarantineType"></param>
+        /// <param name="animal"></param>
         /// <returns></returns>
-        public List<Address> Get(ConnectionHelper connectionHelper, AnimalsQuarantine.AnimalEnum quarantineType)
+        public List<Address> Get(ConnectionHelper connectionHelper, AnimalsQuarantine.AnimalEnum animal)
         {
-            string query = @$"{selectClause} FROM Addresses, Streets, Quarantines
-                            WHERE Streets.id = Addresses.streetId AND Quarantines.addressId = Addresses.id
-                            AND Quarantines.type = @type";
+            
+            string query = @$"{selectClause} FROM Addresses, Streets, AnimalsQuarantines
+                            WHERE Streets.id = Addresses.streetId AND AnimalsQuarantines.addressId = Addresses.id
+                            AND AnimalsQuarantines.animal = @animal";
 
             connectionHelper.NewConnection(query);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@type", quarantineType);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@animal", animal);
             return ExecuteGetQuery(connectionHelper);
         }
+
+        public List<Address> GetAddressesWithQuarantines(ConnectionHelper connectionHelper)
+        {
+
+            string query = @$"{selectClause} FROM Addresses, Streets, InhabitantsQuarantines
+                            WHERE Streets.id = Addresses.streetId AND InhabitantsQuarantines.addressId = Addresses.id";
+
+            connectionHelper.NewConnection(query);
+            return ExecuteGetQuery(connectionHelper);
+        }
+
 
         private List<Address> ExecuteGetQuery(ConnectionHelper connectionHelper)
         {
@@ -389,7 +404,7 @@ namespace GraduationProject.Models
                                 numCows = @numCows,     numSheep = @numSheep,           numGoats = @numGoats,
                                 numHorses = @numHorses, numDonkeys = @numDonkeys,       numFeathered = @numFeathered,
                                 numPigs = @numPigs,     numWalnutTrees = @numWalnut,    numMulberryTrees = @mulberry,
-                                numOldTrees = @old,     numCenturyOldTrees = @century
+                                numOldTrees = @old,     numCenturyOldTrees = @century,  note = @note
                              WHERE id = @id";
 
             connectionHelper.NewConnection(query);
@@ -412,6 +427,7 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@mulberry", NumMulberryTrees);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@old", NumOldTrees);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@century", NumCenturyOldTrees);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
 
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();

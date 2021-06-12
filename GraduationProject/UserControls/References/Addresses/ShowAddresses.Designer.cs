@@ -40,7 +40,7 @@ namespace GraduationProject.UserControls.References
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelTitle.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTitle.Location = new System.Drawing.Point(467, 60);
+            this.labelTitle.Location = new System.Drawing.Point(476, 60);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(114, 33);
             this.labelTitle.TabIndex = 1;
@@ -55,7 +55,7 @@ namespace GraduationProject.UserControls.References
             this.listBoxAddresses.ItemBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.listBoxAddresses.ItemsColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.listBoxAddresses.ItemTextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.listBoxAddresses.Location = new System.Drawing.Point(264, 109);
+            this.listBoxAddresses.Location = new System.Drawing.Point(273, 111);
             this.listBoxAddresses.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.listBoxAddresses.Name = "listBoxAddresses";
             this.listBoxAddresses.SelectedIndex = -1;
@@ -70,7 +70,7 @@ namespace GraduationProject.UserControls.References
             this.labelNoAddresses.BackColor = System.Drawing.Color.Transparent;
             this.labelNoAddresses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelNoAddresses.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelNoAddresses.Location = new System.Drawing.Point(264, 155);
+            this.labelNoAddresses.Location = new System.Drawing.Point(272, 157);
             this.labelNoAddresses.Name = "labelNoAddresses";
             this.labelNoAddresses.Size = new System.Drawing.Size(538, 27);
             this.labelNoAddresses.TabIndex = 5;

@@ -45,7 +45,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.panelDogs.Controls.Add(this.radioButtonWithout);
             this.panelDogs.Controls.Add(this.radioButtonTemporary);
             this.panelDogs.Controls.Add(this.radioButtonPermanent);
-            this.panelDogs.Location = new System.Drawing.Point(338, 70);
+            this.panelDogs.Location = new System.Drawing.Point(358, 67);
             this.panelDogs.Name = "panelDogs";
             this.panelDogs.Size = new System.Drawing.Size(364, 196);
             this.panelDogs.TabIndex = 4;
@@ -55,11 +55,13 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.buttonShow.FlatAppearance.BorderSize = 0;
             this.buttonShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShow.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonShow.Location = new System.Drawing.Point(64, 153);
+            this.buttonShow.Image = global::GraduationProject.Properties.Resources.magnifer_small;
+            this.buttonShow.Location = new System.Drawing.Point(46, 152);
             this.buttonShow.Name = "buttonShow";
-            this.buttonShow.Size = new System.Drawing.Size(75, 23);
+            this.buttonShow.Size = new System.Drawing.Size(87, 29);
             this.buttonShow.TabIndex = 5;
-            this.buttonShow.Text = "Покажи";
+            this.buttonShow.Text = "Търсeне";
+            this.buttonShow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonShow.UseVisualStyleBackColor = true;
             this.buttonShow.Click += new System.EventHandler(this.buttonShow_Click);
             // 
@@ -78,7 +80,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             // 
             this.radioButtonWithout.AutoSize = true;
             this.radioButtonWithout.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonWithout.Location = new System.Drawing.Point(133, 103);
+            this.radioButtonWithout.Location = new System.Drawing.Point(122, 106);
             this.radioButtonWithout.Name = "radioButtonWithout";
             this.radioButtonWithout.Size = new System.Drawing.Size(120, 19);
             this.radioButtonWithout.TabIndex = 2;
@@ -90,7 +92,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             // 
             this.radioButtonTemporary.AutoSize = true;
             this.radioButtonTemporary.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonTemporary.Location = new System.Drawing.Point(133, 78);
+            this.radioButtonTemporary.Location = new System.Drawing.Point(122, 82);
             this.radioButtonTemporary.Name = "radioButtonTemporary";
             this.radioButtonTemporary.Size = new System.Drawing.Size(112, 19);
             this.radioButtonTemporary.TabIndex = 1;
@@ -98,12 +100,12 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.radioButtonTemporary.Text = "Настоящ адрес";
             this.radioButtonTemporary.UseVisualStyleBackColor = false;
             // 
-            // radioButtonYes
+            // radioButtonPermanent
             // 
             this.radioButtonPermanent.AutoSize = true;
             this.radioButtonPermanent.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonPermanent.Location = new System.Drawing.Point(133, 51);
-            this.radioButtonPermanent.Name = "radioButtonYes";
+            this.radioButtonPermanent.Location = new System.Drawing.Point(122, 58);
+            this.radioButtonPermanent.Name = "radioButtonPermanent";
             this.radioButtonPermanent.Size = new System.Drawing.Size(124, 19);
             this.radioButtonPermanent.TabIndex = 0;
             this.radioButtonPermanent.TabStop = true;

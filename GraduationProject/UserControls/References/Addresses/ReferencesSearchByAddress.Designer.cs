@@ -29,6 +29,7 @@ namespace GraduationProject.UserControls.References
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReferencesSearchByAddress));
             this.labelTitle = new System.Windows.Forms.Label();
             this.comboBoxStreet = new System.Windows.Forms.ComboBox();
             this.comboBoxNumber = new System.Windows.Forms.ComboBox();
@@ -45,7 +46,7 @@ namespace GraduationProject.UserControls.References
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelTitle.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTitle.Location = new System.Drawing.Point(485, 36);
+            this.labelTitle.Location = new System.Drawing.Point(481, 34);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(114, 33);
             this.labelTitle.TabIndex = 0;
@@ -56,7 +57,7 @@ namespace GraduationProject.UserControls.References
             this.comboBoxStreet.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.comboBoxStreet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStreet.FormattingEnabled = true;
-            this.comboBoxStreet.Location = new System.Drawing.Point(45, 50);
+            this.comboBoxStreet.Location = new System.Drawing.Point(46, 50);
             this.comboBoxStreet.Name = "comboBoxStreet";
             this.comboBoxStreet.Size = new System.Drawing.Size(192, 22);
             this.comboBoxStreet.TabIndex = 1;
@@ -68,7 +69,7 @@ namespace GraduationProject.UserControls.References
             this.comboBoxNumber.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.comboBoxNumber.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNumber.FormattingEnabled = true;
-            this.comboBoxNumber.Location = new System.Drawing.Point(261, 50);
+            this.comboBoxNumber.Location = new System.Drawing.Point(262, 50);
             this.comboBoxNumber.Name = "comboBoxNumber";
             this.comboBoxNumber.Size = new System.Drawing.Size(67, 22);
             this.comboBoxNumber.TabIndex = 2;
@@ -79,7 +80,7 @@ namespace GraduationProject.UserControls.References
             this.labelStreet.AutoSize = true;
             this.labelStreet.BackColor = System.Drawing.Color.Transparent;
             this.labelStreet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelStreet.Location = new System.Drawing.Point(45, 29);
+            this.labelStreet.Location = new System.Drawing.Point(46, 29);
             this.labelStreet.Name = "labelStreet";
             this.labelStreet.Size = new System.Drawing.Size(45, 15);
             this.labelStreet.TabIndex = 3;
@@ -90,7 +91,7 @@ namespace GraduationProject.UserControls.References
             this.labelNumber.AutoSize = true;
             this.labelNumber.BackColor = System.Drawing.Color.Transparent;
             this.labelNumber.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelNumber.Location = new System.Drawing.Point(261, 29);
+            this.labelNumber.Location = new System.Drawing.Point(262, 29);
             this.labelNumber.Name = "labelNumber";
             this.labelNumber.Size = new System.Drawing.Size(46, 15);
             this.labelNumber.TabIndex = 4;
@@ -98,13 +99,17 @@ namespace GraduationProject.UserControls.References
             // 
             // buttonSearch
             // 
+            this.buttonSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonSearch.FlatAppearance.BorderSize = 0;
             this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSearch.Location = new System.Drawing.Point(45, 127);
+            this.buttonSearch.Image = ((System.Drawing.Image)(resources.GetObject("buttonSearch.Image")));
+            this.buttonSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSearch.Location = new System.Drawing.Point(46, 126);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(106, 23);
+            this.buttonSearch.Size = new System.Drawing.Size(87, 29);
             this.buttonSearch.TabIndex = 5;
-            this.buttonSearch.Text = "Търси";
+            this.buttonSearch.Text = "Търсeне";
+            this.buttonSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
@@ -115,7 +120,7 @@ namespace GraduationProject.UserControls.References
             this.panel1.Controls.Add(this.comboBoxNumber);
             this.panel1.Controls.Add(this.labelNumber);
             this.panel1.Controls.Add(this.labelStreet);
-            this.panel1.Location = new System.Drawing.Point(357, 103);
+            this.panel1.Location = new System.Drawing.Point(353, 113);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(375, 172);
             this.panel1.TabIndex = 6;

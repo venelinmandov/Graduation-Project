@@ -43,7 +43,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.panelDogs.Controls.Add(this.labelTitle);
             this.panelDogs.Controls.Add(this.radioButtonTemporary);
             this.panelDogs.Controls.Add(this.radioButtonPermanent);
-            this.panelDogs.Location = new System.Drawing.Point(338, 70);
+            this.panelDogs.Location = new System.Drawing.Point(358, 66);
             this.panelDogs.Name = "panelDogs";
             this.panelDogs.Size = new System.Drawing.Size(364, 196);
             this.panelDogs.TabIndex = 6;
@@ -52,11 +52,13 @@ namespace GraduationProject.UserControls.References.Inhabitants
             // 
             this.buttonShow.FlatAppearance.BorderSize = 0;
             this.buttonShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonShow.Image = global::GraduationProject.Properties.Resources.magnifer_small;
             this.buttonShow.Location = new System.Drawing.Point(64, 153);
             this.buttonShow.Name = "buttonShow";
-            this.buttonShow.Size = new System.Drawing.Size(75, 23);
+            this.buttonShow.Size = new System.Drawing.Size(87, 29);
             this.buttonShow.TabIndex = 5;
-            this.buttonShow.Text = "Покажи";
+            this.buttonShow.Text = "Търсeне";
+            this.buttonShow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonShow.UseVisualStyleBackColor = true;
             this.buttonShow.Click += new System.EventHandler(this.buttonShow_Click);
             // 

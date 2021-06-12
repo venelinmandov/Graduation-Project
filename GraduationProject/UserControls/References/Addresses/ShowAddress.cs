@@ -15,8 +15,9 @@ namespace GraduationProject.UserControls.References
     {
         ConnectionHelper connectionHelper = new ConnectionHelper();
         Button activeButton;
-        List<Person> guests;
+        List<Inhabitant> guests;
         List<Inhabitant> residents;
+        List<Inhabitant> inhabitants;
         Inhabitant owner;
 
         Dictionary<AnimalsQuarantine.AnimalEnum, string> animalsDict = new Dictionary<AnimalsQuarantine.AnimalEnum, string>()
@@ -96,6 +97,17 @@ namespace GraduationProject.UserControls.References
         {
             SetActivePanel(panelInhabitants, (Button)sender);
         }
+        
+        /// <summary>
+        /// Показване на панелса със забележките
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonNotes_Click(object sender, EventArgs e)
+        {
+            SetActivePanel(panelNotes, (Button)sender);
+
+        }
 
         /// <summary>
         /// Показва се избрания панел. И съответния бутон се визуализира като активен.
@@ -136,6 +148,8 @@ namespace GraduationProject.UserControls.References
             ShowTrees(address);
             ShowQuarantines(address);
             ShowInhabitants(address);
+
+            richTextBoxNotes.Text = address.Note;
             
         }
 
@@ -263,25 +277,33 @@ namespace GraduationProject.UserControls.References
 
         void ShowInhabitants(Address address)
         {
-            guests = new Person().Get(connectionHelper, address);
-            residents = new Inhabitant().Get(connectionHelper, address);
+            inhabitants = new Inhabitant().Get(connectionHelper, address);
+            residents = (from inhabitant in inhabitants where inhabitant.OwnershipState == Inhabitant.OwnershipStateEnum.Resident select inhabitant).ToList();
+            guests = (from inhabitant in inhabitants where inhabitant.OwnershipState == Inhabitant.OwnershipStateEnum.Guest select inhabitant).ToList();
+
             List<Inhabitant> owners;
-            if ((owners = (from resident in residents where resident.RelToOwner == "Собственик" select resident).ToList()).Count != 0)
+            if ((owners = (from resident in inhabitants where resident.OwnershipState == Inhabitant.OwnershipStateEnum.Owner select resident).ToList()).Count != 0)
             {
                 owner = owners[0];
                 labelOwnerFirstnameValue.Text = owner.Firstname;
                 labelOwnerMiddlenameValue.Text = owner.Middlename;
                 labelOwnerLastnameValue.Text = owner.Lastname;
-                residents.Remove(owner);
 
-                listBoxResidents.AddList(residents.Cast<object>().ToList());
-                listBoxGuests.AddList(guests.Cast<object>().ToList());
 
             }
             else 
             {
                 labelOwnerFirstname.Text = "Няма";
+                labelOwnerFirstnameValue.Visible = false;
+                labelOwnerMiddlename.Visible = false;
+                labelOwnerMiddlenameValue.Visible = false;
+                labelOwnerLastname.Visible = false;
+                labelOwnerLastnameValue.Visible = false;
+                buttonShowOwner.Visible = false;
             }
+
+            listBoxResidents.AddList(residents.Cast<object>().ToList());
+            listBoxGuests.AddList(guests.Cast<object>().ToList());
 
         }
 
@@ -300,6 +322,11 @@ namespace GraduationProject.UserControls.References
         private void buttonShowOwner_Click(object sender, EventArgs e)
         {
             InhabitantClicked(new MainForm.EventData("showInhabitant", owner), e);
+
+        }
+
+        private void labelDonkeys_Click(object sender, EventArgs e)
+        {
 
         }
     }

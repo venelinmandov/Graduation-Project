@@ -47,7 +47,7 @@ namespace GraduationProject.UserControls.References.Addresses
             this.panelDogs.Controls.Add(this.labelTitle);
             this.panelDogs.Controls.Add(this.radioButtonMulberry);
             this.panelDogs.Controls.Add(this.radioButtonWalnut);
-            this.panelDogs.Location = new System.Drawing.Point(338, 51);
+            this.panelDogs.Location = new System.Drawing.Point(358, 49);
             this.panelDogs.Name = "panelDogs";
             this.panelDogs.Size = new System.Drawing.Size(364, 228);
             this.panelDogs.TabIndex = 8;
@@ -56,7 +56,7 @@ namespace GraduationProject.UserControls.References.Addresses
             // 
             this.radioButtonCentury.AutoSize = true;
             this.radioButtonCentury.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonCentury.Location = new System.Drawing.Point(133, 142);
+            this.radioButtonCentury.Location = new System.Drawing.Point(106, 137);
             this.radioButtonCentury.Name = "radioButtonCentury";
             this.radioButtonCentury.Size = new System.Drawing.Size(111, 19);
             this.radioButtonCentury.TabIndex = 7;
@@ -68,7 +68,7 @@ namespace GraduationProject.UserControls.References.Addresses
             // 
             this.radioButtonOld.AutoSize = true;
             this.radioButtonOld.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonOld.Location = new System.Drawing.Point(133, 115);
+            this.radioButtonOld.Location = new System.Drawing.Point(106, 113);
             this.radioButtonOld.Name = "radioButtonOld";
             this.radioButtonOld.Size = new System.Drawing.Size(159, 19);
             this.radioButtonOld.TabIndex = 6;
@@ -81,11 +81,13 @@ namespace GraduationProject.UserControls.References.Addresses
             this.buttonShow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonShow.FlatAppearance.BorderSize = 0;
             this.buttonShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonShow.Location = new System.Drawing.Point(64, 185);
+            this.buttonShow.Image = global::GraduationProject.Properties.Resources.magnifer_small;
+            this.buttonShow.Location = new System.Drawing.Point(48, 182);
             this.buttonShow.Name = "buttonShow";
-            this.buttonShow.Size = new System.Drawing.Size(75, 23);
+            this.buttonShow.Size = new System.Drawing.Size(87, 29);
             this.buttonShow.TabIndex = 5;
-            this.buttonShow.Text = "Покажи";
+            this.buttonShow.Text = "Търсeне";
+            this.buttonShow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonShow.UseVisualStyleBackColor = true;
             this.buttonShow.Click += new System.EventHandler(this.buttonShow_Click);
             // 
@@ -94,7 +96,7 @@ namespace GraduationProject.UserControls.References.Addresses
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelTitle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTitle.Location = new System.Drawing.Point(20, 24);
+            this.labelTitle.Location = new System.Drawing.Point(31, 24);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(300, 18);
             this.labelTitle.TabIndex = 2;
@@ -104,7 +106,7 @@ namespace GraduationProject.UserControls.References.Addresses
             // 
             this.radioButtonMulberry.AutoSize = true;
             this.radioButtonMulberry.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonMulberry.Location = new System.Drawing.Point(133, 90);
+            this.radioButtonMulberry.Location = new System.Drawing.Point(106, 89);
             this.radioButtonMulberry.Name = "radioButtonMulberry";
             this.radioButtonMulberry.Size = new System.Drawing.Size(75, 19);
             this.radioButtonMulberry.TabIndex = 1;
@@ -116,7 +118,7 @@ namespace GraduationProject.UserControls.References.Addresses
             // 
             this.radioButtonWalnut.AutoSize = true;
             this.radioButtonWalnut.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonWalnut.Location = new System.Drawing.Point(133, 63);
+            this.radioButtonWalnut.Location = new System.Drawing.Point(106, 65);
             this.radioButtonWalnut.Name = "radioButtonWalnut";
             this.radioButtonWalnut.Size = new System.Drawing.Size(53, 19);
             this.radioButtonWalnut.TabIndex = 0;
@@ -126,8 +128,8 @@ namespace GraduationProject.UserControls.References.Addresses
             // 
             // ReferencesSearchByTrees
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.panelDogs);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

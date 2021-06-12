@@ -55,7 +55,7 @@ namespace GraduationProject.UserControls.References.Addresses
             this.panelDogs.Controls.Add(this.radioButtonDonkeys);
             this.panelDogs.Controls.Add(this.radioButtonHorses);
             this.panelDogs.Controls.Add(this.radioButtonCows);
-            this.panelDogs.Location = new System.Drawing.Point(358, 70);
+            this.panelDogs.Location = new System.Drawing.Point(373, 61);
             this.panelDogs.Name = "panelDogs";
             this.panelDogs.Size = new System.Drawing.Size(333, 207);
             this.panelDogs.TabIndex = 5;
@@ -64,7 +64,7 @@ namespace GraduationProject.UserControls.References.Addresses
             // 
             this.radioButtonDogs.AutoSize = true;
             this.radioButtonDogs.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonDogs.Location = new System.Drawing.Point(15, 135);
+            this.radioButtonDogs.Location = new System.Drawing.Point(36, 130);
             this.radioButtonDogs.Name = "radioButtonDogs";
             this.radioButtonDogs.Size = new System.Drawing.Size(62, 19);
             this.radioButtonDogs.TabIndex = 10;
@@ -76,7 +76,7 @@ namespace GraduationProject.UserControls.References.Addresses
             // 
             this.radioButtonPigs.AutoSize = true;
             this.radioButtonPigs.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonPigs.Location = new System.Drawing.Point(203, 85);
+            this.radioButtonPigs.Location = new System.Drawing.Point(224, 80);
             this.radioButtonPigs.Name = "radioButtonPigs";
             this.radioButtonPigs.Size = new System.Drawing.Size(61, 19);
             this.radioButtonPigs.TabIndex = 9;
@@ -88,7 +88,7 @@ namespace GraduationProject.UserControls.References.Addresses
             // 
             this.radioButtonSheep.AutoSize = true;
             this.radioButtonSheep.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonSheep.Location = new System.Drawing.Point(117, 85);
+            this.radioButtonSheep.Location = new System.Drawing.Point(138, 80);
             this.radioButtonSheep.Name = "radioButtonSheep";
             this.radioButtonSheep.Size = new System.Drawing.Size(54, 19);
             this.radioButtonSheep.TabIndex = 8;
@@ -100,7 +100,7 @@ namespace GraduationProject.UserControls.References.Addresses
             // 
             this.radioButtonGoats.AutoSize = true;
             this.radioButtonGoats.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonGoats.Location = new System.Drawing.Point(15, 85);
+            this.radioButtonGoats.Location = new System.Drawing.Point(36, 80);
             this.radioButtonGoats.Name = "radioButtonGoats";
             this.radioButtonGoats.Size = new System.Drawing.Size(52, 19);
             this.radioButtonGoats.TabIndex = 7;
@@ -112,7 +112,7 @@ namespace GraduationProject.UserControls.References.Addresses
             // 
             this.radioButtonFeathered.AutoSize = true;
             this.radioButtonFeathered.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonFeathered.Location = new System.Drawing.Point(15, 110);
+            this.radioButtonFeathered.Location = new System.Drawing.Point(36, 105);
             this.radioButtonFeathered.Name = "radioButtonFeathered";
             this.radioButtonFeathered.Size = new System.Drawing.Size(74, 19);
             this.radioButtonFeathered.TabIndex = 6;
@@ -126,11 +126,14 @@ namespace GraduationProject.UserControls.References.Addresses
             this.buttonShow.FlatAppearance.BorderSize = 0;
             this.buttonShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShow.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonShow.Location = new System.Drawing.Point(64, 164);
+            this.buttonShow.Image = global::GraduationProject.Properties.Resources.magnifer_small;
+            this.buttonShow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonShow.Location = new System.Drawing.Point(46, 160);
             this.buttonShow.Name = "buttonShow";
-            this.buttonShow.Size = new System.Drawing.Size(75, 23);
+            this.buttonShow.Size = new System.Drawing.Size(87, 29);
             this.buttonShow.TabIndex = 5;
-            this.buttonShow.Text = "Покажи";
+            this.buttonShow.Text = "Търсeне";
+            this.buttonShow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonShow.UseVisualStyleBackColor = true;
             this.buttonShow.Click += new System.EventHandler(this.buttonShow_Click);
             // 
@@ -149,7 +152,7 @@ namespace GraduationProject.UserControls.References.Addresses
             // 
             this.radioButtonDonkeys.AutoSize = true;
             this.radioButtonDonkeys.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonDonkeys.Location = new System.Drawing.Point(203, 60);
+            this.radioButtonDonkeys.Location = new System.Drawing.Point(224, 55);
             this.radioButtonDonkeys.Name = "radioButtonDonkeys";
             this.radioButtonDonkeys.Size = new System.Drawing.Size(78, 19);
             this.radioButtonDonkeys.TabIndex = 2;
@@ -161,7 +164,7 @@ namespace GraduationProject.UserControls.References.Addresses
             // 
             this.radioButtonHorses.AutoSize = true;
             this.radioButtonHorses.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonHorses.Location = new System.Drawing.Point(117, 60);
+            this.radioButtonHorses.Location = new System.Drawing.Point(138, 55);
             this.radioButtonHorses.Name = "radioButtonHorses";
             this.radioButtonHorses.Size = new System.Drawing.Size(53, 19);
             this.radioButtonHorses.TabIndex = 1;
@@ -173,7 +176,7 @@ namespace GraduationProject.UserControls.References.Addresses
             // 
             this.radioButtonCows.AutoSize = true;
             this.radioButtonCows.BackColor = System.Drawing.Color.Transparent;
-            this.radioButtonCows.Location = new System.Drawing.Point(15, 60);
+            this.radioButtonCows.Location = new System.Drawing.Point(36, 55);
             this.radioButtonCows.Name = "radioButtonCows";
             this.radioButtonCows.Size = new System.Drawing.Size(59, 19);
             this.radioButtonCows.TabIndex = 0;

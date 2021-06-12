@@ -55,6 +55,8 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelPermanentAddress = new System.Windows.Forms.Label();
             this.labelOwnerRelValue = new System.Windows.Forms.Label();
             this.labelOwnerRel = new System.Windows.Forms.Label();
+            this.labelPhoneValue = new System.Windows.Forms.Label();
+            this.labelPhone = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelMiddlenameValue
@@ -62,7 +64,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelMiddlenameValue.AutoSize = true;
             this.labelMiddlenameValue.BackColor = System.Drawing.Color.Transparent;
             this.labelMiddlenameValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelMiddlenameValue.Location = new System.Drawing.Point(250, 99);
+            this.labelMiddlenameValue.Location = new System.Drawing.Point(259, 62);
             this.labelMiddlenameValue.Name = "labelMiddlenameValue";
             this.labelMiddlenameValue.Size = new System.Drawing.Size(122, 32);
             this.labelMiddlenameValue.TabIndex = 8;
@@ -73,7 +75,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelMiddlename.AutoSize = true;
             this.labelMiddlename.BackColor = System.Drawing.Color.Transparent;
             this.labelMiddlename.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelMiddlename.Location = new System.Drawing.Point(103, 100);
+            this.labelMiddlename.Location = new System.Drawing.Point(112, 63);
             this.labelMiddlename.Name = "labelMiddlename";
             this.labelMiddlename.Size = new System.Drawing.Size(141, 32);
             this.labelMiddlename.TabIndex = 7;
@@ -84,7 +86,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelFirstnameValue.AutoSize = true;
             this.labelFirstnameValue.BackColor = System.Drawing.Color.Transparent;
             this.labelFirstnameValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelFirstnameValue.Location = new System.Drawing.Point(250, 63);
+            this.labelFirstnameValue.Location = new System.Drawing.Point(259, 25);
             this.labelFirstnameValue.Name = "labelFirstnameValue";
             this.labelFirstnameValue.Size = new System.Drawing.Size(67, 32);
             this.labelFirstnameValue.TabIndex = 6;
@@ -95,7 +97,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelFirstname.AutoSize = true;
             this.labelFirstname.BackColor = System.Drawing.Color.Transparent;
             this.labelFirstname.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelFirstname.Location = new System.Drawing.Point(165, 64);
+            this.labelFirstname.Location = new System.Drawing.Point(174, 26);
             this.labelFirstname.Name = "labelFirstname";
             this.labelFirstname.Size = new System.Drawing.Size(79, 32);
             this.labelFirstname.TabIndex = 5;
@@ -106,7 +108,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelLastnameValue.AutoSize = true;
             this.labelLastnameValue.BackColor = System.Drawing.Color.Transparent;
             this.labelLastnameValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelLastnameValue.Location = new System.Drawing.Point(250, 135);
+            this.labelLastnameValue.Location = new System.Drawing.Point(259, 99);
             this.labelLastnameValue.Name = "labelLastnameValue";
             this.labelLastnameValue.Size = new System.Drawing.Size(129, 32);
             this.labelLastnameValue.TabIndex = 12;
@@ -117,7 +119,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelLastname.AutoSize = true;
             this.labelLastname.BackColor = System.Drawing.Color.Transparent;
             this.labelLastname.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelLastname.Location = new System.Drawing.Point(95, 136);
+            this.labelLastname.Location = new System.Drawing.Point(104, 100);
             this.labelLastname.Name = "labelLastname";
             this.labelLastname.Size = new System.Drawing.Size(149, 32);
             this.labelLastname.TabIndex = 11;
@@ -128,18 +130,19 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelGender.AutoSize = true;
             this.labelGender.BackColor = System.Drawing.Color.Transparent;
             this.labelGender.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelGender.Location = new System.Drawing.Point(189, 187);
+            this.labelGender.Location = new System.Drawing.Point(195, 140);
             this.labelGender.Name = "labelGender";
             this.labelGender.Size = new System.Drawing.Size(55, 22);
             this.labelGender.TabIndex = 13;
             this.labelGender.Text = "Пол:";
+            this.labelGender.Click += new System.EventHandler(this.labelGender_Click);
             // 
             // labelGenderValue
             // 
             this.labelGenderValue.AutoSize = true;
             this.labelGenderValue.BackColor = System.Drawing.Color.Transparent;
             this.labelGenderValue.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelGenderValue.Location = new System.Drawing.Point(250, 187);
+            this.labelGenderValue.Location = new System.Drawing.Point(259, 140);
             this.labelGenderValue.Name = "labelGenderValue";
             this.labelGenderValue.Size = new System.Drawing.Size(44, 22);
             this.labelGenderValue.TabIndex = 14;
@@ -150,7 +153,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelAddress.AutoSize = true;
             this.labelAddress.BackColor = System.Drawing.Color.Transparent;
             this.labelAddress.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelAddress.Location = new System.Drawing.Point(10, 209);
+            this.labelAddress.Location = new System.Drawing.Point(16, 194);
             this.labelAddress.Name = "labelAddress";
             this.labelAddress.Size = new System.Drawing.Size(234, 22);
             this.labelAddress.TabIndex = 15;
@@ -161,7 +164,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelAddressValue.AutoSize = true;
             this.labelAddressValue.BackColor = System.Drawing.Color.Transparent;
             this.labelAddressValue.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelAddressValue.Location = new System.Drawing.Point(250, 209);
+            this.labelAddressValue.Location = new System.Drawing.Point(259, 194);
             this.labelAddressValue.Name = "labelAddressValue";
             this.labelAddressValue.Size = new System.Drawing.Size(66, 22);
             this.labelAddressValue.TabIndex = 16;
@@ -172,7 +175,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelCurrentAddress.AutoSize = true;
             this.labelCurrentAddress.BackColor = System.Drawing.Color.Transparent;
             this.labelCurrentAddress.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelCurrentAddress.Location = new System.Drawing.Point(82, 253);
+            this.labelCurrentAddress.Location = new System.Drawing.Point(88, 248);
             this.labelCurrentAddress.Name = "labelCurrentAddress";
             this.labelCurrentAddress.Size = new System.Drawing.Size(162, 22);
             this.labelCurrentAddress.TabIndex = 17;
@@ -183,7 +186,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelCurrentAddressValue.AutoSize = true;
             this.labelCurrentAddressValue.BackColor = System.Drawing.Color.Transparent;
             this.labelCurrentAddressValue.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelCurrentAddressValue.Location = new System.Drawing.Point(250, 253);
+            this.labelCurrentAddressValue.Location = new System.Drawing.Point(259, 248);
             this.labelCurrentAddressValue.Name = "labelCurrentAddressValue";
             this.labelCurrentAddressValue.Size = new System.Drawing.Size(144, 22);
             this.labelCurrentAddressValue.TabIndex = 18;
@@ -195,7 +198,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelPropertyState.AutoSize = true;
             this.labelPropertyState.BackColor = System.Drawing.Color.Transparent;
             this.labelPropertyState.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelPropertyState.Location = new System.Drawing.Point(431, 63);
+            this.labelPropertyState.Location = new System.Drawing.Point(446, 25);
             this.labelPropertyState.Name = "labelPropertyState";
             this.labelPropertyState.Size = new System.Drawing.Size(235, 22);
             this.labelPropertyState.TabIndex = 19;
@@ -206,7 +209,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelPropertyStateValue.AutoSize = true;
             this.labelPropertyStateValue.BackColor = System.Drawing.Color.Transparent;
             this.labelPropertyStateValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelPropertyStateValue.Location = new System.Drawing.Point(431, 85);
+            this.labelPropertyStateValue.Location = new System.Drawing.Point(446, 52);
             this.labelPropertyStateValue.Name = "labelPropertyStateValue";
             this.labelPropertyStateValue.Size = new System.Drawing.Size(174, 18);
             this.labelPropertyStateValue.TabIndex = 20;
@@ -217,7 +220,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelresidenceState.AutoSize = true;
             this.labelresidenceState.BackColor = System.Drawing.Color.Transparent;
             this.labelresidenceState.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelresidenceState.Location = new System.Drawing.Point(431, 114);
+            this.labelresidenceState.Location = new System.Drawing.Point(446, 78);
             this.labelresidenceState.Name = "labelresidenceState";
             this.labelresidenceState.Size = new System.Drawing.Size(240, 22);
             this.labelresidenceState.TabIndex = 21;
@@ -228,7 +231,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelResidenceStateValue.AutoSize = true;
             this.labelResidenceStateValue.BackColor = System.Drawing.Color.Transparent;
             this.labelResidenceStateValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelResidenceStateValue.Location = new System.Drawing.Point(431, 136);
+            this.labelResidenceStateValue.Location = new System.Drawing.Point(446, 105);
             this.labelResidenceStateValue.Name = "labelResidenceStateValue";
             this.labelResidenceStateValue.Size = new System.Drawing.Size(179, 18);
             this.labelResidenceStateValue.TabIndex = 22;
@@ -239,7 +242,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelQuarantine.AutoSize = true;
             this.labelQuarantine.BackColor = System.Drawing.Color.Transparent;
             this.labelQuarantine.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelQuarantine.Location = new System.Drawing.Point(127, 275);
+            this.labelQuarantine.Location = new System.Drawing.Point(133, 275);
             this.labelQuarantine.Name = "labelQuarantine";
             this.labelQuarantine.Size = new System.Drawing.Size(117, 22);
             this.labelQuarantine.TabIndex = 23;
@@ -250,7 +253,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelQuarantineValue.AutoSize = true;
             this.labelQuarantineValue.BackColor = System.Drawing.Color.Transparent;
             this.labelQuarantineValue.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelQuarantineValue.Location = new System.Drawing.Point(250, 275);
+            this.labelQuarantineValue.Location = new System.Drawing.Point(259, 275);
             this.labelQuarantineValue.Name = "labelQuarantineValue";
             this.labelQuarantineValue.Size = new System.Drawing.Size(100, 22);
             this.labelQuarantineValue.TabIndex = 24;
@@ -261,7 +264,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelAddressReg.AutoSize = true;
             this.labelAddressReg.BackColor = System.Drawing.Color.Transparent;
             this.labelAddressReg.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelAddressReg.Location = new System.Drawing.Point(431, 165);
+            this.labelAddressReg.Location = new System.Drawing.Point(446, 131);
             this.labelAddressReg.Name = "labelAddressReg";
             this.labelAddressReg.Size = new System.Drawing.Size(224, 22);
             this.labelAddressReg.TabIndex = 25;
@@ -272,7 +275,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelAddressRegValue.AutoSize = true;
             this.labelAddressRegValue.BackColor = System.Drawing.Color.Transparent;
             this.labelAddressRegValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelAddressRegValue.Location = new System.Drawing.Point(431, 187);
+            this.labelAddressRegValue.Location = new System.Drawing.Point(446, 158);
             this.labelAddressRegValue.Name = "labelAddressRegValue";
             this.labelAddressRegValue.Size = new System.Drawing.Size(166, 18);
             this.labelAddressRegValue.TabIndex = 26;
@@ -284,7 +287,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.richTextBoxNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBoxNotes.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.richTextBoxNotes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.richTextBoxNotes.Location = new System.Drawing.Point(722, 98);
+            this.richTextBoxNotes.Location = new System.Drawing.Point(731, 60);
             this.richTextBoxNotes.Name = "richTextBoxNotes";
             this.richTextBoxNotes.ReadOnly = true;
             this.richTextBoxNotes.Size = new System.Drawing.Size(328, 143);
@@ -296,7 +299,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelNotes.AutoSize = true;
             this.labelNotes.BackColor = System.Drawing.Color.Transparent;
             this.labelNotes.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelNotes.Location = new System.Drawing.Point(722, 64);
+            this.labelNotes.Location = new System.Drawing.Point(731, 26);
             this.labelNotes.Name = "labelNotes";
             this.labelNotes.Size = new System.Drawing.Size(121, 22);
             this.labelNotes.TabIndex = 28;
@@ -307,7 +310,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelPermanentAddressValue.AutoSize = true;
             this.labelPermanentAddressValue.BackColor = System.Drawing.Color.Transparent;
             this.labelPermanentAddressValue.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelPermanentAddressValue.Location = new System.Drawing.Point(250, 231);
+            this.labelPermanentAddressValue.Location = new System.Drawing.Point(259, 221);
             this.labelPermanentAddressValue.Name = "labelPermanentAddressValue";
             this.labelPermanentAddressValue.Size = new System.Drawing.Size(162, 22);
             this.labelPermanentAddressValue.TabIndex = 30;
@@ -318,7 +321,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelPermanentAddress.AutoSize = true;
             this.labelPermanentAddress.BackColor = System.Drawing.Color.Transparent;
             this.labelPermanentAddress.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelPermanentAddress.Location = new System.Drawing.Point(63, 231);
+            this.labelPermanentAddress.Location = new System.Drawing.Point(69, 221);
             this.labelPermanentAddress.Name = "labelPermanentAddress";
             this.labelPermanentAddress.Size = new System.Drawing.Size(181, 22);
             this.labelPermanentAddress.TabIndex = 29;
@@ -329,7 +332,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelOwnerRelValue.AutoSize = true;
             this.labelOwnerRelValue.BackColor = System.Drawing.Color.Transparent;
             this.labelOwnerRelValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelOwnerRelValue.Location = new System.Drawing.Point(431, 241);
+            this.labelOwnerRelValue.Location = new System.Drawing.Point(446, 211);
             this.labelOwnerRelValue.Name = "labelOwnerRelValue";
             this.labelOwnerRelValue.Size = new System.Drawing.Size(186, 18);
             this.labelOwnerRelValue.TabIndex = 32;
@@ -340,17 +343,41 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.labelOwnerRel.AutoSize = true;
             this.labelOwnerRel.BackColor = System.Drawing.Color.Transparent;
             this.labelOwnerRel.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelOwnerRel.Location = new System.Drawing.Point(431, 219);
+            this.labelOwnerRel.Location = new System.Drawing.Point(446, 184);
             this.labelOwnerRel.Name = "labelOwnerRel";
             this.labelOwnerRel.Size = new System.Drawing.Size(255, 22);
             this.labelOwnerRel.TabIndex = 31;
             this.labelOwnerRel.Text = "Връзка със собственика:";
+            // 
+            // labelPhoneValue
+            // 
+            this.labelPhoneValue.AutoSize = true;
+            this.labelPhoneValue.BackColor = System.Drawing.Color.Transparent;
+            this.labelPhoneValue.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelPhoneValue.Location = new System.Drawing.Point(259, 167);
+            this.labelPhoneValue.Name = "labelPhoneValue";
+            this.labelPhoneValue.Size = new System.Drawing.Size(89, 22);
+            this.labelPhoneValue.TabIndex = 34;
+            this.labelPhoneValue.Text = "Телефон";
+            // 
+            // labelPhone
+            // 
+            this.labelPhone.AutoSize = true;
+            this.labelPhone.BackColor = System.Drawing.Color.Transparent;
+            this.labelPhone.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelPhone.Location = new System.Drawing.Point(49, 167);
+            this.labelPhone.Name = "labelPhone";
+            this.labelPhone.Size = new System.Drawing.Size(201, 22);
+            this.labelPhone.TabIndex = 33;
+            this.labelPhone.Text = "Телефон за връзка:";
             // 
             // ShowInhabitant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.labelPhoneValue);
+            this.Controls.Add(this.labelPhone);
             this.Controls.Add(this.labelOwnerRelValue);
             this.Controls.Add(this.labelOwnerRel);
             this.Controls.Add(this.labelPermanentAddressValue);
@@ -413,5 +440,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
         private System.Windows.Forms.Label labelPermanentAddress;
         private System.Windows.Forms.Label labelOwnerRelValue;
         private System.Windows.Forms.Label labelOwnerRel;
+        private System.Windows.Forms.Label labelPhoneValue;
+        private System.Windows.Forms.Label labelPhone;
     }
 }

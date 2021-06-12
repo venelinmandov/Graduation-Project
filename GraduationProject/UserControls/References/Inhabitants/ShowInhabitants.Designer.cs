@@ -40,7 +40,7 @@ namespace GraduationProject.UserControls.References
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelTitle.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTitle.Location = new System.Drawing.Point(467, 60);
+            this.labelTitle.Location = new System.Drawing.Point(476, 60);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(119, 33);
             this.labelTitle.TabIndex = 1;
@@ -55,7 +55,7 @@ namespace GraduationProject.UserControls.References
             this.listBoxInhabitants.ItemBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.listBoxInhabitants.ItemsColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.listBoxInhabitants.ItemTextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.listBoxInhabitants.Location = new System.Drawing.Point(264, 109);
+            this.listBoxInhabitants.Location = new System.Drawing.Point(273, 109);
             this.listBoxInhabitants.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.listBoxInhabitants.Name = "listBoxInhabitants";
             this.listBoxInhabitants.SelectedIndex = -1;
@@ -70,7 +70,7 @@ namespace GraduationProject.UserControls.References
             this.labelNoInhabitants.BackColor = System.Drawing.Color.Transparent;
             this.labelNoInhabitants.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelNoInhabitants.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelNoInhabitants.Location = new System.Drawing.Point(264, 155);
+            this.labelNoInhabitants.Location = new System.Drawing.Point(272, 155);
             this.labelNoInhabitants.Name = "labelNoInhabitants";
             this.labelNoInhabitants.Size = new System.Drawing.Size(538, 27);
             this.labelNoInhabitants.TabIndex = 4;

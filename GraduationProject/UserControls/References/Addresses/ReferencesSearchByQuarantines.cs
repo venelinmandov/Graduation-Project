@@ -31,7 +31,7 @@ namespace GraduationProject.UserControls.References.Addresses
         {
             if (radioButtonInhabitants.Checked)
             {
-                List<Address> addresses = new Address().Get(new ConnectionHelper(), AnimalsQuarantine.AnimalEnum.Cows);
+                List<Address> addresses = new Address().GetAddressesWithQuarantines(new ConnectionHelper());
                 ShowButtonClicked(new MainForm.EventData("showAddresses", addresses), e);
 
             }

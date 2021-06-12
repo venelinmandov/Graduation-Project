@@ -56,7 +56,7 @@ namespace GraduationProject.UserControls
             this.buttonQuarantines.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonQuarantines.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonQuarantines.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonQuarantines.Location = new System.Drawing.Point(451, 200);
+            this.buttonQuarantines.Location = new System.Drawing.Point(451, 213);
             this.buttonQuarantines.Name = "buttonQuarantines";
             this.buttonQuarantines.Size = new System.Drawing.Size(179, 60);
             this.buttonQuarantines.TabIndex = 10;
@@ -71,7 +71,7 @@ namespace GraduationProject.UserControls
             this.buttonTrees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTrees.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonTrees.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonTrees.Location = new System.Drawing.Point(667, 200);
+            this.buttonTrees.Location = new System.Drawing.Point(667, 213);
             this.buttonTrees.Name = "buttonTrees";
             this.buttonTrees.Size = new System.Drawing.Size(179, 60);
             this.buttonTrees.TabIndex = 11;
@@ -86,7 +86,7 @@ namespace GraduationProject.UserControls
             this.buttonPropeties.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPropeties.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonPropeties.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonPropeties.Location = new System.Drawing.Point(235, 200);
+            this.buttonPropeties.Location = new System.Drawing.Point(235, 213);
             this.buttonPropeties.Name = "buttonPropeties";
             this.buttonPropeties.Size = new System.Drawing.Size(179, 60);
             this.buttonPropeties.TabIndex = 9;
@@ -101,7 +101,7 @@ namespace GraduationProject.UserControls
             this.buttonCattle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCattle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonCattle.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonCattle.Location = new System.Drawing.Point(667, 103);
+            this.buttonCattle.Location = new System.Drawing.Point(667, 116);
             this.buttonCattle.Name = "buttonCattle";
             this.buttonCattle.Size = new System.Drawing.Size(179, 60);
             this.buttonCattle.TabIndex = 8;
@@ -116,7 +116,7 @@ namespace GraduationProject.UserControls
             this.buttonInhabitants.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInhabitants.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonInhabitants.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonInhabitants.Location = new System.Drawing.Point(451, 103);
+            this.buttonInhabitants.Location = new System.Drawing.Point(451, 116);
             this.buttonInhabitants.Name = "buttonInhabitants";
             this.buttonInhabitants.Size = new System.Drawing.Size(179, 60);
             this.buttonInhabitants.TabIndex = 7;
@@ -131,7 +131,7 @@ namespace GraduationProject.UserControls
             this.buttonAddresses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddresses.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonAddresses.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonAddresses.Location = new System.Drawing.Point(235, 103);
+            this.buttonAddresses.Location = new System.Drawing.Point(235, 116);
             this.buttonAddresses.Name = "buttonAddresses";
             this.buttonAddresses.Size = new System.Drawing.Size(179, 60);
             this.buttonAddresses.TabIndex = 6;

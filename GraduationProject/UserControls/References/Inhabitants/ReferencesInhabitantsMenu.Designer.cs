@@ -42,7 +42,7 @@ namespace GraduationProject.UserControls.References
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelTitle.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTitle.Location = new System.Drawing.Point(479, 33);
+            this.labelTitle.Location = new System.Drawing.Point(482, 33);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(97, 27);
             this.labelTitle.TabIndex = 13;
@@ -53,7 +53,7 @@ namespace GraduationProject.UserControls.References
             this.labelSearchBy.AutoSize = true;
             this.labelSearchBy.BackColor = System.Drawing.Color.Transparent;
             this.labelSearchBy.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelSearchBy.Location = new System.Drawing.Point(490, 63);
+            this.labelSearchBy.Location = new System.Drawing.Point(493, 63);
             this.labelSearchBy.Name = "labelSearchBy";
             this.labelSearchBy.Size = new System.Drawing.Size(77, 18);
             this.labelSearchBy.TabIndex = 14;
@@ -66,7 +66,7 @@ namespace GraduationProject.UserControls.References
             this.buttonresidenceState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonresidenceState.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonresidenceState.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonresidenceState.Location = new System.Drawing.Point(556, 200);
+            this.buttonresidenceState.Location = new System.Drawing.Point(559, 200);
             this.buttonresidenceState.Name = "buttonresidenceState";
             this.buttonresidenceState.Size = new System.Drawing.Size(179, 60);
             this.buttonresidenceState.TabIndex = 18;
@@ -81,7 +81,7 @@ namespace GraduationProject.UserControls.References
             this.buttonPropetyStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPropetyStatus.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonPropetyStatus.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonPropetyStatus.Location = new System.Drawing.Point(341, 200);
+            this.buttonPropetyStatus.Location = new System.Drawing.Point(344, 200);
             this.buttonPropetyStatus.Name = "buttonPropetyStatus";
             this.buttonPropetyStatus.Size = new System.Drawing.Size(179, 60);
             this.buttonPropetyStatus.TabIndex = 17;
@@ -96,7 +96,7 @@ namespace GraduationProject.UserControls.References
             this.buttonByAddrReg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonByAddrReg.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonByAddrReg.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonByAddrReg.Location = new System.Drawing.Point(556, 103);
+            this.buttonByAddrReg.Location = new System.Drawing.Point(559, 103);
             this.buttonByAddrReg.Name = "buttonByAddrReg";
             this.buttonByAddrReg.Size = new System.Drawing.Size(179, 60);
             this.buttonByAddrReg.TabIndex = 16;
@@ -111,7 +111,7 @@ namespace GraduationProject.UserControls.References
             this.buttonByName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonByName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonByName.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonByName.Location = new System.Drawing.Point(341, 103);
+            this.buttonByName.Location = new System.Drawing.Point(344, 103);
             this.buttonByName.Name = "buttonByName";
             this.buttonByName.Size = new System.Drawing.Size(179, 60);
             this.buttonByName.TabIndex = 15;
