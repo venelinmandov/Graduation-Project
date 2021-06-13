@@ -38,7 +38,7 @@ namespace GraduationProject.Forms
             // panelContents
             // 
             this.panelContents.BackColor = System.Drawing.Color.Transparent;
-            this.panelContents.Location = new System.Drawing.Point(0, 102);
+            this.panelContents.Location = new System.Drawing.Point(0, 105);
             this.panelContents.Name = "panelContents";
             this.panelContents.Size = new System.Drawing.Size(1081, 329);
             this.panelContents.TabIndex = 0;
@@ -47,7 +47,7 @@ namespace GraduationProject.Forms
             // 
             this.pictureBoxBack.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxBack.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxBack.Image")));
-            this.pictureBoxBack.Location = new System.Drawing.Point(48, 12);
+            this.pictureBoxBack.Location = new System.Drawing.Point(48, 14);
             this.pictureBoxBack.Name = "pictureBoxBack";
             this.pictureBoxBack.Size = new System.Drawing.Size(78, 78);
             this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -62,13 +62,14 @@ namespace GraduationProject.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::GraduationProject.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1081, 539);
             this.Controls.Add(this.pictureBoxBack);
             this.Controls.Add(this.panelContents);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReferenceFormMain";

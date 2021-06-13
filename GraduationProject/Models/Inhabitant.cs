@@ -44,7 +44,7 @@ namespace GraduationProject.Models
             Gender = reader.GetInt32(4);
             AddressId = reader.GetInt32(5);
             CurrentAddressId = reader.IsDBNull(6) ? -1 : reader.GetInt32(6);
-            PermanentAddressId = reader.IsDBNull(7) ? -1 : reader.GetInt32(6);
+            PermanentAddressId = reader.IsDBNull(7) ? -1 : reader.GetInt32(7);
             RelToOwner = reader.GetString(8);
             AddressReg =(AddressRegistrationEnum) reader.GetInt32(9);
             Quarantine = (QuarantineEnum)reader.GetInt32(10);

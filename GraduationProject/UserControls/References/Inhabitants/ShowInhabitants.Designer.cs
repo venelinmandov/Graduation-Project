@@ -40,7 +40,7 @@ namespace GraduationProject.UserControls.References
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelTitle.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTitle.Location = new System.Drawing.Point(476, 60);
+            this.labelTitle.Location = new System.Drawing.Point(476, 37);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(119, 33);
             this.labelTitle.TabIndex = 1;

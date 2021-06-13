@@ -42,7 +42,7 @@ namespace GraduationProject.Forms
                     panelContents.Controls.Add(menuUserControl);
                     menuUserControl.BringToFront();
                     menuUserControl.ButtonClicked += MenuButtonClicked;
-                    menuUserControl.Location = new System.Drawing.Point(0,55);
+                    menuUserControl.Location = new System.Drawing.Point(0,58);
                     break;
                 #region Справки
                 case "references":

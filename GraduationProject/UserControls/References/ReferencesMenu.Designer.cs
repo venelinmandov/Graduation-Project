@@ -42,10 +42,10 @@ namespace GraduationProject.UserControls
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelTitle.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTitle.Location = new System.Drawing.Point(379, 40);
+            this.labelTitle.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelTitle.Location = new System.Drawing.Point(318, 37);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(369, 27);
+            this.labelTitle.Size = new System.Drawing.Size(445, 33);
             this.labelTitle.TabIndex = 12;
             this.labelTitle.Text = "Изберете категория за търсене:";
             // 

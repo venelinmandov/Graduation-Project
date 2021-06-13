@@ -57,7 +57,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             richTextBoxNotes.Text = inhabitant.Note;
             labelAddressValue.Text = new Address().Get(connectionHelper, inhabitant.AddressId).ToString();
             labelPropertyStateValue.Text = ownershipDict[inhabitant.OwnershipState];
-            labelResidenceStateValue.Text = inhabitant.ResidenceState == Inhabitant.ResidenceStateEnum.Permanent ? "Временно" : "Постоянно";
+            labelResidenceStateValue.Text = inhabitant.ResidenceState == Inhabitant.ResidenceStateEnum.Permanent ? "Постоянно" : "Временно";
             labelAddressRegValue.Text = addressRegDict[inhabitant.AddressReg];
             if (inhabitant.OwnershipState == Inhabitant.OwnershipStateEnum.Owner)
             {
@@ -73,6 +73,10 @@ namespace GraduationProject.UserControls.References.Inhabitants
                 case Inhabitant.AddressRegistrationEnum.Permanent:
                     labelCurrentAddress.Visible = false;
                     labelCurrentAddressValue.Visible = false;
+                    foreach (Control control in Controls)
+                    {
+                        control.Location = new Point(control.Location.X, control.Location.Y + 14);
+                    }
                     labelQuarantine.Location = new Point(labelQuarantine.Location.X, labelCurrentAddress.Location.Y);
                     labelQuarantineValue.Location = new Point(labelQuarantineValue.Location.X, labelQuarantine.Location.Y);
                     labelPermanentAddressValue.Text = new Address().Get(connectionHelper, inhabitant.PermanentAddressId).ToString();
@@ -85,6 +89,10 @@ namespace GraduationProject.UserControls.References.Inhabitants
                 case Inhabitant.AddressRegistrationEnum.No:
                     labelCurrentAddress.Visible = false;
                     labelCurrentAddressValue.Visible = false;
+                    foreach (Control control in Controls)
+                    {
+                        control.Location = new Point(control.Location.X, control.Location.Y + 14);
+                    }
                     labelQuarantine.Location = new Point(labelQuarantine.Location.X, labelCurrentAddress.Location.Y);
                     labelQuarantineValue.Location = new Point(labelQuarantineValue.Location.X, labelQuarantine.Location.Y);
                     labelPermanentAddressValue.Text = "Не е в нас. място";

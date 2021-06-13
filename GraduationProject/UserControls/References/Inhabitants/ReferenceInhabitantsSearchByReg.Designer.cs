@@ -82,10 +82,10 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.radioButtonWithout.BackColor = System.Drawing.Color.Transparent;
             this.radioButtonWithout.Location = new System.Drawing.Point(122, 106);
             this.radioButtonWithout.Name = "radioButtonWithout";
-            this.radioButtonWithout.Size = new System.Drawing.Size(120, 19);
+            this.radioButtonWithout.Size = new System.Drawing.Size(173, 19);
             this.radioButtonWithout.TabIndex = 2;
             this.radioButtonWithout.TabStop = true;
-            this.radioButtonWithout.Text = "Без регистрация";
+            this.radioButtonWithout.Text = "Няма в населеното място";
             this.radioButtonWithout.UseVisualStyleBackColor = false;
             // 
             // radioButtonTemporary

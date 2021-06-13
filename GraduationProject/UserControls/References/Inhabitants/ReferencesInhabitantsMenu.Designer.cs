@@ -41,10 +41,10 @@ namespace GraduationProject.UserControls.References
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelTitle.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTitle.Location = new System.Drawing.Point(482, 33);
+            this.labelTitle.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelTitle.Location = new System.Drawing.Point(480, 37);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(97, 27);
+            this.labelTitle.Size = new System.Drawing.Size(119, 33);
             this.labelTitle.TabIndex = 13;
             this.labelTitle.Text = "Жители";
             // 
@@ -53,7 +53,7 @@ namespace GraduationProject.UserControls.References
             this.labelSearchBy.AutoSize = true;
             this.labelSearchBy.BackColor = System.Drawing.Color.Transparent;
             this.labelSearchBy.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelSearchBy.Location = new System.Drawing.Point(493, 63);
+            this.labelSearchBy.Location = new System.Drawing.Point(502, 69);
             this.labelSearchBy.Name = "labelSearchBy";
             this.labelSearchBy.Size = new System.Drawing.Size(77, 18);
             this.labelSearchBy.TabIndex = 14;

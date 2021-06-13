@@ -32,7 +32,6 @@ D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\Graduatio
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.Forms.DogsForm.resources
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.Forms.InhabitantsFilterForm.resources
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.Forms.InputBoxForm.resources
-D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.InsertDataForm.resources
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.Forms.MainForm.resources
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.Forms.PersonsForm.resources
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.Forms.ReferenceForm.resources
@@ -63,3 +62,4 @@ D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\Graduatio
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.dll
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.pdb
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.genruntimeconfig.cache
+D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.csproj.AssemblyReference.cache

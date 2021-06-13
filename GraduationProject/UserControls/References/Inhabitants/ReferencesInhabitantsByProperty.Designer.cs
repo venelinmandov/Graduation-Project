@@ -93,10 +93,10 @@ namespace GraduationProject.UserControls.References.Inhabitants
             this.radioButtonResident.BackColor = System.Drawing.Color.Transparent;
             this.radioButtonResident.Location = new System.Drawing.Point(133, 84);
             this.radioButtonResident.Name = "radioButtonResident";
-            this.radioButtonResident.Size = new System.Drawing.Size(160, 19);
+            this.radioButtonResident.Size = new System.Drawing.Size(146, 19);
             this.radioButtonResident.TabIndex = 1;
             this.radioButtonResident.TabStop = true;
-            this.radioButtonResident.Text = "Член на домакинството";
+            this.radioButtonResident.Text = "Член на семейството";
             this.radioButtonResident.UseVisualStyleBackColor = false;
             // 
             // radioButtonOwner
