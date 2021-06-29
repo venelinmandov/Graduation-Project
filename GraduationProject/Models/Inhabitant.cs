@@ -15,24 +15,22 @@ namespace GraduationProject.Models
         public int PermanentAddressId { get; set; }
         public string RelToOwner { get; set; }
         public AddressRegistrationEnum AddressReg { get; set; }
-        public QuarantineEnum Quarantine { get; set; }
         public string Note { get; set; }
         public string PhoneNumber { get; set; }
         public ResidenceStateEnum ResidenceState { get; set; }
         public OwnershipStateEnum OwnershipState { get; set; }
 
-        protected static string fields = "firstname, middlename, lastname, gender, addressId, currentAddressId, permanentAddressId, relationToOwner, addressReg, quarantine, note, phoneNumber, residenceState, ownershipState";
+        protected static string fields = "firstname, middlename, lastname, gender, addressId, currentAddressId, permanentAddressId, relationToOwner, addressReg, note, phoneNumber, residenceState, ownershipState";
 
-        public enum QuarantineEnum { No, Yes, Contact };
         public enum AddressRegistrationEnum { No, Permanent, Current };
-        public enum ResidenceStateEnum {Permanent, Temporary };
-        public enum OwnershipStateEnum {Guest, Resident, Owner };
+        public enum ResidenceStateEnum { Permanent, Temporary };
+        public enum OwnershipStateEnum { Guest, Resident, Owner };
 
         public override string ToString()
         {
             return $"{Firstname} {Middlename} {Lastname}";
         }
-        
+
 
         //Запълване на обекта с информация
         public virtual void Fill(SQLiteDataReader reader)
@@ -46,24 +44,23 @@ namespace GraduationProject.Models
             CurrentAddressId = reader.IsDBNull(6) ? -1 : reader.GetInt32(6);
             PermanentAddressId = reader.IsDBNull(7) ? -1 : reader.GetInt32(7);
             RelToOwner = reader.GetString(8);
-            AddressReg =(AddressRegistrationEnum) reader.GetInt32(9);
-            Quarantine = (QuarantineEnum)reader.GetInt32(10);
-            Note = reader.GetString(11);
-            PhoneNumber = reader.IsDBNull(12) ? "Няма" : reader.GetString(12);
-            ResidenceState = (ResidenceStateEnum)reader.GetInt32(13);
-            OwnershipState = (OwnershipStateEnum)reader.GetInt32(14);
-            
+            AddressReg = (AddressRegistrationEnum)reader.GetInt32(9);
+            Note = reader.GetString(10);
+            PhoneNumber = reader.IsDBNull(11) ? "Няма" : reader.GetString(11);
+            ResidenceState = (ResidenceStateEnum)reader.GetInt32(12);
+            OwnershipState = (OwnershipStateEnum)reader.GetInt32(13);
+
 
         }
 
         //Заявки
 
         //INSERT
-        public int Insert(ConnectionHelper connectionHelper)
+        public void Insert(ConnectionHelper connectionHelper)
         {
             long id;
             string query = @$"INSERT INTO Inhabitants ({fields})
-                            VALUES (@fName, @mName, @lName, @gender, @addrId, @currAddrId, @permAddrId, @rel, @addrReg, @quar, @note, @phone, @residence, @ownership)";
+                            VALUES (@fName, @mName, @lName, @gender, @addrId, @currAddrId, @permAddrId, @rel, @addrReg, @note, @phone, @residence, @ownership)";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@fname", Firstname);
@@ -82,7 +79,6 @@ namespace GraduationProject.Models
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@permAddrId", PermanentAddressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrReg", AddressReg);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@quar", Quarantine);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@phone", PhoneNumber);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@residence", ResidenceState);
@@ -92,7 +88,7 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.CommandText = "SELECT last_insert_rowid()";
             id = (long)connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();
-            return (int)id;
+            Id = (int)id;
         }
 
         //GET
@@ -101,11 +97,11 @@ namespace GraduationProject.Models
             List<Inhabitant> inhabitants = new List<Inhabitant>();
             Inhabitant inhabitant;
             string addressField = Address.FieldName[addressType];
-            string whereClause = address != null ? $"WHERE {addressField} = @addrId": "";
+            string whereClause = address != null ? $"WHERE {addressField} = @addrId" : "";
             string query = @$"SELECT id,{fields} FROM Inhabitants " + whereClause;
 
             connectionHelper.NewConnection(query);
-            if(address != null)
+            if (address != null)
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", address.Id);
 
             SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
@@ -180,7 +176,7 @@ namespace GraduationProject.Models
             connectionHelper.sqlConnection.Close();
 
             return inhabitants;
-            
+
 
         }
 
@@ -226,10 +222,27 @@ namespace GraduationProject.Models
 
         }
 
+        public Inhabitant Get(ConnectionHelper connectionHelper, int id)
+        {
+            Inhabitant inhabitant;
+            string query = $"SELECT id, {fields} FROM Inhabitants WHERE id = @id";
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@id", id);
+            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            reader.Read();
+            inhabitant = new Inhabitant();
+            inhabitant.Fill(reader);
+            reader.Close();
+            connectionHelper.sqlConnection.Close();
+
+            return inhabitant;
+
+        }
+
 
         public List<Inhabitant> Get(ConnectionHelper connectionHelper)
         {
-            return Get(connectionHelper,null);
+            return Get(connectionHelper, null);
         }
 
         //DELETE
@@ -243,7 +256,7 @@ namespace GraduationProject.Models
             connectionHelper.sqlConnection.Close();
         }
 
-        public void Delete(ConnectionHelper connectionHelper,Address address, Address.AddressType addressType = Address.AddressType.Permanent)
+        public void Delete(ConnectionHelper connectionHelper, Address address, Address.AddressType addressType = Address.AddressType.Permanent)
         {
             string addressField = Address.FieldName[addressType];
             string query = $"DELETE FROM inhabitants WHERE {addressField} = @addrId";
@@ -254,7 +267,7 @@ namespace GraduationProject.Models
             connectionHelper.sqlConnection.Close();
         }
 
-        
+
 
         //UPDATE
         public void Update(ConnectionHelper connectionHelper)
@@ -263,8 +276,7 @@ namespace GraduationProject.Models
                              SET firstname = @fname, middlename = @mName,
                                 lastname = @lName, gender = @gender,
                                 addressId = @addrId, currentAddressId = @currAddrId, pernamemtAddressId = @permAddrId,
-                                relationToOwner = @rel, addressReg = @addrReg,
-                                quarantine = @quar, note = @note,
+                                relationToOwner = @rel, addressReg = @addrReg, note = @note,
                                 phoneNumber = @phone, residenceState = @resState, ownershipState = @ownership
                              WHERE id = @id";
 
@@ -285,8 +297,6 @@ namespace GraduationProject.Models
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@permAddrId", PermanentAddressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrReg", AddressReg);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@quar", Quarantine);
-
             connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@phone", PhoneNumber);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@resState", ResidenceState);
@@ -296,5 +306,5 @@ namespace GraduationProject.Models
             connectionHelper.sqlConnection.Close();
         }
     }
-   
+
 }

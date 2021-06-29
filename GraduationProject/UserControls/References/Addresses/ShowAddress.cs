@@ -1,13 +1,12 @@
-﻿using System;
+﻿using GraduationProject.Forms;
+using GraduationProject.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using GraduationProject.Models;
 using System.Linq;
-using GraduationProject.Forms;
+using System.Windows.Forms;
 
 namespace GraduationProject.UserControls.References
 {
@@ -20,29 +19,142 @@ namespace GraduationProject.UserControls.References
         List<Inhabitant> inhabitants;
         Inhabitant owner;
 
-        Dictionary<AnimalsQuarantine.AnimalEnum, string> animalsDict = new Dictionary<AnimalsQuarantine.AnimalEnum, string>()
+        public struct AnimalAddressData
         {
-            {AnimalsQuarantine.AnimalEnum.Cows, "крави" },
-            {AnimalsQuarantine.AnimalEnum.Sheep, "овце" },
-            {AnimalsQuarantine.AnimalEnum.Goats, "кози" },
-            {AnimalsQuarantine.AnimalEnum.Horses, "коне" },
-            {AnimalsQuarantine.AnimalEnum.Donkeys, "магарета" },
-            {AnimalsQuarantine.AnimalEnum.Feathered, "пернати" },
-            {AnimalsQuarantine.AnimalEnum.Pigs, "свине" },
-            {AnimalsQuarantine.AnimalEnum.Dogs, "кучета" },
-        };
+            public Address address;
+            public string animal;
+        }
+
+        public struct TreeAddressData
+        {
+            public Address address;
+            public string tree;
+        }
 
         [Browsable(true)]
         [Category("Action")]
         [Description("Invoked when inhabitant is clicked")]
         public EventHandler InhabitantClicked;
 
+        //Конструктури
         public ShowAddress(Address address)
         {
             InitializeComponent();
             activeButton = buttonBuildings;
             SetActivePanel(panelBuildings, buttonBuildings);
             DisplayAddress(address);
+        }
+
+        public ShowAddress(Address address, string panel) : this(address)
+        {
+            Button[] buttons = Controls.OfType<Button>().ToArray();
+            foreach (Button button in buttons)
+            {
+                button.Visible = false;
+            }
+
+            switch (panel)
+            {
+                case "animals": SetActivePanel(panelAnimals, buttonAnimals); break;
+                case "trees": SetActivePanel(panelTrees, buttonTrees); break;
+            }
+
+        }
+
+        public ShowAddress(AnimalAddressData animalAddress) : this(animalAddress.address)
+        {
+            Label[] label = new Label[2];
+            Button[] buttons = Controls.OfType<Button>().ToArray();
+            foreach (Button button in buttons)
+            {
+                button.Visible = false;
+            }
+            SetActivePanel(panelAnimals, buttonAnimals);
+            switch (animalAddress.animal)
+            {
+                case "Крави":
+                    label[0] = labelCows;
+                    label[1] = labelCowsValue;
+                    break;
+                case "Овце":
+                    label[0] = labelSheep;
+                    label[1] = labelSheepValue;
+                    break;
+                case "Кози":
+                    label[0] = labelGoats;
+                    label[1] = labelGoatsValue;
+                    break;
+                case "Коне":
+                    label[0] = labelHorses;
+                    label[1] = labelHorsesValue;
+                    break;
+                case "Магарета":
+                    label[0] = labelDonkeys;
+                    label[1] = labelDonkeysValue;
+                    break;
+                case "Пернати":
+                    label[0] = labelFeathered;
+                    label[1] = labelFeatheredValue;
+                    break;
+                case "Свине":
+                    label[0] = labelPigs;
+                    label[1] = labelPigsValue;
+                    break;
+                case "Куче пазач":
+                    label[0] = labelGuardDogs;
+                    label[1] = labelGuardDogsValue;
+                    break;
+                case "Ловджийско куче":
+                    label[0] = labelHuntingDogs;
+                    label[1] = labelHuntingDogsValue;
+                    break;
+                case "Домашен любимец":
+                    label[0] = labelDomesticDogs;
+                    label[1] = labelDomesticDogsValue;
+                    break;
+                case "Всички кучета":
+                    label[0] = labelDogs;
+                    label[1] = labelDogs;
+                    break;
+                default: return;
+            }
+
+            label[0].ForeColor = Color.FromArgb(91, 120, 65);
+            label[1].ForeColor = Color.FromArgb(91, 120, 65);
+        }
+
+        public ShowAddress(TreeAddressData treeAddressData) : this(treeAddressData.address)
+        {
+            Label[] label = new Label[2];
+            Button[] buttons = Controls.OfType<Button>().ToArray();
+            foreach (Button button in buttons)
+            {
+                button.Visible = false;
+            }
+            SetActivePanel(panelTrees, buttonTrees);
+            switch (treeAddressData.tree)
+            {
+                case "Орех":
+                    label[0] = labelWalnutTrees;
+                    label[1] = labelWalnutTreesValue;
+                    break;
+                case "Черница":
+                    label[0] = labelMulBerryTrees;
+                    label[1] = labelMulBerryTreesValue;
+                    break;
+                case "Дърво над 20 г. възраст":
+                    label[0] = labelOldTrees;
+                    label[1] = labelOldTreesValue;
+                    break;
+                case "Вековно дърво":
+                    label[0] = labelCenturyOldTrees;
+                    label[1] = labelCenturyOldTreesValue;
+                    break;
+                default: return;
+            }
+
+            label[0].ForeColor = Color.FromArgb(91, 120, 65);
+            label[1].ForeColor = Color.FromArgb(91, 120, 65);
         }
 
         /// <summary>
@@ -52,7 +164,7 @@ namespace GraduationProject.UserControls.References
         /// <param name="e"></param>
         private void buttonBuildings_Click(object sender, EventArgs e)
         {
-            SetActivePanel(panelBuildings,(Button)sender);
+            SetActivePanel(panelBuildings, (Button)sender);
         }
 
         /// <summary>
@@ -78,17 +190,6 @@ namespace GraduationProject.UserControls.References
         }
 
         /// <summary>
-        /// Показване на панела със карантините
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonQuarantines_Click(object sender, EventArgs e)
-        {
-            SetActivePanel(panelQuarantines, (Button)sender);
-
-        }
-
-        /// <summary>
         /// Показване на панела със обитателите
         /// </summary>
         /// <param name="sender"></param>
@@ -97,7 +198,7 @@ namespace GraduationProject.UserControls.References
         {
             SetActivePanel(panelInhabitants, (Button)sender);
         }
-        
+
         /// <summary>
         /// Показване на панелса със забележките
         /// </summary>
@@ -132,25 +233,22 @@ namespace GraduationProject.UserControls.References
         void DisplayAddress(Address address)
         {
 
-            
+
             labelAddress.Text = address.ToString();
             labelSquaringValue.Text = address.Squaring.ToString();
             switch (address.Habitallity)
             {
-                case Address.AddressHabitability.Desolate: labelHabitabillityValue.Text = "Пустеещ";break;
-                case Address.AddressHabitability.Inhabited: labelHabitabillityValue.Text = "Обитаван";break;
-                case Address.AddressHabitability.TemporaryInhabited: labelHabitabillityValue.Text = "Временно обитаван";break;
-                case Address.AddressHabitability.OutOfRegulation: labelHabitabillityValue.Text = "Извън регулация";break;
+                case Address.AddressHabitability.Desolate: labelHabitabillityValue.Text = "Пустеещ"; break;
+                case Address.AddressHabitability.Inhabited: labelHabitabillityValue.Text = "Обитаван"; break;
+                case Address.AddressHabitability.TemporaryInhabited: labelHabitabillityValue.Text = "Временно обитаван"; break;
+                case Address.AddressHabitability.OutOfRegulation: labelHabitabillityValue.Text = "Извън регулация"; break;
             }
 
             ShowBuildings(address);
             ShowAnimals(address);
             ShowTrees(address);
-            ShowQuarantines(address);
             ShowInhabitants(address);
-
             richTextBoxNotes.Text = address.Note;
-            
         }
 
         /// <summary>
@@ -202,59 +300,6 @@ namespace GraduationProject.UserControls.References
             labelCenturyOldTreesValue.Text = address.NumCenturyOldTrees.ToString();
         }
 
-        /// <summary>
-        /// Показване на карантините
-        /// </summary>
-        /// <param name="address"></param>
-        void ShowQuarantines(Address address)
-        {
-            List<AnimalsQuarantine> animalQuarantines = new AnimalsQuarantine().Get(connectionHelper, address);
-            List<InhabitantsQuarantine> inhabitantsQuarantines = new InhabitantsQuarantine().Get(connectionHelper, address);
-            List<Disease> inhabitantDiseases = new Disease().Get(connectionHelper, Disease.DiseaseType.Inhabitant);
-            List<Disease> animalDiseases = new Disease().Get(connectionHelper, Disease.DiseaseType.Animal);
-
-            if (animalQuarantines.Count == 0 && inhabitantsQuarantines.Count == 0)
-            {
-                labelQuarantines.Visible = true;
-                dataGridViewQuarantines.Visible = false;
-            }
-            else
-            {
-                labelQuarantines.Visible = false;
-                dataGridViewQuarantines.Visible = true;
-                DateTime startDate, endDate;
-                string diagnose;
-                string dateformat = "d MMMM yyyy";
-                int row = 0;
-                labelQuarantines.Text += "има карантинирани:\n";
-                foreach (InhabitantsQuarantine inhabitantsQuarantine in inhabitantsQuarantines)
-                {
-                    dataGridViewQuarantines.RowCount++;
-                    startDate = DateTime.Parse(inhabitantsQuarantine.StartDate);
-                    endDate = DateTime.Parse(inhabitantsQuarantine.EndDate);
-                    diagnose = (from d in inhabitantDiseases where d.Id == inhabitantsQuarantine.DiseaseId select d).First().Name;
-                    dataGridViewQuarantines.Rows[row].Cells[0].Value = "обитатели";
-                    dataGridViewQuarantines.Rows[row].Cells[1].Value = diagnose;
-                    dataGridViewQuarantines.Rows[row].Cells[2].Value = startDate.ToString(dateformat);
-                    dataGridViewQuarantines.Rows[row].Cells[3].Value = endDate.ToString(dateformat);
-                    row++;
-                }
-                foreach (AnimalsQuarantine animalsQuarantine in animalQuarantines)
-                {
-                    dataGridViewQuarantines.RowCount++;
-                    startDate = DateTime.Parse(animalsQuarantine.StartDate);
-                    endDate = DateTime.Parse(animalsQuarantine.EndDate);
-                    diagnose = (from d in animalDiseases where d.Id == animalsQuarantine.Disease select d).First().Name;
-                    dataGridViewQuarantines.Rows[row].Cells[0].Value = animalsDict[animalsQuarantine.Animal];
-                    dataGridViewQuarantines.Rows[row].Cells[1].Value = diagnose;
-                    dataGridViewQuarantines.Rows[row].Cells[2].Value = startDate.ToString(dateformat);
-                    dataGridViewQuarantines.Rows[row].Cells[3].Value = endDate.ToString(dateformat);
-                    row++;
-                }
-
-            }
-        }
-
         private void buttonResidents_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
@@ -291,7 +336,7 @@ namespace GraduationProject.UserControls.References
 
 
             }
-            else 
+            else
             {
                 labelOwnerFirstname.Text = "Няма";
                 labelOwnerFirstnameValue.Visible = false;

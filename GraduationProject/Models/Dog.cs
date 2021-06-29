@@ -35,7 +35,7 @@ namespace GraduationProject.Models
         //Заявки
 
         //INSERT
-        public int Insert(ConnectionHelper connectionHelper)
+        public void Insert(ConnectionHelper connectionHelper)
         {
             long id;
             string query = "INSERT INTO Dogs (sealNumber, addressId, type)VALUES (@sealNum, @addrId, @type)";
@@ -53,7 +53,7 @@ namespace GraduationProject.Models
             connectionHelper.sqlConnection.Close();
 
 
-            return (int)id;
+            Id = (int)id;
         }
 
 

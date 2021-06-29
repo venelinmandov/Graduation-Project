@@ -27,7 +27,22 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="UserControls\References\Inhabitants\ShowInhabitants.cs">
+    <Compile Update="UserControls\References\Animals\ListAnimalsAddresses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\References\Inhabitants\ListInhabitants.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\References\Quarantines\ListAnimalsQuarantines.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\References\Quarantines\ShowAnimalsQuarantines.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\References\Quarantines\ListInhabitantQuarantines.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\References\Trees\ListTreesAddresses.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

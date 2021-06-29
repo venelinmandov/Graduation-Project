@@ -103,7 +103,6 @@ namespace GraduationProject.UserControls.References
             this.buttonSearch.FlatAppearance.BorderSize = 0;
             this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearch.Image = ((System.Drawing.Image)(resources.GetObject("buttonSearch.Image")));
-            this.buttonSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSearch.Location = new System.Drawing.Point(46, 126);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(87, 29);

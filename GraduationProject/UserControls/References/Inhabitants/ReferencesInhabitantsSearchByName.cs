@@ -33,7 +33,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             List<Inhabitant> inhabitants = new Inhabitant().Get(connectionHelper, textBoxFirstname.Text, textBoxMiddlename.Text, textBoxLastname.Text);
 
 
-            ShowButtonClicked(new MainForm.EventData("showInhabitants", inhabitants),e);
+            ShowButtonClicked(new MainForm.EventData("listInhabitants", inhabitants),e);
         }
     }
 }

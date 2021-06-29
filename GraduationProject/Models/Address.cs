@@ -46,8 +46,8 @@ namespace GraduationProject.Models
 
         
         //SELECT клауза
-        string selectClause = @"SELECT DISTINCT Addresses.id, streetId, number, squaring, habitability, numResBuildings,
-                                numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numPigs, numWalnutTrees, numMulberryTrees, numOldTrees, numCenturyOldTrees, note, Streets.name";
+        string selectClause = @"SELECT DISTINCT Addresses.id, streetId, Addresses.number, squaring, habitability, numResBuildings,
+                                numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numPigs, numWalnutTrees, numMulberryTrees, numOldTrees, numCenturyOldTrees, Addresses.note, Streets.name";
 
         public override string ToString() => streetName + " " + Number.ToString();
        
@@ -80,7 +80,7 @@ namespace GraduationProject.Models
         //Заявки
 
         //INSERT
-        public int Insert(ConnectionHelper connectionHelper)
+        public void Insert(ConnectionHelper connectionHelper)
         {
             long id;
             string query = @"INSERT INTO Addresses 
@@ -111,9 +111,8 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.CommandText = "SELECT last_insert_rowid()";
             id = (long)connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();
-
          
-            return (int)id;
+            Id = (int)id;
         }
 
         //GET
@@ -344,8 +343,9 @@ namespace GraduationProject.Models
         public List<Address> GetAddressesWithQuarantines(ConnectionHelper connectionHelper)
         {
 
-            string query = @$"{selectClause} FROM Addresses, Streets, InhabitantsQuarantines
-                            WHERE Streets.id = Addresses.streetId AND InhabitantsQuarantines.addressId = Addresses.id";
+            string query = @$"{selectClause} FROM Addresses, Streets, Inhabitants, InhabitantsQuarantines
+                            WHERE Streets.id = Addresses.streetId AND InhabitantsQuarantines.inhabitantId = Inhabitants.id
+                            AND Inhabitants.addressId = Addresses.id";
 
             connectionHelper.NewConnection(query);
             return ExecuteGetQuery(connectionHelper);
@@ -372,21 +372,13 @@ namespace GraduationProject.Models
         public void Delete(ConnectionHelper connectionHelper)
         {
             new Dog().Delete(connectionHelper, this);
-            new Person().Delete(connectionHelper, this);
             new Inhabitant().Delete(connectionHelper, this);
-
-            foreach (Person person in new Person().Get(connectionHelper, this, AddressType.Current))
-            {
-                person.CurrentAddressId = -1;
-                person.Update(connectionHelper);
-            }
+            
             foreach (Inhabitant resident in new Inhabitant().Get(connectionHelper, this, AddressType.Current))
             {
                 resident.CurrentAddressId = -1;
                 resident.Update(connectionHelper);
             }
-
-
 
             string query = "DELETE FROM Addresses WHERE id = @id";
             connectionHelper.NewConnection(query);

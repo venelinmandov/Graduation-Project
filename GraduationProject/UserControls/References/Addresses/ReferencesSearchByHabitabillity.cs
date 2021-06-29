@@ -49,7 +49,7 @@ namespace GraduationProject.UserControls.References.Addresses
                 return;
 
             List<Address> addresses = new Address().Get(new ConnectionHelper(), addressHabitabillity);
-            ShowButtonClicked(new MainForm.EventData("showAddresses", addresses),e);
+            ShowButtonClicked(new MainForm.EventData("listAddresses", addresses),e);
         }
     }
 }

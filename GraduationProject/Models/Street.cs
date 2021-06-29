@@ -66,7 +66,7 @@ namespace GraduationProject.Models
         }
 
         //INSERT
-        public int Insert(ConnectionHelper connectionHelper)
+        public void Insert(ConnectionHelper connectionHelper)
         {
             long id;
             string query = "INSERT INTO Streets (name) VALUES (@name)";
@@ -79,7 +79,7 @@ namespace GraduationProject.Models
             connectionHelper.sqlConnection.Close();
 
 
-            return (int)id;
+            Id = (int)id;
         }
 
         //DELETE

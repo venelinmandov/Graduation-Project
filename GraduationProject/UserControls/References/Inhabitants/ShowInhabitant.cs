@@ -18,14 +18,6 @@ namespace GraduationProject.UserControls.References.Inhabitants
         }
 
 
-
-        Dictionary<Inhabitant.QuarantineEnum, string> covidDict = new Dictionary<Inhabitant.QuarantineEnum, string>()
-        {
-            { Inhabitant.QuarantineEnum.Yes,"Боледува"},
-            { Inhabitant.QuarantineEnum.No,"Няма"},
-            { Inhabitant.QuarantineEnum.Contact,"Контактен"}
-        };
-
         Dictionary<Inhabitant.AddressRegistrationEnum, string> addressRegDict = new Dictionary<Inhabitant.AddressRegistrationEnum, string>()
         {
             {Inhabitant.AddressRegistrationEnum.No, "Няма в населеното място" },
@@ -53,7 +45,6 @@ namespace GraduationProject.UserControls.References.Inhabitants
             labelGenderValue.Text = inhabitant.Gender == 0 ? "Мъж" : "Жена";
             labelPhoneValue.Text = inhabitant.PhoneNumber;
             labelAddressValue.Text = new Address().Get(new ConnectionHelper(), inhabitant.AddressId).ToString();
-            labelQuarantineValue.Text = covidDict[inhabitant.Quarantine];
             richTextBoxNotes.Text = inhabitant.Note;
             labelAddressValue.Text = new Address().Get(connectionHelper, inhabitant.AddressId).ToString();
             labelPropertyStateValue.Text = ownershipDict[inhabitant.OwnershipState];
@@ -77,8 +68,6 @@ namespace GraduationProject.UserControls.References.Inhabitants
                     {
                         control.Location = new Point(control.Location.X, control.Location.Y + 14);
                     }
-                    labelQuarantine.Location = new Point(labelQuarantine.Location.X, labelCurrentAddress.Location.Y);
-                    labelQuarantineValue.Location = new Point(labelQuarantineValue.Location.X, labelQuarantine.Location.Y);
                     labelPermanentAddressValue.Text = new Address().Get(connectionHelper, inhabitant.PermanentAddressId).ToString();
 
                     break;
@@ -93,23 +82,11 @@ namespace GraduationProject.UserControls.References.Inhabitants
                     {
                         control.Location = new Point(control.Location.X, control.Location.Y + 14);
                     }
-                    labelQuarantine.Location = new Point(labelQuarantine.Location.X, labelCurrentAddress.Location.Y);
-                    labelQuarantineValue.Location = new Point(labelQuarantineValue.Location.X, labelQuarantine.Location.Y);
                     labelPermanentAddressValue.Text = "Не е в нас. място";
                     break;
 
             }
           
-        }
-
-        private void labelCurrentAddressValue_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelGender_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

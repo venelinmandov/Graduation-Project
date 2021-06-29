@@ -13,7 +13,6 @@ namespace GraduationProject.UserControls
         [Browsable(true)]
         [Category("Action")]
         [Description("Invoked when button is clicked")]
-
         public event EventHandler ButtonClicked;
         public MenuUserControl()
         {

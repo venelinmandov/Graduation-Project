@@ -45,14 +45,12 @@ D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\Graduatio
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.References.Addresses.ReferencesSearchByQuarantines.resources
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.References.Addresses.ReferencesSearchByTrees.resources
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.References.ShowAddress.resources
-D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.References.ShowAddresses.resources
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.References.Inhabitants.ReferenceInhabitantsSearchByReg.resources
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.References.Inhabitants.ReferencesInhabitantsByProperty.resources
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.References.Inhabitants.ReferencesInhabitantsByResidence.resources
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.References.ReferencesInhabitantsMenu.resources
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.References.Inhabitants.ReferencesInhabitantsSearchByName.resources
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.References.Inhabitants.ShowInhabitant.resources
-D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.References.ShowInhabitants.resources
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.ReferencesMenu.resources
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.csproj.GenerateResource.cache
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.AssemblyInfoInputs.cache
@@ -62,4 +60,12 @@ D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\Graduatio
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.dll
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.pdb
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.genruntimeconfig.cache
+D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.References.Quarantines.ShowInhabitantsQuarantines.resources
+D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.References.ListAnimalsQuarantines.resources
+D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.References.ListInhabitantQuarantines.resources
+D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.References.Quarantines.ShowAnimalsQuarantines.resources
+D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.References.ListAddresses.resources
 D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.csproj.AssemblyReference.cache
+D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.References.ListInhabitants.resources
+D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.References.ListTreesAddresses.resources
+D:\repos\GraduationProject\GraduationProject\obj\Release\netcoreapp3.1\GraduationProject.UserControls.References.ListAnimalAddresses.resources

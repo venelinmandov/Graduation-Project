@@ -8,30 +8,34 @@ namespace GraduationProject.Models
     public class InhabitantsQuarantine : Model<InhabitantsQuarantine>
     {
         public int Id { get; set; }
-        public int AddressId { get; set; }
+        public int InhabitantId { get; set; }
+        public QuarantineEnum QuarantineType { get; set; }
         public int DiseaseId { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }
 
+        public enum QuarantineEnum {Ill, Contact };
 
         public void Fill(SQLiteDataReader reader)
         {
             Id = reader.GetInt32(0);
-            AddressId = reader.GetInt32(1);
-            DiseaseId = reader.GetInt32(2);
-            StartDate = reader.GetString(3);
-            EndDate = reader.GetString(4);
+            InhabitantId = reader.GetInt32(1);
+            QuarantineType = (QuarantineEnum)reader.GetInt32(2);
+            DiseaseId = reader.GetInt32(3);
+            StartDate = reader.GetString(4);
+            EndDate = reader.GetString(5);
         }
 
         //INSERT
-        public int Insert(ConnectionHelper connectionHelper)
+        public void Insert(ConnectionHelper connectionHelper)
         {
             long id;
-            string query = @"INSERT INTO InhabitantsQuarantines (addressId, disease, startDate, endDate) 
-                            VALUES (@addrId, @animal, @disease, @startDate, @endDate )";
+            string query = @"INSERT INTO InhabitantsQuarantines (inhabitantId, quarantineType, disease, startDate, endDate) 
+                            VALUES (@inhabitantId, @quar, @disease, @startDate, @endDate )";
             connectionHelper.NewConnection(query);
 
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@inhabitantId", InhabitantId);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@quar", QuarantineType);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@disease", DiseaseId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@startDate", StartDate);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@endDate", EndDate);
@@ -42,7 +46,7 @@ namespace GraduationProject.Models
             connectionHelper.sqlConnection.Close();
 
 
-            return (int)id;
+            Id = (int)id;
         }
 
         //GET
@@ -51,8 +55,10 @@ namespace GraduationProject.Models
 
             List<InhabitantsQuarantine> quarantines = new List<InhabitantsQuarantine>();
             InhabitantsQuarantine quarantine;
-            string query = @"SELECT id, addressId, disease, startDate, endDate FROM InhabitantsQuarantines
-                            WHERE addressId = @addrId";
+            string query = @"SELECT InhabitantsQuarantines.id, inhabitantId, quarantineType, disease, startDate, endDate 
+                            FROM InhabitantsQuarantines, Inhabitants
+                            WHERE inhabitantId = Inhabitants.id AND Inhabitants.addressId = @addrId
+                            ORDER BY date(startDate) DESC";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", address.Id);
@@ -73,7 +79,7 @@ namespace GraduationProject.Models
 
             List<InhabitantsQuarantine> quarantines = new List<InhabitantsQuarantine>();
             InhabitantsQuarantine quarantine;
-            string query = @"SELECT id, addressId, disease, startDate, endDate FROM InhabitantsQuarantines";
+            string query = @"SELECT id, inhabitantId, quarantineType, disease, startDate, endDate FROM InhabitantsQuarantines";
 
             connectionHelper.NewConnection(query);
             SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
@@ -103,11 +109,14 @@ namespace GraduationProject.Models
         public void Update(ConnectionHelper connectionHelper)
         {
             string query = @"UPDATE InhabitantsQuarantines SET, 
-                           disease = @disease, startDate = @startDate,
+                            inhabitantId = @inhabId, quarantineType = @quar, 
+                            disease = @disease, startDate = @startDate,
                             endDate = @endDate
                             WHERE id = @id";
 
             connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@inhabId", InhabitantId);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@quar", QuarantineType);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@disease", DiseaseId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@startDate", StartDate);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@endDate", EndDate);

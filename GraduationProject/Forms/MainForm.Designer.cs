@@ -47,7 +47,7 @@ namespace GraduationProject.Forms
             // 
             this.pictureBoxBack.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxBack.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxBack.Image")));
-            this.pictureBoxBack.Location = new System.Drawing.Point(48, 14);
+            this.pictureBoxBack.Location = new System.Drawing.Point(14, 14);
             this.pictureBoxBack.Name = "pictureBoxBack";
             this.pictureBoxBack.Size = new System.Drawing.Size(78, 78);
             this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

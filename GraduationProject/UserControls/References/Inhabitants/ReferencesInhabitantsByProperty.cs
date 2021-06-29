@@ -45,7 +45,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             }
             else return;
                
-            ShowButtonClicked(new MainForm.EventData("showInhabitants", inhabitants), e);
+            ShowButtonClicked(new MainForm.EventData("listInhabitants", inhabitants), e);
         }
     }
 }

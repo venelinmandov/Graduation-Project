@@ -4,22 +4,31 @@
     <Compile Update="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UserControls\InsertData\Addresses\InsertDataAddress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\InsertData\Addresses\AddressesMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\InsertData\InsertDataMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\ListBoxUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\MenuUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControls\References\Addresses\ReferencesSearchByAnimalQuarantines.cs">
+    <Compile Update="UserControls\References\Quarantines\ReferencesSearchByAnimalQuarantines.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\References\Addresses\ReferencesSearchByHabitabillity.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControls\References\Addresses\ReferencesSearchByQuarantines.cs">
+    <Compile Update="UserControls\References\Quarantines\ReferencesSearchByQuarantines.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControls\References\Addresses\ReferencesSearchByTrees.cs">
+    <Compile Update="UserControls\References\Trees\ReferencesSearchByTrees.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\References\Inhabitants\ReferenceInhabitantsSearchByReg.cs">
@@ -43,34 +52,22 @@
     <Compile Update="UserControls\References\Inhabitants\ShowInhabitant.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControls\References\Quarantines\ShowInhabitantsQuarantines.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\References\ReferencesMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\References\Addresses\ReferencesSearchByAddress.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControls\References\Addresses\ReferencesSearchByAnimals.cs">
+    <Compile Update="UserControls\References\Animals\ReferencesSearchByAnimals.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControls\References\Addresses\ShowAddresses.cs">
+    <Compile Update="UserControls\References\Addresses\ListAddresses.cs">
       <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Forms\AddressesFiltersForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\DogsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\InhabitantsFilterForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\InputBoxForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\PersonsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\ReferenceForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

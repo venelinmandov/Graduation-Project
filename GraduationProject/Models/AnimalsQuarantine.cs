@@ -10,7 +10,8 @@ namespace GraduationProject.Models
         public int Id { get; set; }
         public int AddressId { get; set; }
         public AnimalEnum Animal { get; set; }
-        public int Disease { get; set; }
+        public int Number { get; set; }
+        public int DiseaseId { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }
 
@@ -23,22 +24,24 @@ namespace GraduationProject.Models
             Id = reader.GetInt32(0);
             AddressId = reader.GetInt32(1);
             Animal = (AnimalEnum)reader.GetInt32(2);
-            Disease = reader.GetInt32(3);
-            StartDate = reader.GetString(4);
-            EndDate = reader.GetString(5);
+            Number = reader.GetInt32(3);
+            DiseaseId = reader.GetInt32(4);
+            StartDate = reader.GetString(5);
+            EndDate = reader.GetString(6);
         }
 
         //INSERT
-        public int Insert(ConnectionHelper connectionHelper)
+        public void Insert(ConnectionHelper connectionHelper)
         {
             long id;
-            string query = @"INSERT INTO AnimalsQuarantines (addressId, animal, disease, startDate, endDate) 
+            string query = @"INSERT INTO AnimalsQuarantines (addressId, animal, number, disease, startDate, endDate) 
                             VALUES (@addrId, @animal, @disease, @startDate, @endDate )";
             connectionHelper.NewConnection(query);
 
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@animal", Animal);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@disease", Disease);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@number", Number);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@disease", DiseaseId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@startDate", StartDate);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@endDate", EndDate);
 
@@ -46,22 +49,21 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.CommandText = "SELECT last_insert_rowid()";
             id = (long)connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();
-
-
-            return (int)id;
+            Id = (int)id;
         }
 
         //GET
-        public List<AnimalsQuarantine> Get(ConnectionHelper connectionHelper, Address address)
+        public List<AnimalsQuarantine> Get(ConnectionHelper connectionHelper, Address address, AnimalEnum animal)
         {
 
             List<AnimalsQuarantine> quarantines = new List<AnimalsQuarantine>();
             AnimalsQuarantine quarantine;
-            string query = @"SELECT id, addressId, animal, disease, startDate, endDate FROM AnimalsQuarantines
-                            WHERE addressId = @addrId";
+            string query = @"SELECT id, addressId, animal, number, disease, startDate, endDate FROM AnimalsQuarantines
+                            WHERE addressId = @addrId AND animal = @animal ORDER BY date(startDate) DESC";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", address.Id);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@animal", animal);
             SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
             while (reader.Read())
             {
@@ -79,7 +81,7 @@ namespace GraduationProject.Models
 
             List<AnimalsQuarantine> quarantines = new List<AnimalsQuarantine>();
             AnimalsQuarantine quarantine;
-            string query = @"SELECT id, addressId, animal, disease, startDate, endDate FROM AnimalsQuarantines";
+            string query = @"SELECT id, addressId, animal, number, disease, startDate, endDate FROM AnimalsQuarantines";
 
             connectionHelper.NewConnection(query);
             SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
@@ -109,13 +111,14 @@ namespace GraduationProject.Models
         public void Update(ConnectionHelper connectionHelper)
         {
             string query = @"UPDATE AnimalsQuarantines SET, 
-                            animal = @animal, disease = @disease,
+                            animal = @animal, number = @number, disease = @disease,
                             startDate = @startDate, endDate = @endDate
                             WHERE id = @id";
 
             connectionHelper.NewConnection(query);   
             connectionHelper.sqlCommand.Parameters.AddWithValue("@animal", Animal);
-            connectionHelper.sqlCommand.Parameters.AddWithValue("@disease", Disease);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@number", Number);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@disease", DiseaseId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@startDate", StartDate);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@endDate", EndDate);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@id", Id);

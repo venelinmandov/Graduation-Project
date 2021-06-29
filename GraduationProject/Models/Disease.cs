@@ -17,7 +17,7 @@ namespace GraduationProject.Models
             Id = reader.GetInt32(0);
             Name = reader.GetString(1);
         }
-        public int Insert(ConnectionHelper connectionHelper)
+        public void Insert(ConnectionHelper connectionHelper)
         {
             throw new NotImplementedException();
         }

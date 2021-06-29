@@ -29,10 +29,6 @@ namespace GraduationProject.UserControls.References
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelAddress = new System.Windows.Forms.Label();
             this.labelHabitabillity = new System.Windows.Forms.Label();
             this.labelHabitabillityValue = new System.Windows.Forms.Label();
@@ -95,15 +91,6 @@ namespace GraduationProject.UserControls.References
             this.labelWalnutTreesValue = new System.Windows.Forms.Label();
             this.labelWalnutTrees = new System.Windows.Forms.Label();
             this.labelTitleTrees = new System.Windows.Forms.Label();
-            this.buttonQuarantines = new System.Windows.Forms.Button();
-            this.panelQuarantines = new System.Windows.Forms.Panel();
-            this.dataGridViewQuarantines = new System.Windows.Forms.DataGridView();
-            this.ObjectCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diagnosysCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startDateCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endDateCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labelQuarantines = new System.Windows.Forms.Label();
-            this.labelTitleQuarantines = new System.Windows.Forms.Label();
             this.buttonInhabitants = new System.Windows.Forms.Button();
             this.buttonNotes = new System.Windows.Forms.Button();
             this.panelNotes = new System.Windows.Forms.Panel();
@@ -113,8 +100,6 @@ namespace GraduationProject.UserControls.References
             this.panelInhabitants.SuspendLayout();
             this.panelAnimals.SuspendLayout();
             this.panelTrees.SuspendLayout();
-            this.panelQuarantines.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewQuarantines)).BeginInit();
             this.panelNotes.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -177,7 +162,7 @@ namespace GraduationProject.UserControls.References
             // 
             this.buttonBuildings.FlatAppearance.BorderSize = 0;
             this.buttonBuildings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBuildings.Location = new System.Drawing.Point(54, 140);
+            this.buttonBuildings.Location = new System.Drawing.Point(54, 168);
             this.buttonBuildings.Name = "buttonBuildings";
             this.buttonBuildings.Size = new System.Drawing.Size(212, 23);
             this.buttonBuildings.TabIndex = 5;
@@ -189,7 +174,7 @@ namespace GraduationProject.UserControls.References
             // 
             this.buttonAnimals.FlatAppearance.BorderSize = 0;
             this.buttonAnimals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAnimals.Location = new System.Drawing.Point(54, 198);
+            this.buttonAnimals.Location = new System.Drawing.Point(54, 226);
             this.buttonAnimals.Name = "buttonAnimals";
             this.buttonAnimals.Size = new System.Drawing.Size(212, 23);
             this.buttonAnimals.TabIndex = 6;
@@ -201,7 +186,7 @@ namespace GraduationProject.UserControls.References
             // 
             this.buttonTrees.FlatAppearance.BorderSize = 0;
             this.buttonTrees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTrees.Location = new System.Drawing.Point(54, 227);
+            this.buttonTrees.Location = new System.Drawing.Point(54, 255);
             this.buttonTrees.Name = "buttonTrees";
             this.buttonTrees.Size = new System.Drawing.Size(212, 23);
             this.buttonTrees.TabIndex = 11;
@@ -862,146 +847,11 @@ namespace GraduationProject.UserControls.References
             this.labelTitleTrees.TabIndex = 13;
             this.labelTitleTrees.Text = "Защитени Дървесни видове:";
             // 
-            // buttonQuarantines
-            // 
-            this.buttonQuarantines.FlatAppearance.BorderSize = 0;
-            this.buttonQuarantines.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonQuarantines.Location = new System.Drawing.Point(54, 256);
-            this.buttonQuarantines.Name = "buttonQuarantines";
-            this.buttonQuarantines.Size = new System.Drawing.Size(212, 23);
-            this.buttonQuarantines.TabIndex = 43;
-            this.buttonQuarantines.Text = "Карантини";
-            this.buttonQuarantines.UseVisualStyleBackColor = true;
-            this.buttonQuarantines.Click += new System.EventHandler(this.buttonQuarantines_Click);
-            // 
-            // panelQuarantines
-            // 
-            this.panelQuarantines.Controls.Add(this.dataGridViewQuarantines);
-            this.panelQuarantines.Controls.Add(this.labelQuarantines);
-            this.panelQuarantines.Controls.Add(this.labelTitleQuarantines);
-            this.panelQuarantines.Location = new System.Drawing.Point(318, 14);
-            this.panelQuarantines.Name = "panelQuarantines";
-            this.panelQuarantines.Size = new System.Drawing.Size(712, 300);
-            this.panelQuarantines.TabIndex = 44;
-            // 
-            // dataGridViewQuarantines
-            // 
-            this.dataGridViewQuarantines.AllowUserToAddRows = false;
-            this.dataGridViewQuarantines.AllowUserToDeleteRows = false;
-            this.dataGridViewQuarantines.AllowUserToResizeColumns = false;
-            this.dataGridViewQuarantines.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewQuarantines.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewQuarantines.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewQuarantines.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewQuarantines.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewQuarantines.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewQuarantines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewQuarantines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ObjectCol,
-            this.diagnosysCol,
-            this.startDateCol,
-            this.endDateCol});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewQuarantines.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewQuarantines.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewQuarantines.EnableHeadersVisualStyles = false;
-            this.dataGridViewQuarantines.GridColor = System.Drawing.SystemColors.ScrollBar;
-            this.dataGridViewQuarantines.Location = new System.Drawing.Point(37, 82);
-            this.dataGridViewQuarantines.MultiSelect = false;
-            this.dataGridViewQuarantines.Name = "dataGridViewQuarantines";
-            this.dataGridViewQuarantines.ReadOnly = true;
-            this.dataGridViewQuarantines.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewQuarantines.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewQuarantines.RowHeadersVisible = false;
-            this.dataGridViewQuarantines.RowTemplate.Height = 25;
-            this.dataGridViewQuarantines.Size = new System.Drawing.Size(641, 203);
-            this.dataGridViewQuarantines.TabIndex = 17;
-            // 
-            // ObjectCol
-            // 
-            this.ObjectCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ObjectCol.FillWeight = 263.9594F;
-            this.ObjectCol.HeaderText = "Обект на карантината";
-            this.ObjectCol.Name = "ObjectCol";
-            this.ObjectCol.ReadOnly = true;
-            this.ObjectCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ObjectCol.Width = 130;
-            // 
-            // diagnosysCol
-            // 
-            this.diagnosysCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.diagnosysCol.FillWeight = 45.34687F;
-            this.diagnosysCol.HeaderText = "Диагноза";
-            this.diagnosysCol.Name = "diagnosysCol";
-            this.diagnosysCol.ReadOnly = true;
-            this.diagnosysCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // startDateCol
-            // 
-            this.startDateCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.startDateCol.FillWeight = 45.34687F;
-            this.startDateCol.HeaderText = "Начало на карантината";
-            this.startDateCol.Name = "startDateCol";
-            this.startDateCol.ReadOnly = true;
-            this.startDateCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // endDateCol
-            // 
-            this.endDateCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.endDateCol.FillWeight = 45.34687F;
-            this.endDateCol.HeaderText = "Край на карантината";
-            this.endDateCol.Name = "endDateCol";
-            this.endDateCol.ReadOnly = true;
-            this.endDateCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // labelQuarantines
-            // 
-            this.labelQuarantines.AutoSize = true;
-            this.labelQuarantines.BackColor = System.Drawing.Color.Transparent;
-            this.labelQuarantines.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelQuarantines.Location = new System.Drawing.Point(37, 95);
-            this.labelQuarantines.Name = "labelQuarantines";
-            this.labelQuarantines.Size = new System.Drawing.Size(256, 22);
-            this.labelQuarantines.TabIndex = 15;
-            this.labelQuarantines.Text = "В Този имот няма карантини";
-            // 
-            // labelTitleQuarantines
-            // 
-            this.labelTitleQuarantines.AutoSize = true;
-            this.labelTitleQuarantines.BackColor = System.Drawing.Color.Transparent;
-            this.labelTitleQuarantines.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelTitleQuarantines.Location = new System.Drawing.Point(37, 34);
-            this.labelTitleQuarantines.Name = "labelTitleQuarantines";
-            this.labelTitleQuarantines.Size = new System.Drawing.Size(295, 29);
-            this.labelTitleQuarantines.TabIndex = 14;
-            this.labelTitleQuarantines.Text = "Карантини в този имот:";
-            // 
             // buttonInhabitants
             // 
             this.buttonInhabitants.FlatAppearance.BorderSize = 0;
             this.buttonInhabitants.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInhabitants.Location = new System.Drawing.Point(54, 169);
+            this.buttonInhabitants.Location = new System.Drawing.Point(54, 197);
             this.buttonInhabitants.Name = "buttonInhabitants";
             this.buttonInhabitants.Size = new System.Drawing.Size(212, 23);
             this.buttonInhabitants.TabIndex = 45;
@@ -1058,15 +908,13 @@ namespace GraduationProject.UserControls.References
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Controls.Add(this.panelQuarantines);
+            this.Controls.Add(this.panelAnimals);
             this.Controls.Add(this.panelInhabitants);
             this.Controls.Add(this.panelBuildings);
-            this.Controls.Add(this.panelAnimals);
             this.Controls.Add(this.panelTrees);
             this.Controls.Add(this.panelNotes);
             this.Controls.Add(this.buttonNotes);
             this.Controls.Add(this.buttonInhabitants);
-            this.Controls.Add(this.buttonQuarantines);
             this.Controls.Add(this.buttonTrees);
             this.Controls.Add(this.buttonAnimals);
             this.Controls.Add(this.buttonBuildings);
@@ -1086,9 +934,6 @@ namespace GraduationProject.UserControls.References
             this.panelAnimals.PerformLayout();
             this.panelTrees.ResumeLayout(false);
             this.panelTrees.PerformLayout();
-            this.panelQuarantines.ResumeLayout(false);
-            this.panelQuarantines.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewQuarantines)).EndInit();
             this.panelNotes.ResumeLayout(false);
             this.panelNotes.PerformLayout();
             this.ResumeLayout(false);
@@ -1140,15 +985,6 @@ namespace GraduationProject.UserControls.References
         private System.Windows.Forms.Label labelOldTreesValue;
         private System.Windows.Forms.Label labelOldTrees;
         private System.Windows.Forms.Label labelCenturyOldTrees;
-        private System.Windows.Forms.Button buttonQuarantines;
-        private System.Windows.Forms.Panel panelQuarantines;
-        private System.Windows.Forms.Label labelTitleQuarantines;
-        private System.Windows.Forms.Label labelQuarantines;
-        private System.Windows.Forms.DataGridView dataGridViewQuarantines;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ObjectCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn diagnosysCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn startDateCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn endDateCol;
         private System.Windows.Forms.Label labelDomesticDogsValue;
         private System.Windows.Forms.Label labelHuntingDogsValue;
         private System.Windows.Forms.Label labelGuardDogsValue;
