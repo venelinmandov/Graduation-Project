@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
+using System.ComponentModel;
 
 namespace GraduationProject.UserControls.InsertData.Addresses
 {
@@ -12,10 +13,18 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         List<Address> addresses;
         List<Street> streets;
         ConnectionHelper connectionHelper = new ConnectionHelper();
+        string mode;
+
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when button is clicked")]
+        public event EventHandler ButtonClicked;
+
 
         public InsertDataAddress(Address address)
         {
             InitializeComponent();
+            mode = "create";
             this.address = address;
             LoadStreets();
             buttonSave.Visible = true;
@@ -26,6 +35,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         public InsertDataAddress()
         {
             InitializeComponent();
+            mode = "edit";
             LoadStreets();
             buttonSave.Visible = false;
             numericUpDownNumber.Visible = false;
@@ -79,12 +89,26 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             {
                 comboBoxNumber.Text = "";
             }
-            CheckAddressExist();
+            if (mode == "create")
+            {
+                address.StreetId = streets[comboBoxStreet.SelectedIndex].Id;
+                address.streetName = streets[comboBoxStreet.SelectedIndex].Name;
+                CheckAddressExist();
+            }
         }
 
         private void numericUpDownNumber_ValueChanged(object sender, EventArgs e)
         {
-            CheckAddressExist();
+            if (mode == "create")
+            {
+                address.Number = (int)numericUpDownNumber.Value;
+                CheckAddressExist();
+            }
+        }
+
+        private void buttonProperty_Click(object sender, EventArgs e)
+        {
+            ButtonClicked(new Forms.MainForm.EventData("propertyData", address), e);
         }
     }
 }

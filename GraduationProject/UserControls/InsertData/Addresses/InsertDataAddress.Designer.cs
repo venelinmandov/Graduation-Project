@@ -130,6 +130,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonProperty.TabIndex = 22;
             this.buttonProperty.Text = "Данни за имота";
             this.buttonProperty.UseVisualStyleBackColor = false;
+            this.buttonProperty.Click += new System.EventHandler(this.buttonProperty_Click);
             // 
             // buttonSave
             // 

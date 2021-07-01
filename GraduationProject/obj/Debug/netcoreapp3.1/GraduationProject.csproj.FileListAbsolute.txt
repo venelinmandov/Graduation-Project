@@ -67,3 +67,4 @@ D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationP
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.InsertData.Addresses.AddressesMenu.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.InsertData.Addresses.InsertDataAddress.resources
 D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.InsertData.InsertDataMenu.resources
+D:\repos\GraduationProject\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.InsertData.Addresses.InsertDataProperty.resources

@@ -244,23 +244,31 @@ namespace GraduationProject.Forms
                     addressesMenu.BringToFront();
                     addressesMenu.ButtonClicked += MenuButtonClicked;
                     break;
-                case "streetsMenu":
-                    
-                    break;
+               
                 case "createAddress":
                     address = new Address();
                     UserControls.InsertData.Addresses.InsertDataAddress createAddress = new UserControls.InsertData.Addresses.InsertDataAddress(address);
                     AddControl(createAddress);
                     panelContents.Controls.Add(createAddress);
                     createAddress.BringToFront();
+                    createAddress.ButtonClicked += MenuButtonClicked;
                     break;
                 case "editAddress":
                     UserControls.InsertData.Addresses.InsertDataAddress editAddress = new UserControls.InsertData.Addresses.InsertDataAddress();
                     AddControl(editAddress);
                     panelContents.Controls.Add(editAddress);
                     editAddress.BringToFront();
+                    editAddress.ButtonClicked += MenuButtonClicked;
                     break;
+                case "propertyData":
+                    GraduationProject.UserControls.InsertData.Addresses.InsertDataProperty insertDataProperty = new UserControls.InsertData.Addresses.InsertDataProperty((Address)eventData.data);
+                    AddControl(insertDataProperty);
+                    panelContents.Controls.Add(insertDataProperty);
+                    insertDataProperty.BringToFront();
+                    break;
+                case "streetsMenu":
 
+                    break;
                 case "insertDataStreets":
 
                     break;
