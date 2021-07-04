@@ -16,50 +16,63 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         ConnectionHelper connectionHelper = new ConnectionHelper();
         Button activeButton;
 
-        Address address;
-        List<Dog> dogs;
+        InsertDataAddress.AddressData addressData;
 
         [Browsable(true)]
         [Category("Action")]
         [Description("Invoked when inhabitant is clicked")]
         public EventHandler InhabitantClicked;
 
-        Dictionary<string, Address.AddressHabitability> habitabilityDict = new Dictionary<string, Address.AddressHabitability>()
+        Dictionary<string, Address.Habitability> habitabilityDict = new Dictionary<string, Address.Habitability>()
         {
-            {"Обитаван", Address.AddressHabitability.Inhabited },
-            {"Временно обитаван", Address.AddressHabitability.TemporaryInhabited },
-            {"Необитаван", Address.AddressHabitability.Desolate },
-            {"Извън регулация", Address.AddressHabitability.OutOfRegulation },
+            {"Обитаван", Address.Habitability.Inhabited },
+            {"Временно обитаван", Address.Habitability.TemporaryInhabited },
+            {"Необитаван", Address.Habitability.Desolate },
+            {"Извън регулация", Address.Habitability.OutOfRegulation },
         };
 
-        Dictionary<string, Dog.DogType> dogsDict = new Dictionary<string, Dog.DogType>()
+        Dictionary<string, Dog.DogType> dogDict = new Dictionary<string, Dog.DogType>()
         {
-            {"Кучета пазач", Dog.DogType.GuardDog },
-            {"Ловджийски кучета", Dog.DogType.HuntingDog },
-            {"Домашни кучета", Dog.DogType.DomesticDog }
+            {"Куче пазач", Dog.DogType.GuardDog },
+            {"Ловджийско куче", Dog.DogType.HuntingDog },
+            {"Домашно куче", Dog.DogType.DomesticDog }
         };
 
 
         //Конструктури
-        public InsertDataProperty(Address address)
+        public InsertDataProperty(InsertDataAddress.AddressData addressData)
         {
             InitializeComponent();
-            this.address = address;
-            labelAddress.Text = address.ToString();
+            this.addressData = addressData;
+            labelAddress.Text = addressData.address.ToString();
             comboBoxHabitability.Items.AddRange(habitabilityDict.Keys.ToArray());
             activeButton = buttonBuildings;
             SetActivePanel(panelBuildings, buttonBuildings);
-            if (address.Id != 0)
+            if (addressData.address.Id != 0)
             {
-                dogs = new Dog().Get(connectionHelper, address);
+                addressData.dogs = new Dog().Get(connectionHelper, addressData.address);
             }
             else
             {
-                dogs = new List<Dog>();
+                addressData.dogs = new List<Dog>();
                 
             }
 
             ShowDogs();
+            numericUpDownSquaring.Value = (decimal)addressData.address.Squaring;
+            richTextBoxNotes.Text = addressData.address.Note;
+
+            foreach (Panel panel in Controls.OfType<Panel>())
+            {
+                foreach (ComboBox comboBox in panel.Controls.OfType<ComboBox>())
+                {
+                    if(comboBox.Items.Count != 0)
+                        comboBox.SelectedIndex = 0;
+                    comboBox.DrawItem += comboBox_DrawItem;
+                }
+            }
+            comboBoxHabitability.DrawItem += comboBox_DrawItem;
+            comboBoxHabitability.Text = habitabilityDict.FirstOrDefault(entry => EqualityComparer<Address.Habitability>.Default.Equals(entry.Value, addressData.address.Habitallity)).Key;  
         }
 
         
@@ -128,39 +141,42 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         void ShowDogs()
         {
             dataGridViewDogs.RowCount = 0;
-            for (int i = 0; i < dogs.Count; i++)
+            for (int i = 0; i < addressData.dogs.Count; i++)
             {
                 dataGridViewDogs.RowCount++;
-                if (dogs[i].SealNumber == null)
+                if (addressData.dogs[i].SealNumber == null)
                 {
                     dataGridViewDogs.Rows[i].Cells[0].Value = "Няма номер";
                 }
                 else
                 {
-                    dataGridViewDogs.Rows[i].Cells[0].Value = dogs[i].SealNumber;
+                    dataGridViewDogs.Rows[i].Cells[0].Value = addressData.dogs[i].SealNumber;
                 }
                 DataGridViewComboBoxCell dataGridViewComboBox = dataGridViewDogs.Rows[i].Cells[1] as DataGridViewComboBoxCell;
                 foreach (var item in comboBoxDogTypeEdit.Items)
                 {
                     dataGridViewComboBox.Items.Add(item);
                 }
-                    dataGridViewComboBox.Value = dogsDict.FirstOrDefault(entry => EqualityComparer<Dog.DogType>.Default.Equals(entry.Value, dogs[i].Type)).Key;
+                    dataGridViewComboBox.Value = dogDict.FirstOrDefault(entry => EqualityComparer<Dog.DogType>.Default.Equals(entry.Value, addressData.dogs[i].Type)).Key;
+
+                DataGridViewButtonCell dataGridViewButtonCell = dataGridViewDogs.Rows[i].Cells[2] as DataGridViewButtonCell;
+                
             }
         }
 
         private void comboBoxHabitability_SelectedIndexChanged(object sender, EventArgs e)
         {
-            address.Habitallity = habitabilityDict[comboBoxHabitability.Text];
+            addressData.address.Habitallity = habitabilityDict[comboBoxHabitability.Text];
         }
 
         private void numericUpDownSquaring_ValueChanged(object sender, EventArgs e)
         {
-            address.Squaring = (double)numericUpDownSquaring.Value;
+            addressData.address.Squaring = (double)numericUpDownSquaring.Value;
         }
 
         private void comboBoxBuildings_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int value = comboBoxBuildings.Text == "Жилищни постройки" ? address.NumResBuildings : address.NumAgrBuildings;
+            int value = comboBoxBuildings.Text == "Жилищни постройки" ? addressData.address.NumResBuildings : addressData.address.NumAgrBuildings;
             numericUpDownBuildings.Value = value;
         }
 
@@ -168,11 +184,11 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         {
             if (comboBoxBuildings.Text == "Жилищни постройки")
             {
-                address.NumResBuildings = (int)numericUpDownBuildings.Value;
+                addressData.address.NumResBuildings = (int)numericUpDownBuildings.Value;
             }
             else
             {
-                address.NumAgrBuildings = (int)numericUpDownBuildings.Value;
+                addressData.address.NumAgrBuildings = (int)numericUpDownBuildings.Value;
 
             }
         }
@@ -182,22 +198,22 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             switch (comboBoxDomesticAnimals.Text)
             {
                 case "Крави":
-                     numericUpDownDomesticAnimals.Value = address.NumCows;
+                     numericUpDownDomesticAnimals.Value = addressData.address.NumCows;
                     break;
                 case "Овце":
-                    numericUpDownDomesticAnimals.Value = address.NumSheep;
+                    numericUpDownDomesticAnimals.Value = addressData.address.NumSheep;
                     break;
                 case "Кози":
-                    numericUpDownDomesticAnimals.Value = address.NumGoats;
+                    numericUpDownDomesticAnimals.Value = addressData.address.NumGoats;
                     break;
                 case "Коне":
-                    numericUpDownDomesticAnimals.Value = address.NumHorses;
+                    numericUpDownDomesticAnimals.Value = addressData.address.NumHorses;
                     break;
                 case "Магарета":
-                    numericUpDownDomesticAnimals.Value = address.NumDonkeys;
+                    numericUpDownDomesticAnimals.Value = addressData.address.NumDonkeys;
                     break;
                 case "Свине":
-                    numericUpDownDomesticAnimals.Value = address.NumPigs;
+                    numericUpDownDomesticAnimals.Value = addressData.address.NumPigs;
                     break;
             }
         }
@@ -207,29 +223,67 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             switch (comboBoxDomesticAnimals.Text)
             {
                 case "Крави":
-                    address.NumCows = (int)numericUpDownDomesticAnimals.Value;
+                    addressData.address.NumCows = (int)numericUpDownDomesticAnimals.Value;
                     break;
                 case "Овце":
-                    address.NumSheep = (int)numericUpDownDomesticAnimals.Value;
+                    addressData.address.NumSheep = (int)numericUpDownDomesticAnimals.Value;
                     break;
                 case "Кози":
-                    address.NumGoats = (int)numericUpDownDomesticAnimals.Value;
+                    addressData.address.NumGoats = (int)numericUpDownDomesticAnimals.Value;
                     break;
                 case "Коне":
-                    address.NumHorses = (int)numericUpDownDomesticAnimals.Value;
+                    addressData.address.NumHorses = (int)numericUpDownDomesticAnimals.Value;
                     break;
                 case "Магарета":
-                    address.NumDonkeys = (int)numericUpDownDomesticAnimals.Value;
+                    addressData.address.NumDonkeys = (int)numericUpDownDomesticAnimals.Value;
                     break;
                 case "Свине":
-                    address.NumPigs = (int)numericUpDownDomesticAnimals.Value;
+                    addressData.address.NumPigs = (int)numericUpDownDomesticAnimals.Value;
+                    break;
+            }
+        }
+
+        private void comboBoxTrees_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBoxTrees.Text)
+            {
+                case "Орехови дървета":
+                    numericUpDownTrees.Value = addressData.address.NumWalnutTrees;
+                    break;
+                case "Черници":
+                    numericUpDownTrees.Value = addressData.address.NumMulberryTrees;
+                    break;
+                case "Дървета над 20 г. възраст":
+                    numericUpDownTrees.Value = addressData.address.NumOldTrees;
+                    break;
+                case "Вековни дървета":
+                    numericUpDownTrees.Value = addressData.address.NumCenturyOldTrees;
+                    break;
+            }
+        }
+
+        private void numericUpDownTrees_ValueChanged(object sender, EventArgs e)
+        {
+            switch (comboBoxTrees.Text)
+            {
+                case "Орехови дървета":
+                    addressData.address.NumWalnutTrees = (int)numericUpDownTrees.Value;
+                    break;
+                case "Черници":
+                    addressData.address.NumMulberryTrees = (int)numericUpDownTrees.Value;
+                    break;
+                case "Дървета над 20 г. възраст":
+                    addressData.address.NumOldTrees = (int)numericUpDownTrees.Value;
+                    break;
+                case "Вековни дървета":
+                    addressData.address.NumCenturyOldTrees = (int)numericUpDownTrees.Value;
                     break;
             }
         }
 
         private void numericUpDownFeathererd_ValueChanged(object sender, EventArgs e)
         {
-            address.NumFeathered = (int)numericUpDownFeathererd.Value;
+            addressData.address.NumFeathered = (int)numericUpDownFeathererd.Value;
         }
 
         private void comboBoxDogs_SelectedIndexChanged(object sender, EventArgs e)
@@ -237,13 +291,13 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             switch (comboBoxDogsType.Text)
             {
                 case "Кучета пазач":
-                    labelDogsNumber.Text = (from dog in dogs where dog.Type == Dog.DogType.GuardDog select dog).ToArray().Length.ToString();
+                    labelDogsNumber.Text = (from dog in addressData.dogs where dog.Type == Dog.DogType.GuardDog select dog).ToArray().Length.ToString();
                     break;
                 case "Ловджийски кучета":
-                    labelDogsNumber.Text = (from dog in dogs where dog.Type == Dog.DogType.HuntingDog select dog).ToArray().Length.ToString();
+                    labelDogsNumber.Text = (from dog in addressData.dogs where dog.Type == Dog.DogType.HuntingDog select dog).ToArray().Length.ToString();
                     break;
                 case "Домашни кучета":
-                    labelDogsNumber.Text = (from dog in dogs where dog.Type == Dog.DogType.DomesticDog select dog).ToArray().Length.ToString();
+                    labelDogsNumber.Text = (from dog in addressData.dogs where dog.Type == Dog.DogType.DomesticDog select dog).ToArray().Length.ToString();
                     break;
             }
         }
@@ -256,7 +310,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private void buttonAddDog_Click(object sender, EventArgs e)
         {
             Dog dog = new Dog();
-            Regex rx = new Regex(@"^d{15}$");
+            Regex rx = new Regex(@"^\d{15}$");
 
             if (checkBoxDogNoNumber.Checked)
             {
@@ -268,7 +322,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                 labelDogsError.Visible = true;
                 return;
             }
-            else if (!rx.IsMatch(labelDogsError.Text))
+            else if (!rx.IsMatch(textBoxDogNumber.Text))
             {
                 labelDogsError.Text = "Невалиден номер!";
                 labelDogsError.Visible = true;
@@ -280,13 +334,75 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                 dog.SealNumber = textBoxDogNumber.Text;
 
             }
-            dog.Type = dogsDict[comboBoxDogTypeEdit.Text];
-            dogs.Add(dog);
-            if (address.Id != 0)
+            dog.Type = dogDict[comboBoxDogTypeEdit.Text];
+            addressData.dogs.Add(dog);
+            if (addressData.address.Id != 0)
             {
                 dog.Insert(connectionHelper);
             }
             ShowDogs();
+        }
+
+        private void dataGridViewDogs_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            if (e.ColumnIndex == 2)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var w = Properties.Resources.deleteRowIcon.Width;
+                var h = Properties.Resources.deleteRowIcon.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.deleteRowIcon, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void dataGridViewDogs_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            if (e.ColumnIndex == 2)
+            {
+                addressData.dogs.RemoveAt(e.RowIndex);
+                ShowDogs();
+            }
+
+        }
+
+        private void comboBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index == -1) return;
+            var combo = sender as ComboBox;
+            SolidBrush solidBrush;
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(50, 80, 40)), e.Bounds);
+                solidBrush = new SolidBrush(SystemColors.Control);
+            }
+            else
+            {
+                e.Graphics.FillRectangle(new SolidBrush(SystemColors.Window), e.Bounds);
+                solidBrush = new SolidBrush(Color.Black);
+            }
+
+            e.Graphics.DrawString(combo.Items[e.Index].ToString(),
+                                          e.Font,
+                                          solidBrush,
+                                          new Point(e.Bounds.X, e.Bounds.Y));
+        }
+
+        private void panelAnimals_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void richTextBoxNotes_TextChanged(object sender, EventArgs e)
+        {
+            addressData.address.Note = richTextBoxNotes.Text;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace GraduationProject.Models
         public int StreetId { get; set; }
         public int Number { get; set; }
         public double Squaring { get; set; } = 0;
-        public AddressHabitability Habitallity { get; set; } = 0;
+        public Habitability Habitallity { get; set; } = Habitability.Inhabited;
         public int NumResBuildings { get; set; } = 0;
         public int NumAgrBuildings { get; set; } = 0;
         public int NumCows { get; set; } = 0;
@@ -40,7 +40,7 @@ namespace GraduationProject.Models
         
         //Enums
         public enum AddressType { Permanent, Current };
-        public enum AddressHabitability { Desolate, Inhabited, TemporaryInhabited, OutOfRegulation };
+        public enum Habitability { Desolate, Inhabited, TemporaryInhabited, OutOfRegulation };
 
 
 
@@ -59,7 +59,7 @@ namespace GraduationProject.Models
             StreetId = reader.GetInt32(1);
             Number = reader.GetInt32(2);
             Squaring = reader.GetDouble(3);
-            Habitallity = (AddressHabitability)reader.GetInt32(4);
+            Habitallity = (Habitability)reader.GetInt32(4);
             NumResBuildings = reader.GetInt32(5);
             NumAgrBuildings = reader.GetInt32(6);
             NumCows = reader.GetInt32(7);
@@ -313,7 +313,7 @@ namespace GraduationProject.Models
         /// <param name="connectionHelper"></param>
         /// <param name="addressHabitabillity"></param>
         /// <returns></returns>
-        public List<Address> Get(ConnectionHelper connectionHelper, AddressHabitability addressHabitabillity)
+        public List<Address> Get(ConnectionHelper connectionHelper, Habitability addressHabitabillity)
         {
             string query = @$"{selectClause} FROM Addresses, Streets 
                             WHERE Streets.id = Addresses.streetId AND Addresses.habitability = @habitability";

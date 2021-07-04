@@ -55,12 +55,15 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // comboBoxStreet
             // 
+            this.comboBoxStreet.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxStreet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStreet.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxStreet.FormattingEnabled = true;
             this.comboBoxStreet.Location = new System.Drawing.Point(392, 119);
             this.comboBoxStreet.Name = "comboBoxStreet";
-            this.comboBoxStreet.Size = new System.Drawing.Size(213, 26);
+            this.comboBoxStreet.Size = new System.Drawing.Size(213, 27);
             this.comboBoxStreet.TabIndex = 16;
+            this.comboBoxStreet.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBoxStreet_DrawItem);
             this.comboBoxStreet.SelectedIndexChanged += new System.EventHandler(this.comboBoxStreet_SelectedIndexChanged);
             // 
             // numericUpDownNumber
@@ -144,6 +147,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonSave.Text = "Запис";
             this.buttonSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // labelAddressExists
             // 

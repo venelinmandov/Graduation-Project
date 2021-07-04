@@ -61,18 +61,18 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.comboBoxHabitability = new System.Windows.Forms.ComboBox();
             this.numericUpDownSquaring = new System.Windows.Forms.NumericUpDown();
             this.panelDogs = new System.Windows.Forms.Panel();
-            this.labelDogsTitle = new System.Windows.Forms.Label();
+            this.labelDogsError = new System.Windows.Forms.Label();
+            this.buttonAddDog = new System.Windows.Forms.Button();
+            this.labelDogTypeEdit = new System.Windows.Forms.Label();
+            this.labelDogNumberEdit = new System.Windows.Forms.Label();
+            this.comboBoxDogTypeEdit = new System.Windows.Forms.ComboBox();
+            this.checkBoxDogNoNumber = new System.Windows.Forms.CheckBox();
+            this.textBoxDogNumber = new System.Windows.Forms.TextBox();
             this.dataGridViewDogs = new System.Windows.Forms.DataGridView();
             this.ColumnNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.textBoxDogNumber = new System.Windows.Forms.TextBox();
-            this.checkBoxDogNoNumber = new System.Windows.Forms.CheckBox();
-            this.comboBoxDogTypeEdit = new System.Windows.Forms.ComboBox();
-            this.labelDogNumberEdit = new System.Windows.Forms.Label();
-            this.labelDogTypeEdit = new System.Windows.Forms.Label();
-            this.buttonAddDog = new System.Windows.Forms.Button();
-            this.labelDogsError = new System.Windows.Forms.Label();
+            this.labelDogsTitle = new System.Windows.Forms.Label();
             this.panelBuildings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBuildings)).BeginInit();
             this.panelTrees.SuspendLayout();
@@ -175,13 +175,15 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // comboBoxBuildings
             // 
+            this.comboBoxBuildings.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxBuildings.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxBuildings.FormattingEnabled = true;
             this.comboBoxBuildings.Items.AddRange(new object[] {
             "Жилищни постройки",
             "Селскостопански постройки"});
             this.comboBoxBuildings.Location = new System.Drawing.Point(62, 96);
             this.comboBoxBuildings.Name = "comboBoxBuildings";
-            this.comboBoxBuildings.Size = new System.Drawing.Size(254, 23);
+            this.comboBoxBuildings.Size = new System.Drawing.Size(254, 22);
             this.comboBoxBuildings.TabIndex = 15;
             this.comboBoxBuildings.SelectedIndexChanged += new System.EventHandler(this.comboBoxBuildings_SelectedIndexChanged);
             // 
@@ -212,14 +214,23 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.numericUpDownTrees.Name = "numericUpDownTrees";
             this.numericUpDownTrees.Size = new System.Drawing.Size(61, 21);
             this.numericUpDownTrees.TabIndex = 28;
+            this.numericUpDownTrees.ValueChanged += new System.EventHandler(this.numericUpDownTrees_ValueChanged);
             // 
             // comboBoxTrees
             // 
+            this.comboBoxTrees.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxTrees.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTrees.FormattingEnabled = true;
+            this.comboBoxTrees.Items.AddRange(new object[] {
+            "Орехови дървета",
+            "Черници",
+            "Дървета над 20 г. възраст",
+            "Вековни дървета"});
             this.comboBoxTrees.Location = new System.Drawing.Point(62, 96);
             this.comboBoxTrees.Name = "comboBoxTrees";
-            this.comboBoxTrees.Size = new System.Drawing.Size(210, 23);
+            this.comboBoxTrees.Size = new System.Drawing.Size(210, 22);
             this.comboBoxTrees.TabIndex = 27;
+            this.comboBoxTrees.SelectedIndexChanged += new System.EventHandler(this.comboBoxTrees_SelectedIndexChanged);
             // 
             // labelTitleTrees
             // 
@@ -260,10 +271,10 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.richTextBoxNotes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.richTextBoxNotes.Location = new System.Drawing.Point(92, 76);
             this.richTextBoxNotes.Name = "richTextBoxNotes";
-            this.richTextBoxNotes.ReadOnly = true;
             this.richTextBoxNotes.Size = new System.Drawing.Size(527, 203);
             this.richTextBoxNotes.TabIndex = 14;
             this.richTextBoxNotes.Text = "";
+            this.richTextBoxNotes.TextChanged += new System.EventHandler(this.richTextBoxNotes_TextChanged);
             // 
             // labelTitleNotes
             // 
@@ -336,6 +347,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.panelAnimals.Name = "panelAnimals";
             this.panelAnimals.Size = new System.Drawing.Size(712, 300);
             this.panelAnimals.TabIndex = 17;
+            this.panelAnimals.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAnimals_Paint);
             // 
             // labelDogsNumber
             // 
@@ -381,6 +393,8 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // comboBoxDogsType
             // 
+            this.comboBoxDogsType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxDogsType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDogsType.FormattingEnabled = true;
             this.comboBoxDogsType.Items.AddRange(new object[] {
             "Кучета пазач",
@@ -388,12 +402,14 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             "Домашни кучета"});
             this.comboBoxDogsType.Location = new System.Drawing.Point(63, 256);
             this.comboBoxDogsType.Name = "comboBoxDogsType";
-            this.comboBoxDogsType.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxDogsType.Size = new System.Drawing.Size(121, 22);
             this.comboBoxDogsType.TabIndex = 48;
             this.comboBoxDogsType.SelectedIndexChanged += new System.EventHandler(this.comboBoxDogs_SelectedIndexChanged);
             // 
             // comboBoxDomesticAnimals
             // 
+            this.comboBoxDomesticAnimals.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxDomesticAnimals.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDomesticAnimals.FormattingEnabled = true;
             this.comboBoxDomesticAnimals.Items.AddRange(new object[] {
             "Крави",
@@ -404,16 +420,18 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             "Свине"});
             this.comboBoxDomesticAnimals.Location = new System.Drawing.Point(62, 130);
             this.comboBoxDomesticAnimals.Name = "comboBoxDomesticAnimals";
-            this.comboBoxDomesticAnimals.Size = new System.Drawing.Size(116, 23);
+            this.comboBoxDomesticAnimals.Size = new System.Drawing.Size(116, 22);
             this.comboBoxDomesticAnimals.TabIndex = 47;
             this.comboBoxDomesticAnimals.SelectedIndexChanged += new System.EventHandler(this.comboBoxDomesticAnimals_SelectedIndexChanged);
             // 
             // comboBoxHabitability
             // 
+            this.comboBoxHabitability.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxHabitability.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxHabitability.FormattingEnabled = true;
             this.comboBoxHabitability.Location = new System.Drawing.Point(160, 67);
             this.comboBoxHabitability.Name = "comboBoxHabitability";
-            this.comboBoxHabitability.Size = new System.Drawing.Size(142, 23);
+            this.comboBoxHabitability.Size = new System.Drawing.Size(142, 22);
             this.comboBoxHabitability.TabIndex = 59;
             this.comboBoxHabitability.SelectedIndexChanged += new System.EventHandler(this.comboBoxHabitability_SelectedIndexChanged);
             // 
@@ -447,99 +465,16 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.panelDogs.Size = new System.Drawing.Size(712, 300);
             this.panelDogs.TabIndex = 54;
             // 
-            // labelDogsTitle
+            // labelDogsError
             // 
-            this.labelDogsTitle.AutoSize = true;
-            this.labelDogsTitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelDogsTitle.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelDogsTitle.Location = new System.Drawing.Point(37, 34);
-            this.labelDogsTitle.Name = "labelDogsTitle";
-            this.labelDogsTitle.Size = new System.Drawing.Size(99, 29);
-            this.labelDogsTitle.TabIndex = 13;
-            this.labelDogsTitle.Text = "Кучета:";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridViewDogs.AllowUserToAddRows = false;
-            this.dataGridViewDogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDogs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnNumber,
-            this.ColumnType,
-            this.ColumnDelete});
-            this.dataGridViewDogs.Location = new System.Drawing.Point(339, 31);
-            this.dataGridViewDogs.Name = "dataGridView1";
-            this.dataGridViewDogs.RowHeadersVisible = false;
-            this.dataGridViewDogs.RowTemplate.Height = 25;
-            this.dataGridViewDogs.Size = new System.Drawing.Size(361, 245);
-            this.dataGridViewDogs.TabIndex = 14;
-            // 
-            // ColumnNumber
-            // 
-            this.ColumnNumber.HeaderText = "Номер";
-            this.ColumnNumber.Name = "ColumnNumber";
-            this.ColumnNumber.Width = 150;
-            // 
-            // ColumnType
-            // 
-            this.ColumnType.HeaderText = "Тип";
-            this.ColumnType.Name = "ColumnType";
-            this.ColumnType.Width = 150;
-            // 
-            // ColumnDelete
-            // 
-            this.ColumnDelete.HeaderText = "";
-            this.ColumnDelete.Name = "ColumnDelete";
-            this.ColumnDelete.Width = 50;
-            // 
-            // textBoxDogNumber
-            // 
-            this.textBoxDogNumber.Location = new System.Drawing.Point(72, 122);
-            this.textBoxDogNumber.Name = "textBoxDogNumber";
-            this.textBoxDogNumber.Size = new System.Drawing.Size(159, 21);
-            this.textBoxDogNumber.TabIndex = 15;
-            // 
-            // checkBoxDogNoNumber
-            // 
-            this.checkBoxDogNoNumber.AutoSize = true;
-            this.checkBoxDogNoNumber.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxDogNoNumber.Location = new System.Drawing.Point(237, 122);
-            this.checkBoxDogNoNumber.Name = "checkBoxDogNoNumber";
-            this.checkBoxDogNoNumber.Size = new System.Drawing.Size(96, 19);
-            this.checkBoxDogNoNumber.TabIndex = 16;
-            this.checkBoxDogNoNumber.Text = "няма номер";
-            this.checkBoxDogNoNumber.UseVisualStyleBackColor = false;
-            // 
-            // comboBoxDogTypeEdit
-            // 
-            this.comboBoxDogTypeEdit.FormattingEnabled = true;
-            this.comboBoxDogTypeEdit.Items.AddRange(new object[] {
-            "Кучета пазач",
-            "Ловджийски кучета",
-            "Домашни кучета"});
-            this.comboBoxDogTypeEdit.Location = new System.Drawing.Point(72, 155);
-            this.comboBoxDogTypeEdit.Name = "comboBoxDogTypeEdit";
-            this.comboBoxDogTypeEdit.Size = new System.Drawing.Size(159, 23);
-            this.comboBoxDogTypeEdit.TabIndex = 17;
-            // 
-            // labelDogNumberEdit
-            // 
-            this.labelDogNumberEdit.AutoSize = true;
-            this.labelDogNumberEdit.BackColor = System.Drawing.Color.Transparent;
-            this.labelDogNumberEdit.Location = new System.Drawing.Point(13, 123);
-            this.labelDogNumberEdit.Name = "labelDogNumberEdit";
-            this.labelDogNumberEdit.Size = new System.Drawing.Size(49, 15);
-            this.labelDogNumberEdit.TabIndex = 18;
-            this.labelDogNumberEdit.Text = "Номер:";
-            // 
-            // labelDogTypeEdit
-            // 
-            this.labelDogTypeEdit.AutoSize = true;
-            this.labelDogTypeEdit.BackColor = System.Drawing.Color.Transparent;
-            this.labelDogTypeEdit.Location = new System.Drawing.Point(15, 155);
-            this.labelDogTypeEdit.Name = "labelDogTypeEdit";
-            this.labelDogTypeEdit.Size = new System.Drawing.Size(30, 15);
-            this.labelDogTypeEdit.TabIndex = 19;
-            this.labelDogTypeEdit.Text = "Тип:";
+            this.labelDogsError.BackColor = System.Drawing.Color.Transparent;
+            this.labelDogsError.Location = new System.Drawing.Point(15, 76);
+            this.labelDogsError.Name = "labelDogsError";
+            this.labelDogsError.Size = new System.Drawing.Size(274, 35);
+            this.labelDogsError.TabIndex = 21;
+            this.labelDogsError.Text = "Грешка";
+            this.labelDogsError.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.labelDogsError.Visible = false;
             // 
             // buttonAddDog
             // 
@@ -554,29 +489,121 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonAddDog.UseVisualStyleBackColor = false;
             this.buttonAddDog.Click += new System.EventHandler(this.buttonAddDog_Click);
             // 
-            // labelDogsError
+            // labelDogTypeEdit
             // 
-            this.labelDogsError.BackColor = System.Drawing.Color.Transparent;
-            this.labelDogsError.Location = new System.Drawing.Point(15, 76);
-            this.labelDogsError.Name = "labelDogsError";
-            this.labelDogsError.Size = new System.Drawing.Size(274, 35);
-            this.labelDogsError.TabIndex = 21;
-            this.labelDogsError.Text = "Грешка";
-            this.labelDogsError.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.labelDogsError.Visible = false;
+            this.labelDogTypeEdit.AutoSize = true;
+            this.labelDogTypeEdit.BackColor = System.Drawing.Color.Transparent;
+            this.labelDogTypeEdit.Location = new System.Drawing.Point(15, 155);
+            this.labelDogTypeEdit.Name = "labelDogTypeEdit";
+            this.labelDogTypeEdit.Size = new System.Drawing.Size(30, 15);
+            this.labelDogTypeEdit.TabIndex = 19;
+            this.labelDogTypeEdit.Text = "Тип:";
+            // 
+            // labelDogNumberEdit
+            // 
+            this.labelDogNumberEdit.AutoSize = true;
+            this.labelDogNumberEdit.BackColor = System.Drawing.Color.Transparent;
+            this.labelDogNumberEdit.Location = new System.Drawing.Point(13, 123);
+            this.labelDogNumberEdit.Name = "labelDogNumberEdit";
+            this.labelDogNumberEdit.Size = new System.Drawing.Size(49, 15);
+            this.labelDogNumberEdit.TabIndex = 18;
+            this.labelDogNumberEdit.Text = "Номер:";
+            // 
+            // comboBoxDogTypeEdit
+            // 
+            this.comboBoxDogTypeEdit.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxDogTypeEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDogTypeEdit.FormattingEnabled = true;
+            this.comboBoxDogTypeEdit.Items.AddRange(new object[] {
+            "Куче пазач",
+            "Ловджийско куче",
+            "Домашно куче"});
+            this.comboBoxDogTypeEdit.Location = new System.Drawing.Point(72, 155);
+            this.comboBoxDogTypeEdit.Name = "comboBoxDogTypeEdit";
+            this.comboBoxDogTypeEdit.Size = new System.Drawing.Size(159, 22);
+            this.comboBoxDogTypeEdit.TabIndex = 17;
+            // 
+            // checkBoxDogNoNumber
+            // 
+            this.checkBoxDogNoNumber.AutoSize = true;
+            this.checkBoxDogNoNumber.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxDogNoNumber.Location = new System.Drawing.Point(237, 122);
+            this.checkBoxDogNoNumber.Name = "checkBoxDogNoNumber";
+            this.checkBoxDogNoNumber.Size = new System.Drawing.Size(96, 19);
+            this.checkBoxDogNoNumber.TabIndex = 16;
+            this.checkBoxDogNoNumber.Text = "няма номер";
+            this.checkBoxDogNoNumber.UseVisualStyleBackColor = false;
+            // 
+            // textBoxDogNumber
+            // 
+            this.textBoxDogNumber.Location = new System.Drawing.Point(72, 122);
+            this.textBoxDogNumber.Name = "textBoxDogNumber";
+            this.textBoxDogNumber.Size = new System.Drawing.Size(159, 21);
+            this.textBoxDogNumber.TabIndex = 15;
+            // 
+            // dataGridViewDogs
+            // 
+            this.dataGridViewDogs.AllowUserToAddRows = false;
+            this.dataGridViewDogs.AllowUserToDeleteRows = false;
+            this.dataGridViewDogs.AllowUserToResizeColumns = false;
+            this.dataGridViewDogs.AllowUserToResizeRows = false;
+            this.dataGridViewDogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDogs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnNumber,
+            this.ColumnType,
+            this.ColumnDelete});
+            this.dataGridViewDogs.Location = new System.Drawing.Point(339, 31);
+            this.dataGridViewDogs.Name = "dataGridViewDogs";
+            this.dataGridViewDogs.RowHeadersVisible = false;
+            this.dataGridViewDogs.RowTemplate.Height = 25;
+            this.dataGridViewDogs.Size = new System.Drawing.Size(361, 245);
+            this.dataGridViewDogs.TabIndex = 14;
+            this.dataGridViewDogs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDogs_CellClick);
+            this.dataGridViewDogs.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewDogs_CellPainting);
+            // 
+            // ColumnNumber
+            // 
+            this.ColumnNumber.HeaderText = "Номер";
+            this.ColumnNumber.Name = "ColumnNumber";
+            this.ColumnNumber.Width = 150;
+            // 
+            // ColumnType
+            // 
+            this.ColumnType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnType.HeaderText = "Тип";
+            this.ColumnType.Name = "ColumnType";
+            this.ColumnType.Width = 150;
+            // 
+            // ColumnDelete
+            // 
+            this.ColumnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnDelete.HeaderText = "";
+            this.ColumnDelete.Name = "ColumnDelete";
+            this.ColumnDelete.Width = 24;
+            // 
+            // labelDogsTitle
+            // 
+            this.labelDogsTitle.AutoSize = true;
+            this.labelDogsTitle.BackColor = System.Drawing.Color.Transparent;
+            this.labelDogsTitle.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelDogsTitle.Location = new System.Drawing.Point(37, 34);
+            this.labelDogsTitle.Name = "labelDogsTitle";
+            this.labelDogsTitle.Size = new System.Drawing.Size(99, 29);
+            this.labelDogsTitle.TabIndex = 13;
+            this.labelDogsTitle.Text = "Кучета:";
             // 
             // InsertDataProperty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Controls.Add(this.panelDogs);
-            this.Controls.Add(this.panelAnimals);
-            this.Controls.Add(this.numericUpDownSquaring);
-            this.Controls.Add(this.panelBuildings);
-            this.Controls.Add(this.panelTrees);
-            this.Controls.Add(this.comboBoxHabitability);
             this.Controls.Add(this.panelNotes);
+            this.Controls.Add(this.panelAnimals);
+            this.Controls.Add(this.panelDogs);
+            this.Controls.Add(this.panelTrees);
+            this.Controls.Add(this.panelBuildings);
+            this.Controls.Add(this.numericUpDownSquaring);
+            this.Controls.Add(this.comboBoxHabitability);
             this.Controls.Add(this.buttonNotes);
             this.Controls.Add(this.buttonTrees);
             this.Controls.Add(this.buttonAnimals);
@@ -649,10 +676,10 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private System.Windows.Forms.CheckBox checkBoxDogNoNumber;
         private System.Windows.Forms.TextBox textBoxDogNumber;
         private System.Windows.Forms.DataGridView dataGridViewDogs;
+        private System.Windows.Forms.Button buttonAddDog;
+        private System.Windows.Forms.Label labelDogsError;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumber;
         private System.Windows.Forms.DataGridViewComboBoxColumn ColumnType;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnDelete;
-        private System.Windows.Forms.Button buttonAddDog;
-        private System.Windows.Forms.Label labelDogsError;
     }
 }

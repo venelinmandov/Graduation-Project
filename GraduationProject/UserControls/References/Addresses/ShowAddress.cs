@@ -238,10 +238,10 @@ namespace GraduationProject.UserControls.References
             labelSquaringValue.Text = address.Squaring.ToString();
             switch (address.Habitallity)
             {
-                case Address.AddressHabitability.Desolate: labelHabitabillityValue.Text = "Пустеещ"; break;
-                case Address.AddressHabitability.Inhabited: labelHabitabillityValue.Text = "Обитаван"; break;
-                case Address.AddressHabitability.TemporaryInhabited: labelHabitabillityValue.Text = "Временно обитаван"; break;
-                case Address.AddressHabitability.OutOfRegulation: labelHabitabillityValue.Text = "Извън регулация"; break;
+                case Address.Habitability.Desolate: labelHabitabillityValue.Text = "Пустеещ"; break;
+                case Address.Habitability.Inhabited: labelHabitabillityValue.Text = "Обитаван"; break;
+                case Address.Habitability.TemporaryInhabited: labelHabitabillityValue.Text = "Временно обитаван"; break;
+                case Address.Habitability.OutOfRegulation: labelHabitabillityValue.Text = "Извън регулация"; break;
             }
 
             ShowBuildings(address);

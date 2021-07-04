@@ -1,15 +1,16 @@
 ﻿using GraduationProject.Models;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Linq;
 using System.ComponentModel;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace GraduationProject.UserControls.InsertData.Addresses
 {
     public partial class InsertDataAddress : UserControl
     {
-        Address address;
+        AddressData addressData;
         List<Address> addresses;
         List<Street> streets;
         ConnectionHelper connectionHelper = new ConnectionHelper();
@@ -21,11 +22,11 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         public event EventHandler ButtonClicked;
 
 
-        public InsertDataAddress(Address address)
+        public InsertDataAddress(AddressData addressData)
         {
             InitializeComponent();
             mode = "create";
-            this.address = address;
+            this.addressData = addressData;
             LoadStreets();
             buttonSave.Visible = true;
             numericUpDownNumber.Visible = true;
@@ -41,6 +42,20 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             numericUpDownNumber.Visible = false;
             comboBoxNumber.Visible = true;
             labelTitle.Text = "Редактиране на адрес";
+        }
+
+        public struct AddressData
+        {
+            public Address address;
+            public List<Inhabitant> inhabitants;
+            public List<Dog> dogs;
+
+            public void Intialize()
+            {
+                address = new Address();
+                inhabitants = new List<Inhabitant>();
+                dogs = new List<Dog>();
+            }
         }
 
         void LoadStreets()
@@ -74,6 +89,11 @@ namespace GraduationProject.UserControls.InsertData.Addresses
 
         private void comboBoxStreet_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ShowAddresses();
+        }
+
+        private void ShowAddresses()
+        {
             comboBoxNumber.Items.Clear();
             addresses = new Address().Get(connectionHelper, streets[comboBoxStreet.SelectedIndex]);
             if (addresses.Count > 0)
@@ -91,8 +111,8 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             }
             if (mode == "create")
             {
-                address.StreetId = streets[comboBoxStreet.SelectedIndex].Id;
-                address.streetName = streets[comboBoxStreet.SelectedIndex].Name;
+                addressData.address.StreetId = streets[comboBoxStreet.SelectedIndex].Id;
+                addressData.address.streetName = streets[comboBoxStreet.SelectedIndex].Name;
                 CheckAddressExist();
             }
         }
@@ -101,14 +121,47 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         {
             if (mode == "create")
             {
-                address.Number = (int)numericUpDownNumber.Value;
+                addressData.address.Number = (int)numericUpDownNumber.Value;
                 CheckAddressExist();
             }
         }
 
         private void buttonProperty_Click(object sender, EventArgs e)
         {
-            ButtonClicked(new Forms.MainForm.EventData("propertyData", address), e);
+            ButtonClicked(new Forms.MainForm.EventData("propertyData", addressData), e);
+        }
+
+        private void comboBoxStreet_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index == -1) return;
+            var combo = sender as ComboBox;
+            SolidBrush solidBrush;
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(50, 80, 40)), e.Bounds);
+                solidBrush = new SolidBrush(SystemColors.Control);
+            }
+            else
+            {
+                e.Graphics.FillRectangle(new SolidBrush(SystemColors.Window), e.Bounds);
+                solidBrush = new SolidBrush(Color.Black);
+            }
+
+            e.Graphics.DrawString(combo.Items[e.Index].ToString(),
+                                          e.Font,
+                                          solidBrush,
+                                          new Point(e.Bounds.X, e.Bounds.Y));
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            addressData.address.Insert(connectionHelper);
+            foreach (Dog dog in addressData.dogs)
+            {
+                dog.AddressId = addressData.address.Id;
+                dog.Insert(connectionHelper);
+            }
+            ShowAddresses();
         }
     }
 }

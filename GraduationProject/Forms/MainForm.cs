@@ -9,9 +9,8 @@ namespace GraduationProject.Forms
     public partial class MainForm : Form
     {
         Stack<UserControl> userControls = new Stack<UserControl>();
-        Address address;
-        List<Inhabitant> inhabitants;
-        List<Dog> dogs;
+        
+
        public MainForm()
         {
             InitializeComponent();
@@ -34,6 +33,9 @@ namespace GraduationProject.Forms
             public string panelName;
             public object data;
         }
+
+       
+
 
         void MenuButtonClicked(object sender, EventArgs eventArgs)
         {
@@ -246,8 +248,9 @@ namespace GraduationProject.Forms
                     break;
                
                 case "createAddress":
-                    address = new Address();
-                    UserControls.InsertData.Addresses.InsertDataAddress createAddress = new UserControls.InsertData.Addresses.InsertDataAddress(address);
+                    UserControls.InsertData.Addresses.InsertDataAddress.AddressData addressData = new UserControls.InsertData.Addresses.InsertDataAddress.AddressData();
+                    addressData.Intialize();
+                    UserControls.InsertData.Addresses.InsertDataAddress createAddress = new UserControls.InsertData.Addresses.InsertDataAddress(addressData);
                     AddControl(createAddress);
                     panelContents.Controls.Add(createAddress);
                     createAddress.BringToFront();
@@ -261,7 +264,7 @@ namespace GraduationProject.Forms
                     editAddress.ButtonClicked += MenuButtonClicked;
                     break;
                 case "propertyData":
-                    GraduationProject.UserControls.InsertData.Addresses.InsertDataProperty insertDataProperty = new UserControls.InsertData.Addresses.InsertDataProperty((Address)eventData.data);
+                    UserControls.InsertData.Addresses.InsertDataProperty insertDataProperty = new UserControls.InsertData.Addresses.InsertDataProperty((UserControls.InsertData.Addresses.InsertDataAddress.AddressData)eventData.data);
                     AddControl(insertDataProperty);
                     panelContents.Controls.Add(insertDataProperty);
                     insertDataProperty.BringToFront();

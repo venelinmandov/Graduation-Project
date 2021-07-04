@@ -83,10 +83,10 @@ namespace GraduationProject.UserControls
                 button.Paint += ButtonOnPaint;
                     switch (address.Habitallity)
                     {
-                        case Address.AddressHabitability.OutOfRegulation:
-                        case Address.AddressHabitability.Desolate: button.BackColor = DesolateColor; break;
-                        case Address.AddressHabitability.Inhabited: button.BackColor = InhabitedColor; break;
-                        case Address.AddressHabitability.TemporaryInhabited: button.BackColor = TemporarilyColor; break;
+                        case Address.Habitability.OutOfRegulation:
+                        case Address.Habitability.Desolate: button.BackColor = DesolateColor; break;
+                        case Address.Habitability.Inhabited: button.BackColor = InhabitedColor; break;
+                        case Address.Habitability.TemporaryInhabited: button.BackColor = TemporarilyColor; break;
                         default: button.BackColor = ItemsColor; break;
                     }     
                 Controls.Add(button);

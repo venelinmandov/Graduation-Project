@@ -28,22 +28,22 @@ namespace GraduationProject.UserControls.References.Addresses
         /// <param name="e"></param>
         private void buttonShow_Click(object sender, EventArgs e)
         {
-            Address.AddressHabitability addressHabitabillity;
+            Address.Habitability addressHabitabillity;
             if (radioButtonInhabited.Checked)
             {
-                addressHabitabillity = Address.AddressHabitability.Inhabited;
+                addressHabitabillity = Address.Habitability.Inhabited;
             }
             else if (radioButtonTemporary.Checked)
             {
-                addressHabitabillity = Address.AddressHabitability.TemporaryInhabited;
+                addressHabitabillity = Address.Habitability.TemporaryInhabited;
             }
             else if (radioButtonDesolate.Checked)
             {
-                addressHabitabillity = Address.AddressHabitability.Desolate;
+                addressHabitabillity = Address.Habitability.Desolate;
             }
             else if (radioButtonOutOfRegulation.Checked)
             {
-                addressHabitabillity = Address.AddressHabitability.OutOfRegulation;
+                addressHabitabillity = Address.Habitability.OutOfRegulation;
             }
             else
                 return;
