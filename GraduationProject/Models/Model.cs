@@ -13,7 +13,7 @@ namespace GraduationProject.Models
         //Заявки
         public List<T> Get(ConnectionHelper connectionHelper);
 
-        public int Insert(ConnectionHelper connectionHelper);
+        public void Insert(ConnectionHelper connectionHelper);
 
         public void Delete(ConnectionHelper connectionHelper);
 

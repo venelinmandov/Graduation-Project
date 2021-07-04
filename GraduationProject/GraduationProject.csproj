@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Forms\InsertDataForm.cs" />
+    <Compile Remove="Forms\InsertDataForm.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Forms\InsertDataForm.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.113.7" />
@@ -17,6 +26,27 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\InsertData\Addresses\InsertDataProperty.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\References\Animals\ListAnimalsAddresses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\References\Inhabitants\ListInhabitants.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\References\Quarantines\ListAnimalsQuarantines.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\References\Quarantines\ShowAnimalsQuarantines.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\References\Quarantines\ListInhabitantQuarantines.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\References\Trees\ListTreesAddresses.cs">
+      <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
 

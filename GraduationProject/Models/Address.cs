@@ -9,7 +9,7 @@ namespace GraduationProject.Models
         public int StreetId { get; set; }
         public int Number { get; set; }
         public double Squaring { get; set; } = 0;
-        public int Habitallity { get; set; } = 0; // 0 - пустеещ, 1 - обитаван, 2 - временно обитаван
+        public Habitability Habitallity { get; set; } = Habitability.Inhabited;
         public int NumResBuildings { get; set; } = 0;
         public int NumAgrBuildings { get; set; } = 0;
         public int NumCows { get; set; } = 0;
@@ -20,7 +20,14 @@ namespace GraduationProject.Models
         public int NumFeathered { get; set; } = 0;
         public int NumPigs { get; set; } = 0;
         public int NumWalnutTrees { get; set; } = 0;
+        public int NumMulberryTrees { get; set; } = 0;
+        public int NumOldTrees { get; set; } = 0;
+        public int NumCenturyOldTrees { get; set; } = 0;
+        public string Note { get; set; }
 
+        public string streetName;
+
+        //Dictionaries
         public static Dictionary<AddressType, string> FieldName
         {
             get => new Dictionary<AddressType, string>
@@ -30,14 +37,17 @@ namespace GraduationProject.Models
         };}
 
 
-        public string streetName;
-
+        
+        //Enums
         public enum AddressType { Permanent, Current };
+        public enum Habitability { Desolate, Inhabited, TemporaryInhabited, OutOfRegulation };
+
+
 
         
         //SELECT клауза
-        string selectClause = @"SELECT DISTINCT Addresses.id, streetId, number, squaring, habitallity, numResBuildings,
-                                numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numPigs, numWalnutTrees, Streets.name";
+        string selectClause = @"SELECT DISTINCT Addresses.id, streetId, Addresses.number, squaring, habitability, numResBuildings,
+                                numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numPigs, numWalnutTrees, numMulberryTrees, numOldTrees, numCenturyOldTrees, Addresses.note, Streets.name";
 
         public override string ToString() => streetName + " " + Number.ToString();
        
@@ -49,7 +59,7 @@ namespace GraduationProject.Models
             StreetId = reader.GetInt32(1);
             Number = reader.GetInt32(2);
             Squaring = reader.GetDouble(3);
-            Habitallity = reader.GetInt32(4);
+            Habitallity = (Habitability)reader.GetInt32(4);
             NumResBuildings = reader.GetInt32(5);
             NumAgrBuildings = reader.GetInt32(6);
             NumCows = reader.GetInt32(7);
@@ -60,18 +70,22 @@ namespace GraduationProject.Models
             NumFeathered = reader.GetInt32(12);
             NumPigs = reader.GetInt32(13);
             NumWalnutTrees = reader.GetInt32(14);
-            streetName = reader.GetString(15);
+            NumMulberryTrees = reader.GetInt32(15);
+            NumOldTrees = reader.GetInt32(16);
+            NumCenturyOldTrees = reader.GetInt32(17);
+            Note = reader.GetString(18);
+            streetName = reader.GetString(19);
         }
 
         //Заявки
 
         //INSERT
-        public int Insert(ConnectionHelper connectionHelper)
+        public void Insert(ConnectionHelper connectionHelper)
         {
             long id;
             string query = @"INSERT INTO Addresses 
-                            (streetId, number, squaring, habitallity, numResBuildings, numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numPigs, numWalnutTrees )
-                            VALUES (@StrId, @num, @sq, @hab, @resB, @agrB, @cows, @sheep, @goats, @horses, @donkeys, @feathered, @pigs, @Walnut); ";
+                            (streetId, number, squaring, habitability, numResBuildings, numAgrBuildings, numCows, numSheep, numGoats, numHorses, numDonkeys, numFeathered, numPigs, numWalnutTrees, numMulberryTrees, numOldTrees, numCenturyOldTrees, note  )
+                            VALUES (@StrId, @num, @sq, @hab, @resB, @agrB, @cows, @sheep, @goats, @horses, @donkeys, @feathered, @pigs, @Walnut, @Mulberry, @Old, @Century, @note)";
 
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@StrId", StreetId);
@@ -88,17 +102,43 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@feathered", NumFeathered);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@pigs", NumPigs);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@Walnut", NumWalnutTrees);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@Mulberry", NumMulberryTrees);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@Old", NumOldTrees);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@Century", NumCenturyOldTrees);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
 
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlCommand.CommandText = "SELECT last_insert_rowid()";
             id = (long)connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();
-
          
-            return (int)id;
+            Id = (int)id;
         }
 
         //GET
+
+        /// <summary>
+        /// Всички адреси
+        /// </summary>
+        /// <param name="connectionHelper"></param>
+        /// <returns></returns>
+        public List<Address> Get(ConnectionHelper connectionHelper)
+        {
+            string query = @$"{selectClause} FROM Addresses, Streets 
+                            WHERE Addresses.streetId = Streets.id 
+                            ORDER BY  name, number";
+
+            connectionHelper.NewConnection(query);
+
+            return ExecuteGetQuery(connectionHelper);
+        }
+
+        /// <summary>
+        /// Адреси по дадена улица
+        /// </summary>
+        /// <param name="connectionHelper"></param>
+        /// <param name="street"></param>
+        /// <returns></returns>
         public List<Address> Get(ConnectionHelper connectionHelper, Street street)
         {
             string query = $"{selectClause} FROM Addresses, Streets WHERE Addresses.streetId = Streets.id AND streetId = @strId ORDER BY number";
@@ -109,6 +149,15 @@ namespace GraduationProject.Models
             return ExecuteGetQuery(connectionHelper);
         }
 
+        /// <summary>
+        /// Адреси по име/имена на обитател 
+        /// </summary>
+        /// <param name="connectionHelper"></param>
+        /// <param name="option"></param>
+        /// <param name="personFirstName"></param>
+        /// <param name="personMiddleName"></param>
+        /// <param name="personLastNameName"></param>
+        /// <returns></returns>
         public List<Address> Get(ConnectionHelper connectionHelper, int option, string personFirstName, string personMiddleName, string personLastNameName)
         {
            
@@ -156,10 +205,10 @@ namespace GraduationProject.Models
             switch (option)
             {
                 case 0: tables += " ,Residents"; whereClause += "Residents.addressId = Addresses.id AND " + MakeWhereElementsString("Residents"); break;
-                case 1: tables += " ,GuestsInQuarantine"; whereClause += "GuestsInQuarantine.addressId = Addresses.id AND " + MakeWhereElementsString("GuestsInQuarantine"); break;
-                case 2: tables += " ,Residents, GuestsInQuarantine";
-                    whereClause += "Residents.addressId = Addresses.id AND GuestsInQuarantine.addressId = Addresses.id AND (("
-                        + MakeWhereElementsString("Residents") + ") OR (" + MakeWhereElementsString("GuestsInQuarantine") + "))"; break;
+                case 1: tables += " ,Guests"; whereClause += "Guests.addressId = Addresses.id AND " + MakeWhereElementsString("Guests"); break;
+                case 2: tables += " ,Residents, Guests";
+                    whereClause += "Residents.addressId = Addresses.id AND Guests.addressId = Addresses.id AND (("
+                        + MakeWhereElementsString("Residents") + ") OR (" + MakeWhereElementsString("Guests") + "))"; break;
                 default: tables += "";break;            
             }
 
@@ -172,44 +221,38 @@ namespace GraduationProject.Models
 
         }
 
-        public List<Address> Get(ConnectionHelper connectionHelper, string anamal)
+        /// <summary>
+        /// Адреси стойността на чиито оказана колона има стоност по-голяма от 0
+        /// </summary>
+        /// <param name="connectionHelper"></param>
+        /// <param name="columnName"></param>
+        /// <returns></returns>
+        public List<Address> Get(ConnectionHelper connectionHelper, string columnName)
         {
-            string query = $"{selectClause} FROM Addresses, Streets WHERE Streets.id = Addresses.streetId AND {anamal} > 0";
+            string query = $"{selectClause} FROM Addresses, Streets WHERE Streets.id = Addresses.streetId AND {columnName} > 0";
 
             connectionHelper.NewConnection(query);
             return ExecuteGetQuery(connectionHelper);
         }
 
-
-        public List<Address> Get(ConnectionHelper connectionHelper)
+        public List<Address> Get(ConnectionHelper connectionHelper, Dog.DogType dogType = Dog.DogType.All)
         {
-            string query = @$"{selectClause} FROM Addresses, Streets 
-                            WHERE Addresses.streetId = Streets.id 
-                            ORDER BY  name, number";
-               
+            string dogTypeCondition = dogType == Dog.DogType.All ? "" : " AND Dogs.type = @type";
+            string query = $@"{selectClause} FROM Addresses, Dogs, Streets
+                            WHERE Addresses.streetId = Streets.id AND Dogs.addressId = Addresses.id{dogTypeCondition} ORDER BY  name, number";
+
             connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@type",dogType);
 
             return ExecuteGetQuery(connectionHelper);
         }
 
-        
-        private List<Address> ExecuteGetQuery(ConnectionHelper connectionHelper)
-        {
-            List<Address> addresses = new List<Address>();
-            Address address;
-            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
-            while (reader.Read())
-            {
-                address = new Address();
-                address.Fill(reader);
-                addresses.Add(address);
-
-            }
-            reader.Close();
-            connectionHelper.sqlConnection.Close();
-            return addresses;
-
-        }
+        /// <summary>
+        /// Адрес с оказаното id
+        /// </summary>
+        /// <param name="connectionHelper"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Address Get(ConnectionHelper connectionHelper, int id)
         {
             Address address = new Address();
@@ -233,6 +276,13 @@ namespace GraduationProject.Models
             return address;
         }
 
+        /// <summary>
+        /// Адрес по оказана улица и номер
+        /// </summary>
+        /// <param name="connectionHelper"></param>
+        /// <param name="streetId"></param>
+        /// <param name="number"></param>
+        /// <returns></returns>
         public Address Get(ConnectionHelper connectionHelper, int streetId, int number)
         {
 
@@ -257,26 +307,78 @@ namespace GraduationProject.Models
             return address;
         }
 
+        /// <summary>
+        /// Адреси с оказаната обитаемост
+        /// </summary>
+        /// <param name="connectionHelper"></param>
+        /// <param name="addressHabitabillity"></param>
+        /// <returns></returns>
+        public List<Address> Get(ConnectionHelper connectionHelper, Habitability addressHabitabillity)
+        {
+            string query = @$"{selectClause} FROM Addresses, Streets 
+                            WHERE Streets.id = Addresses.streetId AND Addresses.habitability = @habitability";
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@habitability", addressHabitabillity);
+            return ExecuteGetQuery(connectionHelper);
+        }
+       
+        /// <summary>
+        /// Адреси с посочена карантина.
+        /// </summary>
+        /// <param name="connectionHelper"></param>
+        /// <param name="animal"></param>
+        /// <returns></returns>
+        public List<Address> Get(ConnectionHelper connectionHelper, AnimalsQuarantine.AnimalEnum animal)
+        {
+            
+            string query = @$"{selectClause} FROM Addresses, Streets, AnimalsQuarantines
+                            WHERE Streets.id = Addresses.streetId AND AnimalsQuarantines.addressId = Addresses.id
+                            AND AnimalsQuarantines.animal = @animal";
+
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@animal", animal);
+            return ExecuteGetQuery(connectionHelper);
+        }
+
+        public List<Address> GetAddressesWithQuarantines(ConnectionHelper connectionHelper)
+        {
+
+            string query = @$"{selectClause} FROM Addresses, Streets, Inhabitants, InhabitantsQuarantines
+                            WHERE Streets.id = Addresses.streetId AND InhabitantsQuarantines.inhabitantId = Inhabitants.id
+                            AND Inhabitants.addressId = Addresses.id";
+
+            connectionHelper.NewConnection(query);
+            return ExecuteGetQuery(connectionHelper);
+        }
+
+
+        private List<Address> ExecuteGetQuery(ConnectionHelper connectionHelper)
+        {
+            List<Address> addresses = new List<Address>();
+            Address address;
+            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                address = new Address();
+                address.Fill(reader);
+                addresses.Add(address);
+            }
+            reader.Close();
+            connectionHelper.sqlConnection.Close();
+            return addresses;
+        }
 
         //DELETE
         public void Delete(ConnectionHelper connectionHelper)
         {
             new Dog().Delete(connectionHelper, this);
-            new Person().Delete(connectionHelper, this);
-            new Resident().Delete(connectionHelper, this);
-
-            foreach (Person person in new Person().Get(connectionHelper, this, AddressType.Current))
-            {
-                person.CurrentAddressId = -1;
-                person.Update(connectionHelper);
-            }
-            foreach (Resident resident in new Resident().Get(connectionHelper, this, AddressType.Current))
+            new Inhabitant().Delete(connectionHelper, this);
+            
+            foreach (Inhabitant resident in new Inhabitant().Get(connectionHelper, this, AddressType.Current))
             {
                 resident.CurrentAddressId = -1;
                 resident.Update(connectionHelper);
             }
-
-
 
             string query = "DELETE FROM Addresses WHERE id = @id";
             connectionHelper.NewConnection(query);
@@ -289,11 +391,12 @@ namespace GraduationProject.Models
         public void Update(ConnectionHelper connectionHelper)
         {
             string query = @"UPDATE Addresses
-                            SET streetId = @strId,      number = @num,              squaring = @sq,
-                                habitallity = @hab,     numResBuildings = @numRes,  numAgrBuildings = @numAgr,
-                                numCows = @numCows,     numSheep = @numSheep,       numGoats = @numGoats,
-                                numHorses = @numHorses, numDonkeys = @numDonkeys,   numFeathered = @numFeathered,
-                                numPigs = @numPigs,     numWalnutTrees = @numWalnut
+                            SET streetId = @strId,      number = @num,                  squaring = @sq,
+                                habitability = @hab,     numResBuildings = @numRes,     numAgrBuildings = @numAgr,
+                                numCows = @numCows,     numSheep = @numSheep,           numGoats = @numGoats,
+                                numHorses = @numHorses, numDonkeys = @numDonkeys,       numFeathered = @numFeathered,
+                                numPigs = @numPigs,     numWalnutTrees = @numWalnut,    numMulberryTrees = @mulberry,
+                                numOldTrees = @old,     numCenturyOldTrees = @century,  note = @note
                              WHERE id = @id";
 
             connectionHelper.NewConnection(query);
@@ -313,6 +416,10 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@numFeathered", NumFeathered);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@numPigs", NumPigs);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@numWalnut", NumWalnutTrees);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@mulberry", NumMulberryTrees);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@old", NumOldTrees);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@century", NumCenturyOldTrees);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@note", Note);
 
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();

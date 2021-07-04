@@ -14,7 +14,7 @@ namespace GraduationProject
         Address address;
         List<Address> addresses;
         List<Person> guests;
-        List<Resident> residents;
+        List<Inhabitant> residents;
         List<Street> streets;
         List<Dog> dogs;
         Panel selectedTab;
@@ -37,19 +37,20 @@ namespace GraduationProject
             if ( selectedTab == panelSearch || !AddressExist(streets[listBoxStreets.SelectedIndex], (int)numericUpDownNumber.Value))
             {
                 int habitabillityValue;
-                if ((habitabillityValue = GetGroupBoxValue(radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry)) != -1)
+                if ((habitabillityValue = GetGroupBoxValue(radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry, radioButtonOutOfRegulation)) != -1)
                 {
                     errorProvider.SetError(groupBoxHabitabillity, "");
                     if (panelAdd == selectedTab)
                     {
                         address = new Address();
+                        address.StreetId = streets[listBoxStreets.SelectedIndex].Id;
+
                     }
 
 
-                    address.StreetId = streets[listBoxStreets.SelectedIndex].Id;
                     address.Number = (int)numericUpDownNumber.Value;
                     address.Squaring = (double)numericUpDownSquaring.Value;
-                    address.Habitallity = habitabillityValue;
+                    address.Habitallity = (Address.AddressHabitability)habitabillityValue;
                     address.NumResBuildings = (int)numericUpDownResBuildings.Value;
                     address.NumAgrBuildings = (int)numericUpDownAgrBuildings.Value;
                     address.NumCows = (int)numericUpDownCows.Value;
@@ -90,7 +91,7 @@ namespace GraduationProject
                 guest.Insert(connectionHelper);
             }
 
-            foreach (Resident resident in residents)
+            foreach (Inhabitant resident in residents)
             {
                 resident.AddressId = addressId;
                 resident.Insert(connectionHelper);
@@ -159,7 +160,7 @@ namespace GraduationProject
         {
             numericUpDownNumber.Enabled = true;
             buttonDeleteAddr.Enabled = false;
-            residents = new List<Resident>();
+            residents = new List<Inhabitant>();
             guests = new List<Person>();
             dogs = new List<Dog>();
             dataGridView.RowCount = 0;
@@ -179,7 +180,7 @@ namespace GraduationProject
             textBoxDogs.Text = "0";
             labelStreetName.Text = streets[listBoxStreets.SelectedIndex].Name;
 
-            RadioButton[] radioButtons = new RadioButton[] { radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry };
+            RadioButton[] radioButtons = new RadioButton[] { radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry, radioButtonOutOfRegulation };
             foreach (RadioButton radioButton in radioButtons)
             {
                 if (radioButton.Checked)
@@ -206,9 +207,9 @@ namespace GraduationProject
             numericUpDownPigs.Value = address.NumPigs;
             numericUpDownWalnut.Value = address.NumWalnutTrees;
             labelStreetName.Text = address.streetName;
-            SetGroupBoxValue(address.Habitallity, radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry);
+            SetGroupBoxValue((int)address.Habitallity, radioButtonDesolate, radioButtonInhabited, radioButtonTemporariry, radioButtonOutOfRegulation);
 
-            residents = new Resident().Get(connectionHelper, address);
+            residents = new Inhabitant().Get(connectionHelper, address);
             guests = new Person().Get(connectionHelper, address);
             RefreshDataGrid();
 
@@ -355,7 +356,7 @@ namespace GraduationProject
             {
                 if (personsForm.isResident)
                 {
-                    residents.Add(personsForm.getNewResident);
+                    //residents.Add(personsForm.getNewResident);
                 }
                 else
                     guests.Add(personsForm.getNewGuest);
@@ -366,10 +367,10 @@ namespace GraduationProject
             {
                 if (personsForm.isResident)
                 {
-                    Resident newRes = personsForm.getNewResident;
-                    newRes.AddressId = address.Id;
-                    newRes.Insert(connectionHelper);
-                    residents = new Resident().Get(connectionHelper, address);
+                    //Inhabitant newRes = personsForm.getNewResident;
+                    //newRes.AddressId = address.Id;
+                    //newRes.Insert(connectionHelper);
+                    residents = new Inhabitant().Get(connectionHelper, address);
                 }
                 else
                 {
