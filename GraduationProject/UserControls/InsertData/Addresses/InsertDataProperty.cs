@@ -15,6 +15,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
     {
         ConnectionHelper connectionHelper = new ConnectionHelper();
         Button activeButton;
+        bool dontTriggerChangeEvent = true;
 
         InsertDataAddress.AddressData addressData;
 
@@ -50,7 +51,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             else
             {
                 addressData.dogs = new List<Dog>();
-                
+
             }
 
             ShowDogs();
@@ -61,7 +62,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             {
                 foreach (ComboBox comboBox in panel.Controls.OfType<ComboBox>())
                 {
-                    if(comboBox.Items.Count != 0)
+                    if (comboBox.Items.Count != 0)
                         comboBox.SelectedIndex = 0;
                     comboBox.DrawItem += comboBox_DrawItem;
                 }
@@ -69,6 +70,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             comboBoxHabitability.DrawItem += comboBox_DrawItem;
             comboBoxHabitability.Text = habitabilityDict.FirstOrDefault(entry => EqualityComparer<Address.Habitability>.Default.Equals(entry.Value, addressData.address.Habitallity)).Key;
             numericUpDownFeathererd.Value = addressData.address.NumFeathered;
+            dontTriggerChangeEvent = false;
         }
 
         /// <summary>
@@ -149,10 +151,8 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                 {
                     dataGridViewComboBox.Items.Add(item);
                 }
-                    dataGridViewComboBox.Value = dogDict.FirstOrDefault(entry => EqualityComparer<Dog.DogType>.Default.Equals(entry.Value, addressData.dogs[i].Type)).Key;
+                dataGridViewComboBox.Value = dogDict.FirstOrDefault(entry => EqualityComparer<Dog.DogType>.Default.Equals(entry.Value, addressData.dogs[i].Type)).Key;
 
-                DataGridViewButtonCell dataGridViewButtonCell = dataGridViewDogs.Rows[i].Cells[2] as DataGridViewButtonCell;
-                
             }
         }
 
@@ -190,7 +190,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             switch (comboBoxDomesticAnimals.Text)
             {
                 case "Крави":
-                     numericUpDownDomesticAnimals.Value = addressData.address.NumCows;
+                    numericUpDownDomesticAnimals.Value = addressData.address.NumCows;
                     break;
                 case "Овце":
                     numericUpDownDomesticAnimals.Value = addressData.address.NumSheep;
@@ -301,22 +301,17 @@ namespace GraduationProject.UserControls.InsertData.Addresses
 
         private void buttonAddDog_Click(object sender, EventArgs e)
         {
+            dontTriggerChangeEvent = true;
             Dog dog = new Dog();
-            Regex rx = new Regex(@"^\d{15}$");
 
             if (checkBoxDogNoNumber.Checked)
             {
+
                 dog.SealNumber = null;
             }
             else if (textBoxDogNumber.Text.Trim() == "")
             {
                 labelDogsError.Text = "Моля въведете номер или изберете опцията \"няма номер\"!";
-                labelDogsError.Visible = true;
-                return;
-            }
-            else if (!rx.IsMatch(textBoxDogNumber.Text))
-            {
-                labelDogsError.Text = "Невалиден номер!";
                 labelDogsError.Visible = true;
                 return;
             }
@@ -326,6 +321,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                 dog.SealNumber = textBoxDogNumber.Text;
 
             }
+            labelDogsError.Text = "";
             dog.Type = dogDict[comboBoxDogTypeEdit.Text];
             addressData.dogs.Add(dog);
             if (addressData.address.Id != 0)
@@ -334,6 +330,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                 dog.Insert(connectionHelper);
             }
             ShowDogs();
+            dontTriggerChangeEvent = false;
         }
 
         private void dataGridViewDogs_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -357,6 +354,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
 
         private void dataGridViewDogs_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            dontTriggerChangeEvent = true;
             if (e.RowIndex < 0) return;
             if (e.ColumnIndex == 2)
             {
@@ -368,6 +366,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                 ShowDogs();
             }
 
+            dontTriggerChangeEvent = false;
         }
 
         private void comboBox_DrawItem(object sender, DrawItemEventArgs e)
@@ -392,13 +391,10 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                                           new Point(e.Bounds.X, e.Bounds.Y));
         }
 
-        private void panelAnimals_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void richTextBoxNotes_TextChanged(object sender, EventArgs e)
         {
+            if (dontTriggerChangeEvent) return;
             addressData.address.Note = richTextBoxNotes.Text;
         }
 
@@ -412,10 +408,12 @@ namespace GraduationProject.UserControls.InsertData.Addresses
 
         private void dataGridViewDogs_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            if (dontTriggerChangeEvent) return;
+            dontTriggerChangeEvent = true;
             if (e.RowIndex < 0) return;
+            DataGridViewCell cell = dataGridViewDogs.Rows[e.RowIndex].Cells[e.ColumnIndex];
             if (e.ColumnIndex == 0)
             {
-                DataGridViewCell cell = dataGridViewDogs.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 if (cell.Value == null || cell.Value.ToString() == "Няма номер" || cell.Value.ToString().Trim() == "")
                 {
                     cell.Value = "Няма номер";
@@ -426,10 +424,19 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                     addressData.dogs[e.RowIndex].SealNumber = cell.Value.ToString();
                 }
             }
+            else if (e.ColumnIndex == 1)
+            {
+                addressData.dogs[e.RowIndex].Type = dogDict[cell.Value.ToString()];
+
+            }
             if (addressData.address.Id != 0)
             {
                 addressData.dogs[e.RowIndex].Update(connectionHelper);
             }
+            ShowDogs();
+            dontTriggerChangeEvent = false;
         }
+
+
     }
 }

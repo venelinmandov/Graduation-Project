@@ -44,6 +44,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private void ShowCreateControls()
         {
             buttonSave.Visible = true;
+            buttonDelete.Visible = false;
             numericUpDownNumber.Visible = true;
             comboBoxNumber.Visible = false;
         }
@@ -53,6 +54,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private void ShowEditControls()
         {
             buttonSave.Visible = false;
+            buttonDelete.Visible = true;
             numericUpDownNumber.Visible = false;
             comboBoxNumber.Visible = true;
         }
@@ -189,6 +191,18 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                 addressData.inhabitants = new Inhabitant().Get(connectionHelper, addressData.address);
             }
         }
-     
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (mode == "edit")
+            {
+                DialogResult dialogResult = MessageBox.Show("Сигурни ли сте, че искате да изтриете адреса?", "Изтриване на адрес", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.OK)
+                {
+                    addressData.address.Delete(connectionHelper);
+                    ShowAddresses();
+                }
+            }
+        }
     }
 }

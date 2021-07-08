@@ -23,7 +23,7 @@ namespace GraduationProject.Models
         public int NumMulberryTrees { get; set; } = 0;
         public int NumOldTrees { get; set; } = 0;
         public int NumCenturyOldTrees { get; set; } = 0;
-        public string Note { get; set; }
+        public string Note { get; set; } = "";
 
         public string streetName;
 

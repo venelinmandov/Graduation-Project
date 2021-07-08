@@ -29,6 +29,8 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelAddress = new System.Windows.Forms.Label();
             this.labelHabitabillity = new System.Windows.Forms.Label();
             this.labelSquaring = new System.Windows.Forms.Label();
@@ -347,7 +349,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.panelAnimals.Name = "panelAnimals";
             this.panelAnimals.Size = new System.Drawing.Size(712, 300);
             this.panelAnimals.TabIndex = 17;
-            this.panelAnimals.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAnimals_Paint);
             // 
             // labelDogsNumber
             // 
@@ -547,16 +548,21 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.dataGridViewDogs.AllowUserToDeleteRows = false;
             this.dataGridViewDogs.AllowUserToResizeColumns = false;
             this.dataGridViewDogs.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.dataGridViewDogs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewDogs.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridViewDogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDogs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnNumber,
             this.ColumnType,
             this.ColumnDelete});
-            this.dataGridViewDogs.Location = new System.Drawing.Point(339, 31);
+            this.dataGridViewDogs.Location = new System.Drawing.Point(353, 31);
             this.dataGridViewDogs.Name = "dataGridViewDogs";
             this.dataGridViewDogs.RowHeadersVisible = false;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.dataGridViewDogs.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewDogs.RowTemplate.Height = 25;
-            this.dataGridViewDogs.Size = new System.Drawing.Size(361, 245);
+            this.dataGridViewDogs.Size = new System.Drawing.Size(328, 245);
             this.dataGridViewDogs.TabIndex = 14;
             this.dataGridViewDogs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDogs_CellClick);
             this.dataGridViewDogs.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewDogs_CellPainting);
@@ -564,9 +570,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // ColumnNumber
             // 
+            this.ColumnNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ColumnNumber.HeaderText = "Номер";
             this.ColumnNumber.Name = "ColumnNumber";
-            this.ColumnNumber.Width = 150;
             // 
             // ColumnType
             // 
@@ -615,7 +621,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "InsertDataProperty";
             this.Size = new System.Drawing.Size(1081, 329);
-            this.VisibleChanged += new System.EventHandler(this.InsertDataProperty_VisibleChanged);
             this.panelBuildings.ResumeLayout(false);
             this.panelBuildings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBuildings)).EndInit();

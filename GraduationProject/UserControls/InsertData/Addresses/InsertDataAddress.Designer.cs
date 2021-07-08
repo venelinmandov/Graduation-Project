@@ -39,6 +39,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelAddressExists = new System.Windows.Forms.Label();
             this.comboBoxNumber = new System.Windows.Forms.ComboBox();
+            this.buttonDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumber)).BeginInit();
             this.SuspendLayout();
             // 
@@ -170,11 +171,26 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.comboBoxNumber.TabIndex = 25;
             this.comboBoxNumber.SelectedIndexChanged += new System.EventHandler(this.comboBoxNumber_SelectedIndexChanged);
             // 
+            // buttonDelete
+            // 
+            this.buttonDelete.FlatAppearance.BorderSize = 0;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Image = global::GraduationProject.Properties.Resources.deleteIcon;
+            this.buttonDelete.Location = new System.Drawing.Point(331, 267);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(108, 29);
+            this.buttonDelete.TabIndex = 26;
+            this.buttonDelete.Text = "Изтриване";
+            this.buttonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
             // InsertDataAddress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.labelAddressExists);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonProperty);
@@ -206,5 +222,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Label labelAddressExists;
         private System.Windows.Forms.ComboBox comboBoxNumber;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }
