@@ -28,20 +28,33 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             mode = "create";
             this.addressData = addressData;
             LoadStreets();
-            buttonSave.Visible = true;
-            numericUpDownNumber.Visible = true;
-            comboBoxNumber.Visible = false;
+            ShowCreateControls();
             labelTitle.Text = "Нов адрес";
         }
+
         public InsertDataAddress()
         {
             InitializeComponent();
             mode = "edit";
             LoadStreets();
+            ShowEditControls();
+            labelTitle.Text = "Редактиране на адрес";
+        }
+
+        private void ShowCreateControls()
+        {
+            buttonSave.Visible = true;
+            numericUpDownNumber.Visible = true;
+            comboBoxNumber.Visible = false;
+        }
+
+        
+
+        private void ShowEditControls()
+        {
             buttonSave.Visible = false;
             numericUpDownNumber.Visible = false;
             comboBoxNumber.Visible = true;
-            labelTitle.Text = "Редактиране на адрес";
         }
 
         public struct AddressData
@@ -155,13 +168,27 @@ namespace GraduationProject.UserControls.InsertData.Addresses
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            addressData.address.Insert(connectionHelper);
-            foreach (Dog dog in addressData.dogs)
+            if (mode == "create")
             {
-                dog.AddressId = addressData.address.Id;
-                dog.Insert(connectionHelper);
+                addressData.address.Insert(connectionHelper);
+                foreach (Dog dog in addressData.dogs)
+                {
+                    dog.AddressId = addressData.address.Id;
+                    dog.Insert(connectionHelper);
+                }
+                ShowAddresses();
             }
-            ShowAddresses();
         }
+
+        private void comboBoxNumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (mode == "edit")
+            {
+                addressData.address = addresses[comboBoxNumber.SelectedIndex];
+                addressData.dogs = new Dog().Get(connectionHelper, addressData.address);
+                addressData.inhabitants = new Inhabitant().Get(connectionHelper, addressData.address);
+            }
+        }
+     
     }
 }

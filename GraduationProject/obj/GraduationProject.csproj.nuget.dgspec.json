@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\repos\\GraduationProject\\GraduationProject\\GraduationProject.csproj": {}
+    "D:\\repos\\Graduation-Project\\GraduationProject\\GraduationProject.csproj": {}
   },
   "projects": {
-    "D:\\repos\\GraduationProject\\GraduationProject\\GraduationProject.csproj": {
+    "D:\\repos\\Graduation-Project\\GraduationProject\\GraduationProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\repos\\GraduationProject\\GraduationProject\\GraduationProject.csproj",
+        "projectUniqueName": "D:\\repos\\Graduation-Project\\GraduationProject\\GraduationProject.csproj",
         "projectName": "GraduationProject",
-        "projectPath": "D:\\repos\\GraduationProject\\GraduationProject\\GraduationProject.csproj",
+        "projectPath": "D:\\repos\\Graduation-Project\\GraduationProject\\GraduationProject.csproj",
         "packagesPath": "C:\\Users\\Venko-PC\\.nuget\\packages\\",
-        "outputPath": "D:\\repos\\GraduationProject\\GraduationProject\\obj\\",
+        "outputPath": "D:\\repos\\Graduation-Project\\GraduationProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -293,7 +293,9 @@ namespace GraduationProject.Forms
         {
             if (userControls.Count != 0)
             {
-                panelContents.Controls.Remove(userControls.Pop());
+                UserControl userControl = userControls.Pop();
+                userControl.Visible = false;
+                panelContents.Controls.Remove(userControl);
                 if (userControls.Count == 0)
                     pictureBoxBack.Visible = false;
             }

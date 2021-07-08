@@ -139,7 +139,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             this.buttonSave.FlatAppearance.BorderSize = 0;
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSave.Image = global::GraduationProject.Properties.Resources.magnifer_small;
+            this.buttonSave.Image = global::GraduationProject.Properties.Resources.saveIcon;
             this.buttonSave.Location = new System.Drawing.Point(331, 267);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(87, 29);
@@ -168,6 +168,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.comboBoxNumber.Name = "comboBoxNumber";
             this.comboBoxNumber.Size = new System.Drawing.Size(56, 26);
             this.comboBoxNumber.TabIndex = 25;
+            this.comboBoxNumber.SelectedIndexChanged += new System.EventHandler(this.comboBoxNumber_SelectedIndexChanged);
             // 
             // InsertDataAddress
             // 

@@ -560,6 +560,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.dataGridViewDogs.TabIndex = 14;
             this.dataGridViewDogs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDogs_CellClick);
             this.dataGridViewDogs.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewDogs_CellPainting);
+            this.dataGridViewDogs.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDogs_CellValueChanged);
             // 
             // ColumnNumber
             // 
@@ -597,9 +598,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.panelDogs);
             this.Controls.Add(this.panelNotes);
             this.Controls.Add(this.panelAnimals);
-            this.Controls.Add(this.panelDogs);
             this.Controls.Add(this.panelTrees);
             this.Controls.Add(this.panelBuildings);
             this.Controls.Add(this.numericUpDownSquaring);
@@ -614,6 +615,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "InsertDataProperty";
             this.Size = new System.Drawing.Size(1081, 329);
+            this.VisibleChanged += new System.EventHandler(this.InsertDataProperty_VisibleChanged);
             this.panelBuildings.ResumeLayout(false);
             this.panelBuildings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBuildings)).EndInit();

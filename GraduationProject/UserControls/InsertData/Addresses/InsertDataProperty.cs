@@ -18,11 +18,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
 
         InsertDataAddress.AddressData addressData;
 
-        [Browsable(true)]
-        [Category("Action")]
-        [Description("Invoked when inhabitant is clicked")]
-        public EventHandler InhabitantClicked;
-
         Dictionary<string, Address.Habitability> habitabilityDict = new Dictionary<string, Address.Habitability>()
         {
             {"Обитаван", Address.Habitability.Inhabited },
@@ -39,7 +34,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         };
 
 
-        //Конструктури
+        //Конструктор
         public InsertDataProperty(InsertDataAddress.AddressData addressData)
         {
             InitializeComponent();
@@ -72,12 +67,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                 }
             }
             comboBoxHabitability.DrawItem += comboBox_DrawItem;
-            comboBoxHabitability.Text = habitabilityDict.FirstOrDefault(entry => EqualityComparer<Address.Habitability>.Default.Equals(entry.Value, addressData.address.Habitallity)).Key;  
+            comboBoxHabitability.Text = habitabilityDict.FirstOrDefault(entry => EqualityComparer<Address.Habitability>.Default.Equals(entry.Value, addressData.address.Habitallity)).Key;
+            numericUpDownFeathererd.Value = addressData.address.NumFeathered;
         }
-
-        
-
-        
 
         /// <summary>
         /// Показване на панела със постройките
@@ -338,6 +330,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             addressData.dogs.Add(dog);
             if (addressData.address.Id != 0)
             {
+                dog.AddressId = addressData.address.Id;
                 dog.Insert(connectionHelper);
             }
             ShowDogs();
@@ -367,6 +360,10 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             if (e.RowIndex < 0) return;
             if (e.ColumnIndex == 2)
             {
+                if (addressData.address.Id != 0)
+                {
+                    addressData.dogs[e.RowIndex].Delete(connectionHelper);
+                }
                 addressData.dogs.RemoveAt(e.RowIndex);
                 ShowDogs();
             }
@@ -403,6 +400,36 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private void richTextBoxNotes_TextChanged(object sender, EventArgs e)
         {
             addressData.address.Note = richTextBoxNotes.Text;
+        }
+
+        private void InsertDataProperty_VisibleChanged(object sender, EventArgs e)
+        {
+            if (addressData.address.Id != 0)
+            {
+                addressData.address.Update(connectionHelper);
+            }
+        }
+
+        private void dataGridViewDogs_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            if (e.ColumnIndex == 0)
+            {
+                DataGridViewCell cell = dataGridViewDogs.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                if (cell.Value == null || cell.Value.ToString() == "Няма номер" || cell.Value.ToString().Trim() == "")
+                {
+                    cell.Value = "Няма номер";
+                    addressData.dogs[e.RowIndex].SealNumber = null;
+                }
+                else
+                {
+                    addressData.dogs[e.RowIndex].SealNumber = cell.Value.ToString();
+                }
+            }
+            if (addressData.address.Id != 0)
+            {
+                addressData.dogs[e.RowIndex].Update(connectionHelper);
+            }
         }
     }
 }

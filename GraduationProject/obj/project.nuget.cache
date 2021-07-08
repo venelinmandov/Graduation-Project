@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Xi56tpoGGPSyMMlSwAW/M2SVK3Vadd2D2gRU9EL06lo/kLMUzNRyehA/R0x2SrQJIxWSGHsJEBsL9+pnTk66Ag==",
+  "dgSpecHash": "4XkDncLDEuKB26GXc/z/uyksHa5NcPQEqhMcJhyTXtTKrAywN3y7wr1i7PqcfIb8ntVCEWvoe5TXCzb+W/ZRBw==",
   "success": true,
-  "projectFilePath": "D:\\repos\\GraduationProject\\GraduationProject\\GraduationProject.csproj",
+  "projectFilePath": "D:\\repos\\Graduation-Project\\GraduationProject\\GraduationProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Venko-PC\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",
     "C:\\Users\\Venko-PC\\.nuget\\packages\\microsoft.csharp\\4.6.0\\microsoft.csharp.4.6.0.nupkg.sha512",
