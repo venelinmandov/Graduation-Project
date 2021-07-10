@@ -36,29 +36,13 @@ namespace GraduationProject.UserControls.References
         [Description("Invoked when inhabitant is clicked")]
         public EventHandler InhabitantClicked;
 
-        //Конструктури
+        #region  Коструктури
         public ShowAddress(Address address)
         {
             InitializeComponent();
             activeButton = buttonBuildings;
             SetActivePanel(panelBuildings, buttonBuildings);
             DisplayAddress(address);
-        }
-
-        public ShowAddress(Address address, string panel) : this(address)
-        {
-            Button[] buttons = Controls.OfType<Button>().ToArray();
-            foreach (Button button in buttons)
-            {
-                button.Visible = false;
-            }
-
-            switch (panel)
-            {
-                case "animals": SetActivePanel(panelAnimals, buttonAnimals); break;
-                case "trees": SetActivePanel(panelTrees, buttonTrees); break;
-            }
-
         }
 
         public ShowAddress(AnimalAddressData animalAddress) : this(animalAddress.address)
@@ -156,7 +140,10 @@ namespace GraduationProject.UserControls.References
             label[0].ForeColor = Color.FromArgb(91, 120, 65);
             label[1].ForeColor = Color.FromArgb(91, 120, 65);
         }
+        #endregion
 
+        //Методи
+        #region Постройки
         /// <summary>
         /// Показване на панела със постройките
         /// </summary>
@@ -168,27 +155,16 @@ namespace GraduationProject.UserControls.References
         }
 
         /// <summary>
-        /// Показване на панела със селскостопанските животни
+        /// Показване на постройките
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonAnimals_Click(object sender, EventArgs e)
+        /// <param name="address"></param>
+        void ShowBuildings(Address address)
         {
-            SetActivePanel(panelAnimals, (Button)sender);
-
+            labelResidentalValue.Text = address.NumResBuildings.ToString();
+            labelAgriculturalValue.Text = address.NumAgrBuildings.ToString();
         }
-
-        /// <summary>
-        /// Показване на панела със защитените дървестни видове
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonTrees_Click(object sender, EventArgs e)
-        {
-            SetActivePanel(panelTrees, (Button)sender);
-
-        }
-
+        #endregion
+        #region Обитатели
         /// <summary>
         /// Показване на панела със обитателите
         /// </summary>
@@ -198,67 +174,113 @@ namespace GraduationProject.UserControls.References
         {
             SetActivePanel(panelInhabitants, (Button)sender);
         }
-
         /// <summary>
-        /// Показване на панелса със забележките
+        /// Покаване на списък с жителите
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonNotes_Click(object sender, EventArgs e)
+        private void buttonResidents_Click(object sender, EventArgs e)
         {
-            SetActivePanel(panelNotes, (Button)sender);
-
+            Button button = (Button)sender;
+            listBoxResidents.BringToFront();
+            buttonGuests.BackColor = Color.FromArgb(170, 255, 255, 255);
+            buttonGuests.ForeColor = SystemColors.ControlText;
+            button.BackColor = Color.FromArgb(50, 80, 40);
+            button.ForeColor = SystemColors.Control;
         }
 
         /// <summary>
-        /// Показва се избрания панел. И съответния бутон се визуализира като активен.
+        /// Покаване на списък с гостите
         /// </summary>
-        /// <param name="panel"></param>
-        /// <param name="button"></param>
-        void SetActivePanel(Panel panel, Button button)
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonGuests_Click(object sender, EventArgs e)
         {
-            panel.BringToFront();
-            activeButton.BackColor = Color.FromArgb(170, 255, 255, 255);
-            activeButton.ForeColor = SystemColors.ControlText;
-            activeButton = button;
-            activeButton.BackColor = Color.FromArgb(50, 80, 40);
-            activeButton.ForeColor = SystemColors.Control;
-            panel.BringToFront();
+            Button button = (Button)sender;
+            listBoxGuests.BringToFront();
+            buttonResidents.BackColor = Color.FromArgb(170, 255, 255, 255);
+            buttonResidents.ForeColor = SystemColors.ControlText;
+            button.BackColor = Color.FromArgb(50, 80, 40);
+            button.ForeColor = SystemColors.Control;
         }
 
         /// <summary>
-        /// Показване на даните на адреса
+        /// Извличане на обитателите от базата данни 
         /// </summary>
         /// <param name="address"></param>
-        void DisplayAddress(Address address)
+        void ShowInhabitants(Address address)
         {
+            inhabitants = new Inhabitant().Get(connectionHelper, address);
+            residents = (from inhabitant in inhabitants where inhabitant.OwnershipState == Inhabitant.OwnershipStateEnum.Resident select inhabitant).ToList();
+            guests = (from inhabitant in inhabitants where inhabitant.OwnershipState == Inhabitant.OwnershipStateEnum.Guest select inhabitant).ToList();
 
-
-            labelAddress.Text = address.ToString();
-            labelSquaringValue.Text = address.Squaring.ToString();
-            switch (address.Habitallity)
+            List<Inhabitant> owners;
+            if ((owners = (from resident in inhabitants where resident.OwnershipState == Inhabitant.OwnershipStateEnum.Owner select resident).ToList()).Count != 0)
             {
-                case Address.Habitability.Desolate: labelHabitabillityValue.Text = "Пустеещ"; break;
-                case Address.Habitability.Inhabited: labelHabitabillityValue.Text = "Обитаван"; break;
-                case Address.Habitability.TemporaryInhabited: labelHabitabillityValue.Text = "Временно обитаван"; break;
-                case Address.Habitability.OutOfRegulation: labelHabitabillityValue.Text = "Извън регулация"; break;
+                owner = owners[0];
+                labelOwnerFirstnameValue.Text = owner.Firstname;
+                labelOwnerMiddlenameValue.Text = owner.Middlename;
+                labelOwnerLastnameValue.Text = owner.Lastname;
+            }
+            else
+            {
+                labelOwnerFirstname.Text = "Няма";
+                labelOwnerFirstnameValue.Visible = false;
+                labelOwnerMiddlename.Visible = false;
+                labelOwnerMiddlenameValue.Visible = false;
+                labelOwnerLastname.Visible = false;
+                labelOwnerLastnameValue.Visible = false;
+                buttonShowOwner.Visible = false;
             }
 
-            ShowBuildings(address);
-            ShowAnimals(address);
-            ShowTrees(address);
-            ShowInhabitants(address);
-            richTextBoxNotes.Text = address.Note;
+            listBoxResidents.AddList(residents.Cast<object>().ToList());
+            listBoxGuests.AddList(guests.Cast<object>().ToList());
+
         }
 
         /// <summary>
-        /// Показване на сградите
+        /// Избран е жител от списъка в жители
         /// </summary>
-        /// <param name="address"></param>
-        void ShowBuildings(Address address)
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listBoxResidents_ItemClicked(object sender, EventArgs e)
         {
-            labelResidentalValue.Text = address.NumResBuildings.ToString();
-            labelAgriculturalValue.Text = address.NumAgrBuildings.ToString();
+            int selectedIndex = (int)sender;
+            InhabitantClicked(new MainForm.EventData("showInhabitant", residents[selectedIndex]), e);
+        }
+
+        /// <summary>
+        /// Избран е гост от списъка с гости
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listBoxGuests_ItemClicked(object sender, EventArgs e)
+        {
+            int selectedIndex = (int)sender;
+            InhabitantClicked(new MainForm.EventData("showInhabitant", guests[selectedIndex]), e);
+        }
+
+        /// <summary>
+        /// Избран е собственика
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonShowOwner_Click(object sender, EventArgs e)
+        {
+            InhabitantClicked(new MainForm.EventData("showInhabitant", owner), e);
+
+        }
+        #endregion
+        #region Селскостопански животни
+        /// <summary>
+        /// Показване на панела със селскостопанските животни
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonAnimals_Click(object sender, EventArgs e)
+        {
+            SetActivePanel(panelAnimals, (Button)sender);
+
         }
 
         /// <summary>
@@ -287,6 +309,17 @@ namespace GraduationProject.UserControls.References
             labelHuntingDogsValue.Text = huntingDogs.ToString();
             labelDomesticDogsValue.Text = domesticDogs.ToString();
         }
+        #endregion
+        #region Защитени дървестни видове
+        /// <summary>
+        /// Показване на панела със защитените дървестни видове
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonTrees_Click(object sender, EventArgs e)
+        {
+            SetActivePanel(panelTrees, (Button)sender);
+        }
 
         /// <summary>
         /// Показване на дърветата със специален статут
@@ -299,80 +332,58 @@ namespace GraduationProject.UserControls.References
             labelOldTreesValue.Text = address.NumOldTrees.ToString();
             labelCenturyOldTreesValue.Text = address.NumCenturyOldTrees.ToString();
         }
-
-        private void buttonResidents_Click(object sender, EventArgs e)
+        #endregion
+        #region Забележки
+        /// <summary>
+        /// Показване на панела със забележките
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonNotes_Click(object sender, EventArgs e)
         {
-            Button button = (Button)sender;
-            listBoxResidents.BringToFront();
-            buttonGuests.BackColor = Color.FromArgb(170, 255, 255, 255);
-            buttonGuests.ForeColor = SystemColors.ControlText;
-            button.BackColor = Color.FromArgb(50, 80, 40);
-            button.ForeColor = SystemColors.Control;
+            SetActivePanel(panelNotes, (Button)sender);
+
+        }
+        #endregion
+        #region Други методи
+        /// <summary>
+        /// Показва се избрания панел. И съответния бутон се визуализира като активен.
+        /// </summary>
+        /// <param name="panel"></param>
+        /// <param name="button"></param>
+        void SetActivePanel(Panel panel, Button button)
+        {
+            panel.BringToFront();
+            activeButton.BackColor = Color.FromArgb(170, 255, 255, 255);
+            activeButton.ForeColor = SystemColors.ControlText;
+            activeButton = button;
+            activeButton.BackColor = Color.FromArgb(50, 80, 40);
+            activeButton.ForeColor = SystemColors.Control;
+            panel.BringToFront();
         }
 
-        private void buttonGuests_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Показване на даните на адреса
+        /// </summary>
+        /// <param name="address"></param>
+        void DisplayAddress(Address address)
         {
-            Button button = (Button)sender;
-            listBoxGuests.BringToFront();
-            buttonResidents.BackColor = Color.FromArgb(170, 255, 255, 255);
-            buttonResidents.ForeColor = SystemColors.ControlText;
-            button.BackColor = Color.FromArgb(50, 80, 40);
-            button.ForeColor = SystemColors.Control;
-        }
-
-        void ShowInhabitants(Address address)
-        {
-            inhabitants = new Inhabitant().Get(connectionHelper, address);
-            residents = (from inhabitant in inhabitants where inhabitant.OwnershipState == Inhabitant.OwnershipStateEnum.Resident select inhabitant).ToList();
-            guests = (from inhabitant in inhabitants where inhabitant.OwnershipState == Inhabitant.OwnershipStateEnum.Guest select inhabitant).ToList();
-
-            List<Inhabitant> owners;
-            if ((owners = (from resident in inhabitants where resident.OwnershipState == Inhabitant.OwnershipStateEnum.Owner select resident).ToList()).Count != 0)
+            labelAddress.Text = address.ToString();
+            labelSquaringValue.Text = address.Squaring.ToString();
+            switch (address.Habitallity)
             {
-                owner = owners[0];
-                labelOwnerFirstnameValue.Text = owner.Firstname;
-                labelOwnerMiddlenameValue.Text = owner.Middlename;
-                labelOwnerLastnameValue.Text = owner.Lastname;
-
-
-            }
-            else
-            {
-                labelOwnerFirstname.Text = "Няма";
-                labelOwnerFirstnameValue.Visible = false;
-                labelOwnerMiddlename.Visible = false;
-                labelOwnerMiddlenameValue.Visible = false;
-                labelOwnerLastname.Visible = false;
-                labelOwnerLastnameValue.Visible = false;
-                buttonShowOwner.Visible = false;
+                case Address.Habitability.Desolate: labelHabitabillityValue.Text = "Пустеещ"; break;
+                case Address.Habitability.Inhabited: labelHabitabillityValue.Text = "Обитаван"; break;
+                case Address.Habitability.TemporaryInhabited: labelHabitabillityValue.Text = "Временно обитаван"; break;
+                case Address.Habitability.OutOfRegulation: labelHabitabillityValue.Text = "Извън регулация"; break;
             }
 
-            listBoxResidents.AddList(residents.Cast<object>().ToList());
-            listBoxGuests.AddList(guests.Cast<object>().ToList());
-
+            ShowBuildings(address);
+            ShowAnimals(address);
+            ShowTrees(address);
+            ShowInhabitants(address);
+            richTextBoxNotes.Text = address.Note;
         }
-
-        private void listBoxResidents_ItemClicked(object sender, EventArgs e)
-        {
-            int selectedIndex = (int)sender;
-            InhabitantClicked(new MainForm.EventData("showInhabitant", residents[selectedIndex]), e);
-        }
-
-        private void listBoxGuests_ItemClicked(object sender, EventArgs e)
-        {
-            int selectedIndex = (int)sender;
-            InhabitantClicked(new MainForm.EventData("showInhabitant", guests[selectedIndex]), e);
-        }
-
-        private void buttonShowOwner_Click(object sender, EventArgs e)
-        {
-            InhabitantClicked(new MainForm.EventData("showInhabitant", owner), e);
-
-        }
-
-        private void labelDonkeys_Click(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
     }
 }

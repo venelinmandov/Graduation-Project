@@ -686,7 +686,6 @@ namespace GraduationProject.UserControls.References
             this.labelDonkeys.Size = new System.Drawing.Size(98, 19);
             this.labelDonkeys.TabIndex = 20;
             this.labelDonkeys.Text = "- Магарета:";
-            this.labelDonkeys.Click += new System.EventHandler(this.labelDonkeys_Click);
             // 
             // labelHorses
             // 

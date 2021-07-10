@@ -14,14 +14,27 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         List<Address> addresses;
         List<Street> streets;
         ConnectionHelper connectionHelper = new ConnectionHelper();
-        string mode;
+        string mode; //Режим (редактиране или създаване на адрес)
+        public struct AddressData
+        {
+            public Address address;
+            public List<Inhabitant> inhabitants;
+            public List<Dog> dogs;
+
+            public void Intialize()
+            {
+                address = new Address();
+                inhabitants = new List<Inhabitant>();
+                dogs = new List<Dog>();
+            }
+        }
 
         [Browsable(true)]
         [Category("Action")]
         [Description("Invoked when button is clicked")]
         public event EventHandler ButtonClicked;
 
-
+        //Конструктори
         public InsertDataAddress(AddressData addressData)
         {
             InitializeComponent();
@@ -41,6 +54,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             labelTitle.Text = "Редактиране на адрес";
         }
 
+        /// <summary>
+        /// Показване на контролите при създаване на адрес
+        /// </summary>
         private void ShowCreateControls()
         {
             buttonSave.Visible = true;
@@ -49,8 +65,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             comboBoxNumber.Visible = false;
         }
 
-        
-
+        /// <summary>
+        /// Показване на контролите при редактиране на адрес
+        /// </summary>
         private void ShowEditControls()
         {
             buttonSave.Visible = false;
@@ -59,20 +76,11 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             comboBoxNumber.Visible = true;
         }
 
-        public struct AddressData
-        {
-            public Address address;
-            public List<Inhabitant> inhabitants;
-            public List<Dog> dogs;
 
-            public void Intialize()
-            {
-                address = new Address();
-                inhabitants = new List<Inhabitant>();
-                dogs = new List<Dog>();
-            }
-        }
 
+        /// <summary>
+        /// Извличане на всички улици от базата данни
+        /// </summary>
         void LoadStreets()
         {
             streets = new Street().Get(connectionHelper);
@@ -80,6 +88,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             comboBoxStreet.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Проверка дали избрания адрес съществува
+        /// </summary>
         void CheckAddressExist()
         {
             var addresssesToCheck = from address in addresses
@@ -101,12 +112,19 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             }
         }
 
-
+        /// <summary>
+        /// Избрана е улица от комбобокса за избор на улица
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxStreet_SelectedIndexChanged(object sender, EventArgs e)
         {
             ShowAddresses();
         }
 
+        /// <summary>
+        /// Извличане на адресите на избраната улица от базата данни
+        /// </summary>
         private void ShowAddresses()
         {
             comboBoxNumber.Items.Clear();
@@ -132,6 +150,11 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             }
         }
 
+        /// <summary>
+        /// Въведен е номер на адрес (при създаване на адрес)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void numericUpDownNumber_ValueChanged(object sender, EventArgs e)
         {
             if (mode == "create")
@@ -141,12 +164,22 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             }
         }
 
+        /// <summary>
+        /// Отваряне на менюто за редактиране на данните на имота
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonProperty_Click(object sender, EventArgs e)
         {
             ButtonClicked(new Forms.MainForm.EventData("propertyData", addressData), e);
         }
 
-        private void comboBoxStreet_DrawItem(object sender, DrawItemEventArgs e)
+        /// <summary>
+        /// Изчертаване на елемент от комбобокс
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboBox_DrawItem(object sender, DrawItemEventArgs e)
         {
             if (e.Index == -1) return;
             var combo = sender as ComboBox;
@@ -168,6 +201,12 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                                           new Point(e.Bounds.X, e.Bounds.Y));
         }
 
+
+        /// <summary>
+        /// Натиснат е бутона за запис на адреса (при създаване на нов дарес)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonSave_Click(object sender, EventArgs e)
         {
             if (mode == "create")
@@ -182,6 +221,11 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             }
         }
 
+        /// <summary>
+        /// Избран е номер да адрес (пре редактиране на адрес)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxNumber_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (mode == "edit")
@@ -192,6 +236,11 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             }
         }
 
+        /// <summary>
+        /// Натиснат е бутона за изтриване на адрес (при редактиране на адрес)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             if (mode == "edit")
@@ -204,5 +253,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                 }
             }
         }
+
     }
 }

@@ -14,6 +14,7 @@ namespace GraduationProject.UserControls.InsertData
         [Category("Action")]
         [Description("Invoked when button is clicked")]
         public event EventHandler ButtonClicked;
+
         public InsertDataMenu()
         {
             InitializeComponent();

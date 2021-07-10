@@ -64,7 +64,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.comboBoxStreet.Name = "comboBoxStreet";
             this.comboBoxStreet.Size = new System.Drawing.Size(213, 27);
             this.comboBoxStreet.TabIndex = 16;
-            this.comboBoxStreet.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBoxStreet_DrawItem);
+            this.comboBoxStreet.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBox_DrawItem);
             this.comboBoxStreet.SelectedIndexChanged += new System.EventHandler(this.comboBoxStreet_SelectedIndexChanged);
             // 
             // numericUpDownNumber
@@ -163,12 +163,14 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // comboBoxNumber
             // 
+            this.comboBoxNumber.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.comboBoxNumber.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxNumber.FormattingEnabled = true;
             this.comboBoxNumber.Location = new System.Drawing.Point(632, 119);
             this.comboBoxNumber.Name = "comboBoxNumber";
-            this.comboBoxNumber.Size = new System.Drawing.Size(56, 26);
+            this.comboBoxNumber.Size = new System.Drawing.Size(56, 27);
             this.comboBoxNumber.TabIndex = 25;
+            this.comboBoxNumber.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBox_DrawItem);
             this.comboBoxNumber.SelectedIndexChanged += new System.EventHandler(this.comboBoxNumber_SelectedIndexChanged);
             // 
             // buttonDelete
