@@ -98,7 +98,6 @@ D:\repos\Graduation-Project\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\w
 D:\repos\Graduation-Project\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll
 D:\repos\Graduation-Project\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\repos\Graduation-Project\GraduationProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\repos\Graduation-Project\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.csproj.AssemblyReference.cache
 D:\repos\Graduation-Project\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.InputBoxForm.resources
 D:\repos\Graduation-Project\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Forms.MainForm.resources
 D:\repos\Graduation-Project\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.Properties.Resources.resources
@@ -138,3 +137,5 @@ D:\repos\Graduation-Project\GraduationProject\obj\Debug\netcoreapp3.1\Graduation
 D:\repos\Graduation-Project\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.dll
 D:\repos\Graduation-Project\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.pdb
 D:\repos\Graduation-Project\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.genruntimeconfig.cache
+D:\repos\Graduation-Project\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.InsertedDataDisplay.resources
+D:\repos\Graduation-Project\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.csproj.AssemblyReference.cache

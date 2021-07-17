@@ -38,10 +38,16 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonAnimals = new System.Windows.Forms.Button();
             this.buttonTrees = new System.Windows.Forms.Button();
             this.panelBuildings = new System.Windows.Forms.Panel();
+            this.labelTitleBuldings = new System.Windows.Forms.Label();
+            this.buttonInsertBuildings = new System.Windows.Forms.Button();
+            this.insertedDataDisplayBuildings = new GraduationProject.UserControls.InsertedDataDisplay();
             this.numericUpDownBuildings = new System.Windows.Forms.NumericUpDown();
             this.comboBoxBuildings = new System.Windows.Forms.ComboBox();
-            this.labelTitleBuldings = new System.Windows.Forms.Label();
+            this.labelBuildings = new System.Windows.Forms.Label();
             this.panelTrees = new System.Windows.Forms.Panel();
+            this.labelTrees = new System.Windows.Forms.Label();
+            this.insertedDataDisplayTrees = new GraduationProject.UserControls.InsertedDataDisplay();
+            this.buttonInsertTrees = new System.Windows.Forms.Button();
             this.numericUpDownTrees = new System.Windows.Forms.NumericUpDown();
             this.comboBoxTrees = new System.Windows.Forms.ComboBox();
             this.labelTitleTrees = new System.Windows.Forms.Label();
@@ -75,6 +81,12 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.ColumnType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.labelDogsTitle = new System.Windows.Forms.Label();
+            this.buttonStateAndSquaring = new System.Windows.Forms.Button();
+            this.labelTitleStateAndSquaring = new System.Windows.Forms.Label();
+            this.panelStateAndSquaring = new System.Windows.Forms.Panel();
+            this.buttonInsertSquaring = new System.Windows.Forms.Button();
+            this.buttonInsertState = new System.Windows.Forms.Button();
+            this.insertedDataDisplayStateAndSquaring = new GraduationProject.UserControls.InsertedDataDisplay();
             this.panelBuildings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBuildings)).BeginInit();
             this.panelTrees.SuspendLayout();
@@ -86,6 +98,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSquaring)).BeginInit();
             this.panelDogs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDogs)).BeginInit();
+            this.panelStateAndSquaring.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelAddress
@@ -104,22 +117,23 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelHabitabillity.AutoSize = true;
             this.labelHabitabillity.BackColor = System.Drawing.Color.Transparent;
             this.labelHabitabillity.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelHabitabillity.Location = new System.Drawing.Point(52, 67);
+            this.labelHabitabillity.Location = new System.Drawing.Point(374, 80);
             this.labelHabitabillity.Name = "labelHabitabillity";
-            this.labelHabitabillity.Size = new System.Drawing.Size(111, 19);
+            this.labelHabitabillity.Size = new System.Drawing.Size(70, 19);
             this.labelHabitabillity.TabIndex = 1;
-            this.labelHabitabillity.Text = "Обитаемост:";
+            this.labelHabitabillity.Text = "Статус:";
             // 
             // labelSquaring
             // 
             this.labelSquaring.AutoSize = true;
             this.labelSquaring.BackColor = System.Drawing.Color.Transparent;
             this.labelSquaring.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelSquaring.Location = new System.Drawing.Point(54, 96);
+            this.labelSquaring.Location = new System.Drawing.Point(383, 110);
             this.labelSquaring.Name = "labelSquaring";
-            this.labelSquaring.Size = new System.Drawing.Size(109, 19);
+            this.labelSquaring.Size = new System.Drawing.Size(61, 19);
             this.labelSquaring.TabIndex = 3;
-            this.labelSquaring.Text = "Квадратура:";
+            this.labelSquaring.Text = "Площ:";
+            this.labelSquaring.Click += new System.EventHandler(this.labelSquaring_Click);
             // 
             // buttonBuildings
             // 
@@ -159,21 +173,57 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // panelBuildings
             // 
+            this.panelBuildings.Controls.Add(this.labelTitleBuldings);
+            this.panelBuildings.Controls.Add(this.buttonInsertBuildings);
+            this.panelBuildings.Controls.Add(this.insertedDataDisplayBuildings);
             this.panelBuildings.Controls.Add(this.numericUpDownBuildings);
             this.panelBuildings.Controls.Add(this.comboBoxBuildings);
-            this.panelBuildings.Controls.Add(this.labelTitleBuldings);
+            this.panelBuildings.Controls.Add(this.labelBuildings);
             this.panelBuildings.Location = new System.Drawing.Point(318, 14);
             this.panelBuildings.Name = "panelBuildings";
             this.panelBuildings.Size = new System.Drawing.Size(712, 300);
             this.panelBuildings.TabIndex = 12;
             // 
+            // labelTitleBuldings
+            // 
+            this.labelTitleBuldings.AutoSize = true;
+            this.labelTitleBuldings.BackColor = System.Drawing.Color.Transparent;
+            this.labelTitleBuldings.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelTitleBuldings.Location = new System.Drawing.Point(33, 25);
+            this.labelTitleBuldings.Name = "labelTitleBuldings";
+            this.labelTitleBuldings.Size = new System.Drawing.Size(141, 29);
+            this.labelTitleBuldings.TabIndex = 13;
+            this.labelTitleBuldings.Text = "Постройки";
+            // 
+            // buttonInsertBuildings
+            // 
+            this.buttonInsertBuildings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonInsertBuildings.FlatAppearance.BorderSize = 0;
+            this.buttonInsertBuildings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInsertBuildings.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonInsertBuildings.Location = new System.Drawing.Point(627, 94);
+            this.buttonInsertBuildings.Name = "buttonInsertBuildings";
+            this.buttonInsertBuildings.Size = new System.Drawing.Size(67, 23);
+            this.buttonInsertBuildings.TabIndex = 63;
+            this.buttonInsertBuildings.Text = "Въведи";
+            this.buttonInsertBuildings.UseVisualStyleBackColor = false;
+            this.buttonInsertBuildings.Click += new System.EventHandler(this.buttonInsertBuildings_Click);
+            // 
+            // insertedDataDisplayBuildings
+            // 
+            this.insertedDataDisplayBuildings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.insertedDataDisplayBuildings.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.insertedDataDisplayBuildings.Location = new System.Drawing.Point(30, 76);
+            this.insertedDataDisplayBuildings.Name = "insertedDataDisplayBuildings";
+            this.insertedDataDisplayBuildings.Size = new System.Drawing.Size(303, 203);
+            this.insertedDataDisplayBuildings.TabIndex = 17;
+            // 
             // numericUpDownBuildings
             // 
-            this.numericUpDownBuildings.Location = new System.Drawing.Point(323, 96);
+            this.numericUpDownBuildings.Location = new System.Drawing.Point(563, 96);
             this.numericUpDownBuildings.Name = "numericUpDownBuildings";
             this.numericUpDownBuildings.Size = new System.Drawing.Size(58, 21);
             this.numericUpDownBuildings.TabIndex = 16;
-            this.numericUpDownBuildings.ValueChanged += new System.EventHandler(this.numericUpDownBuildings_ValueChanged);
             // 
             // comboBoxBuildings
             // 
@@ -183,25 +233,27 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.comboBoxBuildings.Items.AddRange(new object[] {
             "Жилищни постройки",
             "Селскостопански постройки"});
-            this.comboBoxBuildings.Location = new System.Drawing.Point(62, 96);
+            this.comboBoxBuildings.Location = new System.Drawing.Point(355, 96);
             this.comboBoxBuildings.Name = "comboBoxBuildings";
-            this.comboBoxBuildings.Size = new System.Drawing.Size(254, 22);
+            this.comboBoxBuildings.Size = new System.Drawing.Size(202, 22);
             this.comboBoxBuildings.TabIndex = 15;
-            this.comboBoxBuildings.SelectedIndexChanged += new System.EventHandler(this.comboBoxBuildings_SelectedIndexChanged);
             // 
-            // labelTitleBuldings
+            // labelBuildings
             // 
-            this.labelTitleBuldings.AutoSize = true;
-            this.labelTitleBuldings.BackColor = System.Drawing.Color.Transparent;
-            this.labelTitleBuldings.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelTitleBuldings.Location = new System.Drawing.Point(37, 34);
-            this.labelTitleBuldings.Name = "labelTitleBuldings";
-            this.labelTitleBuldings.Size = new System.Drawing.Size(148, 29);
-            this.labelTitleBuldings.TabIndex = 13;
-            this.labelTitleBuldings.Text = "Постройки:";
+            this.labelBuildings.AutoSize = true;
+            this.labelBuildings.BackColor = System.Drawing.Color.Transparent;
+            this.labelBuildings.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelBuildings.Location = new System.Drawing.Point(355, 74);
+            this.labelBuildings.Name = "labelBuildings";
+            this.labelBuildings.Size = new System.Drawing.Size(102, 19);
+            this.labelBuildings.TabIndex = 18;
+            this.labelBuildings.Text = "Постройки:";
             // 
             // panelTrees
             // 
+            this.panelTrees.Controls.Add(this.labelTrees);
+            this.panelTrees.Controls.Add(this.insertedDataDisplayTrees);
+            this.panelTrees.Controls.Add(this.buttonInsertTrees);
             this.panelTrees.Controls.Add(this.numericUpDownTrees);
             this.panelTrees.Controls.Add(this.comboBoxTrees);
             this.panelTrees.Controls.Add(this.labelTitleTrees);
@@ -210,13 +262,46 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.panelTrees.Size = new System.Drawing.Size(712, 300);
             this.panelTrees.TabIndex = 42;
             // 
+            // labelTrees
+            // 
+            this.labelTrees.AutoSize = true;
+            this.labelTrees.BackColor = System.Drawing.Color.Transparent;
+            this.labelTrees.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelTrees.Location = new System.Drawing.Point(355, 74);
+            this.labelTrees.Name = "labelTrees";
+            this.labelTrees.Size = new System.Drawing.Size(47, 19);
+            this.labelTrees.TabIndex = 66;
+            this.labelTrees.Text = "Вид:";
+            // 
+            // insertedDataDisplayTrees
+            // 
+            this.insertedDataDisplayTrees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.insertedDataDisplayTrees.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.insertedDataDisplayTrees.Location = new System.Drawing.Point(30, 76);
+            this.insertedDataDisplayTrees.Name = "insertedDataDisplayTrees";
+            this.insertedDataDisplayTrees.Size = new System.Drawing.Size(303, 203);
+            this.insertedDataDisplayTrees.TabIndex = 65;
+            // 
+            // buttonInsertTrees
+            // 
+            this.buttonInsertTrees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonInsertTrees.FlatAppearance.BorderSize = 0;
+            this.buttonInsertTrees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInsertTrees.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonInsertTrees.Location = new System.Drawing.Point(627, 94);
+            this.buttonInsertTrees.Name = "buttonInsertTrees";
+            this.buttonInsertTrees.Size = new System.Drawing.Size(67, 23);
+            this.buttonInsertTrees.TabIndex = 64;
+            this.buttonInsertTrees.Text = "Въведи";
+            this.buttonInsertTrees.UseVisualStyleBackColor = false;
+            this.buttonInsertTrees.Click += new System.EventHandler(this.buttonInsertTrees_Click);
+            // 
             // numericUpDownTrees
             // 
-            this.numericUpDownTrees.Location = new System.Drawing.Point(295, 98);
+            this.numericUpDownTrees.Location = new System.Drawing.Point(563, 96);
             this.numericUpDownTrees.Name = "numericUpDownTrees";
-            this.numericUpDownTrees.Size = new System.Drawing.Size(61, 21);
+            this.numericUpDownTrees.Size = new System.Drawing.Size(58, 21);
             this.numericUpDownTrees.TabIndex = 28;
-            this.numericUpDownTrees.ValueChanged += new System.EventHandler(this.numericUpDownTrees_ValueChanged);
             // 
             // comboBoxTrees
             // 
@@ -228,11 +313,10 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             "Черници",
             "Дървета над 20 г. възраст",
             "Вековни дървета"});
-            this.comboBoxTrees.Location = new System.Drawing.Point(62, 96);
+            this.comboBoxTrees.Location = new System.Drawing.Point(355, 96);
             this.comboBoxTrees.Name = "comboBoxTrees";
-            this.comboBoxTrees.Size = new System.Drawing.Size(210, 22);
+            this.comboBoxTrees.Size = new System.Drawing.Size(202, 22);
             this.comboBoxTrees.TabIndex = 27;
-            this.comboBoxTrees.SelectedIndexChanged += new System.EventHandler(this.comboBoxTrees_SelectedIndexChanged);
             // 
             // labelTitleTrees
             // 
@@ -241,9 +325,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelTitleTrees.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelTitleTrees.Location = new System.Drawing.Point(37, 34);
             this.labelTitleTrees.Name = "labelTitleTrees";
-            this.labelTitleTrees.Size = new System.Drawing.Size(361, 29);
+            this.labelTitleTrees.Size = new System.Drawing.Size(354, 29);
             this.labelTitleTrees.TabIndex = 13;
-            this.labelTitleTrees.Text = "Защитени Дървесни видове:";
+            this.labelTitleTrees.Text = "Защитени Дървесни видове";
             // 
             // buttonNotes
             // 
@@ -430,16 +514,15 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.comboBoxHabitability.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.comboBoxHabitability.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxHabitability.FormattingEnabled = true;
-            this.comboBoxHabitability.Location = new System.Drawing.Point(160, 67);
+            this.comboBoxHabitability.Location = new System.Drawing.Point(450, 76);
             this.comboBoxHabitability.Name = "comboBoxHabitability";
             this.comboBoxHabitability.Size = new System.Drawing.Size(142, 22);
             this.comboBoxHabitability.TabIndex = 59;
-            this.comboBoxHabitability.SelectedIndexChanged += new System.EventHandler(this.comboBoxHabitability_SelectedIndexChanged);
             // 
             // numericUpDownSquaring
             // 
             this.numericUpDownSquaring.DecimalPlaces = 2;
-            this.numericUpDownSquaring.Location = new System.Drawing.Point(160, 96);
+            this.numericUpDownSquaring.Location = new System.Drawing.Point(450, 109);
             this.numericUpDownSquaring.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -599,29 +682,101 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelDogsTitle.TabIndex = 13;
             this.labelDogsTitle.Text = "Кучета:";
             // 
+            // buttonStateAndSquaring
+            // 
+            this.buttonStateAndSquaring.FlatAppearance.BorderSize = 0;
+            this.buttonStateAndSquaring.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonStateAndSquaring.Location = new System.Drawing.Point(54, 169);
+            this.buttonStateAndSquaring.Name = "buttonStateAndSquaring";
+            this.buttonStateAndSquaring.Size = new System.Drawing.Size(212, 23);
+            this.buttonStateAndSquaring.TabIndex = 61;
+            this.buttonStateAndSquaring.Text = "Статус и площ";
+            this.buttonStateAndSquaring.UseVisualStyleBackColor = true;
+            this.buttonStateAndSquaring.Click += new System.EventHandler(this.buttonStateAndSquaring_Click);
+            // 
+            // labelTitleStateAndSquaring
+            // 
+            this.labelTitleStateAndSquaring.AutoSize = true;
+            this.labelTitleStateAndSquaring.BackColor = System.Drawing.Color.Transparent;
+            this.labelTitleStateAndSquaring.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelTitleStateAndSquaring.Location = new System.Drawing.Point(33, 25);
+            this.labelTitleStateAndSquaring.Name = "labelTitleStateAndSquaring";
+            this.labelTitleStateAndSquaring.Size = new System.Drawing.Size(186, 29);
+            this.labelTitleStateAndSquaring.TabIndex = 13;
+            this.labelTitleStateAndSquaring.Text = "Статус и площ";
+            // 
+            // panelStateAndSquaring
+            // 
+            this.panelStateAndSquaring.Controls.Add(this.buttonInsertSquaring);
+            this.panelStateAndSquaring.Controls.Add(this.buttonInsertState);
+            this.panelStateAndSquaring.Controls.Add(this.insertedDataDisplayStateAndSquaring);
+            this.panelStateAndSquaring.Controls.Add(this.labelTitleStateAndSquaring);
+            this.panelStateAndSquaring.Controls.Add(this.numericUpDownSquaring);
+            this.panelStateAndSquaring.Controls.Add(this.labelHabitabillity);
+            this.panelStateAndSquaring.Controls.Add(this.labelSquaring);
+            this.panelStateAndSquaring.Controls.Add(this.comboBoxHabitability);
+            this.panelStateAndSquaring.Location = new System.Drawing.Point(318, 14);
+            this.panelStateAndSquaring.Name = "panelStateAndSquaring";
+            this.panelStateAndSquaring.Size = new System.Drawing.Size(712, 300);
+            this.panelStateAndSquaring.TabIndex = 54;
+            // 
+            // buttonInsertSquaring
+            // 
+            this.buttonInsertSquaring.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonInsertSquaring.FlatAppearance.BorderSize = 0;
+            this.buttonInsertSquaring.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInsertSquaring.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonInsertSquaring.Location = new System.Drawing.Point(608, 107);
+            this.buttonInsertSquaring.Name = "buttonInsertSquaring";
+            this.buttonInsertSquaring.Size = new System.Drawing.Size(67, 23);
+            this.buttonInsertSquaring.TabIndex = 63;
+            this.buttonInsertSquaring.Text = "Въведи";
+            this.buttonInsertSquaring.UseVisualStyleBackColor = false;
+            this.buttonInsertSquaring.Click += new System.EventHandler(this.buttonInsertSquaring_Click);
+            // 
+            // buttonInsertState
+            // 
+            this.buttonInsertState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonInsertState.FlatAppearance.BorderSize = 0;
+            this.buttonInsertState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInsertState.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonInsertState.Location = new System.Drawing.Point(608, 76);
+            this.buttonInsertState.Name = "buttonInsertState";
+            this.buttonInsertState.Size = new System.Drawing.Size(67, 23);
+            this.buttonInsertState.TabIndex = 62;
+            this.buttonInsertState.Text = "Въведи";
+            this.buttonInsertState.UseVisualStyleBackColor = false;
+            this.buttonInsertState.Click += new System.EventHandler(this.buttonInsertState_Click);
+            // 
+            // insertedDataDisplayStateAndSquaring
+            // 
+            this.insertedDataDisplayStateAndSquaring.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.insertedDataDisplayStateAndSquaring.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.insertedDataDisplayStateAndSquaring.Location = new System.Drawing.Point(30, 76);
+            this.insertedDataDisplayStateAndSquaring.Name = "insertedDataDisplayStateAndSquaring";
+            this.insertedDataDisplayStateAndSquaring.Size = new System.Drawing.Size(303, 203);
+            this.insertedDataDisplayStateAndSquaring.TabIndex = 61;
+            // 
             // InsertDataProperty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.panelTrees);
+            this.Controls.Add(this.panelBuildings);
+            this.Controls.Add(this.panelStateAndSquaring);
+            this.Controls.Add(this.buttonStateAndSquaring);
             this.Controls.Add(this.panelAnimals);
             this.Controls.Add(this.panelDogs);
             this.Controls.Add(this.panelNotes);
-            this.Controls.Add(this.panelTrees);
-            this.Controls.Add(this.panelBuildings);
-            this.Controls.Add(this.numericUpDownSquaring);
-            this.Controls.Add(this.comboBoxHabitability);
             this.Controls.Add(this.buttonNotes);
             this.Controls.Add(this.buttonTrees);
             this.Controls.Add(this.buttonAnimals);
             this.Controls.Add(this.buttonBuildings);
-            this.Controls.Add(this.labelSquaring);
-            this.Controls.Add(this.labelHabitabillity);
             this.Controls.Add(this.labelAddress);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "InsertDataProperty";
             this.Size = new System.Drawing.Size(1081, 329);
-            this.VisibleChanged += new System.EventHandler(this.InsertDataProperty_VisibleChanged);
             this.panelBuildings.ResumeLayout(false);
             this.panelBuildings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBuildings)).EndInit();
@@ -638,6 +793,8 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.panelDogs.ResumeLayout(false);
             this.panelDogs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDogs)).EndInit();
+            this.panelStateAndSquaring.ResumeLayout(false);
+            this.panelStateAndSquaring.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -689,5 +846,17 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumber;
         private System.Windows.Forms.DataGridViewComboBoxColumn ColumnType;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnDelete;
+        private System.Windows.Forms.Button buttonStateAndSquaring;
+        private System.Windows.Forms.Label labelTitleStateAndSquaring;
+        private System.Windows.Forms.Panel panelStateAndSquaring;
+        private InsertedDataDisplay insertedDataDisplayStateAndSquaring;
+        private System.Windows.Forms.Button buttonInsertState;
+        private System.Windows.Forms.Button buttonInsertSquaring;
+        private InsertedDataDisplay insertedDataDisplayBuildings;
+        private System.Windows.Forms.Button buttonInsertBuildings;
+        private System.Windows.Forms.Label labelBuildings;
+        private InsertedDataDisplay insertedDataDisplayTrees;
+        private System.Windows.Forms.Button buttonInsertTrees;
+        private System.Windows.Forms.Label labelTrees;
     }
 }
