@@ -8,21 +8,21 @@ namespace GraduationProject.Models
         public int Id { get; set; }
         public int StreetId { get; set; }
         public int Number { get; set; }
-        public double Squaring { get; set; } = 0;
-        public Habitability Habitallity { get; set; } = Habitability.Inhabited;
-        public int NumResBuildings { get; set; } = 0;
-        public int NumAgrBuildings { get; set; } = 0;
-        public int NumCows { get; set; } = 0;
-        public int NumSheep { get; set; } = 0;
-        public int NumGoats { get; set; } = 0;
-        public int NumHorses { get; set; } = 0;
-        public int NumDonkeys { get; set; } = 0;
-        public int NumFeathered { get; set; } = 0;
-        public int NumPigs { get; set; } = 0;
-        public int NumWalnutTrees { get; set; } = 0;
-        public int NumMulberryTrees { get; set; } = 0;
-        public int NumOldTrees { get; set; } = 0;
-        public int NumCenturyOldTrees { get; set; } = 0;
+        public double Squaring { get; set; }
+        public Habitability Habitallity { get; set; }
+        public int NumResBuildings { get; set; }
+        public int NumAgrBuildings { get; set; }
+        public int NumCows { get; set; }
+        public int NumSheep { get; set; }
+        public int NumGoats { get; set; }
+        public int NumHorses { get; set; }
+        public int NumDonkeys { get; set; }
+        public int NumFeathered { get; set; }
+        public int NumPigs { get; set; }
+        public int NumWalnutTrees { get; set; }
+        public int NumMulberryTrees { get; set; }
+        public int NumOldTrees { get; set; }
+        public int NumCenturyOldTrees { get; set; }
         public string Note { get; set; } = "";
 
         public string streetName;
@@ -40,7 +40,7 @@ namespace GraduationProject.Models
         
         //Enums
         public enum AddressType { Permanent, Current };
-        public enum Habitability { Desolate, Inhabited, TemporaryInhabited, OutOfRegulation };
+        public enum Habitability { NotSet, Desolate, Inhabited, TemporaryInhabited, OutOfRegulation };
 
 
 

@@ -120,6 +120,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonInhabitants.TabIndex = 21;
             this.buttonInhabitants.Text = "Обитатели";
             this.buttonInhabitants.UseVisualStyleBackColor = false;
+            this.buttonInhabitants.Click += new System.EventHandler(this.buttonInhabitants_Click);
             // 
             // buttonProperty
             // 
@@ -206,6 +207,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "InsertDataAddress";
             this.Size = new System.Drawing.Size(1081, 329);
+            this.VisibleChanged += new System.EventHandler(this.InsertDataAddress_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumber)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -45,30 +45,41 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.comboBoxBuildings = new System.Windows.Forms.ComboBox();
             this.labelBuildings = new System.Windows.Forms.Label();
             this.panelTrees = new System.Windows.Forms.Panel();
+            this.numericUpDownTrees = new System.Windows.Forms.NumericUpDown();
             this.labelTrees = new System.Windows.Forms.Label();
             this.insertedDataDisplayTrees = new GraduationProject.UserControls.InsertedDataDisplay();
             this.buttonInsertTrees = new System.Windows.Forms.Button();
-            this.numericUpDownTrees = new System.Windows.Forms.NumericUpDown();
             this.comboBoxTrees = new System.Windows.Forms.ComboBox();
             this.labelTitleTrees = new System.Windows.Forms.Label();
             this.buttonNotes = new System.Windows.Forms.Button();
             this.panelNotes = new System.Windows.Forms.Panel();
+            this.buttonEditNote = new System.Windows.Forms.Button();
+            this.insertedDataDisplayNotes = new GraduationProject.UserControls.InsertedDataDisplay();
+            this.buttonInsertNote = new System.Windows.Forms.Button();
             this.richTextBoxNotes = new System.Windows.Forms.RichTextBox();
             this.labelTitleNotes = new System.Windows.Forms.Label();
-            this.labelCattle = new System.Windows.Forms.Label();
             this.labelTitleAnimals = new System.Windows.Forms.Label();
             this.labelDogs = new System.Windows.Forms.Label();
             this.labelFeathered = new System.Windows.Forms.Label();
             this.panelAnimals = new System.Windows.Forms.Panel();
-            this.labelDogsNumber = new System.Windows.Forms.Label();
+            this.insertedDataDisplayAnimals = new GraduationProject.UserControls.InsertedDataDisplay();
+            this.buttonInsertFeathered = new System.Windows.Forms.Button();
+            this.labelCattle = new System.Windows.Forms.Label();
+            this.buttonInsertCattle = new System.Windows.Forms.Button();
             this.buttonEditDogs = new System.Windows.Forms.Button();
             this.numericUpDownFeathererd = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownDomesticAnimals = new System.Windows.Forms.NumericUpDown();
-            this.comboBoxDogsType = new System.Windows.Forms.ComboBox();
             this.comboBoxDomesticAnimals = new System.Windows.Forms.ComboBox();
             this.comboBoxHabitability = new System.Windows.Forms.ComboBox();
             this.numericUpDownSquaring = new System.Windows.Forms.NumericUpDown();
             this.panelDogs = new System.Windows.Forms.Panel();
+            this.panelTableDogs = new System.Windows.Forms.Panel();
+            this.dataGridViewDogs = new System.Windows.Forms.DataGridView();
+            this.ColumnNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.pictureBoxBack = new System.Windows.Forms.PictureBox();
+            this.labelTitle = new System.Windows.Forms.Label();
             this.labelDogsError = new System.Windows.Forms.Label();
             this.buttonAddDog = new System.Windows.Forms.Button();
             this.labelDogTypeEdit = new System.Windows.Forms.Label();
@@ -76,10 +87,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.comboBoxDogTypeEdit = new System.Windows.Forms.ComboBox();
             this.checkBoxDogNoNumber = new System.Windows.Forms.CheckBox();
             this.textBoxDogNumber = new System.Windows.Forms.TextBox();
-            this.dataGridViewDogs = new System.Windows.Forms.DataGridView();
-            this.ColumnNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.labelDogsTitle = new System.Windows.Forms.Label();
             this.buttonStateAndSquaring = new System.Windows.Forms.Button();
             this.labelTitleStateAndSquaring = new System.Windows.Forms.Label();
@@ -97,7 +104,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDomesticAnimals)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSquaring)).BeginInit();
             this.panelDogs.SuspendLayout();
+            this.panelTableDogs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDogs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
             this.panelStateAndSquaring.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,7 +142,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelSquaring.Size = new System.Drawing.Size(61, 19);
             this.labelSquaring.TabIndex = 3;
             this.labelSquaring.Text = "Площ:";
-            this.labelSquaring.Click += new System.EventHandler(this.labelSquaring_Click);
             // 
             // buttonBuildings
             // 
@@ -251,16 +259,23 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // panelTrees
             // 
+            this.panelTrees.Controls.Add(this.numericUpDownTrees);
             this.panelTrees.Controls.Add(this.labelTrees);
             this.panelTrees.Controls.Add(this.insertedDataDisplayTrees);
             this.panelTrees.Controls.Add(this.buttonInsertTrees);
-            this.panelTrees.Controls.Add(this.numericUpDownTrees);
             this.panelTrees.Controls.Add(this.comboBoxTrees);
             this.panelTrees.Controls.Add(this.labelTitleTrees);
             this.panelTrees.Location = new System.Drawing.Point(318, 14);
             this.panelTrees.Name = "panelTrees";
             this.panelTrees.Size = new System.Drawing.Size(712, 300);
             this.panelTrees.TabIndex = 42;
+            // 
+            // numericUpDownTrees
+            // 
+            this.numericUpDownTrees.Location = new System.Drawing.Point(563, 96);
+            this.numericUpDownTrees.Name = "numericUpDownTrees";
+            this.numericUpDownTrees.Size = new System.Drawing.Size(58, 21);
+            this.numericUpDownTrees.TabIndex = 28;
             // 
             // labelTrees
             // 
@@ -296,13 +311,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonInsertTrees.UseVisualStyleBackColor = false;
             this.buttonInsertTrees.Click += new System.EventHandler(this.buttonInsertTrees_Click);
             // 
-            // numericUpDownTrees
-            // 
-            this.numericUpDownTrees.Location = new System.Drawing.Point(563, 96);
-            this.numericUpDownTrees.Name = "numericUpDownTrees";
-            this.numericUpDownTrees.Size = new System.Drawing.Size(58, 21);
-            this.numericUpDownTrees.TabIndex = 28;
-            // 
             // comboBoxTrees
             // 
             this.comboBoxTrees.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -323,7 +331,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelTitleTrees.AutoSize = true;
             this.labelTitleTrees.BackColor = System.Drawing.Color.Transparent;
             this.labelTitleTrees.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelTitleTrees.Location = new System.Drawing.Point(37, 34);
+            this.labelTitleTrees.Location = new System.Drawing.Point(33, 25);
             this.labelTitleTrees.Name = "labelTitleTrees";
             this.labelTitleTrees.Size = new System.Drawing.Size(354, 29);
             this.labelTitleTrees.TabIndex = 13;
@@ -343,6 +351,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // panelNotes
             // 
+            this.panelNotes.Controls.Add(this.buttonEditNote);
+            this.panelNotes.Controls.Add(this.insertedDataDisplayNotes);
+            this.panelNotes.Controls.Add(this.buttonInsertNote);
             this.panelNotes.Controls.Add(this.richTextBoxNotes);
             this.panelNotes.Controls.Add(this.labelTitleNotes);
             this.panelNotes.Location = new System.Drawing.Point(318, 14);
@@ -350,59 +361,82 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.panelNotes.Size = new System.Drawing.Size(712, 300);
             this.panelNotes.TabIndex = 58;
             // 
+            // buttonEditNote
+            // 
+            this.buttonEditNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonEditNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEditNote.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonEditNote.Location = new System.Drawing.Point(533, 256);
+            this.buttonEditNote.Name = "buttonEditNote";
+            this.buttonEditNote.Size = new System.Drawing.Size(121, 23);
+            this.buttonEditNote.TabIndex = 23;
+            this.buttonEditNote.Text = "Редактиране";
+            this.buttonEditNote.UseVisualStyleBackColor = false;
+            this.buttonEditNote.Click += new System.EventHandler(this.buttonEditNote_Click);
+            // 
+            // insertedDataDisplayNotes
+            // 
+            this.insertedDataDisplayNotes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.insertedDataDisplayNotes.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.insertedDataDisplayNotes.Location = new System.Drawing.Point(30, 76);
+            this.insertedDataDisplayNotes.Name = "insertedDataDisplayNotes";
+            this.insertedDataDisplayNotes.Size = new System.Drawing.Size(303, 203);
+            this.insertedDataDisplayNotes.TabIndex = 22;
+            // 
+            // buttonInsertNote
+            // 
+            this.buttonInsertNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonInsertNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInsertNote.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonInsertNote.Location = new System.Drawing.Point(406, 255);
+            this.buttonInsertNote.Name = "buttonInsertNote";
+            this.buttonInsertNote.Size = new System.Drawing.Size(121, 23);
+            this.buttonInsertNote.TabIndex = 21;
+            this.buttonInsertNote.Text = "Въведи";
+            this.buttonInsertNote.UseVisualStyleBackColor = false;
+            this.buttonInsertNote.Click += new System.EventHandler(this.buttonInsertNote_Click);
+            // 
             // richTextBoxNotes
             // 
             this.richTextBoxNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBoxNotes.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.richTextBoxNotes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.richTextBoxNotes.Location = new System.Drawing.Point(92, 76);
+            this.richTextBoxNotes.Location = new System.Drawing.Point(376, 75);
             this.richTextBoxNotes.Name = "richTextBoxNotes";
-            this.richTextBoxNotes.Size = new System.Drawing.Size(527, 203);
+            this.richTextBoxNotes.Size = new System.Drawing.Size(305, 175);
             this.richTextBoxNotes.TabIndex = 14;
             this.richTextBoxNotes.Text = "";
-            this.richTextBoxNotes.TextChanged += new System.EventHandler(this.richTextBoxNotes_TextChanged);
             // 
             // labelTitleNotes
             // 
             this.labelTitleNotes.AutoSize = true;
             this.labelTitleNotes.BackColor = System.Drawing.Color.Transparent;
             this.labelTitleNotes.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelTitleNotes.Location = new System.Drawing.Point(37, 34);
+            this.labelTitleNotes.Location = new System.Drawing.Point(33, 25);
             this.labelTitleNotes.Name = "labelTitleNotes";
-            this.labelTitleNotes.Size = new System.Drawing.Size(148, 29);
+            this.labelTitleNotes.Size = new System.Drawing.Size(141, 29);
             this.labelTitleNotes.TabIndex = 13;
-            this.labelTitleNotes.Text = "Забележки:";
-            // 
-            // labelCattle
-            // 
-            this.labelCattle.AutoSize = true;
-            this.labelCattle.BackColor = System.Drawing.Color.Transparent;
-            this.labelCattle.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelCattle.Location = new System.Drawing.Point(62, 96);
-            this.labelCattle.Name = "labelCattle";
-            this.labelCattle.Size = new System.Drawing.Size(191, 22);
-            this.labelCattle.TabIndex = 13;
-            this.labelCattle.Text = "Домашни животни:";
+            this.labelTitleNotes.Text = "Забележки";
             // 
             // labelTitleAnimals
             // 
             this.labelTitleAnimals.AutoSize = true;
             this.labelTitleAnimals.BackColor = System.Drawing.Color.Transparent;
             this.labelTitleAnimals.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelTitleAnimals.Location = new System.Drawing.Point(37, 34);
+            this.labelTitleAnimals.Location = new System.Drawing.Point(33, 25);
             this.labelTitleAnimals.Name = "labelTitleAnimals";
-            this.labelTitleAnimals.Size = new System.Drawing.Size(336, 29);
+            this.labelTitleAnimals.Size = new System.Drawing.Size(329, 29);
             this.labelTitleAnimals.TabIndex = 13;
-            this.labelTitleAnimals.Text = "Селскостопански животни:";
+            this.labelTitleAnimals.Text = "Селскостопански животни";
             // 
             // labelDogs
             // 
             this.labelDogs.AutoSize = true;
             this.labelDogs.BackColor = System.Drawing.Color.Transparent;
-            this.labelDogs.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelDogs.Location = new System.Drawing.Point(62, 224);
+            this.labelDogs.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelDogs.Location = new System.Drawing.Point(488, 183);
             this.labelDogs.Name = "labelDogs";
-            this.labelDogs.Size = new System.Drawing.Size(82, 22);
+            this.labelDogs.Size = new System.Drawing.Size(69, 19);
             this.labelDogs.TabIndex = 29;
             this.labelDogs.Text = "Кучета:";
             // 
@@ -410,50 +444,88 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             this.labelFeathered.AutoSize = true;
             this.labelFeathered.BackColor = System.Drawing.Color.Transparent;
-            this.labelFeathered.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelFeathered.Location = new System.Drawing.Point(62, 181);
+            this.labelFeathered.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelFeathered.Location = new System.Drawing.Point(474, 138);
             this.labelFeathered.Name = "labelFeathered";
-            this.labelFeathered.Size = new System.Drawing.Size(97, 22);
+            this.labelFeathered.Size = new System.Drawing.Size(83, 19);
             this.labelFeathered.TabIndex = 37;
             this.labelFeathered.Text = "Пернати:";
             // 
             // panelAnimals
             // 
-            this.panelAnimals.Controls.Add(this.labelDogsNumber);
+            this.panelAnimals.Controls.Add(this.insertedDataDisplayAnimals);
+            this.panelAnimals.Controls.Add(this.buttonInsertFeathered);
+            this.panelAnimals.Controls.Add(this.labelCattle);
+            this.panelAnimals.Controls.Add(this.buttonInsertCattle);
             this.panelAnimals.Controls.Add(this.buttonEditDogs);
             this.panelAnimals.Controls.Add(this.numericUpDownFeathererd);
             this.panelAnimals.Controls.Add(this.numericUpDownDomesticAnimals);
-            this.panelAnimals.Controls.Add(this.comboBoxDogsType);
             this.panelAnimals.Controls.Add(this.comboBoxDomesticAnimals);
             this.panelAnimals.Controls.Add(this.labelFeathered);
             this.panelAnimals.Controls.Add(this.labelDogs);
             this.panelAnimals.Controls.Add(this.labelTitleAnimals);
-            this.panelAnimals.Controls.Add(this.labelCattle);
             this.panelAnimals.Location = new System.Drawing.Point(318, 14);
             this.panelAnimals.Name = "panelAnimals";
             this.panelAnimals.Size = new System.Drawing.Size(712, 300);
             this.panelAnimals.TabIndex = 17;
             // 
-            // labelDogsNumber
+            // insertedDataDisplayAnimals
             // 
-            this.labelDogsNumber.AutoSize = true;
-            this.labelDogsNumber.BackColor = System.Drawing.Color.Transparent;
-            this.labelDogsNumber.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelDogsNumber.Location = new System.Drawing.Point(195, 256);
-            this.labelDogsNumber.Name = "labelDogsNumber";
-            this.labelDogsNumber.Size = new System.Drawing.Size(16, 20);
-            this.labelDogsNumber.TabIndex = 53;
-            this.labelDogsNumber.Text = "0";
+            this.insertedDataDisplayAnimals.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.insertedDataDisplayAnimals.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.insertedDataDisplayAnimals.Location = new System.Drawing.Point(30, 76);
+            this.insertedDataDisplayAnimals.Name = "insertedDataDisplayAnimals";
+            this.insertedDataDisplayAnimals.Size = new System.Drawing.Size(303, 203);
+            this.insertedDataDisplayAnimals.TabIndex = 69;
+            // 
+            // buttonInsertFeathered
+            // 
+            this.buttonInsertFeathered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonInsertFeathered.FlatAppearance.BorderSize = 0;
+            this.buttonInsertFeathered.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInsertFeathered.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonInsertFeathered.Location = new System.Drawing.Point(627, 134);
+            this.buttonInsertFeathered.Name = "buttonInsertFeathered";
+            this.buttonInsertFeathered.Size = new System.Drawing.Size(67, 23);
+            this.buttonInsertFeathered.TabIndex = 68;
+            this.buttonInsertFeathered.Text = "Въведи";
+            this.buttonInsertFeathered.UseVisualStyleBackColor = false;
+            this.buttonInsertFeathered.Click += new System.EventHandler(this.buttonInsertFeathered_Click);
+            // 
+            // labelCattle
+            // 
+            this.labelCattle.AutoSize = true;
+            this.labelCattle.BackColor = System.Drawing.Color.Transparent;
+            this.labelCattle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelCattle.Location = new System.Drawing.Point(355, 74);
+            this.labelCattle.Name = "labelCattle";
+            this.labelCattle.Size = new System.Drawing.Size(164, 19);
+            this.labelCattle.TabIndex = 67;
+            this.labelCattle.Text = "Домашни животни:";
+            // 
+            // buttonInsertCattle
+            // 
+            this.buttonInsertCattle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonInsertCattle.FlatAppearance.BorderSize = 0;
+            this.buttonInsertCattle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInsertCattle.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonInsertCattle.Location = new System.Drawing.Point(627, 94);
+            this.buttonInsertCattle.Name = "buttonInsertCattle";
+            this.buttonInsertCattle.Size = new System.Drawing.Size(67, 23);
+            this.buttonInsertCattle.TabIndex = 65;
+            this.buttonInsertCattle.Text = "Въведи";
+            this.buttonInsertCattle.UseVisualStyleBackColor = false;
+            this.buttonInsertCattle.Click += new System.EventHandler(this.buttonInsertCattle_Click);
             // 
             // buttonEditDogs
             // 
-            this.buttonEditDogs.BackColor = System.Drawing.Color.Transparent;
+            this.buttonEditDogs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
             this.buttonEditDogs.FlatAppearance.BorderSize = 0;
             this.buttonEditDogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEditDogs.Image = global::GraduationProject.Properties.Resources.editIcon;
-            this.buttonEditDogs.Location = new System.Drawing.Point(247, 245);
+            this.buttonEditDogs.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonEditDogs.Location = new System.Drawing.Point(563, 179);
             this.buttonEditDogs.Name = "buttonEditDogs";
-            this.buttonEditDogs.Size = new System.Drawing.Size(126, 34);
+            this.buttonEditDogs.Size = new System.Drawing.Size(131, 23);
             this.buttonEditDogs.TabIndex = 52;
             this.buttonEditDogs.Text = "Редактиране";
             this.buttonEditDogs.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -462,34 +534,17 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // numericUpDownFeathererd
             // 
-            this.numericUpDownFeathererd.Location = new System.Drawing.Point(195, 181);
+            this.numericUpDownFeathererd.Location = new System.Drawing.Point(563, 136);
             this.numericUpDownFeathererd.Name = "numericUpDownFeathererd";
-            this.numericUpDownFeathererd.Size = new System.Drawing.Size(51, 21);
+            this.numericUpDownFeathererd.Size = new System.Drawing.Size(58, 21);
             this.numericUpDownFeathererd.TabIndex = 51;
-            this.numericUpDownFeathererd.ValueChanged += new System.EventHandler(this.numericUpDownFeathererd_ValueChanged);
             // 
             // numericUpDownDomesticAnimals
             // 
-            this.numericUpDownDomesticAnimals.Location = new System.Drawing.Point(195, 130);
+            this.numericUpDownDomesticAnimals.Location = new System.Drawing.Point(563, 96);
             this.numericUpDownDomesticAnimals.Name = "numericUpDownDomesticAnimals";
-            this.numericUpDownDomesticAnimals.Size = new System.Drawing.Size(51, 21);
+            this.numericUpDownDomesticAnimals.Size = new System.Drawing.Size(58, 21);
             this.numericUpDownDomesticAnimals.TabIndex = 49;
-            this.numericUpDownDomesticAnimals.ValueChanged += new System.EventHandler(this.numericUpDownDomesticAnimals_ValueChanged);
-            // 
-            // comboBoxDogsType
-            // 
-            this.comboBoxDogsType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxDogsType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDogsType.FormattingEnabled = true;
-            this.comboBoxDogsType.Items.AddRange(new object[] {
-            "Кучета пазач",
-            "Ловджийски кучета",
-            "Домашни кучета"});
-            this.comboBoxDogsType.Location = new System.Drawing.Point(63, 256);
-            this.comboBoxDogsType.Name = "comboBoxDogsType";
-            this.comboBoxDogsType.Size = new System.Drawing.Size(121, 22);
-            this.comboBoxDogsType.TabIndex = 48;
-            this.comboBoxDogsType.SelectedIndexChanged += new System.EventHandler(this.comboBoxDogs_SelectedIndexChanged);
             // 
             // comboBoxDomesticAnimals
             // 
@@ -503,11 +558,10 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             "Коне",
             "Магарета",
             "Свине"});
-            this.comboBoxDomesticAnimals.Location = new System.Drawing.Point(62, 130);
+            this.comboBoxDomesticAnimals.Location = new System.Drawing.Point(355, 96);
             this.comboBoxDomesticAnimals.Name = "comboBoxDomesticAnimals";
-            this.comboBoxDomesticAnimals.Size = new System.Drawing.Size(116, 22);
+            this.comboBoxDomesticAnimals.Size = new System.Drawing.Size(202, 22);
             this.comboBoxDomesticAnimals.TabIndex = 47;
-            this.comboBoxDomesticAnimals.SelectedIndexChanged += new System.EventHandler(this.comboBoxDomesticAnimals_SelectedIndexChanged);
             // 
             // comboBoxHabitability
             // 
@@ -531,10 +585,12 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.numericUpDownSquaring.Name = "numericUpDownSquaring";
             this.numericUpDownSquaring.Size = new System.Drawing.Size(142, 21);
             this.numericUpDownSquaring.TabIndex = 60;
-            this.numericUpDownSquaring.ValueChanged += new System.EventHandler(this.numericUpDownSquaring_ValueChanged);
             // 
             // panelDogs
             // 
+            this.panelDogs.Controls.Add(this.panelTableDogs);
+            this.panelDogs.Controls.Add(this.pictureBoxBack);
+            this.panelDogs.Controls.Add(this.labelTitle);
             this.panelDogs.Controls.Add(this.labelDogsError);
             this.panelDogs.Controls.Add(this.buttonAddDog);
             this.panelDogs.Controls.Add(this.labelDogTypeEdit);
@@ -542,88 +598,21 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.panelDogs.Controls.Add(this.comboBoxDogTypeEdit);
             this.panelDogs.Controls.Add(this.checkBoxDogNoNumber);
             this.panelDogs.Controls.Add(this.textBoxDogNumber);
-            this.panelDogs.Controls.Add(this.dataGridViewDogs);
             this.panelDogs.Controls.Add(this.labelDogsTitle);
             this.panelDogs.Location = new System.Drawing.Point(318, 14);
             this.panelDogs.Name = "panelDogs";
             this.panelDogs.Size = new System.Drawing.Size(712, 300);
             this.panelDogs.TabIndex = 54;
             // 
-            // labelDogsError
+            // panelTableDogs
             // 
-            this.labelDogsError.BackColor = System.Drawing.Color.Transparent;
-            this.labelDogsError.Location = new System.Drawing.Point(15, 76);
-            this.labelDogsError.Name = "labelDogsError";
-            this.labelDogsError.Size = new System.Drawing.Size(274, 35);
-            this.labelDogsError.TabIndex = 21;
-            this.labelDogsError.Text = "Грешка";
-            this.labelDogsError.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.labelDogsError.Visible = false;
-            // 
-            // buttonAddDog
-            // 
-            this.buttonAddDog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
-            this.buttonAddDog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddDog.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonAddDog.Location = new System.Drawing.Point(37, 206);
-            this.buttonAddDog.Name = "buttonAddDog";
-            this.buttonAddDog.Size = new System.Drawing.Size(126, 23);
-            this.buttonAddDog.TabIndex = 20;
-            this.buttonAddDog.Text = "Добави";
-            this.buttonAddDog.UseVisualStyleBackColor = false;
-            this.buttonAddDog.Click += new System.EventHandler(this.buttonAddDog_Click);
-            // 
-            // labelDogTypeEdit
-            // 
-            this.labelDogTypeEdit.AutoSize = true;
-            this.labelDogTypeEdit.BackColor = System.Drawing.Color.Transparent;
-            this.labelDogTypeEdit.Location = new System.Drawing.Point(15, 155);
-            this.labelDogTypeEdit.Name = "labelDogTypeEdit";
-            this.labelDogTypeEdit.Size = new System.Drawing.Size(30, 15);
-            this.labelDogTypeEdit.TabIndex = 19;
-            this.labelDogTypeEdit.Text = "Тип:";
-            // 
-            // labelDogNumberEdit
-            // 
-            this.labelDogNumberEdit.AutoSize = true;
-            this.labelDogNumberEdit.BackColor = System.Drawing.Color.Transparent;
-            this.labelDogNumberEdit.Location = new System.Drawing.Point(13, 123);
-            this.labelDogNumberEdit.Name = "labelDogNumberEdit";
-            this.labelDogNumberEdit.Size = new System.Drawing.Size(49, 15);
-            this.labelDogNumberEdit.TabIndex = 18;
-            this.labelDogNumberEdit.Text = "Номер:";
-            // 
-            // comboBoxDogTypeEdit
-            // 
-            this.comboBoxDogTypeEdit.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxDogTypeEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDogTypeEdit.FormattingEnabled = true;
-            this.comboBoxDogTypeEdit.Items.AddRange(new object[] {
-            "Куче пазач",
-            "Ловджийско куче",
-            "Домашно куче"});
-            this.comboBoxDogTypeEdit.Location = new System.Drawing.Point(72, 155);
-            this.comboBoxDogTypeEdit.Name = "comboBoxDogTypeEdit";
-            this.comboBoxDogTypeEdit.Size = new System.Drawing.Size(159, 22);
-            this.comboBoxDogTypeEdit.TabIndex = 17;
-            // 
-            // checkBoxDogNoNumber
-            // 
-            this.checkBoxDogNoNumber.AutoSize = true;
-            this.checkBoxDogNoNumber.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxDogNoNumber.Location = new System.Drawing.Point(237, 122);
-            this.checkBoxDogNoNumber.Name = "checkBoxDogNoNumber";
-            this.checkBoxDogNoNumber.Size = new System.Drawing.Size(96, 19);
-            this.checkBoxDogNoNumber.TabIndex = 16;
-            this.checkBoxDogNoNumber.Text = "няма номер";
-            this.checkBoxDogNoNumber.UseVisualStyleBackColor = false;
-            // 
-            // textBoxDogNumber
-            // 
-            this.textBoxDogNumber.Location = new System.Drawing.Point(72, 122);
-            this.textBoxDogNumber.Name = "textBoxDogNumber";
-            this.textBoxDogNumber.Size = new System.Drawing.Size(159, 21);
-            this.textBoxDogNumber.TabIndex = 15;
+            this.panelTableDogs.BackColor = System.Drawing.Color.Silver;
+            this.panelTableDogs.Controls.Add(this.dataGridViewDogs);
+            this.panelTableDogs.Location = new System.Drawing.Point(30, 112);
+            this.panelTableDogs.Name = "panelTableDogs";
+            this.panelTableDogs.Padding = new System.Windows.Forms.Padding(1);
+            this.panelTableDogs.Size = new System.Drawing.Size(303, 167);
+            this.panelTableDogs.TabIndex = 24;
             // 
             // dataGridViewDogs
             // 
@@ -634,18 +623,23 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.dataGridViewDogs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewDogs.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dataGridViewDogs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewDogs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridViewDogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDogs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnNumber,
             this.ColumnType,
             this.ColumnDelete});
-            this.dataGridViewDogs.Location = new System.Drawing.Point(353, 31);
+            this.dataGridViewDogs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewDogs.Location = new System.Drawing.Point(1, 1);
             this.dataGridViewDogs.Name = "dataGridViewDogs";
+            this.dataGridViewDogs.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dataGridViewDogs.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridViewDogs.RowHeadersVisible = false;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
             this.dataGridViewDogs.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewDogs.RowTemplate.Height = 25;
-            this.dataGridViewDogs.Size = new System.Drawing.Size(328, 245);
+            this.dataGridViewDogs.Size = new System.Drawing.Size(301, 165);
             this.dataGridViewDogs.TabIndex = 14;
             this.dataGridViewDogs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDogs_CellClick);
             this.dataGridViewDogs.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewDogs_CellPainting);
@@ -671,16 +665,117 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.ColumnDelete.Name = "ColumnDelete";
             this.ColumnDelete.Width = 24;
             // 
+            // pictureBoxBack
+            // 
+            this.pictureBoxBack.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxBack.Image = global::GraduationProject.Properties.Resources.back_arrow;
+            this.pictureBoxBack.Location = new System.Drawing.Point(652, 13);
+            this.pictureBoxBack.Name = "pictureBoxBack";
+            this.pictureBoxBack.Size = new System.Drawing.Size(42, 41);
+            this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxBack.TabIndex = 23;
+            this.pictureBoxBack.TabStop = false;
+            this.pictureBoxBack.Click += new System.EventHandler(this.pictureBoxBack_Click);
+            this.pictureBoxBack.MouseEnter += new System.EventHandler(this.pictureBoxBack_MouseEnter);
+            this.pictureBoxBack.MouseLeave += new System.EventHandler(this.pictureBoxBack_MouseLeave);
+            // 
+            // labelTitle
+            // 
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.BackColor = System.Drawing.Color.Transparent;
+            this.labelTitle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelTitle.Location = new System.Drawing.Point(42, 90);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(150, 19);
+            this.labelTitle.TabIndex = 22;
+            this.labelTitle.Text = "Въведени данни:";
+            // 
+            // labelDogsError
+            // 
+            this.labelDogsError.BackColor = System.Drawing.Color.Transparent;
+            this.labelDogsError.Location = new System.Drawing.Point(374, 69);
+            this.labelDogsError.Name = "labelDogsError";
+            this.labelDogsError.Size = new System.Drawing.Size(274, 35);
+            this.labelDogsError.TabIndex = 21;
+            this.labelDogsError.Text = "Грешка";
+            this.labelDogsError.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.labelDogsError.Visible = false;
+            // 
+            // buttonAddDog
+            // 
+            this.buttonAddDog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonAddDog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddDog.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonAddDog.Location = new System.Drawing.Point(376, 183);
+            this.buttonAddDog.Name = "buttonAddDog";
+            this.buttonAddDog.Size = new System.Drawing.Size(121, 23);
+            this.buttonAddDog.TabIndex = 20;
+            this.buttonAddDog.Text = "Въведи";
+            this.buttonAddDog.UseVisualStyleBackColor = false;
+            this.buttonAddDog.Click += new System.EventHandler(this.buttonAddDog_Click);
+            // 
+            // labelDogTypeEdit
+            // 
+            this.labelDogTypeEdit.AutoSize = true;
+            this.labelDogTypeEdit.BackColor = System.Drawing.Color.Transparent;
+            this.labelDogTypeEdit.Location = new System.Drawing.Point(376, 143);
+            this.labelDogTypeEdit.Name = "labelDogTypeEdit";
+            this.labelDogTypeEdit.Size = new System.Drawing.Size(30, 15);
+            this.labelDogTypeEdit.TabIndex = 19;
+            this.labelDogTypeEdit.Text = "Тип:";
+            // 
+            // labelDogNumberEdit
+            // 
+            this.labelDogNumberEdit.AutoSize = true;
+            this.labelDogNumberEdit.BackColor = System.Drawing.Color.Transparent;
+            this.labelDogNumberEdit.Location = new System.Drawing.Point(374, 111);
+            this.labelDogNumberEdit.Name = "labelDogNumberEdit";
+            this.labelDogNumberEdit.Size = new System.Drawing.Size(49, 15);
+            this.labelDogNumberEdit.TabIndex = 18;
+            this.labelDogNumberEdit.Text = "Номер:";
+            // 
+            // comboBoxDogTypeEdit
+            // 
+            this.comboBoxDogTypeEdit.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxDogTypeEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDogTypeEdit.FormattingEnabled = true;
+            this.comboBoxDogTypeEdit.Items.AddRange(new object[] {
+            "Куче пазач",
+            "Ловджийско куче",
+            "Домашно куче"});
+            this.comboBoxDogTypeEdit.Location = new System.Drawing.Point(433, 143);
+            this.comboBoxDogTypeEdit.Name = "comboBoxDogTypeEdit";
+            this.comboBoxDogTypeEdit.Size = new System.Drawing.Size(159, 22);
+            this.comboBoxDogTypeEdit.TabIndex = 17;
+            // 
+            // checkBoxDogNoNumber
+            // 
+            this.checkBoxDogNoNumber.AutoSize = true;
+            this.checkBoxDogNoNumber.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxDogNoNumber.Location = new System.Drawing.Point(598, 110);
+            this.checkBoxDogNoNumber.Name = "checkBoxDogNoNumber";
+            this.checkBoxDogNoNumber.Size = new System.Drawing.Size(96, 19);
+            this.checkBoxDogNoNumber.TabIndex = 16;
+            this.checkBoxDogNoNumber.Text = "няма номер";
+            this.checkBoxDogNoNumber.UseVisualStyleBackColor = false;
+            // 
+            // textBoxDogNumber
+            // 
+            this.textBoxDogNumber.Location = new System.Drawing.Point(433, 110);
+            this.textBoxDogNumber.Name = "textBoxDogNumber";
+            this.textBoxDogNumber.Size = new System.Drawing.Size(159, 21);
+            this.textBoxDogNumber.TabIndex = 15;
+            // 
             // labelDogsTitle
             // 
             this.labelDogsTitle.AutoSize = true;
             this.labelDogsTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelDogsTitle.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelDogsTitle.Location = new System.Drawing.Point(37, 34);
+            this.labelDogsTitle.Location = new System.Drawing.Point(33, 25);
             this.labelDogsTitle.Name = "labelDogsTitle";
-            this.labelDogsTitle.Size = new System.Drawing.Size(99, 29);
+            this.labelDogsTitle.Size = new System.Drawing.Size(92, 29);
             this.labelDogsTitle.TabIndex = 13;
-            this.labelDogsTitle.Text = "Кучета:";
+            this.labelDogsTitle.Text = "Кучета";
             // 
             // buttonStateAndSquaring
             // 
@@ -762,13 +857,13 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Controls.Add(this.panelTrees);
-            this.Controls.Add(this.panelBuildings);
-            this.Controls.Add(this.panelStateAndSquaring);
-            this.Controls.Add(this.buttonStateAndSquaring);
             this.Controls.Add(this.panelAnimals);
             this.Controls.Add(this.panelDogs);
             this.Controls.Add(this.panelNotes);
+            this.Controls.Add(this.panelTrees);
+            this.Controls.Add(this.panelStateAndSquaring);
+            this.Controls.Add(this.panelBuildings);
+            this.Controls.Add(this.buttonStateAndSquaring);
             this.Controls.Add(this.buttonNotes);
             this.Controls.Add(this.buttonTrees);
             this.Controls.Add(this.buttonAnimals);
@@ -792,7 +887,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSquaring)).EndInit();
             this.panelDogs.ResumeLayout(false);
             this.panelDogs.PerformLayout();
+            this.panelTableDogs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDogs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
             this.panelStateAndSquaring.ResumeLayout(false);
             this.panelStateAndSquaring.PerformLayout();
             this.ResumeLayout(false);
@@ -817,7 +914,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private System.Windows.Forms.RichTextBox richTextBoxNotes;
         private System.Windows.Forms.Label labelTitleNotes;
         private System.Windows.Forms.ComboBox comboBoxBuildings;
-        private System.Windows.Forms.Label labelCattle;
         private System.Windows.Forms.Label labelTitleAnimals;
         private System.Windows.Forms.Label labelDogs;
         private System.Windows.Forms.Label labelFeathered;
@@ -825,9 +921,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private System.Windows.Forms.ComboBox comboBoxHabitability;
         private System.Windows.Forms.NumericUpDown numericUpDownFeathererd;
         private System.Windows.Forms.NumericUpDown numericUpDownDomesticAnimals;
-        private System.Windows.Forms.ComboBox comboBoxDogsType;
         private System.Windows.Forms.ComboBox comboBoxDomesticAnimals;
-        private System.Windows.Forms.Label labelDogsNumber;
         private System.Windows.Forms.Button buttonEditDogs;
         private System.Windows.Forms.NumericUpDown numericUpDownTrees;
         private System.Windows.Forms.ComboBox comboBoxTrees;
@@ -843,9 +937,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private System.Windows.Forms.DataGridView dataGridViewDogs;
         private System.Windows.Forms.Button buttonAddDog;
         private System.Windows.Forms.Label labelDogsError;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumber;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnType;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnDelete;
         private System.Windows.Forms.Button buttonStateAndSquaring;
         private System.Windows.Forms.Label labelTitleStateAndSquaring;
         private System.Windows.Forms.Panel panelStateAndSquaring;
@@ -858,5 +949,18 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private InsertedDataDisplay insertedDataDisplayTrees;
         private System.Windows.Forms.Button buttonInsertTrees;
         private System.Windows.Forms.Label labelTrees;
+        private System.Windows.Forms.Button buttonInsertCattle;
+        private System.Windows.Forms.Label labelCattle;
+        private InsertedDataDisplay insertedDataDisplayAnimals;
+        private System.Windows.Forms.Button buttonInsertFeathered;
+        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.PictureBox pictureBoxBack;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumber;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnType;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnDelete;
+        private System.Windows.Forms.Panel panelTableDogs;
+        private System.Windows.Forms.Button buttonEditNote;
+        private InsertedDataDisplay insertedDataDisplayNotes;
+        private System.Windows.Forms.Button buttonInsertNote;
     }
 }

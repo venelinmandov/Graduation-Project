@@ -52,7 +52,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             }
 
             ShowDogs();
-            richTextBoxNotes.Text = addressData.address.Note;
 
             foreach (Panel panel in Controls.OfType<Panel>())
             {
@@ -62,26 +61,69 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                 }
             }
             comboBoxHabitability.DrawItem += comboBox_DrawItem;
-            numericUpDownFeathererd.Value = addressData.address.NumFeathered;
 
             UpdateInsertedDataStatesAndProperty();
             UpdateInsertedDataBuildings();
             UpdateInsertedDataTrees();
+            UpdateInsertedDataAnimals();
+            UpdateInsertedDataNotes();
 
             dontTriggerChangeEvent = false;
         }
 
         //Методи
+
+        #region Статус и площ
         /// <summary>
         /// Показване на панела със статуса на обитаване и площта
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        #region Статус и площ
         private void buttonStateAndSquaring_Click(object sender, EventArgs e)
         {
             SetActivePanel(panelStateAndSquaring, (Button)sender);
 
+        }
+        /// <summary>
+        /// Показване на въведените данни (статус и площ)
+        /// </summary>
+        void UpdateInsertedDataStatesAndProperty()
+        {
+            string dataText = "";
+            if (addressData.address.Habitallity != 0)
+            {
+                string habitability = habitabilityDict.FirstOrDefault(entry => EqualityComparer<Address.Habitability>.Default.Equals(entry.Value, addressData.address.Habitallity)).Key;
+                dataText += $"Статус: {habitability}\n";
+            }
+            if (addressData.address.Squaring != 0.0)
+            {
+                dataText += $"Площ: {addressData.address.Squaring}\n";
+            }
+            insertedDataDisplayStateAndSquaring.DataText = dataText;
+
+        }
+        /// <summary>
+        /// Въвеждане на статус на обитаемост
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonInsertState_Click(object sender, EventArgs e)
+        {
+            if (comboBoxHabitability.Text == "") return;
+            addressData.address.Habitallity = habitabilityDict[comboBoxHabitability.Text];
+            SaveAddress();
+            UpdateInsertedDataStatesAndProperty();
+        }
+        /// <summary>
+        /// Въвеждане на площ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonInsertSquaring_Click(object sender, EventArgs e)
+        {
+            addressData.address.Squaring = (double)numericUpDownSquaring.Value;
+            SaveAddress();
+            UpdateInsertedDataStatesAndProperty();
         }
         #endregion
         #region Постройки
@@ -93,6 +135,44 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private void buttonBuildings_Click(object sender, EventArgs e)
         {
             SetActivePanel(panelBuildings, (Button)sender);
+        }
+        /// <summary>
+        /// Показване на въведените данни (постройки)
+        /// </summary>
+        void UpdateInsertedDataBuildings()
+        {
+            string dataText = "";
+            if (addressData.address.NumResBuildings != 0)
+            {
+                dataText += $"Жилищни постройки: {addressData.address.NumResBuildings}\n";
+            }
+            if (addressData.address.NumAgrBuildings != 0)
+            {
+                dataText += $"Селскостопански постройки: {addressData.address.NumAgrBuildings}\n";
+            }
+
+            insertedDataDisplayBuildings.DataText = dataText;
+        }
+
+        /// <summary>
+        /// Въвеждане на постройки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonInsertBuildings_Click(object sender, EventArgs e)
+        {
+            if (comboBoxBuildings.Text == "") return;
+            if (comboBoxBuildings.Text == "Жилищни постройки")
+            {
+                addressData.address.NumResBuildings = (int)numericUpDownBuildings.Value;
+            }
+            else
+            {
+                addressData.address.NumAgrBuildings = (int)numericUpDownBuildings.Value;
+
+            }
+            SaveAddress();
+            UpdateInsertedDataBuildings();
         }
 
         #endregion
@@ -106,6 +186,39 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private void buttonEditDogs_Click(object sender, EventArgs e)
         {
             SetActivePanel(panelDogs, buttonAnimals);
+        }
+
+        /// <summary>
+        /// Уголямяване на бутона за назад 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBoxBack_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBoxBack.Size = new Size(pictureBoxBack.Size.Width + 4, pictureBoxBack.Size.Height + 4);
+            pictureBoxBack.Location = new Point(pictureBoxBack.Location.X - 2, pictureBoxBack.Location.Y - 2);
+        }
+
+        /// <summary>
+        /// намаляване на размера на бутона за назад
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBoxBack_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBoxBack.Size = new Size(pictureBoxBack.Size.Width - 4, pictureBoxBack.Size.Height - 4);
+            pictureBoxBack.Location = new Point(pictureBoxBack.Location.X + 2, pictureBoxBack.Location.Y + 2);
+        }
+
+        /// <summary>
+        /// Натискане на бутона за назад
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBoxBack_Click(object sender, EventArgs e)
+        {
+            SetActivePanel(panelAnimals, buttonAnimals);
+            UpdateInsertedDataAnimals();
         }
         /// <summary>
         /// Показване на кучетата от списъка с кучета в таблицата
@@ -135,27 +248,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         }
 
         /// <summary>
-        /// Избран е вид куче за показване на съответния брой
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void comboBoxDogs_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (comboBoxDogsType.Text)
-            {
-                case "Кучета пазач":
-                    labelDogsNumber.Text = (from dog in addressData.dogs where dog.Type == Dog.DogType.GuardDog select dog).ToArray().Length.ToString();
-                    break;
-                case "Ловджийски кучета":
-                    labelDogsNumber.Text = (from dog in addressData.dogs where dog.Type == Dog.DogType.HuntingDog select dog).ToArray().Length.ToString();
-                    break;
-                case "Домашни кучета":
-                    labelDogsNumber.Text = (from dog in addressData.dogs where dog.Type == Dog.DogType.DomesticDog select dog).ToArray().Length.ToString();
-                    break;
-            }
-        }
-
-        /// <summary>
         /// Добаване на ново куче
         /// </summary>
         /// <param name="sender"></param>
@@ -167,7 +259,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
 
             if (checkBoxDogNoNumber.Checked)
             {
-
                 dog.SealNumber = null;
             }
             else if (textBoxDogNumber.Text.Trim() == "")
@@ -178,10 +269,16 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             }
             else
             {
-                labelDogsError.Visible = false;
                 dog.SealNumber = textBoxDogNumber.Text;
-
             }
+            if (comboBoxDogTypeEdit.Text == "")
+            {
+                labelDogsError.Text = "Моля изберете тип куче!";
+                labelDogsError.Visible = true;
+                return;
+            }
+
+            labelDogsError.Visible = false;
             labelDogsError.Text = "";
             dog.Type = dogDict[comboBoxDogTypeEdit.Text];
             addressData.dogs.Add(dog);
@@ -283,49 +380,82 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         /// <param name="e"></param>
         private void buttonAnimals_Click(object sender, EventArgs e)
         {
+            UpdateInsertedDataAnimals();
             SetActivePanel(panelAnimals, (Button)sender);
 
         }
-
         /// <summary>
-        /// Избран е вид домашно животно
+        /// Показване на въведените данни (селкскостопански животни)
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void comboBoxDomesticAnimals_SelectedIndexChanged(object sender, EventArgs e)
+        void UpdateInsertedDataAnimals()
         {
-            switch (comboBoxDomesticAnimals.Text)
+            string dataText = "";
+            int guardDogs = (from dog in addressData.dogs where dog.Type == Dog.DogType.GuardDog select dog).ToArray().Length;
+            int huntingDogs = (from dog in addressData.dogs where dog.Type == Dog.DogType.HuntingDog select dog).ToArray().Length;
+            int domesticDogs = (from dog in addressData.dogs where dog.Type == Dog.DogType.DomesticDog select dog).ToArray().Length;
+
+            if (addressData.address.NumCows != 0)
             {
-                case "Крави":
-                    numericUpDownDomesticAnimals.Value = addressData.address.NumCows;
-                    break;
-                case "Овце":
-                    numericUpDownDomesticAnimals.Value = addressData.address.NumSheep;
-                    break;
-                case "Кози":
-                    numericUpDownDomesticAnimals.Value = addressData.address.NumGoats;
-                    break;
-                case "Коне":
-                    numericUpDownDomesticAnimals.Value = addressData.address.NumHorses;
-                    break;
-                case "Магарета":
-                    numericUpDownDomesticAnimals.Value = addressData.address.NumDonkeys;
-                    break;
-                case "Свине":
-                    numericUpDownDomesticAnimals.Value = addressData.address.NumPigs;
-                    break;
+                dataText += $"Крави: {addressData.address.NumCows}\n";
+
             }
+            if (addressData.address.NumSheep != 0)
+            {
+                dataText += $"Овце: {addressData.address.NumSheep}\n";
+
+            }
+            if (addressData.address.NumGoats != 0)
+            {
+                dataText += $"Кози: {addressData.address.NumGoats}\n";
+
+            }
+            if (addressData.address.NumHorses != 0)
+            {
+                dataText += $"Коне: {addressData.address.NumHorses}\n";
+
+            }
+            if (addressData.address.NumDonkeys != 0)
+            {
+                dataText += $"Магарета: {addressData.address.NumDonkeys}\n";
+
+            }
+            if (addressData.address.NumPigs != 0)
+            {
+                dataText += $"Свине: {addressData.address.NumPigs}\n";
+
+            }
+            if (addressData.address.NumFeathered != 0)
+            {
+                dataText += $"Пернати: {addressData.address.NumFeathered}\n";
+
+            }
+            if (guardDogs != 0)
+            {
+                dataText += $"Кучета пазачи: {guardDogs}\n";
+            }
+            if (huntingDogs != 0)
+            {
+                dataText += $"Ловджийски кучета: {huntingDogs}\n";
+            }
+            if (domesticDogs != 0)
+            {
+                dataText += $"Домашни кучета: {domesticDogs}\n";
+            }
+
+            insertedDataDisplayAnimals.DataText = dataText;
+
         }
 
         /// <summary>
-        /// Въведен е брой за избрания вид домашно животно
+        /// Въвеждане на домашни животни
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void numericUpDownDomesticAnimals_ValueChanged(object sender, EventArgs e)
+        private void buttonInsertCattle_Click(object sender, EventArgs e)
         {
             switch (comboBoxDomesticAnimals.Text)
             {
+                case "": return;
                 case "Крави":
                     addressData.address.NumCows = (int)numericUpDownDomesticAnimals.Value;
                     break;
@@ -345,16 +475,20 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                     addressData.address.NumPigs = (int)numericUpDownDomesticAnimals.Value;
                     break;
             }
+            SaveAddress();
+            UpdateInsertedDataAnimals();
         }
 
         /// <summary>
-        /// Въведен е брой пернати
+        /// Въвеждане на пернати
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void numericUpDownFeathererd_ValueChanged(object sender, EventArgs e)
+        private void buttonInsertFeathered_Click(object sender, EventArgs e)
         {
             addressData.address.NumFeathered = (int)numericUpDownFeathererd.Value;
+            SaveAddress();
+            UpdateInsertedDataAnimals();
         }
 
         #endregion
@@ -368,6 +502,59 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         {
             SetActivePanel(panelTrees, (Button)sender);
 
+        }
+
+        /// <summary>
+        /// Показване на въведените данни (защитени дървесни видове)
+        /// </summary>
+        void UpdateInsertedDataTrees()
+        {
+            string dataText = "";
+            if (addressData.address.NumWalnutTrees != 0)
+            {
+                dataText += $"Орехови дървета: {addressData.address.NumWalnutTrees}\n";
+            }
+            if (addressData.address.NumMulberryTrees != 0)
+            {
+                dataText += $"Черници: {addressData.address.NumMulberryTrees}\n";
+            }
+            if (addressData.address.NumOldTrees != 0)
+            {
+                dataText += $"Дървета над 20 г. възраст: {addressData.address.NumOldTrees}\n";
+            }
+            if (addressData.address.NumCenturyOldTrees != 0)
+            {
+                dataText += $"Вековни дървета: {addressData.address.NumCenturyOldTrees}\n";
+            }
+            insertedDataDisplayTrees.DataText = dataText;
+        }
+
+        /// <summary>
+        /// Въвеждане на защитени дървесни видове
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonInsertTrees_Click(object sender, EventArgs e)
+        {
+            switch (comboBoxTrees.Text)
+            {
+                case "":
+                    return;
+                case "Орехови дървета":
+                    addressData.address.NumWalnutTrees = (int)numericUpDownTrees.Value;
+                    break;
+                case "Черници":
+                    addressData.address.NumMulberryTrees = (int)numericUpDownTrees.Value;
+                    break;
+                case "Дървета над 20 г. възраст":
+                    addressData.address.NumOldTrees = (int)numericUpDownTrees.Value;
+                    break;
+                case "Вековни дървета":
+                    addressData.address.NumCenturyOldTrees = (int)numericUpDownTrees.Value;
+                    break;
+            }
+            SaveAddress();
+            UpdateInsertedDataTrees();
         }
 
 
@@ -385,26 +572,32 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         }
 
         /// <summary>
-        /// Въведена е забележка
+        /// Показване на въведените данни (забележки)
+        /// </summary>
+        void UpdateInsertedDataNotes()
+        {
+            insertedDataDisplayNotes.DataText = addressData.address.Note;
+        }
+        /// <summary>
+        /// Въвеждане на забележки
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void richTextBoxNotes_TextChanged(object sender, EventArgs e)
+        private void buttonInsertNote_Click(object sender, EventArgs e)
         {
-            if (dontTriggerChangeEvent) return;
             addressData.address.Note = richTextBoxNotes.Text;
+            SaveAddress();
+            UpdateInsertedDataNotes();
         }
-        #endregion
-        #region Адрес
 
         /// <summary>
-        /// Въведена е квадратура
+        /// Редактиране на забележки
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void numericUpDownSquaring_ValueChanged(object sender, EventArgs e)
+        private void buttonEditNote_Click(object sender, EventArgs e)
         {
-            addressData.address.Squaring = (double)numericUpDownSquaring.Value;
+            richTextBoxNotes.Text = addressData.address.Note;
         }
 
         #endregion
@@ -452,20 +645,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                                           new Point(e.Bounds.X, e.Bounds.Y));
         }
 
-        #endregion
-
-        private void labelSquaring_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonInsertState_Click(object sender, EventArgs e)
-        {
-            addressData.address.Habitallity = habitabilityDict[comboBoxHabitability.Text];
-            SaveAddress();
-            UpdateInsertedDataStatesAndProperty();
-        }
-
+        /// <summary>
+        /// Запазване на промените в базата данни (при редактиране на адрес)
+        /// </summary>
         private void SaveAddress()
         {
             if (addressData.address.Id != 0)
@@ -473,70 +655,18 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                 addressData.address.Update(connectionHelper);
             }
         }
+        #endregion
 
-        void UpdateInsertedDataStatesAndProperty()
-        {
-            string habitability = habitabilityDict.FirstOrDefault(entry => EqualityComparer<Address.Habitability>.Default.Equals(entry.Value, addressData.address.Habitallity)).Key;
-            insertedDataDisplayStateAndSquaring.DataText = $"Статус: {habitability}\n"+
-                                            $"Площ: {addressData.address.Squaring}";
-        }
 
-        void UpdateInsertedDataBuildings()
-        {
-            insertedDataDisplayBuildings.DataText = $"Жилищни постройки: {addressData.address.NumResBuildings}\n" +
-                                                    $"Селскостопански постройки: {addressData.address.NumAgrBuildings}";
-        }
 
-        void UpdateInsertedDataTrees()
-        {
-            insertedDataDisplayTrees.DataText = $"Орехови дървета: {addressData.address.NumWalnutTrees}\n" +
-                                                    $"Черници: {addressData.address.NumMulberryTrees}\n" +
-                                                    $"Дървета над 20 г. възраст: {addressData.address.NumOldTrees}\n" +
-                                                    $"Вековни дървета: {addressData.address.NumCenturyOldTrees}";
-        }
 
-        private void buttonInsertSquaring_Click(object sender, EventArgs e)
-        {
-            addressData.address.Squaring = (double)numericUpDownSquaring.Value;
-            SaveAddress();
-            UpdateInsertedDataStatesAndProperty();
-        }
 
-        private void buttonInsertBuildings_Click(object sender, EventArgs e)
-        {
 
-            if (comboBoxBuildings.Text == "Жилищни постройки")
-            {
-                addressData.address.NumResBuildings = (int)numericUpDownBuildings.Value;
-            }
-            else
-            {
-                addressData.address.NumAgrBuildings = (int)numericUpDownBuildings.Value;
 
-            }
-            SaveAddress();
-            UpdateInsertedDataBuildings();
-        }
 
-        private void buttonInsertTrees_Click(object sender, EventArgs e)
-        {
-            switch (comboBoxTrees.Text)
-            {
-                case "Орехови дървета":
-                    addressData.address.NumWalnutTrees = (int)numericUpDownTrees.Value;
-                    break;
-                case "Черници":
-                    addressData.address.NumMulberryTrees = (int)numericUpDownTrees.Value;
-                    break;
-                case "Дървета над 20 г. възраст":
-                    addressData.address.NumOldTrees = (int)numericUpDownTrees.Value;
-                    break;
-                case "Вековни дървета":
-                    addressData.address.NumCenturyOldTrees = (int)numericUpDownTrees.Value;
-                    break;
-            }
-            SaveAddress();
-            UpdateInsertedDataTrees();
-        }
+
+
+
+
     }
 }

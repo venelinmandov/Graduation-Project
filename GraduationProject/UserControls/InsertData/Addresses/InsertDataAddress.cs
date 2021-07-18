@@ -14,6 +14,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         List<Address> addresses;
         List<Street> streets;
         ConnectionHelper connectionHelper = new ConnectionHelper();
+        bool notSaved = false;
         string mode; //Режим (редактиране или създаване на адрес)
         public struct AddressData
         {
@@ -171,6 +172,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         /// <param name="e"></param>
         private void buttonProperty_Click(object sender, EventArgs e)
         {
+            notSaved = true;
             ButtonClicked(new Forms.MainForm.EventData("propertyData", addressData), e);
         }
 
@@ -203,11 +205,20 @@ namespace GraduationProject.UserControls.InsertData.Addresses
 
 
         /// <summary>
-        /// Натиснат е бутона за запис на адреса (при създаване на нов дарес)
+        /// Натиснат е бутона за запис на адреса (при създаване на нов адрес)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void buttonSave_Click(object sender, EventArgs e)
+        {
+            SaveAddress();
+            notSaved = false;
+        }
+
+        /// <summary>
+        /// Запис на адрес (при създаване на нов адрес)
+        /// </summary>
+        private void SaveAddress()
         {
             if (mode == "create")
             {
@@ -254,5 +265,21 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             }
         }
 
+        private void buttonInhabitants_Click(object sender, EventArgs e)
+        {
+            notSaved = false;
+        }
+
+        private void InsertDataAddress_VisibleChanged(object sender, EventArgs e)
+        {
+            if (notSaved && mode == "create")
+            {
+                DialogResult dialogResult = MessageBox.Show("Излизате от режим \"Нов адрес\" и въведените от вас данни ще бъдат изгубени. Запазване на въведените данни?", "Запазване на адрес?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    SaveAddress();
+                }
+            }
+        }
     }
 }

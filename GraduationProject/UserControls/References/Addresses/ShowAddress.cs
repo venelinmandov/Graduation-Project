@@ -372,6 +372,7 @@ namespace GraduationProject.UserControls.References
             labelSquaringValue.Text = address.Squaring.ToString();
             switch (address.Habitallity)
             {
+                case Address.Habitability.NotSet: labelHabitabillityValue.Text = ""; break;
                 case Address.Habitability.Desolate: labelHabitabillityValue.Text = "Пустеещ"; break;
                 case Address.Habitability.Inhabited: labelHabitabillityValue.Text = "Обитаван"; break;
                 case Address.Habitability.TemporaryInhabited: labelHabitabillityValue.Text = "Временно обитаван"; break;

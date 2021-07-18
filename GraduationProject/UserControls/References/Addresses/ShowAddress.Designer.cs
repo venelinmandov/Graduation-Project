@@ -119,29 +119,29 @@ namespace GraduationProject.UserControls.References
             this.labelHabitabillity.AutoSize = true;
             this.labelHabitabillity.BackColor = System.Drawing.Color.Transparent;
             this.labelHabitabillity.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelHabitabillity.Location = new System.Drawing.Point(52, 67);
+            this.labelHabitabillity.Location = new System.Drawing.Point(45, 67);
             this.labelHabitabillity.Name = "labelHabitabillity";
-            this.labelHabitabillity.Size = new System.Drawing.Size(111, 19);
+            this.labelHabitabillity.Size = new System.Drawing.Size(70, 19);
             this.labelHabitabillity.TabIndex = 1;
-            this.labelHabitabillity.Text = "Обитаемост:";
+            this.labelHabitabillity.Text = "Статус:";
             // 
             // labelHabitabillityValue
             // 
             this.labelHabitabillityValue.AutoSize = true;
             this.labelHabitabillityValue.BackColor = System.Drawing.Color.Transparent;
             this.labelHabitabillityValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelHabitabillityValue.Location = new System.Drawing.Point(160, 68);
+            this.labelHabitabillityValue.Location = new System.Drawing.Point(121, 67);
             this.labelHabitabillityValue.Name = "labelHabitabillityValue";
-            this.labelHabitabillityValue.Size = new System.Drawing.Size(79, 18);
+            this.labelHabitabillityValue.Size = new System.Drawing.Size(58, 18);
             this.labelHabitabillityValue.TabIndex = 2;
-            this.labelHabitabillityValue.Text = "Обитаван";
+            this.labelHabitabillityValue.Text = "Статус";
             // 
             // labelSquaringValue
             // 
             this.labelSquaringValue.AutoSize = true;
             this.labelSquaringValue.BackColor = System.Drawing.Color.Transparent;
             this.labelSquaringValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelSquaringValue.Location = new System.Drawing.Point(160, 97);
+            this.labelSquaringValue.Location = new System.Drawing.Point(121, 96);
             this.labelSquaringValue.Name = "labelSquaringValue";
             this.labelSquaringValue.Size = new System.Drawing.Size(48, 18);
             this.labelSquaringValue.TabIndex = 4;
@@ -154,9 +154,9 @@ namespace GraduationProject.UserControls.References
             this.labelSquaring.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelSquaring.Location = new System.Drawing.Point(54, 96);
             this.labelSquaring.Name = "labelSquaring";
-            this.labelSquaring.Size = new System.Drawing.Size(109, 19);
+            this.labelSquaring.Size = new System.Drawing.Size(61, 19);
             this.labelSquaring.TabIndex = 3;
-            this.labelSquaring.Text = "Квадратура:";
+            this.labelSquaring.Text = "Площ:";
             // 
             // buttonBuildings
             // 

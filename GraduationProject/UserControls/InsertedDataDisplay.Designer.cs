@@ -31,6 +31,8 @@ namespace GraduationProject.UserControls
         {
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelData = new System.Windows.Forms.Label();
+            this.panelData = new System.Windows.Forms.Panel();
+            this.panelData.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -48,23 +50,37 @@ namespace GraduationProject.UserControls
             // 
             this.labelData.AutoSize = true;
             this.labelData.BackColor = System.Drawing.Color.Transparent;
+            this.labelData.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelData.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelData.Location = new System.Drawing.Point(12, 44);
+            this.labelData.Location = new System.Drawing.Point(0, 0);
+            this.labelData.MaximumSize = new System.Drawing.Size(276, 0);
             this.labelData.Name = "labelData";
             this.labelData.Size = new System.Drawing.Size(45, 20);
             this.labelData.TabIndex = 1;
             this.labelData.Text = "данни";
+            // 
+            // panelData
+            // 
+            this.panelData.AutoScroll = true;
+            this.panelData.BackColor = System.Drawing.Color.Transparent;
+            this.panelData.Controls.Add(this.labelData);
+            this.panelData.Location = new System.Drawing.Point(12, 45);
+            this.panelData.Name = "panelData";
+            this.panelData.Size = new System.Drawing.Size(291, 158);
+            this.panelData.TabIndex = 2;
             // 
             // InsertedDataDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Controls.Add(this.labelData);
+            this.Controls.Add(this.panelData);
             this.Controls.Add(this.labelTitle);
             this.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "InsertedDataDisplay";
             this.Size = new System.Drawing.Size(303, 203);
+            this.panelData.ResumeLayout(false);
+            this.panelData.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -74,5 +90,6 @@ namespace GraduationProject.UserControls
 
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Label labelData;
+        private System.Windows.Forms.Panel panelData;
     }
 }
