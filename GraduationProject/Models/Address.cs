@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SQLite;
 
 namespace GraduationProject.Models
@@ -37,7 +38,9 @@ namespace GraduationProject.Models
         };}
 
 
-        
+        //Събития
+        public event EventHandler AddressSaved;
+
         //Enums
         public enum AddressType { Permanent, Current };
         public enum Habitability { NotSet, Desolate, Inhabited, TemporaryInhabited, OutOfRegulation };
@@ -113,6 +116,10 @@ namespace GraduationProject.Models
             connectionHelper.sqlConnection.Close();
          
             Id = (int)id;
+            if (AddressSaved != null)
+            {
+                AddressSaved(new object(), new EventArgs());
+            }
         }
 
         //GET

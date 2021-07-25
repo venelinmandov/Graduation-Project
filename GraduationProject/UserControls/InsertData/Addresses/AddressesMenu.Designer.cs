@@ -32,6 +32,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelTitle = new System.Windows.Forms.Label();
             this.buttonNewAddresse = new System.Windows.Forms.Button();
             this.buttonEditAddress = new System.Windows.Forms.Button();
+            this.labelSearchBy = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -39,11 +40,11 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelTitle.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTitle.Location = new System.Drawing.Point(421, 37);
+            this.labelTitle.Location = new System.Drawing.Point(479, 37);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(239, 33);
+            this.labelTitle.Size = new System.Drawing.Size(114, 33);
             this.labelTitle.TabIndex = 14;
-            this.labelTitle.Text = "Изберете опция:";
+            this.labelTitle.Text = "Адреси";
             // 
             // buttonNewAddresse
             // 
@@ -56,7 +57,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonNewAddresse.Name = "buttonNewAddresse";
             this.buttonNewAddresse.Size = new System.Drawing.Size(179, 60);
             this.buttonNewAddresse.TabIndex = 15;
-            this.buttonNewAddresse.Text = "Нов адрес";
+            this.buttonNewAddresse.Text = "Нов запис";
             this.buttonNewAddresse.UseVisualStyleBackColor = false;
             this.buttonNewAddresse.Click += new System.EventHandler(this.buttonNewAddresse_Click);
             // 
@@ -71,15 +72,27 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonEditAddress.Name = "buttonEditAddress";
             this.buttonEditAddress.Size = new System.Drawing.Size(179, 60);
             this.buttonEditAddress.TabIndex = 16;
-            this.buttonEditAddress.Text = "Редактиране на адрес";
+            this.buttonEditAddress.Text = "Редактиране на запис";
             this.buttonEditAddress.UseVisualStyleBackColor = false;
             this.buttonEditAddress.Click += new System.EventHandler(this.buttonEditAddress_Click);
+            // 
+            // labelSearchBy
+            // 
+            this.labelSearchBy.AutoSize = true;
+            this.labelSearchBy.BackColor = System.Drawing.Color.Transparent;
+            this.labelSearchBy.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelSearchBy.Location = new System.Drawing.Point(472, 78);
+            this.labelSearchBy.Name = "labelSearchBy";
+            this.labelSearchBy.Size = new System.Drawing.Size(129, 18);
+            this.labelSearchBy.TabIndex = 17;
+            this.labelSearchBy.Text = "Изберете опция:";
             // 
             // AddressesMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.labelSearchBy);
             this.Controls.Add(this.buttonEditAddress);
             this.Controls.Add(this.buttonNewAddresse);
             this.Controls.Add(this.labelTitle);
@@ -96,5 +109,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         protected System.Windows.Forms.Label labelTitle;
         protected System.Windows.Forms.Button buttonNewAddresse;
         protected System.Windows.Forms.Button buttonEditAddress;
+        protected System.Windows.Forms.Label labelSearchBy;
     }
 }

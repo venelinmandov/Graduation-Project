@@ -41,75 +41,39 @@ namespace GraduationProject.UserControls.References
         {
             InitializeComponent();
             activeButton = buttonBuildings;
-            SetActivePanel(panelBuildings, buttonBuildings);
             DisplayAddress(address);
+            SetActivePanel(panelBuildings, buttonBuildings);
         }
 
         public ShowAddress(AnimalAddressData animalAddress) : this(animalAddress.address)
         {
-            Label[] label = new Label[2];
+            Label[] label2 = new Label[2];
             Button[] buttons = Controls.OfType<Button>().ToArray();
             foreach (Button button in buttons)
             {
                 button.Visible = false;
             }
             SetActivePanel(panelAnimals, buttonAnimals);
-            switch (animalAddress.animal)
+            if (animalAddress.animal == "Всички кучета")
             {
-                case "Крави":
-                    label[0] = labelCows;
-                    label[1] = labelCowsValue;
-                    break;
-                case "Овце":
-                    label[0] = labelSheep;
-                    label[1] = labelSheepValue;
-                    break;
-                case "Кози":
-                    label[0] = labelGoats;
-                    label[1] = labelGoatsValue;
-                    break;
-                case "Коне":
-                    label[0] = labelHorses;
-                    label[1] = labelHorsesValue;
-                    break;
-                case "Магарета":
-                    label[0] = labelDonkeys;
-                    label[1] = labelDonkeysValue;
-                    break;
-                case "Пернати":
-                    label[0] = labelFeathered;
-                    label[1] = labelFeatheredValue;
-                    break;
-                case "Свине":
-                    label[0] = labelPigs;
-                    label[1] = labelPigsValue;
-                    break;
-                case "Куче пазач":
-                    label[0] = labelGuardDogs;
-                    label[1] = labelGuardDogsValue;
-                    break;
-                case "Ловджийско куче":
-                    label[0] = labelHuntingDogs;
-                    label[1] = labelHuntingDogsValue;
-                    break;
-                case "Домашен любимец":
-                    label[0] = labelDomesticDogs;
-                    label[1] = labelDomesticDogsValue;
-                    break;
-                case "Всички кучета":
-                    label[0] = labelDogs;
-                    label[1] = labelDogs;
-                    break;
-                default: return;
+                labelDogs.ForeColor = Color.FromArgb(91, 120, 65);
+                return;
+            }
+            if (animalAddress.animal == "Пернати")
+            {
+                labelFeathered.ForeColor = Color.FromArgb(91, 120, 65);
+                return;
             }
 
-            label[0].ForeColor = Color.FromArgb(91, 120, 65);
-            label[1].ForeColor = Color.FromArgb(91, 120, 65);
+            var labels = panelCattle.Controls.OfType<Label>();
+            labels = labels.Concat(panelDogs.Controls.OfType<Label>());
+            Label label = (from lbl in labels where lbl.Text.Contains(animalAddress.animal) select lbl).First();
+            label.ForeColor = Color.FromArgb(91, 120, 65);
         }
 
         public ShowAddress(TreeAddressData treeAddressData) : this(treeAddressData.address)
         {
-            Label[] label = new Label[2];
+            Label label;
             Button[] buttons = Controls.OfType<Button>().ToArray();
             foreach (Button button in buttons)
             {
@@ -119,26 +83,21 @@ namespace GraduationProject.UserControls.References
             switch (treeAddressData.tree)
             {
                 case "Орех":
-                    label[0] = labelWalnutTrees;
-                    label[1] = labelWalnutTreesValue;
+                    label = (from lbl in panelTreesData.Controls.OfType<Label>() where lbl.Text.Contains("Oрехови дървета") select lbl).First();
                     break;
                 case "Черница":
-                    label[0] = labelMulBerryTrees;
-                    label[1] = labelMulBerryTreesValue;
+                    label = (from lbl in panelTreesData.Controls.OfType<Label>() where lbl.Text.Contains("Черници") select lbl).First();
                     break;
                 case "Дърво над 20 г. възраст":
-                    label[0] = labelOldTrees;
-                    label[1] = labelOldTreesValue;
+                    label = (from lbl in panelTreesData.Controls.OfType<Label>() where lbl.Text.Contains("Дървета над 20 г. възраст") select lbl).First();
                     break;
                 case "Вековно дърво":
-                    label[0] = labelCenturyOldTrees;
-                    label[1] = labelCenturyOldTreesValue;
+                    label = (from lbl in panelTreesData.Controls.OfType<Label>() where lbl.Text.Contains("Вековни дървета") select lbl).First();
                     break;
                 default: return;
             }
 
-            label[0].ForeColor = Color.FromArgb(91, 120, 65);
-            label[1].ForeColor = Color.FromArgb(91, 120, 65);
+            label.ForeColor = Color.FromArgb(91, 120, 65);
         }
         #endregion
 
@@ -160,8 +119,25 @@ namespace GraduationProject.UserControls.References
         /// <param name="address"></param>
         void ShowBuildings(Address address)
         {
-            labelResidentalValue.Text = address.NumResBuildings.ToString();
-            labelAgriculturalValue.Text = address.NumAgrBuildings.ToString();
+            Font font = new Font("Arial", 12f, FontStyle.Bold);
+            if (address.NumResBuildings != 0)
+            {
+                Label label = new Label();
+                label.Font = font;
+                label.Text = $"Жилищни пострийки: {address.NumResBuildings}";
+                panelBuildingsData.Controls.Add(label);
+                label.Dock = DockStyle.Top;
+                label.BringToFront();
+            }
+            if (address.NumAgrBuildings != 0)
+            {
+                Label label = new Label();
+                label.Font = font;
+                label.Text = $"Селскостопански пострийки: {address.NumAgrBuildings}";
+                panelBuildingsData.Controls.Add(label);
+                label.Dock = DockStyle.Top;
+                label.BringToFront();
+            }
         }
         #endregion
         #region Обитатели
@@ -289,15 +265,9 @@ namespace GraduationProject.UserControls.References
         /// <param name="address"></param>
         void ShowAnimals(Address address)
         {
+            Font font = new Font("Arial", 12f, FontStyle.Bold);
             int guardDogs = 0, huntingDogs = 0, domesticDogs = 0;
 
-            labelCowsValue.Text = address.NumCows.ToString();
-            labelHorsesValue.Text = address.NumHorses.ToString();
-            labelDonkeysValue.Text = address.NumDonkeys.ToString();
-            labelGoatsValue.Text = address.NumGoats.ToString();
-            labelSheepValue.Text = address.NumSheep.ToString();
-            labelPigsValue.Text = address.NumPigs.ToString();
-            labelFeatheredValue.Text = address.NumFeathered.ToString();
             List<Dog> dogs = new Dog().Get(new ConnectionHelper(), address);
             foreach (Dog dog in dogs)
             {
@@ -305,9 +275,57 @@ namespace GraduationProject.UserControls.References
                 if (dog.Type == Dog.DogType.HuntingDog) huntingDogs++;
                 if (dog.Type == Dog.DogType.DomesticDog) domesticDogs++;
             }
-            labelGuardDogsValue.Text = guardDogs.ToString();
-            labelHuntingDogsValue.Text = huntingDogs.ToString();
-            labelDomesticDogsValue.Text = domesticDogs.ToString();
+
+            if (address.NumCows != 0)
+            {
+                AddLabel("Крави", address.NumCows, panelCattle);
+            }
+            if (address.NumHorses != 0)
+            {
+                AddLabel("Коне", address.NumHorses, panelCattle);
+            }
+            if (address.NumDonkeys != 0)
+            {
+                AddLabel("Магарета", address.NumDonkeys, panelCattle);
+            }
+            if (address.NumGoats != 0)
+            {
+                AddLabel("Кози", address.NumGoats, panelCattle);
+            }
+            if (address.NumSheep != 0)
+            {
+                AddLabel("Овце", address.NumSheep, panelCattle);
+            }
+            if (address.NumPigs != 0)
+            {
+                AddLabel("Свине", address.NumPigs, panelCattle);
+            }
+            if (guardDogs != 0)
+            {
+                AddLabel("Кучета пазач", guardDogs, panelDogs);
+            }
+            if (huntingDogs != 0)
+            {
+                AddLabel("Ловджийски кучета", huntingDogs, panelDogs);
+            }
+            if (domesticDogs != 0)
+            {
+                AddLabel("Домашни кучета", domesticDogs, panelDogs);
+            }
+            if (address.NumFeathered != 0)
+            {
+                labelFeathered.Text = $"Пернати: {address.NumFeathered}";
+            }
+
+            void AddLabel(string animal, int number, Panel panel)
+            {
+                Label label = new Label();
+                label.Font = font;
+                label.Text = $"- {animal}: {number}";
+                panel.Controls.Add(label);
+                label.Dock = DockStyle.Top;
+                label.BringToFront();
+            }
         }
         #endregion
         #region Защитени дървестни видове
@@ -327,10 +345,33 @@ namespace GraduationProject.UserControls.References
         /// <param name="address"></param>
         void ShowTrees(Address address)
         {
-            labelWalnutTreesValue.Text = address.NumWalnutTrees.ToString();
-            labelMulBerryTreesValue.Text = address.NumMulberryTrees.ToString();
-            labelOldTreesValue.Text = address.NumOldTrees.ToString();
-            labelCenturyOldTreesValue.Text = address.NumCenturyOldTrees.ToString();
+            if (address.NumWalnutTrees != 0)
+            {
+                AddLabel("Oрехови дървета", address.NumWalnutTrees);
+            }
+            if (address.NumMulberryTrees != 0)
+            {
+                AddLabel("Черници", address.NumMulberryTrees);
+            }
+            if (address.NumOldTrees != 0)
+            {
+                AddLabel("Дървета над 20г. възраст", address.NumOldTrees);
+            }
+            if (address.NumCenturyOldTrees != 0)
+            {
+                AddLabel("Вековни дървета", address.NumCenturyOldTrees);
+            }
+
+            void AddLabel(string tree, int number)
+            {
+                Label label = new Label();
+                label.Font = new Font("Arial", 12f, FontStyle.Bold);
+                label.Text = $"- {tree}: {number}";
+                panelTreesData.Controls.Add(label);
+                label.Dock = DockStyle.Top;
+                label.BringToFront();
+
+            }
         }
         #endregion
         #region Забележки
@@ -369,7 +410,7 @@ namespace GraduationProject.UserControls.References
         void DisplayAddress(Address address)
         {
             labelAddress.Text = address.ToString();
-            labelSquaringValue.Text = address.Squaring.ToString();
+            labelSquaringValue.Text = address.Squaring.ToString() + " кв. м.";
             switch (address.Habitallity)
             {
                 case Address.Habitability.NotSet: labelHabitabillityValue.Text = ""; break;
@@ -386,5 +427,10 @@ namespace GraduationProject.UserControls.References
             richTextBoxNotes.Text = address.Note;
         }
         #endregion
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -69,6 +69,30 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             UpdateInsertedDataNotes();
 
             dontTriggerChangeEvent = false;
+            InitializeSaveButtons();
+        }
+
+
+        /// <summary>
+        /// Инициализиране на бутоните, запазващи адреси
+        /// </summary>
+        /// <param name="addressData"></param>
+        private void InitializeSaveButtons()
+        {
+            var panels = this.Controls.OfType<Panel>();
+            foreach (var panel in panels)
+            {
+                Button saveButton = (from btn in panel.Controls.OfType<Button>() where btn.Tag.Equals("Save address") select btn).First();
+                if (addressData.address.Id == 0)
+                {
+                    saveButton.Visible = true;
+                    saveButton.Click += SaveAddress;
+                }
+                else
+                {
+                    saveButton.Visible = false;
+                }
+            }
         }
 
         //Методи
@@ -97,7 +121,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             }
             if (addressData.address.Squaring != 0.0)
             {
-                dataText += $"Площ: {addressData.address.Squaring}\n";
+                dataText += $"Площ: {addressData.address.Squaring} кв. м.\n";
             }
             insertedDataDisplayStateAndSquaring.DataText = dataText;
 
@@ -111,7 +135,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         {
             if (comboBoxHabitability.Text == "") return;
             addressData.address.Habitallity = habitabilityDict[comboBoxHabitability.Text];
-            SaveAddress();
+            UpdateAddress();
             UpdateInsertedDataStatesAndProperty();
         }
         /// <summary>
@@ -122,7 +146,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private void buttonInsertSquaring_Click(object sender, EventArgs e)
         {
             addressData.address.Squaring = (double)numericUpDownSquaring.Value;
-            SaveAddress();
+            UpdateAddress();
             UpdateInsertedDataStatesAndProperty();
         }
         #endregion
@@ -171,7 +195,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                 addressData.address.NumAgrBuildings = (int)numericUpDownBuildings.Value;
 
             }
-            SaveAddress();
+            UpdateAddress();
             UpdateInsertedDataBuildings();
         }
 
@@ -475,7 +499,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                     addressData.address.NumPigs = (int)numericUpDownDomesticAnimals.Value;
                     break;
             }
-            SaveAddress();
+            UpdateAddress();
             UpdateInsertedDataAnimals();
         }
 
@@ -487,7 +511,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private void buttonInsertFeathered_Click(object sender, EventArgs e)
         {
             addressData.address.NumFeathered = (int)numericUpDownFeathererd.Value;
-            SaveAddress();
+            UpdateAddress();
             UpdateInsertedDataAnimals();
         }
 
@@ -553,7 +577,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                     addressData.address.NumCenturyOldTrees = (int)numericUpDownTrees.Value;
                     break;
             }
-            SaveAddress();
+            UpdateAddress();
             UpdateInsertedDataTrees();
         }
 
@@ -586,7 +610,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private void buttonInsertNote_Click(object sender, EventArgs e)
         {
             addressData.address.Note = richTextBoxNotes.Text;
-            SaveAddress();
+            UpdateAddress();
             UpdateInsertedDataNotes();
         }
 
@@ -616,6 +640,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             activeButton.BackColor = Color.FromArgb(50, 80, 40);
             activeButton.ForeColor = SystemColors.Control;
             panel.BringToFront();
+            buttonSaveDogs.BringToFront();
         }
 
         /// <summary>
@@ -648,12 +673,30 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         /// <summary>
         /// Запазване на промените в базата данни (при редактиране на адрес)
         /// </summary>
-        private void SaveAddress()
+        private void UpdateAddress()
         {
             if (addressData.address.Id != 0)
             {
                 addressData.address.Update(connectionHelper);
             }
+        }
+
+
+        /// <summary>
+        /// Запазване на адреса в базата данни (при създаване на нов адрес)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SaveAddress(object sender, EventArgs e)
+        {
+            addressData.address.Insert(connectionHelper);
+            var panels = this.Controls.OfType<Panel>();
+            foreach (var panel in panels)
+            {
+                Button saveButton = (from btn in panel.Controls.OfType<Button>() where btn.Tag.Equals("Save address") select btn).First();
+                saveButton.Visible = false;
+            }
+            MessageBox.Show("Адресът е записан успешно.", "Адресът е записан", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         #endregion
 

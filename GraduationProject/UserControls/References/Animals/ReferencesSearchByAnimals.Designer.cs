@@ -167,10 +167,10 @@ namespace GraduationProject.UserControls.References
             this.radioButtonDomesticDog.BackColor = System.Drawing.Color.Transparent;
             this.radioButtonDomesticDog.Location = new System.Drawing.Point(117, 97);
             this.radioButtonDomesticDog.Name = "radioButtonDomesticDog";
-            this.radioButtonDomesticDog.Size = new System.Drawing.Size(135, 19);
+            this.radioButtonDomesticDog.Size = new System.Drawing.Size(118, 19);
             this.radioButtonDomesticDog.TabIndex = 2;
             this.radioButtonDomesticDog.TabStop = true;
-            this.radioButtonDomesticDog.Text = "Домашен любимец";
+            this.radioButtonDomesticDog.Text = "Домашни кучета";
             this.radioButtonDomesticDog.UseVisualStyleBackColor = false;
             // 
             // radioButtonHuntingDog
@@ -179,10 +179,10 @@ namespace GraduationProject.UserControls.References
             this.radioButtonHuntingDog.BackColor = System.Drawing.Color.Transparent;
             this.radioButtonHuntingDog.Location = new System.Drawing.Point(117, 72);
             this.radioButtonHuntingDog.Name = "radioButtonHuntingDog";
-            this.radioButtonHuntingDog.Size = new System.Drawing.Size(122, 19);
+            this.radioButtonHuntingDog.Size = new System.Drawing.Size(134, 19);
             this.radioButtonHuntingDog.TabIndex = 1;
             this.radioButtonHuntingDog.TabStop = true;
-            this.radioButtonHuntingDog.Text = "Ловджийско куче";
+            this.radioButtonHuntingDog.Text = "Ловджийски кучета";
             this.radioButtonHuntingDog.UseVisualStyleBackColor = false;
             // 
             // radioButtonGuardDog
@@ -191,10 +191,10 @@ namespace GraduationProject.UserControls.References
             this.radioButtonGuardDog.BackColor = System.Drawing.Color.Transparent;
             this.radioButtonGuardDog.Location = new System.Drawing.Point(117, 47);
             this.radioButtonGuardDog.Name = "radioButtonGuardDog";
-            this.radioButtonGuardDog.Size = new System.Drawing.Size(86, 19);
+            this.radioButtonGuardDog.Size = new System.Drawing.Size(98, 19);
             this.radioButtonGuardDog.TabIndex = 0;
             this.radioButtonGuardDog.TabStop = true;
-            this.radioButtonGuardDog.Text = "Куче пазач";
+            this.radioButtonGuardDog.Text = "Кучета пазач";
             this.radioButtonGuardDog.UseVisualStyleBackColor = false;
             // 
             // ReferencesSearchByAnimals

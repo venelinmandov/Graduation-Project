@@ -32,6 +32,8 @@ namespace GraduationProject.UserControls.InsertData
             this.labelTitle = new System.Windows.Forms.Label();
             this.buttonAddresses = new System.Windows.Forms.Button();
             this.buttonStreets = new System.Windows.Forms.Button();
+            this.labelSearchBy = new System.Windows.Forms.Label();
+            this.buttonQuarantines = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -41,9 +43,9 @@ namespace GraduationProject.UserControls.InsertData
             this.labelTitle.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelTitle.Location = new System.Drawing.Point(395, 37);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(290, 33);
+            this.labelTitle.Size = new System.Drawing.Size(297, 33);
             this.labelTitle.TabIndex = 13;
-            this.labelTitle.Text = "Изберете категория:";
+            this.labelTitle.Text = "Въвеждане на данни";
             // 
             // buttonAddresses
             // 
@@ -52,7 +54,7 @@ namespace GraduationProject.UserControls.InsertData
             this.buttonAddresses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddresses.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonAddresses.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonAddresses.Location = new System.Drawing.Point(331, 139);
+            this.buttonAddresses.Location = new System.Drawing.Point(233, 139);
             this.buttonAddresses.Name = "buttonAddresses";
             this.buttonAddresses.Size = new System.Drawing.Size(179, 60);
             this.buttonAddresses.TabIndex = 14;
@@ -67,7 +69,7 @@ namespace GraduationProject.UserControls.InsertData
             this.buttonStreets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStreets.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonStreets.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonStreets.Location = new System.Drawing.Point(570, 139);
+            this.buttonStreets.Location = new System.Drawing.Point(450, 139);
             this.buttonStreets.Name = "buttonStreets";
             this.buttonStreets.Size = new System.Drawing.Size(179, 60);
             this.buttonStreets.TabIndex = 15;
@@ -75,11 +77,38 @@ namespace GraduationProject.UserControls.InsertData
             this.buttonStreets.UseVisualStyleBackColor = false;
             this.buttonStreets.Click += new System.EventHandler(this.buttonStreets_Click);
             // 
+            // labelSearchBy
+            // 
+            this.labelSearchBy.AutoSize = true;
+            this.labelSearchBy.BackColor = System.Drawing.Color.Transparent;
+            this.labelSearchBy.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelSearchBy.Location = new System.Drawing.Point(459, 78);
+            this.labelSearchBy.Name = "labelSearchBy";
+            this.labelSearchBy.Size = new System.Drawing.Size(159, 18);
+            this.labelSearchBy.TabIndex = 16;
+            this.labelSearchBy.Text = "Изберете категория:";
+            // 
+            // buttonQuarantines
+            // 
+            this.buttonQuarantines.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonQuarantines.FlatAppearance.BorderSize = 0;
+            this.buttonQuarantines.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonQuarantines.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonQuarantines.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonQuarantines.Location = new System.Drawing.Point(666, 139);
+            this.buttonQuarantines.Name = "buttonQuarantines";
+            this.buttonQuarantines.Size = new System.Drawing.Size(179, 60);
+            this.buttonQuarantines.TabIndex = 17;
+            this.buttonQuarantines.Text = "Карантини";
+            this.buttonQuarantines.UseVisualStyleBackColor = false;
+            // 
             // InsertDataMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.buttonQuarantines);
+            this.Controls.Add(this.labelSearchBy);
             this.Controls.Add(this.buttonStreets);
             this.Controls.Add(this.buttonAddresses);
             this.Controls.Add(this.labelTitle);
@@ -96,5 +125,7 @@ namespace GraduationProject.UserControls.InsertData
         protected System.Windows.Forms.Label labelTitle;
         protected System.Windows.Forms.Button buttonAddresses;
         protected System.Windows.Forms.Button buttonStreets;
+        protected System.Windows.Forms.Label labelSearchBy;
+        protected System.Windows.Forms.Button buttonQuarantines;
     }
 }

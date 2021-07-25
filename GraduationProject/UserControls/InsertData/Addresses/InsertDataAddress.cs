@@ -14,7 +14,10 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         List<Address> addresses;
         List<Street> streets;
         ConnectionHelper connectionHelper = new ConnectionHelper();
-        bool notSaved = false;
+        int streetIdSavedWith;
+        int numberSavedWith;
+        bool notSaved = true;
+        bool changesAreMade = false;
         string mode; //Режим (редактиране или създаване на адрес)
         public struct AddressData
         {
@@ -43,7 +46,8 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.addressData = addressData;
             LoadStreets();
             ShowCreateControls();
-            labelTitle.Text = "Нов адрес";
+            labelSubtitle.Text = "Нов запис";
+            addressData.address.AddressSaved += AddressSaved;
         }
 
         public InsertDataAddress()
@@ -52,7 +56,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             mode = "edit";
             LoadStreets();
             ShowEditControls();
-            labelTitle.Text = "Редактиране на адрес";
+            labelSubtitle.Text = "Редактиране на запис";
         }
 
         /// <summary>
@@ -94,10 +98,14 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         /// </summary>
         void CheckAddressExist()
         {
+
+            bool isCurrentAddress = !notSaved && (streets[comboBoxStreet.SelectedIndex].Id == streetIdSavedWith && numericUpDownNumber.Value == numberSavedWith);
             var addresssesToCheck = from address in addresses
                                     where address.StreetId == streets[comboBoxStreet.SelectedIndex].Id && address.Number == numericUpDownNumber.Value
                                     select address;
-            if (addresssesToCheck.Count() != 0)
+            
+
+            if (addresssesToCheck.Count() != 0 && !isCurrentAddress)
             {
                 labelAddressExists.Visible = true;
                 buttonInhabitants.Enabled = false;
@@ -147,6 +155,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             {
                 addressData.address.StreetId = streets[comboBoxStreet.SelectedIndex].Id;
                 addressData.address.streetName = streets[comboBoxStreet.SelectedIndex].Name;
+                SetAddressNumber();
                 CheckAddressExist();
             }
         }
@@ -157,6 +166,14 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void numericUpDownNumber_ValueChanged(object sender, EventArgs e)
+        {
+            SetAddressNumber();
+        }
+
+        /// <summary>
+        /// Задава номера на адреса (при редактиране на адрес)
+        /// </summary>
+        private void SetAddressNumber()
         {
             if (mode == "create")
             {
@@ -172,7 +189,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         /// <param name="e"></param>
         private void buttonProperty_Click(object sender, EventArgs e)
         {
-            notSaved = true;
+            changesAreMade = true;
             ButtonClicked(new Forms.MainForm.EventData("propertyData", addressData), e);
         }
 
@@ -211,8 +228,18 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         /// <param name="e"></param>
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            SaveAddress();
-            notSaved = false;
+            streetIdSavedWith = addressData.address.StreetId;
+            numberSavedWith = addressData.address.Number;
+            if (notSaved)
+            {
+                SaveAddress();
+                MessageBox.Show("Адресът е записан успешно.", "Адресът е записан", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                addressData.address.Update(connectionHelper);
+                MessageBox.Show("Промените са записани успешно.", "Промените за записани", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         /// <summary>
@@ -223,13 +250,22 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             if (mode == "create")
             {
                 addressData.address.Insert(connectionHelper);
-                foreach (Dog dog in addressData.dogs)
-                {
-                    dog.AddressId = addressData.address.Id;
-                    dog.Insert(connectionHelper);
-                }
-                ShowAddresses();
             }
+        }
+
+        /// <summary>
+        /// Събитие - нов адрес е записан в базата данни.
+        /// </summary>
+        private void AddressSaved(object obj, EventArgs args)
+        {
+            foreach (Dog dog in addressData.dogs)
+            {
+                dog.AddressId = addressData.address.Id;
+                dog.Insert(connectionHelper);
+            }
+            buttonSave.Text = "Промени";
+            buttonSave.Size = new Size(buttonSave.Width + 5, buttonSave.Height);
+            notSaved = false;
         }
 
         /// <summary>
@@ -267,12 +303,12 @@ namespace GraduationProject.UserControls.InsertData.Addresses
 
         private void buttonInhabitants_Click(object sender, EventArgs e)
         {
-            notSaved = false;
+            changesAreMade = true;
         }
 
         private void InsertDataAddress_VisibleChanged(object sender, EventArgs e)
         {
-            if (notSaved && mode == "create")
+            if (notSaved && changesAreMade && mode == "create")
             {
                 DialogResult dialogResult = MessageBox.Show("Излизате от режим \"Нов адрес\" и въведените от вас данни ще бъдат изгубени. Запазване на въведените данни?", "Запазване на адрес?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialogResult == DialogResult.Yes)
@@ -281,5 +317,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                 }
             }
         }
+
     }
 }
