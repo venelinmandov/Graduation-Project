@@ -49,9 +49,7 @@ namespace GraduationProject.UserControls.References
             // listBoxInhabitants
             // 
             this.listBoxInhabitants.AutoScroll = true;
-            this.listBoxInhabitants.DesolateColor = System.Drawing.Color.Empty;
             this.listBoxInhabitants.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listBoxInhabitants.InhabitedColor = System.Drawing.Color.Empty;
             this.listBoxInhabitants.ItemBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.listBoxInhabitants.ItemsColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.listBoxInhabitants.ItemTextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -62,7 +60,6 @@ namespace GraduationProject.UserControls.References
             this.listBoxInhabitants.SelectedItemColor = System.Drawing.Color.Empty;
             this.listBoxInhabitants.Size = new System.Drawing.Size(534, 196);
             this.listBoxInhabitants.TabIndex = 3;
-            this.listBoxInhabitants.TemporarilyColor = System.Drawing.Color.Empty;
             // 
             // labelNoInhabitants
             // 

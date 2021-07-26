@@ -13,6 +13,9 @@
     <Compile Update="UserControls\InsertData\InsertDataMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControls\InsertData\Streets\InsertDataStreets.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\InsertedDataDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>

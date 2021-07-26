@@ -232,9 +232,7 @@ namespace GraduationProject.UserControls.References
             // listBoxResidents
             // 
             this.listBoxResidents.AutoScroll = true;
-            this.listBoxResidents.DesolateColor = System.Drawing.Color.Empty;
             this.listBoxResidents.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listBoxResidents.InhabitedColor = System.Drawing.Color.Empty;
             this.listBoxResidents.ItemBorderColor = System.Drawing.Color.Empty;
             this.listBoxResidents.ItemsColor = System.Drawing.Color.Empty;
             this.listBoxResidents.ItemTextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -245,15 +243,12 @@ namespace GraduationProject.UserControls.References
             this.listBoxResidents.SelectedItemColor = System.Drawing.Color.Empty;
             this.listBoxResidents.Size = new System.Drawing.Size(327, 183);
             this.listBoxResidents.TabIndex = 50;
-            this.listBoxResidents.TemporarilyColor = System.Drawing.Color.Empty;
             this.listBoxResidents.ItemClicked += new System.EventHandler(this.listBoxResidents_ItemClicked);
             // 
             // listBoxGuests
             // 
             this.listBoxGuests.AutoScroll = true;
-            this.listBoxGuests.DesolateColor = System.Drawing.Color.Empty;
             this.listBoxGuests.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listBoxGuests.InhabitedColor = System.Drawing.Color.Empty;
             this.listBoxGuests.ItemBorderColor = System.Drawing.Color.Empty;
             this.listBoxGuests.ItemsColor = System.Drawing.Color.Empty;
             this.listBoxGuests.ItemTextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -264,7 +259,6 @@ namespace GraduationProject.UserControls.References
             this.listBoxGuests.SelectedItemColor = System.Drawing.Color.Empty;
             this.listBoxGuests.Size = new System.Drawing.Size(327, 183);
             this.listBoxGuests.TabIndex = 56;
-            this.listBoxGuests.TemporarilyColor = System.Drawing.Color.Empty;
             this.listBoxGuests.ItemClicked += new System.EventHandler(this.listBoxGuests_ItemClicked);
             // 
             // labelOwnerLastnameValue

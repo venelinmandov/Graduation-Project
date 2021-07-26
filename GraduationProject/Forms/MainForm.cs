@@ -270,7 +270,10 @@ namespace GraduationProject.Forms
                     insertDataProperty.BringToFront();
                     break;
                 case "streetsMenu":
-
+                    UserControls.InsertData.Streets.InsertDataStreets insertDataStreets = new UserControls.InsertData.Streets.InsertDataStreets();
+                    AddControl(insertDataStreets);
+                    panelContents.Controls.Add(insertDataStreets);
+                    insertDataStreets.BringToFront();
                     break;
                 case "insertDataStreets":
 

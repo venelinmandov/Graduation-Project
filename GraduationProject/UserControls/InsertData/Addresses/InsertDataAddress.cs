@@ -189,6 +189,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         /// <param name="e"></param>
         private void buttonProperty_Click(object sender, EventArgs e)
         {
+            if (comboBoxNumber.Text == "") return;
             changesAreMade = true;
             ButtonClicked(new Forms.MainForm.EventData("propertyData", addressData), e);
         }

@@ -49,9 +49,7 @@ namespace GraduationProject.UserControls.References
             // listBoxAddresses
             // 
             this.listBoxAddresses.AutoScroll = true;
-            this.listBoxAddresses.DesolateColor = System.Drawing.Color.Empty;
             this.listBoxAddresses.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listBoxAddresses.InhabitedColor = System.Drawing.Color.Empty;
             this.listBoxAddresses.ItemBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.listBoxAddresses.ItemsColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.listBoxAddresses.ItemTextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -62,7 +60,6 @@ namespace GraduationProject.UserControls.References
             this.listBoxAddresses.SelectedItemColor = System.Drawing.Color.Empty;
             this.listBoxAddresses.Size = new System.Drawing.Size(534, 196);
             this.listBoxAddresses.TabIndex = 3;
-            this.listBoxAddresses.TemporarilyColor = System.Drawing.Color.Empty;
             // 
             // labelNoAddresses
             // 
