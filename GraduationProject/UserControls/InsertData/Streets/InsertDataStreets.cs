@@ -19,17 +19,34 @@ namespace GraduationProject.UserControls.InsertData.Streets
             RefreshStreets();
         }
 
-        private void buttonInsertNote_Click(object sender, System.EventArgs e)
+        /// <summary>
+        /// Показване на панела за преименуване на улица
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonShowInsertStreet_Click(object sender, System.EventArgs e)
         {
+            textBoxStreetInsert.Text = "";
             panelInsertStreet.BringToFront();
         }
 
+        /// <summary>
+        /// Преименуване на улица
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonRenameStreet_Click(object sender, System.EventArgs e)
         {
+            textBoxStreetRename.Text = "";
             panelRenameStreet.BringToFront();
             labelTitleRenameStreet.Text = "Преименуване на улица " + streets[listBoxStreets.SelectedIndex].Name;
         }
 
+        /// <summary>
+        /// Добавяне на улица
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonInsertStreet_Click(object sender, System.EventArgs e)
         {
             if (textBoxStreetInsert.Text.Trim() == "")
@@ -56,17 +73,21 @@ namespace GraduationProject.UserControls.InsertData.Streets
 
         }
 
+        /// <summary>
+        /// Обновяване на списъка с улици
+        /// </summary>
         private void RefreshStreets()
         {
             streets = new Street().Get(connectionHelper);
             listBoxStreets.AddList(streets.Cast<object>().ToList());
         }
 
-        private void InsertDataStreets_Load(object sender, System.EventArgs e)
-        {
 
-        }
-
+        /// <summary>
+        /// Преименуване на улица
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonUpdateStreet_Click(object sender, System.EventArgs e)
         {
             if (textBoxStreetRename.Text.Trim() == "")
@@ -89,6 +110,54 @@ namespace GraduationProject.UserControls.InsertData.Streets
                 RefreshStreets();
                 panelShowStreets.BringToFront();
             }
+        }
+
+
+        /// <summary>
+        /// Изтриване на улица
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonDeleteStreet_Click(object sender, System.EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Сигурни ли сте че искате да изтриете улицата?", "Изтриване на улица", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Street street = streets[listBoxStreets.SelectedIndex];
+                if (new Address().Get(connectionHelper, street).Count != 0)
+                {
+                    MessageBox.Show("За тази улица има записи на адреси и не може да бъде изтрита. Моля първо изтрийте записите на адресите.",
+                                    "Действието не може да бъде извършено",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+                else
+                {
+                    street.Delete(connectionHelper);
+                    RefreshStreets();
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Връщане назад към панела със списъка с улици
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonRenameCancel_Click(object sender, System.EventArgs e)
+        {
+            panelShowStreets.BringToFront();
+        }
+
+        /// <summary>
+        /// Връщане назад към панела със списъка с улици
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonInsertCancel_Click(object sender, System.EventArgs e)
+        {
+            panelShowStreets.BringToFront();
         }
     }
 }
