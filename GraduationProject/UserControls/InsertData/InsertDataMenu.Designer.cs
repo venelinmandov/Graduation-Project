@@ -49,7 +49,7 @@ namespace GraduationProject.UserControls.InsertData
             // 
             // buttonAddresses
             // 
-            this.buttonAddresses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonAddresses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonAddresses.FlatAppearance.BorderSize = 0;
             this.buttonAddresses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddresses.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -58,13 +58,13 @@ namespace GraduationProject.UserControls.InsertData
             this.buttonAddresses.Name = "buttonAddresses";
             this.buttonAddresses.Size = new System.Drawing.Size(179, 60);
             this.buttonAddresses.TabIndex = 14;
-            this.buttonAddresses.Text = "Адреси";
+            this.buttonAddresses.Text = "Имоти";
             this.buttonAddresses.UseVisualStyleBackColor = false;
             this.buttonAddresses.Click += new System.EventHandler(this.buttonAddresses_Click);
             // 
             // buttonStreets
             // 
-            this.buttonStreets.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonStreets.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonStreets.FlatAppearance.BorderSize = 0;
             this.buttonStreets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStreets.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -90,7 +90,7 @@ namespace GraduationProject.UserControls.InsertData
             // 
             // buttonQuarantines
             // 
-            this.buttonQuarantines.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonQuarantines.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonQuarantines.FlatAppearance.BorderSize = 0;
             this.buttonQuarantines.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonQuarantines.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

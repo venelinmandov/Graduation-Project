@@ -82,7 +82,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             var panels = this.Controls.OfType<Panel>();
             foreach (var panel in panels)
             {
-                Button saveButton = (from btn in panel.Controls.OfType<Button>() where btn.Tag.Equals("Save address") select btn).First();
+                Button saveButton = (from btn in panel.Controls.OfType<Button>() where btn.Tag != null && btn.Tag.Equals("saveAddress") select btn).First();
                 if (addressData.address.Id == 0)
                 {
                     saveButton.Visible = true;
@@ -90,6 +90,11 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                 }
                 else
                 {
+                    var editButtons = from btn in panel.Controls.OfType<Button>() where btn.Tag != null && btn.Tag.Equals("editAddress") select btn;
+                    foreach (var button in editButtons)
+                    {
+                        button.Text = "Промени";
+                    }
                     saveButton.Visible = false;
                 }
             }
@@ -637,7 +642,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             activeButton.BackColor = Color.FromArgb(170, 255, 255, 255);
             activeButton.ForeColor = SystemColors.ControlText;
             activeButton = button;
-            activeButton.BackColor = Color.FromArgb(50, 80, 40);
+            activeButton.BackColor = Color.FromArgb(70, 90, 30);
             activeButton.ForeColor = SystemColors.Control;
             panel.BringToFront();
             buttonSaveDogs.BringToFront();
@@ -655,7 +660,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             SolidBrush solidBrush;
             if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
             {
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(50, 80, 40)), e.Bounds);
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(70, 90, 30)), e.Bounds);
                 solidBrush = new SolidBrush(SystemColors.Control);
             }
             else
@@ -693,23 +698,17 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             var panels = this.Controls.OfType<Panel>();
             foreach (var panel in panels)
             {
-                Button saveButton = (from btn in panel.Controls.OfType<Button>() where btn.Tag.Equals("Save address") select btn).First();
+                var editButtons = from btn in panel.Controls.OfType<Button>() where btn.Tag != null && btn.Tag.Equals("editAddress") select btn;
+                foreach (var button in editButtons)
+                {
+                    button.Text = "Промени";
+                }
+                Button saveButton = (from btn in panel.Controls.OfType<Button>() where btn.Tag != null && btn.Tag.Equals("saveAddress") select btn).First();
                 saveButton.Visible = false;
             }
             MessageBox.Show("Адресът е записан успешно.", "Адресът е записан", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
         #endregion
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

@@ -47,7 +47,6 @@ namespace GraduationProject.UserControls.References
 
         public ShowAddress(AnimalAddressData animalAddress) : this(animalAddress.address)
         {
-            Label[] label2 = new Label[2];
             Button[] buttons = Controls.OfType<Button>().ToArray();
             foreach (Button button in buttons)
             {
@@ -398,7 +397,7 @@ namespace GraduationProject.UserControls.References
             activeButton.BackColor = Color.FromArgb(170, 255, 255, 255);
             activeButton.ForeColor = SystemColors.ControlText;
             activeButton = button;
-            activeButton.BackColor = Color.FromArgb(50, 80, 40);
+            activeButton.BackColor = Color.FromArgb(70, 90, 30);
             activeButton.ForeColor = SystemColors.Control;
             panel.BringToFront();
         }

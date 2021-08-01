@@ -62,13 +62,13 @@ namespace GraduationProject.UserControls.References
             this.labelTitleAnimals = new System.Windows.Forms.Label();
             this.labelCattle = new System.Windows.Forms.Label();
             this.panelTrees = new System.Windows.Forms.Panel();
+            this.panelTreesData = new System.Windows.Forms.Panel();
             this.labelTitleTrees = new System.Windows.Forms.Label();
             this.buttonInhabitants = new System.Windows.Forms.Button();
             this.buttonNotes = new System.Windows.Forms.Button();
             this.panelNotes = new System.Windows.Forms.Panel();
             this.richTextBoxNotes = new System.Windows.Forms.RichTextBox();
             this.labelTitleNotes = new System.Windows.Forms.Label();
-            this.panelTreesData = new System.Windows.Forms.Panel();
             this.panelBuildings.SuspendLayout();
             this.panelInhabitants.SuspendLayout();
             this.panelAnimals.SuspendLayout();
@@ -81,7 +81,7 @@ namespace GraduationProject.UserControls.References
             this.labelAddress.AutoSize = true;
             this.labelAddress.BackColor = System.Drawing.Color.Transparent;
             this.labelAddress.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelAddress.Location = new System.Drawing.Point(52, 23);
+            this.labelAddress.Location = new System.Drawing.Point(32, 23);
             this.labelAddress.Name = "labelAddress";
             this.labelAddress.Size = new System.Drawing.Size(197, 34);
             this.labelAddress.TabIndex = 0;
@@ -92,7 +92,7 @@ namespace GraduationProject.UserControls.References
             this.labelHabitabillity.AutoSize = true;
             this.labelHabitabillity.BackColor = System.Drawing.Color.Transparent;
             this.labelHabitabillity.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelHabitabillity.Location = new System.Drawing.Point(45, 67);
+            this.labelHabitabillity.Location = new System.Drawing.Point(25, 67);
             this.labelHabitabillity.Name = "labelHabitabillity";
             this.labelHabitabillity.Size = new System.Drawing.Size(70, 19);
             this.labelHabitabillity.TabIndex = 1;
@@ -103,7 +103,7 @@ namespace GraduationProject.UserControls.References
             this.labelHabitabillityValue.AutoSize = true;
             this.labelHabitabillityValue.BackColor = System.Drawing.Color.Transparent;
             this.labelHabitabillityValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelHabitabillityValue.Location = new System.Drawing.Point(121, 67);
+            this.labelHabitabillityValue.Location = new System.Drawing.Point(101, 67);
             this.labelHabitabillityValue.Name = "labelHabitabillityValue";
             this.labelHabitabillityValue.Size = new System.Drawing.Size(58, 18);
             this.labelHabitabillityValue.TabIndex = 2;
@@ -114,7 +114,7 @@ namespace GraduationProject.UserControls.References
             this.labelSquaringValue.AutoSize = true;
             this.labelSquaringValue.BackColor = System.Drawing.Color.Transparent;
             this.labelSquaringValue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelSquaringValue.Location = new System.Drawing.Point(121, 96);
+            this.labelSquaringValue.Location = new System.Drawing.Point(101, 96);
             this.labelSquaringValue.Name = "labelSquaringValue";
             this.labelSquaringValue.Size = new System.Drawing.Size(48, 18);
             this.labelSquaringValue.TabIndex = 4;
@@ -125,7 +125,7 @@ namespace GraduationProject.UserControls.References
             this.labelSquaring.AutoSize = true;
             this.labelSquaring.BackColor = System.Drawing.Color.Transparent;
             this.labelSquaring.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelSquaring.Location = new System.Drawing.Point(54, 96);
+            this.labelSquaring.Location = new System.Drawing.Point(34, 96);
             this.labelSquaring.Name = "labelSquaring";
             this.labelSquaring.Size = new System.Drawing.Size(61, 19);
             this.labelSquaring.TabIndex = 3;
@@ -135,9 +135,9 @@ namespace GraduationProject.UserControls.References
             // 
             this.buttonBuildings.FlatAppearance.BorderSize = 0;
             this.buttonBuildings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBuildings.Location = new System.Drawing.Point(54, 168);
+            this.buttonBuildings.Location = new System.Drawing.Point(33, 168);
             this.buttonBuildings.Name = "buttonBuildings";
-            this.buttonBuildings.Size = new System.Drawing.Size(212, 23);
+            this.buttonBuildings.Size = new System.Drawing.Size(270, 23);
             this.buttonBuildings.TabIndex = 5;
             this.buttonBuildings.Text = "Постройки";
             this.buttonBuildings.UseVisualStyleBackColor = true;
@@ -147,9 +147,9 @@ namespace GraduationProject.UserControls.References
             // 
             this.buttonAnimals.FlatAppearance.BorderSize = 0;
             this.buttonAnimals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAnimals.Location = new System.Drawing.Point(54, 226);
+            this.buttonAnimals.Location = new System.Drawing.Point(33, 226);
             this.buttonAnimals.Name = "buttonAnimals";
-            this.buttonAnimals.Size = new System.Drawing.Size(212, 23);
+            this.buttonAnimals.Size = new System.Drawing.Size(270, 23);
             this.buttonAnimals.TabIndex = 6;
             this.buttonAnimals.Text = "Селскостопански животни";
             this.buttonAnimals.UseVisualStyleBackColor = true;
@@ -159,9 +159,9 @@ namespace GraduationProject.UserControls.References
             // 
             this.buttonTrees.FlatAppearance.BorderSize = 0;
             this.buttonTrees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTrees.Location = new System.Drawing.Point(54, 255);
+            this.buttonTrees.Location = new System.Drawing.Point(33, 255);
             this.buttonTrees.Name = "buttonTrees";
-            this.buttonTrees.Size = new System.Drawing.Size(212, 23);
+            this.buttonTrees.Size = new System.Drawing.Size(270, 23);
             this.buttonTrees.TabIndex = 11;
             this.buttonTrees.Text = "Защитени дъвесни видове";
             this.buttonTrees.UseVisualStyleBackColor = true;
@@ -171,7 +171,7 @@ namespace GraduationProject.UserControls.References
             // 
             this.panelBuildings.Controls.Add(this.panelBuildingsData);
             this.panelBuildings.Controls.Add(this.labelTitleBuldings);
-            this.panelBuildings.Location = new System.Drawing.Point(318, 14);
+            this.panelBuildings.Location = new System.Drawing.Point(337, 14);
             this.panelBuildings.Name = "panelBuildings";
             this.panelBuildings.Size = new System.Drawing.Size(712, 300);
             this.panelBuildings.TabIndex = 12;
@@ -210,7 +210,7 @@ namespace GraduationProject.UserControls.References
             this.panelInhabitants.Controls.Add(this.buttonGuests);
             this.panelInhabitants.Controls.Add(this.buttonResidents);
             this.panelInhabitants.Controls.Add(this.labelTitleInhabitants);
-            this.panelInhabitants.Location = new System.Drawing.Point(318, 14);
+            this.panelInhabitants.Location = new System.Drawing.Point(337, 14);
             this.panelInhabitants.Name = "panelInhabitants";
             this.panelInhabitants.Size = new System.Drawing.Size(712, 300);
             this.panelInhabitants.TabIndex = 17;
@@ -241,6 +241,7 @@ namespace GraduationProject.UserControls.References
             this.listBoxResidents.Name = "listBoxResidents";
             this.listBoxResidents.SelectedIndex = -1;
             this.listBoxResidents.SelectedItemColor = System.Drawing.Color.Empty;
+            this.listBoxResidents.SelectedItemForeColor = System.Drawing.Color.Empty;
             this.listBoxResidents.Size = new System.Drawing.Size(327, 183);
             this.listBoxResidents.TabIndex = 50;
             this.listBoxResidents.ItemClicked += new System.EventHandler(this.listBoxResidents_ItemClicked);
@@ -257,6 +258,7 @@ namespace GraduationProject.UserControls.References
             this.listBoxGuests.Name = "listBoxGuests";
             this.listBoxGuests.SelectedIndex = -1;
             this.listBoxGuests.SelectedItemColor = System.Drawing.Color.Empty;
+            this.listBoxGuests.SelectedItemForeColor = System.Drawing.Color.Empty;
             this.listBoxGuests.Size = new System.Drawing.Size(327, 183);
             this.listBoxGuests.TabIndex = 56;
             this.listBoxGuests.ItemClicked += new System.EventHandler(this.listBoxGuests_ItemClicked);
@@ -384,7 +386,7 @@ namespace GraduationProject.UserControls.References
             this.panelAnimals.Controls.Add(this.labelDogs);
             this.panelAnimals.Controls.Add(this.labelTitleAnimals);
             this.panelAnimals.Controls.Add(this.labelCattle);
-            this.panelAnimals.Location = new System.Drawing.Point(318, 14);
+            this.panelAnimals.Location = new System.Drawing.Point(337, 14);
             this.panelAnimals.Name = "panelAnimals";
             this.panelAnimals.Size = new System.Drawing.Size(712, 300);
             this.panelAnimals.TabIndex = 17;
@@ -452,10 +454,18 @@ namespace GraduationProject.UserControls.References
             // 
             this.panelTrees.Controls.Add(this.panelTreesData);
             this.panelTrees.Controls.Add(this.labelTitleTrees);
-            this.panelTrees.Location = new System.Drawing.Point(318, 14);
+            this.panelTrees.Location = new System.Drawing.Point(337, 14);
             this.panelTrees.Name = "panelTrees";
             this.panelTrees.Size = new System.Drawing.Size(712, 300);
             this.panelTrees.TabIndex = 42;
+            // 
+            // panelTreesData
+            // 
+            this.panelTreesData.BackColor = System.Drawing.Color.Transparent;
+            this.panelTreesData.Location = new System.Drawing.Point(62, 96);
+            this.panelTreesData.Name = "panelTreesData";
+            this.panelTreesData.Size = new System.Drawing.Size(289, 113);
+            this.panelTreesData.TabIndex = 33;
             // 
             // labelTitleTrees
             // 
@@ -472,9 +482,9 @@ namespace GraduationProject.UserControls.References
             // 
             this.buttonInhabitants.FlatAppearance.BorderSize = 0;
             this.buttonInhabitants.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInhabitants.Location = new System.Drawing.Point(54, 197);
+            this.buttonInhabitants.Location = new System.Drawing.Point(33, 197);
             this.buttonInhabitants.Name = "buttonInhabitants";
-            this.buttonInhabitants.Size = new System.Drawing.Size(212, 23);
+            this.buttonInhabitants.Size = new System.Drawing.Size(270, 23);
             this.buttonInhabitants.TabIndex = 45;
             this.buttonInhabitants.Text = "Обитатели";
             this.buttonInhabitants.UseVisualStyleBackColor = true;
@@ -484,9 +494,9 @@ namespace GraduationProject.UserControls.References
             // 
             this.buttonNotes.FlatAppearance.BorderSize = 0;
             this.buttonNotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNotes.Location = new System.Drawing.Point(54, 285);
+            this.buttonNotes.Location = new System.Drawing.Point(33, 285);
             this.buttonNotes.Name = "buttonNotes";
-            this.buttonNotes.Size = new System.Drawing.Size(212, 23);
+            this.buttonNotes.Size = new System.Drawing.Size(270, 23);
             this.buttonNotes.TabIndex = 46;
             this.buttonNotes.Text = "Забележки";
             this.buttonNotes.UseVisualStyleBackColor = true;
@@ -496,7 +506,7 @@ namespace GraduationProject.UserControls.References
             // 
             this.panelNotes.Controls.Add(this.richTextBoxNotes);
             this.panelNotes.Controls.Add(this.labelTitleNotes);
-            this.panelNotes.Location = new System.Drawing.Point(318, 14);
+            this.panelNotes.Location = new System.Drawing.Point(337, 14);
             this.panelNotes.Name = "panelNotes";
             this.panelNotes.Size = new System.Drawing.Size(712, 300);
             this.panelNotes.TabIndex = 58;
@@ -524,21 +534,13 @@ namespace GraduationProject.UserControls.References
             this.labelTitleNotes.TabIndex = 13;
             this.labelTitleNotes.Text = "Забележки:";
             // 
-            // panelTreesData
-            // 
-            this.panelTreesData.BackColor = System.Drawing.Color.Transparent;
-            this.panelTreesData.Location = new System.Drawing.Point(62, 96);
-            this.panelTreesData.Name = "panelTreesData";
-            this.panelTreesData.Size = new System.Drawing.Size(289, 113);
-            this.panelTreesData.TabIndex = 33;
-            // 
             // ShowAddress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Controls.Add(this.panelTrees);
             this.Controls.Add(this.panelBuildings);
+            this.Controls.Add(this.panelTrees);
             this.Controls.Add(this.panelAnimals);
             this.Controls.Add(this.panelInhabitants);
             this.Controls.Add(this.panelNotes);

@@ -46,7 +46,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.addressData = addressData;
             LoadStreets();
             ShowCreateControls();
-            labelSubtitle.Text = "Нов запис";
+            labelTitle.Text = "Въвеждане на нов адрес";
             addressData.address.AddressSaved += AddressSaved;
         }
 
@@ -56,7 +56,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             mode = "edit";
             LoadStreets();
             ShowEditControls();
-            labelSubtitle.Text = "Редактиране на запис";
+            labelTitle.Text = "Редактиране на адрес";
         }
 
         /// <summary>
@@ -107,14 +107,14 @@ namespace GraduationProject.UserControls.InsertData.Addresses
 
             if (addresssesToCheck.Count() != 0 && !isCurrentAddress)
             {
-                labelAddressExists.Visible = true;
+                ShowErrorLabel(labelAddressExists);
                 buttonInhabitants.Enabled = false;
                 buttonProperty.Enabled = false;
                 buttonSave.Enabled = false;
             }
             else
             {
-                labelAddressExists.Visible = false;
+                HideErrorLabel();
                 buttonInhabitants.Enabled = true;
                 buttonProperty.Enabled = true;
                 buttonSave.Enabled = true;
@@ -146,10 +146,18 @@ namespace GraduationProject.UserControls.InsertData.Addresses
 
                 }
                 comboBoxNumber.SelectedIndex = 0;
+                HideErrorLabel();
+                buttonInhabitants.Enabled = true;
+                buttonProperty.Enabled = true;
+                buttonDelete.Enabled = true;
             }
             else
             {
                 comboBoxNumber.Text = "";
+                ShowErrorLabel(labelNoAddresses);
+                buttonInhabitants.Enabled = false;
+                buttonProperty.Enabled = false;
+                buttonDelete.Enabled = false;
             }
             if (mode == "create")
             {
@@ -189,7 +197,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         /// <param name="e"></param>
         private void buttonProperty_Click(object sender, EventArgs e)
         {
-            if (comboBoxNumber.Text == "") return;
             changesAreMade = true;
             ButtonClicked(new Forms.MainForm.EventData("propertyData", addressData), e);
         }
@@ -317,6 +324,21 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                     SaveAddress();
                 }
             }
+        }
+
+        private void ShowErrorLabel(Label label)
+        {
+            label.Visible = true;
+            labelTitle.Visible = false;
+        }
+
+        private void HideErrorLabel()
+        {
+            foreach (var label in from lbl in Controls.OfType<Label>() where lbl.Tag != null && lbl.Tag.Equals("errorLabel") select lbl)
+            {
+                label.Visible = false;
+            }
+            labelTitle.Visible = true;
         }
 
     }

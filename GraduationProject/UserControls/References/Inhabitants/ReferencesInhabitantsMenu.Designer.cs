@@ -61,7 +61,7 @@ namespace GraduationProject.UserControls.References
             // 
             // buttonresidenceState
             // 
-            this.buttonresidenceState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonresidenceState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonresidenceState.FlatAppearance.BorderSize = 0;
             this.buttonresidenceState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonresidenceState.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -76,7 +76,7 @@ namespace GraduationProject.UserControls.References
             // 
             // buttonPropetyStatus
             // 
-            this.buttonPropetyStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonPropetyStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonPropetyStatus.FlatAppearance.BorderSize = 0;
             this.buttonPropetyStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPropetyStatus.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -91,7 +91,7 @@ namespace GraduationProject.UserControls.References
             // 
             // buttonByAddrReg
             // 
-            this.buttonByAddrReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonByAddrReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonByAddrReg.FlatAppearance.BorderSize = 0;
             this.buttonByAddrReg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonByAddrReg.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -106,7 +106,7 @@ namespace GraduationProject.UserControls.References
             // 
             // buttonByName
             // 
-            this.buttonByName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonByName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonByName.FlatAppearance.BorderSize = 0;
             this.buttonByName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonByName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

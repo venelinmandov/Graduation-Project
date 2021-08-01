@@ -51,7 +51,7 @@ namespace GraduationProject.UserControls
             // 
             // buttonQuarantines
             // 
-            this.buttonQuarantines.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonQuarantines.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonQuarantines.FlatAppearance.BorderSize = 0;
             this.buttonQuarantines.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonQuarantines.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -66,7 +66,7 @@ namespace GraduationProject.UserControls
             // 
             // buttonTrees
             // 
-            this.buttonTrees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonTrees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonTrees.FlatAppearance.BorderSize = 0;
             this.buttonTrees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTrees.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -81,7 +81,7 @@ namespace GraduationProject.UserControls
             // 
             // buttonPropeties
             // 
-            this.buttonPropeties.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonPropeties.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonPropeties.FlatAppearance.BorderSize = 0;
             this.buttonPropeties.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPropeties.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -96,7 +96,7 @@ namespace GraduationProject.UserControls
             // 
             // buttonCattle
             // 
-            this.buttonCattle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonCattle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonCattle.FlatAppearance.BorderSize = 0;
             this.buttonCattle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCattle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -111,7 +111,7 @@ namespace GraduationProject.UserControls
             // 
             // buttonInhabitants
             // 
-            this.buttonInhabitants.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonInhabitants.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonInhabitants.FlatAppearance.BorderSize = 0;
             this.buttonInhabitants.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInhabitants.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -126,7 +126,7 @@ namespace GraduationProject.UserControls
             // 
             // buttonAddresses
             // 
-            this.buttonAddresses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonAddresses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonAddresses.FlatAppearance.BorderSize = 0;
             this.buttonAddresses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddresses.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

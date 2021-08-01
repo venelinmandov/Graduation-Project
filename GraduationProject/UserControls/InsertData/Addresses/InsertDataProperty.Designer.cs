@@ -46,9 +46,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.numericUpDownBuildings = new System.Windows.Forms.NumericUpDown();
             this.comboBoxBuildings = new System.Windows.Forms.ComboBox();
             this.panelTrees = new System.Windows.Forms.Panel();
+            this.labelTrees = new System.Windows.Forms.Label();
             this.buttonSaveTrees = new System.Windows.Forms.Button();
             this.numericUpDownTrees = new System.Windows.Forms.NumericUpDown();
-            this.labelTrees = new System.Windows.Forms.Label();
             this.insertedDataDisplayTrees = new GraduationProject.UserControls.InsertedDataDisplay();
             this.buttonInsertTrees = new System.Windows.Forms.Button();
             this.comboBoxTrees = new System.Windows.Forms.ComboBox();
@@ -77,12 +77,12 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.comboBoxHabitability = new System.Windows.Forms.ComboBox();
             this.numericUpDownSquaring = new System.Windows.Forms.NumericUpDown();
             this.panelDogs = new System.Windows.Forms.Panel();
-            this.buttonSaveDogs = new System.Windows.Forms.Button();
             this.panelTableDogs = new System.Windows.Forms.Panel();
             this.dataGridViewDogs = new System.Windows.Forms.DataGridView();
             this.ColumnNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.buttonSaveDogs = new System.Windows.Forms.Button();
             this.pictureBoxBack = new System.Windows.Forms.PictureBox();
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelDogsError = new System.Windows.Forms.Label();
@@ -121,7 +121,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelAddress.AutoSize = true;
             this.labelAddress.BackColor = System.Drawing.Color.Transparent;
             this.labelAddress.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelAddress.Location = new System.Drawing.Point(52, 23);
+            this.labelAddress.Location = new System.Drawing.Point(33, 23);
             this.labelAddress.Name = "labelAddress";
             this.labelAddress.Size = new System.Drawing.Size(197, 34);
             this.labelAddress.TabIndex = 0;
@@ -132,7 +132,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelHabitabillity.AutoSize = true;
             this.labelHabitabillity.BackColor = System.Drawing.Color.Transparent;
             this.labelHabitabillity.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelHabitabillity.Location = new System.Drawing.Point(396, 80);
+            this.labelHabitabillity.Location = new System.Drawing.Point(394, 80);
             this.labelHabitabillity.Name = "labelHabitabillity";
             this.labelHabitabillity.Size = new System.Drawing.Size(70, 19);
             this.labelHabitabillity.TabIndex = 1;
@@ -143,7 +143,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelSquaring.AutoSize = true;
             this.labelSquaring.BackColor = System.Drawing.Color.Transparent;
             this.labelSquaring.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelSquaring.Location = new System.Drawing.Point(350, 110);
+            this.labelSquaring.Location = new System.Drawing.Point(348, 110);
             this.labelSquaring.Name = "labelSquaring";
             this.labelSquaring.Size = new System.Drawing.Size(116, 19);
             this.labelSquaring.TabIndex = 3;
@@ -153,9 +153,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             this.buttonBuildings.FlatAppearance.BorderSize = 0;
             this.buttonBuildings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBuildings.Location = new System.Drawing.Point(54, 197);
+            this.buttonBuildings.Location = new System.Drawing.Point(33, 197);
             this.buttonBuildings.Name = "buttonBuildings";
-            this.buttonBuildings.Size = new System.Drawing.Size(212, 23);
+            this.buttonBuildings.Size = new System.Drawing.Size(271, 23);
             this.buttonBuildings.TabIndex = 5;
             this.buttonBuildings.Text = "Постройки";
             this.buttonBuildings.UseVisualStyleBackColor = true;
@@ -165,9 +165,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             this.buttonAnimals.FlatAppearance.BorderSize = 0;
             this.buttonAnimals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAnimals.Location = new System.Drawing.Point(54, 226);
+            this.buttonAnimals.Location = new System.Drawing.Point(33, 226);
             this.buttonAnimals.Name = "buttonAnimals";
-            this.buttonAnimals.Size = new System.Drawing.Size(212, 23);
+            this.buttonAnimals.Size = new System.Drawing.Size(271, 23);
             this.buttonAnimals.TabIndex = 6;
             this.buttonAnimals.Text = "Селскостопански животни";
             this.buttonAnimals.UseVisualStyleBackColor = true;
@@ -177,9 +177,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             this.buttonTrees.FlatAppearance.BorderSize = 0;
             this.buttonTrees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTrees.Location = new System.Drawing.Point(54, 255);
+            this.buttonTrees.Location = new System.Drawing.Point(33, 255);
             this.buttonTrees.Name = "buttonTrees";
-            this.buttonTrees.Size = new System.Drawing.Size(212, 23);
+            this.buttonTrees.Size = new System.Drawing.Size(271, 23);
             this.buttonTrees.TabIndex = 11;
             this.buttonTrees.Text = "Защитени дъвесни видове";
             this.buttonTrees.UseVisualStyleBackColor = true;
@@ -194,23 +194,23 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.panelBuildings.Controls.Add(this.insertedDataDisplayBuildings);
             this.panelBuildings.Controls.Add(this.numericUpDownBuildings);
             this.panelBuildings.Controls.Add(this.comboBoxBuildings);
-            this.panelBuildings.Location = new System.Drawing.Point(318, 14);
+            this.panelBuildings.Location = new System.Drawing.Point(337, 14);
             this.panelBuildings.Name = "panelBuildings";
             this.panelBuildings.Size = new System.Drawing.Size(712, 300);
             this.panelBuildings.TabIndex = 12;
             // 
             // buttonSaveBuildings
             // 
-            this.buttonSaveBuildings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonSaveBuildings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonSaveBuildings.FlatAppearance.BorderSize = 0;
             this.buttonSaveBuildings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveBuildings.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonSaveBuildings.Image = global::GraduationProject.Properties.Resources.saveIcon_white;
-            this.buttonSaveBuildings.Location = new System.Drawing.Point(601, 249);
+            this.buttonSaveBuildings.Location = new System.Drawing.Point(607, 249);
             this.buttonSaveBuildings.Name = "buttonSaveBuildings";
             this.buttonSaveBuildings.Size = new System.Drawing.Size(87, 29);
             this.buttonSaveBuildings.TabIndex = 65;
-            this.buttonSaveBuildings.Tag = "Save address";
+            this.buttonSaveBuildings.Tag = "saveAddress";
             this.buttonSaveBuildings.Text = "Запис";
             this.buttonSaveBuildings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSaveBuildings.UseVisualStyleBackColor = false;
@@ -220,7 +220,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelBuildings.AutoSize = true;
             this.labelBuildings.BackColor = System.Drawing.Color.Transparent;
             this.labelBuildings.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelBuildings.Location = new System.Drawing.Point(351, 74);
+            this.labelBuildings.Location = new System.Drawing.Point(346, 74);
             this.labelBuildings.Name = "labelBuildings";
             this.labelBuildings.Size = new System.Drawing.Size(102, 19);
             this.labelBuildings.TabIndex = 18;
@@ -239,14 +239,15 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // buttonInsertBuildings
             // 
-            this.buttonInsertBuildings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonInsertBuildings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonInsertBuildings.FlatAppearance.BorderSize = 0;
             this.buttonInsertBuildings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInsertBuildings.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonInsertBuildings.Location = new System.Drawing.Point(623, 94);
+            this.buttonInsertBuildings.Location = new System.Drawing.Point(618, 94);
             this.buttonInsertBuildings.Name = "buttonInsertBuildings";
-            this.buttonInsertBuildings.Size = new System.Drawing.Size(67, 23);
+            this.buttonInsertBuildings.Size = new System.Drawing.Size(75, 23);
             this.buttonInsertBuildings.TabIndex = 63;
+            this.buttonInsertBuildings.Tag = "editAddress";
             this.buttonInsertBuildings.Text = "Въведи";
             this.buttonInsertBuildings.UseVisualStyleBackColor = false;
             this.buttonInsertBuildings.Click += new System.EventHandler(this.buttonInsertBuildings_Click);
@@ -262,7 +263,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // numericUpDownBuildings
             // 
-            this.numericUpDownBuildings.Location = new System.Drawing.Point(559, 96);
+            this.numericUpDownBuildings.Location = new System.Drawing.Point(555, 96);
             this.numericUpDownBuildings.Name = "numericUpDownBuildings";
             this.numericUpDownBuildings.Size = new System.Drawing.Size(58, 21);
             this.numericUpDownBuildings.TabIndex = 16;
@@ -275,58 +276,58 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.comboBoxBuildings.Items.AddRange(new object[] {
             "Жилищни постройки",
             "Селскостопански постройки"});
-            this.comboBoxBuildings.Location = new System.Drawing.Point(355, 96);
+            this.comboBoxBuildings.Location = new System.Drawing.Point(351, 96);
             this.comboBoxBuildings.Name = "comboBoxBuildings";
-            this.comboBoxBuildings.Size = new System.Drawing.Size(198, 22);
+            this.comboBoxBuildings.Size = new System.Drawing.Size(197, 22);
             this.comboBoxBuildings.TabIndex = 15;
             // 
             // panelTrees
             // 
+            this.panelTrees.Controls.Add(this.labelTrees);
             this.panelTrees.Controls.Add(this.buttonSaveTrees);
             this.panelTrees.Controls.Add(this.numericUpDownTrees);
-            this.panelTrees.Controls.Add(this.labelTrees);
             this.panelTrees.Controls.Add(this.insertedDataDisplayTrees);
             this.panelTrees.Controls.Add(this.buttonInsertTrees);
             this.panelTrees.Controls.Add(this.comboBoxTrees);
             this.panelTrees.Controls.Add(this.labelTitleTrees);
-            this.panelTrees.Location = new System.Drawing.Point(318, 14);
+            this.panelTrees.Location = new System.Drawing.Point(337, 14);
             this.panelTrees.Name = "panelTrees";
             this.panelTrees.Size = new System.Drawing.Size(712, 300);
             this.panelTrees.TabIndex = 42;
-            // 
-            // buttonSaveTrees
-            // 
-            this.buttonSaveTrees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
-            this.buttonSaveTrees.FlatAppearance.BorderSize = 0;
-            this.buttonSaveTrees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSaveTrees.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonSaveTrees.Image = global::GraduationProject.Properties.Resources.saveIcon_white;
-            this.buttonSaveTrees.Location = new System.Drawing.Point(601, 249);
-            this.buttonSaveTrees.Name = "buttonSaveTrees";
-            this.buttonSaveTrees.Size = new System.Drawing.Size(87, 29);
-            this.buttonSaveTrees.TabIndex = 71;
-            this.buttonSaveTrees.Tag = "Save address";
-            this.buttonSaveTrees.Text = "Запис";
-            this.buttonSaveTrees.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonSaveTrees.UseVisualStyleBackColor = false;
-            // 
-            // numericUpDownTrees
-            // 
-            this.numericUpDownTrees.Location = new System.Drawing.Point(559, 96);
-            this.numericUpDownTrees.Name = "numericUpDownTrees";
-            this.numericUpDownTrees.Size = new System.Drawing.Size(58, 21);
-            this.numericUpDownTrees.TabIndex = 28;
             // 
             // labelTrees
             // 
             this.labelTrees.AutoSize = true;
             this.labelTrees.BackColor = System.Drawing.Color.Transparent;
             this.labelTrees.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelTrees.Location = new System.Drawing.Point(350, 74);
+            this.labelTrees.Location = new System.Drawing.Point(346, 74);
             this.labelTrees.Name = "labelTrees";
             this.labelTrees.Size = new System.Drawing.Size(47, 19);
             this.labelTrees.TabIndex = 66;
             this.labelTrees.Text = "Вид:";
+            // 
+            // buttonSaveTrees
+            // 
+            this.buttonSaveTrees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
+            this.buttonSaveTrees.FlatAppearance.BorderSize = 0;
+            this.buttonSaveTrees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSaveTrees.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonSaveTrees.Image = global::GraduationProject.Properties.Resources.saveIcon_white;
+            this.buttonSaveTrees.Location = new System.Drawing.Point(607, 249);
+            this.buttonSaveTrees.Name = "buttonSaveTrees";
+            this.buttonSaveTrees.Size = new System.Drawing.Size(87, 29);
+            this.buttonSaveTrees.TabIndex = 71;
+            this.buttonSaveTrees.Tag = "saveAddress";
+            this.buttonSaveTrees.Text = "Запис";
+            this.buttonSaveTrees.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonSaveTrees.UseVisualStyleBackColor = false;
+            // 
+            // numericUpDownTrees
+            // 
+            this.numericUpDownTrees.Location = new System.Drawing.Point(555, 96);
+            this.numericUpDownTrees.Name = "numericUpDownTrees";
+            this.numericUpDownTrees.Size = new System.Drawing.Size(58, 21);
+            this.numericUpDownTrees.TabIndex = 28;
             // 
             // insertedDataDisplayTrees
             // 
@@ -339,14 +340,15 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // buttonInsertTrees
             // 
-            this.buttonInsertTrees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonInsertTrees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonInsertTrees.FlatAppearance.BorderSize = 0;
             this.buttonInsertTrees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInsertTrees.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonInsertTrees.Location = new System.Drawing.Point(622, 94);
+            this.buttonInsertTrees.Location = new System.Drawing.Point(618, 94);
             this.buttonInsertTrees.Name = "buttonInsertTrees";
-            this.buttonInsertTrees.Size = new System.Drawing.Size(67, 23);
+            this.buttonInsertTrees.Size = new System.Drawing.Size(75, 23);
             this.buttonInsertTrees.TabIndex = 64;
+            this.buttonInsertTrees.Tag = "editAddress";
             this.buttonInsertTrees.Text = "Въведи";
             this.buttonInsertTrees.UseVisualStyleBackColor = false;
             this.buttonInsertTrees.Click += new System.EventHandler(this.buttonInsertTrees_Click);
@@ -361,7 +363,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             "Черници",
             "Дървета над 20 г. възраст",
             "Вековни дървета"});
-            this.comboBoxTrees.Location = new System.Drawing.Point(355, 96);
+            this.comboBoxTrees.Location = new System.Drawing.Point(351, 96);
             this.comboBoxTrees.Name = "comboBoxTrees";
             this.comboBoxTrees.Size = new System.Drawing.Size(197, 22);
             this.comboBoxTrees.TabIndex = 27;
@@ -381,9 +383,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             this.buttonNotes.FlatAppearance.BorderSize = 0;
             this.buttonNotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNotes.Location = new System.Drawing.Point(54, 285);
+            this.buttonNotes.Location = new System.Drawing.Point(33, 285);
             this.buttonNotes.Name = "buttonNotes";
-            this.buttonNotes.Size = new System.Drawing.Size(212, 23);
+            this.buttonNotes.Size = new System.Drawing.Size(271, 23);
             this.buttonNotes.TabIndex = 46;
             this.buttonNotes.Text = "Забележки";
             this.buttonNotes.UseVisualStyleBackColor = true;
@@ -397,14 +399,15 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.panelNotes.Controls.Add(this.buttonInsertNote);
             this.panelNotes.Controls.Add(this.richTextBoxNotes);
             this.panelNotes.Controls.Add(this.labelTitleNotes);
-            this.panelNotes.Location = new System.Drawing.Point(318, 14);
+            this.panelNotes.Location = new System.Drawing.Point(337, 14);
             this.panelNotes.Name = "panelNotes";
             this.panelNotes.Size = new System.Drawing.Size(712, 300);
             this.panelNotes.TabIndex = 58;
+            this.panelNotes.Paint += new System.Windows.Forms.PaintEventHandler(this.panelNotes_Paint);
             // 
             // buttonSaveNotes
             // 
-            this.buttonSaveNotes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonSaveNotes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonSaveNotes.FlatAppearance.BorderSize = 0;
             this.buttonSaveNotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveNotes.ForeColor = System.Drawing.SystemColors.Control;
@@ -413,14 +416,14 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonSaveNotes.Name = "buttonSaveNotes";
             this.buttonSaveNotes.Size = new System.Drawing.Size(87, 29);
             this.buttonSaveNotes.TabIndex = 72;
-            this.buttonSaveNotes.Tag = "Save address";
+            this.buttonSaveNotes.Tag = "saveAddress";
             this.buttonSaveNotes.Text = "Запис";
             this.buttonSaveNotes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSaveNotes.UseVisualStyleBackColor = false;
             // 
             // buttonEditNote
             // 
-            this.buttonEditNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonEditNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonEditNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditNote.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonEditNote.Location = new System.Drawing.Point(525, 255);
@@ -442,7 +445,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // buttonInsertNote
             // 
-            this.buttonInsertNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonInsertNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonInsertNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInsertNote.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonInsertNote.Location = new System.Drawing.Point(398, 255);
@@ -491,7 +494,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelDogs.AutoSize = true;
             this.labelDogs.BackColor = System.Drawing.Color.Transparent;
             this.labelDogs.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelDogs.Location = new System.Drawing.Point(485, 183);
+            this.labelDogs.Location = new System.Drawing.Point(481, 183);
             this.labelDogs.Name = "labelDogs";
             this.labelDogs.Size = new System.Drawing.Size(69, 19);
             this.labelDogs.TabIndex = 29;
@@ -502,7 +505,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelFeathered.AutoSize = true;
             this.labelFeathered.BackColor = System.Drawing.Color.Transparent;
             this.labelFeathered.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelFeathered.Location = new System.Drawing.Point(471, 138);
+            this.labelFeathered.Location = new System.Drawing.Point(467, 138);
             this.labelFeathered.Name = "labelFeathered";
             this.labelFeathered.Size = new System.Drawing.Size(83, 19);
             this.labelFeathered.TabIndex = 37;
@@ -522,23 +525,23 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.panelAnimals.Controls.Add(this.comboBoxDomesticAnimals);
             this.panelAnimals.Controls.Add(this.labelFeathered);
             this.panelAnimals.Controls.Add(this.labelTitleAnimals);
-            this.panelAnimals.Location = new System.Drawing.Point(318, 14);
+            this.panelAnimals.Location = new System.Drawing.Point(337, 14);
             this.panelAnimals.Name = "panelAnimals";
             this.panelAnimals.Size = new System.Drawing.Size(712, 300);
             this.panelAnimals.TabIndex = 17;
             // 
             // buttonSaveAnimals
             // 
-            this.buttonSaveAnimals.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonSaveAnimals.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonSaveAnimals.FlatAppearance.BorderSize = 0;
             this.buttonSaveAnimals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveAnimals.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonSaveAnimals.Image = global::GraduationProject.Properties.Resources.saveIcon_white;
-            this.buttonSaveAnimals.Location = new System.Drawing.Point(601, 249);
+            this.buttonSaveAnimals.Location = new System.Drawing.Point(606, 249);
             this.buttonSaveAnimals.Name = "buttonSaveAnimals";
             this.buttonSaveAnimals.Size = new System.Drawing.Size(87, 29);
             this.buttonSaveAnimals.TabIndex = 70;
-            this.buttonSaveAnimals.Tag = "Save address";
+            this.buttonSaveAnimals.Tag = "saveAddress";
             this.buttonSaveAnimals.Text = "Запис";
             this.buttonSaveAnimals.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSaveAnimals.UseVisualStyleBackColor = false;
@@ -554,14 +557,15 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // buttonInsertFeathered
             // 
-            this.buttonInsertFeathered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonInsertFeathered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonInsertFeathered.FlatAppearance.BorderSize = 0;
             this.buttonInsertFeathered.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInsertFeathered.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonInsertFeathered.Location = new System.Drawing.Point(622, 134);
+            this.buttonInsertFeathered.Location = new System.Drawing.Point(618, 134);
             this.buttonInsertFeathered.Name = "buttonInsertFeathered";
-            this.buttonInsertFeathered.Size = new System.Drawing.Size(67, 23);
+            this.buttonInsertFeathered.Size = new System.Drawing.Size(75, 23);
             this.buttonInsertFeathered.TabIndex = 68;
+            this.buttonInsertFeathered.Tag = "editAddress";
             this.buttonInsertFeathered.Text = "Въведи";
             this.buttonInsertFeathered.UseVisualStyleBackColor = false;
             this.buttonInsertFeathered.Click += new System.EventHandler(this.buttonInsertFeathered_Click);
@@ -571,7 +575,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelCattle.AutoSize = true;
             this.labelCattle.BackColor = System.Drawing.Color.Transparent;
             this.labelCattle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelCattle.Location = new System.Drawing.Point(350, 74);
+            this.labelCattle.Location = new System.Drawing.Point(346, 74);
             this.labelCattle.Name = "labelCattle";
             this.labelCattle.Size = new System.Drawing.Size(164, 19);
             this.labelCattle.TabIndex = 67;
@@ -579,27 +583,28 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // buttonInsertCattle
             // 
-            this.buttonInsertCattle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonInsertCattle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonInsertCattle.FlatAppearance.BorderSize = 0;
             this.buttonInsertCattle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInsertCattle.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonInsertCattle.Location = new System.Drawing.Point(622, 94);
+            this.buttonInsertCattle.Location = new System.Drawing.Point(618, 94);
             this.buttonInsertCattle.Name = "buttonInsertCattle";
-            this.buttonInsertCattle.Size = new System.Drawing.Size(67, 23);
+            this.buttonInsertCattle.Size = new System.Drawing.Size(75, 23);
             this.buttonInsertCattle.TabIndex = 65;
+            this.buttonInsertCattle.Tag = "editAddress";
             this.buttonInsertCattle.Text = "Въведи";
             this.buttonInsertCattle.UseVisualStyleBackColor = false;
             this.buttonInsertCattle.Click += new System.EventHandler(this.buttonInsertCattle_Click);
             // 
             // buttonEditDogs
             // 
-            this.buttonEditDogs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonEditDogs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonEditDogs.FlatAppearance.BorderSize = 0;
             this.buttonEditDogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditDogs.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonEditDogs.Location = new System.Drawing.Point(559, 179);
+            this.buttonEditDogs.Location = new System.Drawing.Point(555, 179);
             this.buttonEditDogs.Name = "buttonEditDogs";
-            this.buttonEditDogs.Size = new System.Drawing.Size(131, 23);
+            this.buttonEditDogs.Size = new System.Drawing.Size(138, 23);
             this.buttonEditDogs.TabIndex = 52;
             this.buttonEditDogs.Text = "Редактиране";
             this.buttonEditDogs.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -608,14 +613,14 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // numericUpDownFeathererd
             // 
-            this.numericUpDownFeathererd.Location = new System.Drawing.Point(559, 136);
+            this.numericUpDownFeathererd.Location = new System.Drawing.Point(555, 136);
             this.numericUpDownFeathererd.Name = "numericUpDownFeathererd";
             this.numericUpDownFeathererd.Size = new System.Drawing.Size(58, 21);
             this.numericUpDownFeathererd.TabIndex = 51;
             // 
             // numericUpDownDomesticAnimals
             // 
-            this.numericUpDownDomesticAnimals.Location = new System.Drawing.Point(559, 96);
+            this.numericUpDownDomesticAnimals.Location = new System.Drawing.Point(555, 96);
             this.numericUpDownDomesticAnimals.Name = "numericUpDownDomesticAnimals";
             this.numericUpDownDomesticAnimals.Size = new System.Drawing.Size(58, 21);
             this.numericUpDownDomesticAnimals.TabIndex = 49;
@@ -632,7 +637,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             "Коне",
             "Магарета",
             "Свине"});
-            this.comboBoxDomesticAnimals.Location = new System.Drawing.Point(355, 96);
+            this.comboBoxDomesticAnimals.Location = new System.Drawing.Point(351, 96);
             this.comboBoxDomesticAnimals.Name = "comboBoxDomesticAnimals";
             this.comboBoxDomesticAnimals.Size = new System.Drawing.Size(197, 22);
             this.comboBoxDomesticAnimals.TabIndex = 47;
@@ -642,7 +647,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.comboBoxHabitability.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.comboBoxHabitability.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxHabitability.FormattingEnabled = true;
-            this.comboBoxHabitability.Location = new System.Drawing.Point(472, 76);
+            this.comboBoxHabitability.Location = new System.Drawing.Point(470, 76);
             this.comboBoxHabitability.Name = "comboBoxHabitability";
             this.comboBoxHabitability.Size = new System.Drawing.Size(134, 22);
             this.comboBoxHabitability.TabIndex = 59;
@@ -650,7 +655,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // numericUpDownSquaring
             // 
             this.numericUpDownSquaring.DecimalPlaces = 2;
-            this.numericUpDownSquaring.Location = new System.Drawing.Point(472, 109);
+            this.numericUpDownSquaring.Location = new System.Drawing.Point(470, 109);
             this.numericUpDownSquaring.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -662,8 +667,8 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // panelDogs
             // 
-            this.panelDogs.Controls.Add(this.buttonSaveDogs);
             this.panelDogs.Controls.Add(this.panelTableDogs);
+            this.panelDogs.Controls.Add(this.buttonSaveDogs);
             this.panelDogs.Controls.Add(this.pictureBoxBack);
             this.panelDogs.Controls.Add(this.labelTitle);
             this.panelDogs.Controls.Add(this.labelDogsError);
@@ -674,26 +679,10 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.panelDogs.Controls.Add(this.checkBoxDogNoNumber);
             this.panelDogs.Controls.Add(this.textBoxDogNumber);
             this.panelDogs.Controls.Add(this.labelDogsTitle);
-            this.panelDogs.Location = new System.Drawing.Point(318, 14);
+            this.panelDogs.Location = new System.Drawing.Point(337, 14);
             this.panelDogs.Name = "panelDogs";
             this.panelDogs.Size = new System.Drawing.Size(712, 300);
             this.panelDogs.TabIndex = 54;
-            // 
-            // buttonSaveDogs
-            // 
-            this.buttonSaveDogs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
-            this.buttonSaveDogs.FlatAppearance.BorderSize = 0;
-            this.buttonSaveDogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSaveDogs.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonSaveDogs.Image = global::GraduationProject.Properties.Resources.saveIcon_white;
-            this.buttonSaveDogs.Location = new System.Drawing.Point(601, 249);
-            this.buttonSaveDogs.Name = "buttonSaveDogs";
-            this.buttonSaveDogs.Size = new System.Drawing.Size(87, 29);
-            this.buttonSaveDogs.TabIndex = 62;
-            this.buttonSaveDogs.Tag = "Save address";
-            this.buttonSaveDogs.Text = "Запис";
-            this.buttonSaveDogs.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonSaveDogs.UseVisualStyleBackColor = false;
             // 
             // panelTableDogs
             // 
@@ -756,6 +745,22 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.ColumnDelete.Name = "ColumnDelete";
             this.ColumnDelete.Width = 24;
             // 
+            // buttonSaveDogs
+            // 
+            this.buttonSaveDogs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
+            this.buttonSaveDogs.FlatAppearance.BorderSize = 0;
+            this.buttonSaveDogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSaveDogs.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonSaveDogs.Image = global::GraduationProject.Properties.Resources.saveIcon_white;
+            this.buttonSaveDogs.Location = new System.Drawing.Point(601, 249);
+            this.buttonSaveDogs.Name = "buttonSaveDogs";
+            this.buttonSaveDogs.Size = new System.Drawing.Size(87, 29);
+            this.buttonSaveDogs.TabIndex = 62;
+            this.buttonSaveDogs.Tag = "saveAddress";
+            this.buttonSaveDogs.Text = "Запис";
+            this.buttonSaveDogs.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonSaveDogs.UseVisualStyleBackColor = false;
+            // 
             // pictureBoxBack
             // 
             this.pictureBoxBack.BackColor = System.Drawing.Color.Transparent;
@@ -794,7 +799,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // buttonAddDog
             // 
-            this.buttonAddDog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonAddDog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonAddDog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddDog.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonAddDog.Location = new System.Drawing.Point(352, 182);
@@ -872,9 +877,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             this.buttonStateAndSquaring.FlatAppearance.BorderSize = 0;
             this.buttonStateAndSquaring.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStateAndSquaring.Location = new System.Drawing.Point(54, 169);
+            this.buttonStateAndSquaring.Location = new System.Drawing.Point(33, 169);
             this.buttonStateAndSquaring.Name = "buttonStateAndSquaring";
-            this.buttonStateAndSquaring.Size = new System.Drawing.Size(212, 23);
+            this.buttonStateAndSquaring.Size = new System.Drawing.Size(271, 23);
             this.buttonStateAndSquaring.TabIndex = 61;
             this.buttonStateAndSquaring.Text = "Статус и площ";
             this.buttonStateAndSquaring.UseVisualStyleBackColor = true;
@@ -902,51 +907,53 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.panelStateAndSquaring.Controls.Add(this.labelHabitabillity);
             this.panelStateAndSquaring.Controls.Add(this.labelSquaring);
             this.panelStateAndSquaring.Controls.Add(this.comboBoxHabitability);
-            this.panelStateAndSquaring.Location = new System.Drawing.Point(318, 14);
+            this.panelStateAndSquaring.Location = new System.Drawing.Point(337, 14);
             this.panelStateAndSquaring.Name = "panelStateAndSquaring";
             this.panelStateAndSquaring.Size = new System.Drawing.Size(712, 300);
             this.panelStateAndSquaring.TabIndex = 54;
             // 
             // buttonSaveStAndSq
             // 
-            this.buttonSaveStAndSq.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonSaveStAndSq.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonSaveStAndSq.FlatAppearance.BorderSize = 0;
             this.buttonSaveStAndSq.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveStAndSq.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonSaveStAndSq.Image = global::GraduationProject.Properties.Resources.saveIcon_white;
-            this.buttonSaveStAndSq.Location = new System.Drawing.Point(601, 249);
+            this.buttonSaveStAndSq.Location = new System.Drawing.Point(608, 249);
             this.buttonSaveStAndSq.Name = "buttonSaveStAndSq";
             this.buttonSaveStAndSq.Size = new System.Drawing.Size(87, 29);
             this.buttonSaveStAndSq.TabIndex = 64;
-            this.buttonSaveStAndSq.Tag = "Save address";
+            this.buttonSaveStAndSq.Tag = "saveAddress";
             this.buttonSaveStAndSq.Text = "Запис";
             this.buttonSaveStAndSq.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSaveStAndSq.UseVisualStyleBackColor = false;
             // 
             // buttonInsertSquaring
             // 
-            this.buttonInsertSquaring.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonInsertSquaring.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonInsertSquaring.FlatAppearance.BorderSize = 0;
             this.buttonInsertSquaring.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInsertSquaring.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonInsertSquaring.Location = new System.Drawing.Point(622, 107);
+            this.buttonInsertSquaring.Location = new System.Drawing.Point(620, 107);
             this.buttonInsertSquaring.Name = "buttonInsertSquaring";
-            this.buttonInsertSquaring.Size = new System.Drawing.Size(67, 23);
+            this.buttonInsertSquaring.Size = new System.Drawing.Size(75, 23);
             this.buttonInsertSquaring.TabIndex = 63;
+            this.buttonInsertSquaring.Tag = "editAddress";
             this.buttonInsertSquaring.Text = "Въведи";
             this.buttonInsertSquaring.UseVisualStyleBackColor = false;
             this.buttonInsertSquaring.Click += new System.EventHandler(this.buttonInsertSquaring_Click);
             // 
             // buttonInsertState
             // 
-            this.buttonInsertState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonInsertState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonInsertState.FlatAppearance.BorderSize = 0;
             this.buttonInsertState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInsertState.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonInsertState.Location = new System.Drawing.Point(622, 76);
+            this.buttonInsertState.Location = new System.Drawing.Point(620, 76);
             this.buttonInsertState.Name = "buttonInsertState";
-            this.buttonInsertState.Size = new System.Drawing.Size(67, 23);
+            this.buttonInsertState.Size = new System.Drawing.Size(75, 23);
             this.buttonInsertState.TabIndex = 62;
+            this.buttonInsertState.Tag = "editAddress";
             this.buttonInsertState.Text = "Въведи";
             this.buttonInsertState.UseVisualStyleBackColor = false;
             this.buttonInsertState.Click += new System.EventHandler(this.buttonInsertState_Click);
@@ -965,12 +972,12 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.panelBuildings);
+            this.Controls.Add(this.panelAnimals);
+            this.Controls.Add(this.panelTrees);
+            this.Controls.Add(this.panelStateAndSquaring);
             this.Controls.Add(this.panelNotes);
             this.Controls.Add(this.panelDogs);
-            this.Controls.Add(this.panelTrees);
-            this.Controls.Add(this.panelAnimals);
-            this.Controls.Add(this.panelBuildings);
-            this.Controls.Add(this.panelStateAndSquaring);
             this.Controls.Add(this.buttonStateAndSquaring);
             this.Controls.Add(this.buttonNotes);
             this.Controls.Add(this.buttonTrees);

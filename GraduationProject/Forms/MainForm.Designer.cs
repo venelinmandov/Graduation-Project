@@ -29,7 +29,6 @@ namespace GraduationProject.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelContents = new System.Windows.Forms.Panel();
             this.pictureBoxBack = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
@@ -46,7 +45,7 @@ namespace GraduationProject.Forms
             // pictureBoxBack
             // 
             this.pictureBoxBack.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxBack.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxBack.Image")));
+            this.pictureBoxBack.Image = global::GraduationProject.Properties.Resources.back_arrow;
             this.pictureBoxBack.Location = new System.Drawing.Point(14, 14);
             this.pictureBoxBack.Name = "pictureBoxBack";
             this.pictureBoxBack.Size = new System.Drawing.Size(78, 78);

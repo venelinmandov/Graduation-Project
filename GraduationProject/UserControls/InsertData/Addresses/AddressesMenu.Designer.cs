@@ -30,7 +30,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private void InitializeComponent()
         {
             this.labelTitle = new System.Windows.Forms.Label();
-            this.buttonNewAddresse = new System.Windows.Forms.Button();
+            this.buttonNewAddress = new System.Windows.Forms.Button();
             this.buttonEditAddress = new System.Windows.Forms.Button();
             this.labelSearchBy = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -42,28 +42,28 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelTitle.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelTitle.Location = new System.Drawing.Point(479, 37);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(114, 33);
+            this.labelTitle.Size = new System.Drawing.Size(100, 33);
             this.labelTitle.TabIndex = 14;
-            this.labelTitle.Text = "Адреси";
+            this.labelTitle.Text = "Имоти";
             // 
-            // buttonNewAddresse
+            // buttonNewAddress
             // 
-            this.buttonNewAddresse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
-            this.buttonNewAddresse.FlatAppearance.BorderSize = 0;
-            this.buttonNewAddresse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNewAddresse.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonNewAddresse.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonNewAddresse.Location = new System.Drawing.Point(331, 139);
-            this.buttonNewAddresse.Name = "buttonNewAddresse";
-            this.buttonNewAddresse.Size = new System.Drawing.Size(179, 60);
-            this.buttonNewAddresse.TabIndex = 15;
-            this.buttonNewAddresse.Text = "Нов запис";
-            this.buttonNewAddresse.UseVisualStyleBackColor = false;
-            this.buttonNewAddresse.Click += new System.EventHandler(this.buttonNewAddresse_Click);
+            this.buttonNewAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
+            this.buttonNewAddress.FlatAppearance.BorderSize = 0;
+            this.buttonNewAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNewAddress.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonNewAddress.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonNewAddress.Location = new System.Drawing.Point(331, 139);
+            this.buttonNewAddress.Name = "buttonNewAddress";
+            this.buttonNewAddress.Size = new System.Drawing.Size(179, 60);
+            this.buttonNewAddress.TabIndex = 15;
+            this.buttonNewAddress.Text = "Нов запис";
+            this.buttonNewAddress.UseVisualStyleBackColor = false;
+            this.buttonNewAddress.Click += new System.EventHandler(this.buttonNewAddresse_Click);
             // 
             // buttonEditAddress
             // 
-            this.buttonEditAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonEditAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonEditAddress.FlatAppearance.BorderSize = 0;
             this.buttonEditAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditAddress.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -94,7 +94,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.labelSearchBy);
             this.Controls.Add(this.buttonEditAddress);
-            this.Controls.Add(this.buttonNewAddresse);
+            this.Controls.Add(this.buttonNewAddress);
             this.Controls.Add(this.labelTitle);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "AddressesMenu";
@@ -107,7 +107,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         #endregion
 
         protected System.Windows.Forms.Label labelTitle;
-        protected System.Windows.Forms.Button buttonNewAddresse;
+        protected System.Windows.Forms.Button buttonNewAddress;
         protected System.Windows.Forms.Button buttonEditAddress;
         protected System.Windows.Forms.Label labelSearchBy;
     }

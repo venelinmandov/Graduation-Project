@@ -29,7 +29,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelTitleCategory = new System.Windows.Forms.Label();
+            this.labelTitle = new System.Windows.Forms.Label();
             this.comboBoxStreet = new System.Windows.Forms.ComboBox();
             this.numericUpDownNumber = new System.Windows.Forms.NumericUpDown();
             this.labelStreet = new System.Windows.Forms.Label();
@@ -37,23 +37,23 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonInhabitants = new System.Windows.Forms.Button();
             this.buttonProperty = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
-            this.labelAddressExists = new System.Windows.Forms.Label();
             this.comboBoxNumber = new System.Windows.Forms.ComboBox();
             this.buttonDelete = new System.Windows.Forms.Button();
-            this.labelSubtitle = new System.Windows.Forms.Label();
+            this.labelAddressExists = new System.Windows.Forms.Label();
+            this.labelNoAddresses = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumber)).BeginInit();
             this.SuspendLayout();
             // 
-            // labelTitleCategory
+            // labelTitle
             // 
-            this.labelTitleCategory.BackColor = System.Drawing.Color.Transparent;
-            this.labelTitleCategory.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTitleCategory.Location = new System.Drawing.Point(209, 37);
-            this.labelTitleCategory.Name = "labelTitleCategory";
-            this.labelTitleCategory.Size = new System.Drawing.Size(663, 33);
-            this.labelTitleCategory.TabIndex = 15;
-            this.labelTitleCategory.Text = "Адреси";
-            this.labelTitleCategory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelTitle.BackColor = System.Drawing.Color.Transparent;
+            this.labelTitle.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelTitle.Location = new System.Drawing.Point(209, 37);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(663, 33);
+            this.labelTitle.TabIndex = 15;
+            this.labelTitle.Text = "Имоти";
+            this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // comboBoxStreet
             // 
@@ -61,7 +61,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.comboBoxStreet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStreet.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxStreet.FormattingEnabled = true;
-            this.comboBoxStreet.Location = new System.Drawing.Point(392, 119);
+            this.comboBoxStreet.Location = new System.Drawing.Point(341, 115);
             this.comboBoxStreet.Name = "comboBoxStreet";
             this.comboBoxStreet.Size = new System.Drawing.Size(213, 27);
             this.comboBoxStreet.TabIndex = 16;
@@ -72,7 +72,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             this.numericUpDownNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numericUpDownNumber.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.numericUpDownNumber.Location = new System.Drawing.Point(632, 119);
+            this.numericUpDownNumber.Location = new System.Drawing.Point(581, 115);
             this.numericUpDownNumber.Minimum = new decimal(new int[] {
             1,
             0,
@@ -92,7 +92,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             this.labelStreet.AutoSize = true;
             this.labelStreet.BackColor = System.Drawing.Color.Transparent;
-            this.labelStreet.Location = new System.Drawing.Point(392, 98);
+            this.labelStreet.Location = new System.Drawing.Point(341, 94);
             this.labelStreet.Name = "labelStreet";
             this.labelStreet.Size = new System.Drawing.Size(45, 15);
             this.labelStreet.TabIndex = 18;
@@ -102,7 +102,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             this.labelNumber.AutoSize = true;
             this.labelNumber.BackColor = System.Drawing.Color.Transparent;
-            this.labelNumber.Location = new System.Drawing.Point(632, 98);
+            this.labelNumber.Location = new System.Drawing.Point(581, 94);
             this.labelNumber.Name = "labelNumber";
             this.labelNumber.Size = new System.Drawing.Size(49, 15);
             this.labelNumber.TabIndex = 19;
@@ -110,7 +110,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // buttonInhabitants
             // 
-            this.buttonInhabitants.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonInhabitants.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonInhabitants.FlatAppearance.BorderSize = 0;
             this.buttonInhabitants.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInhabitants.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -125,7 +125,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // buttonProperty
             // 
-            this.buttonProperty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonProperty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonProperty.FlatAppearance.BorderSize = 0;
             this.buttonProperty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonProperty.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -140,35 +140,27 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // buttonSave
             // 
+            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonSave.FlatAppearance.BorderSize = 0;
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSave.Image = global::GraduationProject.Properties.Resources.saveIcon;
-            this.buttonSave.Location = new System.Drawing.Point(331, 267);
+            this.buttonSave.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonSave.Image = global::GraduationProject.Properties.Resources.saveIcon_white;
+            this.buttonSave.Location = new System.Drawing.Point(655, 112);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(87, 29);
             this.buttonSave.TabIndex = 23;
             this.buttonSave.Text = "Запис";
             this.buttonSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
-            // labelAddressExists
-            // 
-            this.labelAddressExists.AutoSize = true;
-            this.labelAddressExists.BackColor = System.Drawing.Color.Transparent;
-            this.labelAddressExists.Location = new System.Drawing.Point(392, 152);
-            this.labelAddressExists.Name = "labelAddressExists";
-            this.labelAddressExists.Size = new System.Drawing.Size(125, 15);
-            this.labelAddressExists.TabIndex = 24;
-            this.labelAddressExists.Text = "Адресът съществува!";
-            this.labelAddressExists.Visible = false;
             // 
             // comboBoxNumber
             // 
             this.comboBoxNumber.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxNumber.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNumber.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxNumber.FormattingEnabled = true;
-            this.comboBoxNumber.Location = new System.Drawing.Point(632, 119);
+            this.comboBoxNumber.Location = new System.Drawing.Point(581, 115);
             this.comboBoxNumber.Name = "comboBoxNumber";
             this.comboBoxNumber.Size = new System.Drawing.Size(56, 27);
             this.comboBoxNumber.TabIndex = 25;
@@ -177,37 +169,54 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // buttonDelete
             // 
+            this.buttonDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonDelete.FlatAppearance.BorderSize = 0;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDelete.Image = global::GraduationProject.Properties.Resources.deleteIcon;
+            this.buttonDelete.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonDelete.Image = global::GraduationProject.Properties.Resources.delete_icon_white;
             this.buttonDelete.Location = new System.Drawing.Point(331, 267);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(108, 29);
             this.buttonDelete.TabIndex = 26;
             this.buttonDelete.Text = "Изтриване";
             this.buttonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.UseVisualStyleBackColor = false;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // labelSubtitle
+            // labelAddressExists
             // 
-            this.labelSubtitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelSubtitle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelSubtitle.Location = new System.Drawing.Point(297, 78);
-            this.labelSubtitle.Name = "labelSubtitle";
-            this.labelSubtitle.Size = new System.Drawing.Size(484, 18);
-            this.labelSubtitle.TabIndex = 27;
-            this.labelSubtitle.Text = "Нов запис:";
-            this.labelSubtitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelAddressExists.BackColor = System.Drawing.Color.Transparent;
+            this.labelAddressExists.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelAddressExists.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(40)))), ((int)(((byte)(10)))));
+            this.labelAddressExists.Location = new System.Drawing.Point(209, 37);
+            this.labelAddressExists.Name = "labelAddressExists";
+            this.labelAddressExists.Size = new System.Drawing.Size(663, 33);
+            this.labelAddressExists.TabIndex = 27;
+            this.labelAddressExists.Tag = "errorLabel";
+            this.labelAddressExists.Text = "Адресът съществува";
+            this.labelAddressExists.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelNoAddresses
+            // 
+            this.labelNoAddresses.BackColor = System.Drawing.Color.Transparent;
+            this.labelNoAddresses.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelNoAddresses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(40)))), ((int)(((byte)(10)))));
+            this.labelNoAddresses.Location = new System.Drawing.Point(209, 37);
+            this.labelNoAddresses.Name = "labelNoAddresses";
+            this.labelNoAddresses.Size = new System.Drawing.Size(663, 33);
+            this.labelNoAddresses.TabIndex = 28;
+            this.labelNoAddresses.Tag = "errorLabel";
+            this.labelNoAddresses.Text = "На тази улица няма записи за адреси";
+            this.labelNoAddresses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // InsertDataAddress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Controls.Add(this.labelSubtitle);
-            this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.labelNoAddresses);
             this.Controls.Add(this.labelAddressExists);
+            this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonProperty);
             this.Controls.Add(this.buttonInhabitants);
@@ -215,7 +224,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.Controls.Add(this.labelStreet);
             this.Controls.Add(this.numericUpDownNumber);
             this.Controls.Add(this.comboBoxStreet);
-            this.Controls.Add(this.labelTitleCategory);
+            this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.comboBoxNumber);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "InsertDataAddress";
@@ -229,7 +238,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
 
         #endregion
 
-        protected System.Windows.Forms.Label labelTitleCategory;
+        protected System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.ComboBox comboBoxStreet;
         private System.Windows.Forms.NumericUpDown numericUpDownNumber;
         private System.Windows.Forms.Label labelStreet;
@@ -237,9 +246,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         protected System.Windows.Forms.Button buttonInhabitants;
         protected System.Windows.Forms.Button buttonProperty;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Label labelAddressExists;
         private System.Windows.Forms.ComboBox comboBoxNumber;
         private System.Windows.Forms.Button buttonDelete;
-        protected System.Windows.Forms.Label labelSubtitle;
+        protected System.Windows.Forms.Label labelAddressExists;
+        protected System.Windows.Forms.Label labelNoAddresses;
     }
 }

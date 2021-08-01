@@ -76,14 +76,14 @@ namespace GraduationProject.UserControls.InsertData.Streets
             this.listBoxStreets.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.listBoxStreets.Name = "listBoxStreets";
             this.listBoxStreets.SelectedIndex = -1;
-            this.listBoxStreets.SelectedItemColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.listBoxStreets.SelectedItemColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.listBoxStreets.SelectedItemForeColor = System.Drawing.SystemColors.Control;
             this.listBoxStreets.Size = new System.Drawing.Size(534, 167);
             this.listBoxStreets.TabIndex = 17;
             // 
             // buttonShowInsertStreet
             // 
-            this.buttonShowInsertStreet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonShowInsertStreet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonShowInsertStreet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShowInsertStreet.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonShowInsertStreet.Location = new System.Drawing.Point(53, 220);
@@ -96,7 +96,7 @@ namespace GraduationProject.UserControls.InsertData.Streets
             // 
             // buttonShowRenameStreet
             // 
-            this.buttonShowRenameStreet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonShowRenameStreet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonShowRenameStreet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShowRenameStreet.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonShowRenameStreet.Location = new System.Drawing.Point(224, 220);
@@ -109,7 +109,7 @@ namespace GraduationProject.UserControls.InsertData.Streets
             // 
             // buttonDeleteStreet
             // 
-            this.buttonDeleteStreet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonDeleteStreet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonDeleteStreet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeleteStreet.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonDeleteStreet.Location = new System.Drawing.Point(400, 220);
@@ -133,8 +133,8 @@ namespace GraduationProject.UserControls.InsertData.Streets
             // 
             // panelInsertStreet
             // 
-            this.panelInsertStreet.Controls.Add(this.buttonInsertCancel);
             this.panelInsertStreet.Controls.Add(this.labelErrorInsert);
+            this.panelInsertStreet.Controls.Add(this.buttonInsertCancel);
             this.panelInsertStreet.Controls.Add(this.labelStreetName);
             this.panelInsertStreet.Controls.Add(this.labelTitleAddstreet);
             this.panelInsertStreet.Controls.Add(this.textBoxStreetInsert);
@@ -146,7 +146,7 @@ namespace GraduationProject.UserControls.InsertData.Streets
             // 
             // buttonInsertCancel
             // 
-            this.buttonInsertCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonInsertCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonInsertCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInsertCancel.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonInsertCancel.Location = new System.Drawing.Point(326, 202);
@@ -199,7 +199,7 @@ namespace GraduationProject.UserControls.InsertData.Streets
             // 
             // buttonInsertStreet
             // 
-            this.buttonInsertStreet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonInsertStreet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonInsertStreet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInsertStreet.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonInsertStreet.Location = new System.Drawing.Point(124, 202);
@@ -225,7 +225,7 @@ namespace GraduationProject.UserControls.InsertData.Streets
             // 
             // buttonRenameCancel
             // 
-            this.buttonRenameCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonRenameCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonRenameCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRenameCancel.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonRenameCancel.Location = new System.Drawing.Point(326, 202);
@@ -278,7 +278,7 @@ namespace GraduationProject.UserControls.InsertData.Streets
             // 
             // buttonUpdateStreet
             // 
-            this.buttonUpdateStreet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.buttonUpdateStreet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonUpdateStreet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUpdateStreet.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonUpdateStreet.Location = new System.Drawing.Point(124, 202);
@@ -291,8 +291,8 @@ namespace GraduationProject.UserControls.InsertData.Streets
             // 
             // InsertDataStreets
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.panelShowStreets);
             this.Controls.Add(this.panelRenameStreet);

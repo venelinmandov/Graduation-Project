@@ -73,7 +73,7 @@ namespace GraduationProject.UserControls.References
             SolidBrush solidBrush;
             if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
             {
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(50, 80, 40)), e.Bounds);
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(70, 90, 30)), e.Bounds);
                 solidBrush = new SolidBrush(SystemColors.Control);
             }
             else

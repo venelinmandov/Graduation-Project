@@ -35,7 +35,7 @@ namespace GraduationProject.UserControls
             // 
             // buttonReferences
             // 
-            this.buttonReferences.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonReferences.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonReferences.FlatAppearance.BorderSize = 0;
             this.buttonReferences.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonReferences.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -50,7 +50,7 @@ namespace GraduationProject.UserControls
             // 
             // buttonInsertData
             // 
-            this.buttonInsertData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonInsertData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonInsertData.FlatAppearance.BorderSize = 0;
             this.buttonInsertData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInsertData.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

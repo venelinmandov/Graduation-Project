@@ -138,5 +138,5 @@ D:\repos\Graduation-Project\GraduationProject\obj\Debug\netcoreapp3.1\Graduation
 D:\repos\Graduation-Project\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.pdb
 D:\repos\Graduation-Project\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.genruntimeconfig.cache
 D:\repos\Graduation-Project\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.InsertedDataDisplay.resources
-D:\repos\Graduation-Project\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.csproj.AssemblyReference.cache
 D:\repos\Graduation-Project\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.UserControls.InsertData.Streets.InsertDataStreets.resources
+D:\repos\Graduation-Project\GraduationProject\obj\Debug\netcoreapp3.1\GraduationProject.csproj.AssemblyReference.cache
