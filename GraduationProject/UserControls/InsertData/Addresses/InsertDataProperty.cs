@@ -707,7 +707,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                 Button saveButton = (from btn in panel.Controls.OfType<Button>() where btn.Tag != null && btn.Tag.Equals("saveAddress") select btn).First();
                 saveButton.Visible = false;
             }
-            MessageBox.Show("Адресът е записан успешно.", "Адресът е записан", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            CustomMessageBox.Show("Адресът е записан успешно.", "Адресът е записан", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         #endregion

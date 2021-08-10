@@ -40,7 +40,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.panelBuildings = new System.Windows.Forms.Panel();
             this.buttonSaveBuildings = new System.Windows.Forms.Button();
             this.labelBuildings = new System.Windows.Forms.Label();
-            this.labelTitleBuldings = new System.Windows.Forms.Label();
             this.labelTitleBuildings = new System.Windows.Forms.Label();
             this.buttonInsertBuildings = new System.Windows.Forms.Button();
             this.insertedDataDisplayBuildings = new GraduationProject.UserControls.InsertedDataDisplay();
