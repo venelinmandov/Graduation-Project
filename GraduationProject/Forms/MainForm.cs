@@ -269,6 +269,12 @@ namespace GraduationProject.Forms
                     panelContents.Controls.Add(insertDataProperty);
                     insertDataProperty.BringToFront();
                     break;
+                case "inhabitantsData":
+                    UserControls.InsertData.Addresses.InsertDataInhabitant insertDataInhabitant = new UserControls.InsertData.Addresses.InsertDataInhabitant((UserControls.InsertData.Addresses.InsertDataAddress.AddressData)eventData.data);
+                    AddControl(insertDataInhabitant);
+                    panelContents.Controls.Add(insertDataInhabitant);
+                    insertDataInhabitant.BringToFront();
+                    break;
                 case "streetsMenu":
                     UserControls.InsertData.Streets.InsertDataStreets insertDataStreets = new UserControls.InsertData.Streets.InsertDataStreets();
                     AddControl(insertDataStreets);

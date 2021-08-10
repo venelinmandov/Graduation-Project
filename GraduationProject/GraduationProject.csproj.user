@@ -4,10 +4,19 @@
     <Compile Update="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Modules\CustomMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UserControls\InsertData\Addresses\InsertDataAddress.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\InsertData\Addresses\AddressesMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\InsertData\Addresses\InsertDataInhabitant.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\InsertData\Addresses\InsertDataInhabitantEditCreate.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\InsertData\InsertDataMenu.cs">

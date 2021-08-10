@@ -58,6 +58,7 @@ namespace GraduationProject.UserControls.References
             this.listBoxAddresses.Name = "listBoxAddresses";
             this.listBoxAddresses.SelectedIndex = -1;
             this.listBoxAddresses.SelectedItemColor = System.Drawing.Color.Empty;
+            this.listBoxAddresses.SelectedItemForeColor = System.Drawing.Color.Empty;
             this.listBoxAddresses.Size = new System.Drawing.Size(573, 196);
             this.listBoxAddresses.TabIndex = 3;
             // 

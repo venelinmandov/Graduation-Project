@@ -160,7 +160,7 @@ namespace GraduationProject.UserControls.References
             listBoxResidents.BringToFront();
             buttonGuests.BackColor = Color.FromArgb(170, 255, 255, 255);
             buttonGuests.ForeColor = SystemColors.ControlText;
-            button.BackColor = Color.FromArgb(50, 80, 40);
+            button.BackColor = Color.FromArgb(70, 90, 30);
             button.ForeColor = SystemColors.Control;
         }
 
@@ -175,7 +175,7 @@ namespace GraduationProject.UserControls.References
             listBoxGuests.BringToFront();
             buttonResidents.BackColor = Color.FromArgb(170, 255, 255, 255);
             buttonResidents.ForeColor = SystemColors.ControlText;
-            button.BackColor = Color.FromArgb(50, 80, 40);
+            button.BackColor = Color.FromArgb(70, 90, 30);
             button.ForeColor = SystemColors.Control;
         }
 

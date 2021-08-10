@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using GraduationProject.Modules;
 
 namespace GraduationProject.UserControls.InsertData.Streets
 {
@@ -120,13 +121,14 @@ namespace GraduationProject.UserControls.InsertData.Streets
         /// <param name="e"></param>
         private void buttonDeleteStreet_Click(object sender, System.EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Сигурни ли сте че искате да изтриете улицата?", "Изтриване на улица", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            
+            DialogResult result = CustomMessageBox.Show("Сигурни ли сте че искате да изтриете улицата?", "Изтриване на улица", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 Street street = streets[listBoxStreets.SelectedIndex];
                 if (new Address().Get(connectionHelper, street).Count != 0)
                 {
-                    MessageBox.Show("За тази улица има записи на адреси и не може да бъде изтрита. Моля първо изтрийте записите на адресите.",
+                    CustomMessageBox.Show("За тази улица има записи на адреси и не може да бъде изтрита. Моля първо изтрийте записите на адресите.",
                                     "Действието не може да бъде извършено",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);

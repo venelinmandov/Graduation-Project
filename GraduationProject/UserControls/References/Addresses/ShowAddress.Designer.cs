@@ -217,7 +217,7 @@ namespace GraduationProject.UserControls.References
             // 
             // buttonShowOwner
             // 
-            this.buttonShowOwner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonShowOwner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonShowOwner.FlatAppearance.BorderSize = 0;
             this.buttonShowOwner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShowOwner.ForeColor = System.Drawing.SystemColors.Control;
@@ -355,7 +355,7 @@ namespace GraduationProject.UserControls.References
             // 
             // buttonResidents
             // 
-            this.buttonResidents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(40)))));
+            this.buttonResidents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.buttonResidents.FlatAppearance.BorderSize = 0;
             this.buttonResidents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonResidents.ForeColor = System.Drawing.SystemColors.Control;
@@ -539,10 +539,10 @@ namespace GraduationProject.UserControls.References
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.panelInhabitants);
             this.Controls.Add(this.panelBuildings);
             this.Controls.Add(this.panelTrees);
             this.Controls.Add(this.panelAnimals);
-            this.Controls.Add(this.panelInhabitants);
             this.Controls.Add(this.panelNotes);
             this.Controls.Add(this.buttonNotes);
             this.Controls.Add(this.buttonInhabitants);

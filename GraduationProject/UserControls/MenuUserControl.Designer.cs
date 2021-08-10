@@ -57,6 +57,7 @@ namespace GraduationProject.UserControls
             this.buttonInsertData.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonInsertData.Location = new System.Drawing.Point(622, 68);
             this.buttonInsertData.Name = "buttonInsertData";
+            this.buttonInsertData.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
             this.buttonInsertData.Size = new System.Drawing.Size(259, 82);
             this.buttonInsertData.TabIndex = 17;
             this.buttonInsertData.Text = "Въвеждане на данни";

@@ -13,7 +13,7 @@ namespace GraduationProject.UserControls
         public Color SelectedItemForeColor { get; set; }
         public Color ItemsColor { get; set; }
         public Color ItemBorderColor { get; set; }
-        public ContentAlignment ItemTextAlignment { get; set; }
+        public ContentAlignment ItemTextAlignment { get; set; } = ContentAlignment.MiddleLeft;
 
         public int SelectedIndex { get; set; }
 
@@ -37,6 +37,7 @@ namespace GraduationProject.UserControls
         public void AddList(List<object> items)
         {
             Controls.Clear();
+            SelectedIndex = -1;
             buttons = new List<Button>();
             foreach (object item in items)
             {

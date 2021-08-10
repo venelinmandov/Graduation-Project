@@ -1,4 +1,5 @@
 ﻿using GraduationProject.Models;
+using GraduationProject.Modules;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -241,12 +242,12 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             if (notSaved)
             {
                 SaveAddress();
-                MessageBox.Show("Адресът е записан успешно.", "Адресът е записан", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CustomMessageBox.Show("Адресът е записан успешно.", "Адресът е записан", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 addressData.address.Update(connectionHelper);
-                MessageBox.Show("Промените са записани успешно.", "Промените за записани", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CustomMessageBox.Show("Промените са записани успешно.", "Промените за записани", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -300,7 +301,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         {
             if (mode == "edit")
             {
-                DialogResult dialogResult = MessageBox.Show("Сигурни ли сте, че искате да изтриете адреса?", "Изтриване на адрес", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                DialogResult dialogResult = CustomMessageBox.Show("Сигурни ли сте, че искате да изтриете адреса?", "Изтриване на адрес", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (dialogResult == DialogResult.OK)
                 {
                     addressData.address.Delete(connectionHelper);
@@ -312,13 +313,14 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private void buttonInhabitants_Click(object sender, EventArgs e)
         {
             changesAreMade = true;
+            ButtonClicked(new Forms.MainForm.EventData("inhabitantsData", addressData), e);
         }
 
         private void InsertDataAddress_VisibleChanged(object sender, EventArgs e)
         {
             if (notSaved && changesAreMade && mode == "create")
             {
-                DialogResult dialogResult = MessageBox.Show("Излизате от режим \"Нов адрес\" и въведените от вас данни ще бъдат изгубени. Запазване на въведените данни?", "Запазване на адрес?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult dialogResult = CustomMessageBox.Show("Излизате от режим \"Нов адрес\" и въведените от вас данни ще бъдат изгубени. Запазване на въведените данни?", "Запазване на адрес?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialogResult == DialogResult.Yes)
                 {
                     SaveAddress();
