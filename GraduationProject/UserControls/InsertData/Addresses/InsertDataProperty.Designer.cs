@@ -29,8 +29,8 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelAddress = new System.Windows.Forms.Label();
             this.labelHabitabillity = new System.Windows.Forms.Label();
             this.labelSquaring = new System.Windows.Forms.Label();
@@ -261,6 +261,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.insertedDataDisplayBuildings.Name = "insertedDataDisplayBuildings";
             this.insertedDataDisplayBuildings.Size = new System.Drawing.Size(307, 203);
             this.insertedDataDisplayBuildings.TabIndex = 17;
+            this.insertedDataDisplayBuildings.WrapText = false;
             // 
             // numericUpDownBuildings
             // 
@@ -338,6 +339,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.insertedDataDisplayTrees.Name = "insertedDataDisplayTrees";
             this.insertedDataDisplayTrees.Size = new System.Drawing.Size(307, 203);
             this.insertedDataDisplayTrees.TabIndex = 65;
+            this.insertedDataDisplayTrees.WrapText = false;
             // 
             // buttonInsertTrees
             // 
@@ -442,6 +444,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.insertedDataDisplayNotes.Name = "insertedDataDisplayNotes";
             this.insertedDataDisplayNotes.Size = new System.Drawing.Size(307, 203);
             this.insertedDataDisplayNotes.TabIndex = 22;
+            this.insertedDataDisplayNotes.WrapText = true;
             // 
             // buttonInsertNote
             // 
@@ -554,6 +557,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.insertedDataDisplayAnimals.Name = "insertedDataDisplayAnimals";
             this.insertedDataDisplayAnimals.Size = new System.Drawing.Size(307, 203);
             this.insertedDataDisplayAnimals.TabIndex = 69;
+            this.insertedDataDisplayAnimals.WrapText = false;
             // 
             // buttonInsertFeathered
             // 
@@ -700,8 +704,8 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.dataGridViewDogs.AllowUserToDeleteRows = false;
             this.dataGridViewDogs.AllowUserToResizeColumns = false;
             this.dataGridViewDogs.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.dataGridViewDogs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.dataGridViewDogs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewDogs.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridViewDogs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewDogs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -716,8 +720,8 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.dataGridViewDogs.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridViewDogs.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridViewDogs.RowHeadersVisible = false;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
-            this.dataGridViewDogs.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            this.dataGridViewDogs.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewDogs.RowTemplate.Height = 25;
             this.dataGridViewDogs.Size = new System.Drawing.Size(305, 165);
             this.dataGridViewDogs.TabIndex = 14;
@@ -966,17 +970,18 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.insertedDataDisplayStateAndSquaring.Name = "insertedDataDisplayStateAndSquaring";
             this.insertedDataDisplayStateAndSquaring.Size = new System.Drawing.Size(307, 203);
             this.insertedDataDisplayStateAndSquaring.TabIndex = 61;
+            this.insertedDataDisplayStateAndSquaring.WrapText = false;
             // 
             // InsertDataProperty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.panelNotes);
             this.Controls.Add(this.panelBuildings);
             this.Controls.Add(this.panelAnimals);
             this.Controls.Add(this.panelTrees);
             this.Controls.Add(this.panelStateAndSquaring);
-            this.Controls.Add(this.panelNotes);
             this.Controls.Add(this.panelDogs);
             this.Controls.Add(this.buttonStateAndSquaring);
             this.Controls.Add(this.buttonNotes);

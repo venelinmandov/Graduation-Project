@@ -42,7 +42,7 @@ namespace GraduationProject.UserControls.References.Inhabitants
             labelFirstnameValue.Text = inhabitant.Firstname;
             labelMiddlenameValue.Text = inhabitant.Middlename;
             labelLastnameValue.Text = inhabitant.Lastname;
-            labelGenderValue.Text = inhabitant.Gender == 0 ? "Мъж" : "Жена";
+            labelGenderValue.Text = inhabitant.Gender == Inhabitant.GenderEnum.Male ? "Мъж" : "Жена";
             labelPhoneValue.Text = inhabitant.PhoneNumber;
             labelAddressValue.Text = new Address().Get(new ConnectionHelper(), inhabitant.AddressId).ToString();
             richTextBoxNotes.Text = inhabitant.Note;

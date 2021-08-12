@@ -22,13 +22,13 @@ namespace GraduationProject.UserControls.InsertData
 
         private void buttonAddresses_Click(object sender, EventArgs e)
         {
-            ButtonClicked(new Forms.MainForm.EventData("addressesMenu"), e);
+            ButtonClicked(new Forms.MainForm.EventData("insertdataAddress"), e);
 
         }
 
         private void buttonStreets_Click(object sender, EventArgs e)
         {
-            ButtonClicked(new Forms.MainForm.EventData("streetsMenu"), e);
+            ButtonClicked(new Forms.MainForm.EventData("insertDataStreets"), e);
 
         }
     }

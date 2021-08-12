@@ -291,6 +291,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonAddInhabitant.TabIndex = 70;
             this.buttonAddInhabitant.Text = "Добави обитател";
             this.buttonAddInhabitant.UseVisualStyleBackColor = false;
+            this.buttonAddInhabitant.Click += new System.EventHandler(this.buttonAddInhabitant_Click);
             // 
             // labelOwnerMissing
             // 

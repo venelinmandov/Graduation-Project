@@ -14,6 +14,12 @@ namespace GraduationProject.UserControls.InsertData.Addresses
     {
         InsertDataAddress.AddressData addressData;
         ListBoxUserControl selectedListBox;
+        Inhabitant inhabitantToSave;
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when button is clicked")]
+        public event EventHandler ButtonClicked;
+
         public InsertDataInhabitant(InsertDataAddress.AddressData addrData)
         {
             InitializeComponent();
@@ -84,5 +90,18 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             selectedButton.ForeColor = SystemColors.Control;
         }
 
+        private void buttonAddInhabitant_Click(object sender, EventArgs e)
+        {
+            inhabitantToSave = new Inhabitant();
+            inhabitantToSave.InhabitantSaved += SaveInahbitant;
+            inhabitantToSave.AddressId = addressData.address.Id;
+            ButtonClicked(new Forms.MainForm.EventData("inhabitantEditCreate", inhabitantToSave), e);
+        }
+
+        void SaveInahbitant(object sender, EventArgs eventArgs)
+        {
+            addressData.inhabitants.Add(inhabitantToSave);
+            ShowInhabitants();
+        }
     }
 }

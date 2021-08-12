@@ -539,11 +539,11 @@ namespace GraduationProject.UserControls.References
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.panelNotes);
             this.Controls.Add(this.panelInhabitants);
             this.Controls.Add(this.panelBuildings);
             this.Controls.Add(this.panelTrees);
             this.Controls.Add(this.panelAnimals);
-            this.Controls.Add(this.panelNotes);
             this.Controls.Add(this.buttonNotes);
             this.Controls.Add(this.buttonInhabitants);
             this.Controls.Add(this.buttonTrees);

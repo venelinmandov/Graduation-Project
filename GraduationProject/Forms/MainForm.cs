@@ -9,9 +9,9 @@ namespace GraduationProject.Forms
     public partial class MainForm : Form
     {
         Stack<UserControl> userControls = new Stack<UserControl>();
-        
 
-       public MainForm()
+
+        public MainForm()
         {
             InitializeComponent();
             MenuButtonClicked(new EventData("menu"), new EventArgs());
@@ -34,7 +34,7 @@ namespace GraduationProject.Forms
             public object data;
         }
 
-       
+
 
 
         void MenuButtonClicked(object sender, EventArgs eventArgs)
@@ -52,237 +52,177 @@ namespace GraduationProject.Forms
                 #region Справки
                 case "references":
                     ReferencesMenu referencesMenu = new ReferencesMenu();
-                    AddControl(referencesMenu);
-                    panelContents.Controls.Add(referencesMenu);
-                    referencesMenu.BringToFront();
+                    ShowUserControl(referencesMenu);
                     referencesMenu.ButtonClicked += MenuButtonClicked;
                     break;
                 #region  Адреси
                 case "addresses":
                     UserControls.References.ReferencesSearchByAddress byAddressControl = new UserControls.References.ReferencesSearchByAddress();
-                    AddControl(byAddressControl);
+                    ShowUserControl(byAddressControl);
                     byAddressControl.SearchButtonClicked += MenuButtonClicked;
-                    panelContents.Controls.Add(byAddressControl);
-                    byAddressControl.BringToFront();
                     break;
                 case "showAddress":
                     UserControls.References.ShowAddress showAddress = new UserControls.References.ShowAddress((Address)eventData.data);
-                    panelContents.Controls.Add(showAddress);
-                    AddControl(showAddress);
+                    ShowUserControl(showAddress);
                     showAddress.InhabitantClicked += MenuButtonClicked;
-                    showAddress.BringToFront();
                     break;
                 case "listAddresses":
                     UserControls.References.ListAddresses listAddresses = new UserControls.References.ListAddresses((List<Address>)eventData.data);
-                    AddControl(listAddresses);
+                    ShowUserControl(listAddresses);
                     listAddresses.AddressClicked += MenuButtonClicked;
-                    panelContents.Controls.Add(listAddresses);
-                    listAddresses.BringToFront();
+
                     break;
                 case "properties":
                     UserControls.References.Addresses.ReferencesSearchByHabitabillity referencesSearchByHabitabillity = new UserControls.References.Addresses.ReferencesSearchByHabitabillity();
-                    AddControl(referencesSearchByHabitabillity);
+                    ShowUserControl(referencesSearchByHabitabillity);
                     referencesSearchByHabitabillity.ShowButtonClicked += MenuButtonClicked;
-                    panelContents.Controls.Add(referencesSearchByHabitabillity);
-                    referencesSearchByHabitabillity.BringToFront();
                     break;
                 #endregion
                 #region Селскостопански животни
                 case "animals":
                     UserControls.References.ReferencesSearchByAnimals searchByAnimals = new UserControls.References.ReferencesSearchByAnimals();
-                    AddControl(searchByAnimals);
+                    ShowUserControl(searchByAnimals);
                     searchByAnimals.SearchButtonClicked += MenuButtonClicked;
-                    panelContents.Controls.Add(searchByAnimals);
-                    searchByAnimals.BringToFront();
                     break;
                 case "listAnimalsAddresses":
                     UserControls.References.ListAnimalAddresses listAnimalsAddresses = new UserControls.References.ListAnimalAddresses((UserControls.References.ListAnimalAddresses.AnimalsAddressesData)eventData.data);
-                    AddControl(listAnimalsAddresses);
+                    ShowUserControl(listAnimalsAddresses);
                     listAnimalsAddresses.AddressClicked += MenuButtonClicked;
-                    panelContents.Controls.Add(listAnimalsAddresses);
-                    listAnimalsAddresses.BringToFront();
                     break;
                 case "showAnimals":
                     UserControls.References.ShowAddress showAddressAnimals = new UserControls.References.ShowAddress((UserControls.References.ShowAddress.AnimalAddressData)eventData.data);
-                    panelContents.Controls.Add(showAddressAnimals);
-                    AddControl(showAddressAnimals);
+                    ShowUserControl(showAddressAnimals);
                     showAddressAnimals.InhabitantClicked += MenuButtonClicked;
-                    showAddressAnimals.BringToFront();
                     break;
                 #endregion
                 #region Защитени дървесни видове
                 case "trees":
                     UserControls.References.Addresses.ReferencesSearchByTrees referencesSearchByTrees = new UserControls.References.Addresses.ReferencesSearchByTrees();
-                    AddControl(referencesSearchByTrees);
+                    ShowUserControl(referencesSearchByTrees);
                     referencesSearchByTrees.ShowButtonClicked += MenuButtonClicked;
-                    panelContents.Controls.Add(referencesSearchByTrees);
-                    referencesSearchByTrees.BringToFront();
                     break;
                 case "listTreesAddresses":
                     UserControls.References.ListTreesAddresses listTreesAddresses = new UserControls.References.ListTreesAddresses((UserControls.References.ListTreesAddresses.TreeAddressesData)eventData.data);
-                    AddControl(listTreesAddresses);
+                    ShowUserControl(listTreesAddresses);
                     listTreesAddresses.AddressClicked += MenuButtonClicked;
-                    panelContents.Controls.Add(listTreesAddresses);
-                    listTreesAddresses.BringToFront();
                     break;
                 case "showTrees":
                     UserControls.References.ShowAddress showAddressTrees = new UserControls.References.ShowAddress((UserControls.References.ShowAddress.TreeAddressData)eventData.data);
-                    panelContents.Controls.Add(showAddressTrees);
-                    AddControl(showAddressTrees);
+                    ShowUserControl(showAddressTrees);
                     showAddressTrees.InhabitantClicked += MenuButtonClicked;
-                    showAddressTrees.BringToFront();
                     break;
                 #endregion
                 #region Карантини
                 case "quarantines":
                     UserControls.References.Addresses.ReferencesSearchByQuarantines referencesSearchByQuarantines = new UserControls.References.Addresses.ReferencesSearchByQuarantines();
-                    AddControl(referencesSearchByQuarantines);
+                    ShowUserControl(referencesSearchByQuarantines);
                     referencesSearchByQuarantines.ShowButtonClicked += MenuButtonClicked;
-                    panelContents.Controls.Add(referencesSearchByQuarantines);
-                    referencesSearchByQuarantines.BringToFront();
                     break;
                 case "animalQuarantine":
                     UserControls.References.Addresses.ReferencesSearchByAnimalQuarantines referencesSearchByAnimalQuarantines = new UserControls.References.Addresses.ReferencesSearchByAnimalQuarantines();
-                    AddControl(referencesSearchByAnimalQuarantines);
+                    ShowUserControl(referencesSearchByAnimalQuarantines);
                     referencesSearchByAnimalQuarantines.ShowButtonClicked += MenuButtonClicked;
-                    panelContents.Controls.Add(referencesSearchByAnimalQuarantines);
-                    referencesSearchByAnimalQuarantines.BringToFront();
                     break;
                 case "listInhabitantsQuarantines":
                     UserControls.References.ListInhabitantQuarantines listInhabitantsQuarantines = new UserControls.References.ListInhabitantQuarantines((List<Address>)eventData.data);
-                    AddControl(listInhabitantsQuarantines);
+                    ShowUserControl(listInhabitantsQuarantines);
                     listInhabitantsQuarantines.AddressClicked += MenuButtonClicked;
-                    panelContents.Controls.Add(listInhabitantsQuarantines);
-                    listInhabitantsQuarantines.BringToFront();
                     break;
                 case "listAnimalsQuarantines":
                     UserControls.References.ListAnimalsQuarantines listAnimalsQuarantines = new UserControls.References.ListAnimalsQuarantines((UserControls.References.ListAnimalsQuarantines.QuarantinesData)eventData.data);
-                    AddControl(listAnimalsQuarantines);
+                    ShowUserControl(listAnimalsQuarantines);
                     listAnimalsQuarantines.AddressClicked += MenuButtonClicked;
-                    panelContents.Controls.Add(listAnimalsQuarantines);
-                    listAnimalsQuarantines.BringToFront();
                     break;
                 case "showInhabitantsQuarantines":
                     UserControls.References.Quarantines.ShowInhabitantsQuarantines showInhabitantsQuarantines = new UserControls.References.Quarantines.ShowInhabitantsQuarantines((Address)eventData.data);
-                    AddControl(showInhabitantsQuarantines);
-                    panelContents.Controls.Add(showInhabitantsQuarantines);
-                    showInhabitantsQuarantines.BringToFront();
+                    ShowUserControl(showInhabitantsQuarantines);
                     break;
                 case "showAnimalsQuarantines":
                     UserControls.References.Quarantines.ShowAnimalsQuarantines showAnimalsQuarantines = new UserControls.References.Quarantines.ShowAnimalsQuarantines((UserControls.References.Quarantines.ShowAnimalsQuarantines.QuarantineData)eventData.data);
-                    AddControl(showAnimalsQuarantines);
-                    panelContents.Controls.Add(showAnimalsQuarantines);
-                    showAnimalsQuarantines.BringToFront();
+                    ShowUserControl(showAnimalsQuarantines);
                     break;
 
                 #endregion
                 #region Жители
                 case "inhabitants":
                     UserControls.References.ReferencesInhabitantsMenu referencesInhabitantsMenu = new UserControls.References.ReferencesInhabitantsMenu();
-                    AddControl(referencesInhabitantsMenu);
+                    ShowUserControl(referencesInhabitantsMenu);
                     referencesInhabitantsMenu.buttonClicked += MenuButtonClicked;
-                    panelContents.Controls.Add(referencesInhabitantsMenu);
-                    referencesInhabitantsMenu.BringToFront();
                     break;
                 case "inhabitantsByName":
                     UserControls.References.Inhabitants.ReferencesInhabitantsSearchByName inhabitantsSearchByName = new UserControls.References.Inhabitants.ReferencesInhabitantsSearchByName();
-                    AddControl(inhabitantsSearchByName);
+                    ShowUserControl(inhabitantsSearchByName);
                     inhabitantsSearchByName.ShowButtonClicked += MenuButtonClicked;
-                    panelContents.Controls.Add(inhabitantsSearchByName);
-                    inhabitantsSearchByName.BringToFront();
                     break;
                 case "inhabitantsByReg":
                     UserControls.References.Inhabitants.ReferenceInhabitantsSearchByReg inhabitantsSearchByReg = new UserControls.References.Inhabitants.ReferenceInhabitantsSearchByReg();
-                    AddControl(inhabitantsSearchByReg);
+                    ShowUserControl(inhabitantsSearchByReg);
                     inhabitantsSearchByReg.ShowButtonClicked += MenuButtonClicked;
-                    panelContents.Controls.Add(inhabitantsSearchByReg);
-                    inhabitantsSearchByReg.BringToFront();
+
                     break;
                 case "inhabitantsByProp":
                     UserControls.References.Inhabitants.ReferencesInhabitantsByProperty inhabitantsSearchByProp = new UserControls.References.Inhabitants.ReferencesInhabitantsByProperty();
-                    AddControl(inhabitantsSearchByProp);
+                    ShowUserControl(inhabitantsSearchByProp);
                     inhabitantsSearchByProp.ShowButtonClicked += MenuButtonClicked;
-                    panelContents.Controls.Add(inhabitantsSearchByProp);
-                    inhabitantsSearchByProp.BringToFront();
                     break;
                 case "inhabitantsByResidence":
                     UserControls.References.Inhabitants.ReferencesInhabitantsByResidence inhabitantsSearchByResidence = new UserControls.References.Inhabitants.ReferencesInhabitantsByResidence();
-                    AddControl(inhabitantsSearchByResidence);
+                    ShowUserControl(inhabitantsSearchByResidence);
                     inhabitantsSearchByResidence.ShowButtonClicked += MenuButtonClicked;
-                    panelContents.Controls.Add(inhabitantsSearchByResidence);
-                    inhabitantsSearchByResidence.BringToFront();
+
                     break;
                 case "listInhabitants":
                     UserControls.References.ListInhabitants listInhabitants = new UserControls.References.ListInhabitants((List<Inhabitant>)eventData.data);
-                    AddControl(listInhabitants);
+                    ShowUserControl(listInhabitants);
                     listInhabitants.InhabitantClicked += MenuButtonClicked;
-                    panelContents.Controls.Add(listInhabitants);
-                    listInhabitants.BringToFront();
                     break;
                 case "showInhabitant":
                     UserControls.References.Inhabitants.ShowInhabitant showResident = new UserControls.References.Inhabitants.ShowInhabitant((Inhabitant)eventData.data);
-                    AddControl(showResident);
-                    panelContents.Controls.Add(showResident);
-                    showResident.BringToFront();
+                    ShowUserControl(showResident);
                     break;
                 #endregion
-
-
-
-
                 #endregion
                 #region Въвеждане на данни
                 case "insertData":
                     UserControls.InsertData.InsertDataMenu insertDataMenu = new UserControls.InsertData.InsertDataMenu();
-                    AddControl(insertDataMenu);
-                    panelContents.Controls.Add(insertDataMenu);
-                    insertDataMenu.BringToFront();
+                    ShowUserControl(insertDataMenu);
                     insertDataMenu.ButtonClicked += MenuButtonClicked;
                     break;
-                case "addressesMenu":
+                case "insertdataAddress":
                     UserControls.InsertData.Addresses.AddressesMenu addressesMenu = new UserControls.InsertData.Addresses.AddressesMenu();
-                    AddControl(addressesMenu);
-                    panelContents.Controls.Add(addressesMenu);
-                    addressesMenu.BringToFront();
+                    ShowUserControl(addressesMenu);
                     addressesMenu.ButtonClicked += MenuButtonClicked;
                     break;
-               
+
                 case "createAddress":
                     UserControls.InsertData.Addresses.InsertDataAddress.AddressData addressData = new UserControls.InsertData.Addresses.InsertDataAddress.AddressData();
                     addressData.Intialize();
                     UserControls.InsertData.Addresses.InsertDataAddress createAddress = new UserControls.InsertData.Addresses.InsertDataAddress(addressData);
-                    AddControl(createAddress);
-                    panelContents.Controls.Add(createAddress);
-                    createAddress.BringToFront();
+                    ShowUserControl(createAddress);
                     createAddress.ButtonClicked += MenuButtonClicked;
                     break;
                 case "editAddress":
                     UserControls.InsertData.Addresses.InsertDataAddress editAddress = new UserControls.InsertData.Addresses.InsertDataAddress();
-                    AddControl(editAddress);
-                    panelContents.Controls.Add(editAddress);
-                    editAddress.BringToFront();
+                    ShowUserControl(editAddress);
                     editAddress.ButtonClicked += MenuButtonClicked;
                     break;
                 case "propertyData":
                     UserControls.InsertData.Addresses.InsertDataProperty insertDataProperty = new UserControls.InsertData.Addresses.InsertDataProperty((UserControls.InsertData.Addresses.InsertDataAddress.AddressData)eventData.data);
-                    AddControl(insertDataProperty);
-                    panelContents.Controls.Add(insertDataProperty);
-                    insertDataProperty.BringToFront();
+                    ShowUserControl(insertDataProperty);
                     break;
                 case "inhabitantsData":
                     UserControls.InsertData.Addresses.InsertDataInhabitant insertDataInhabitant = new UserControls.InsertData.Addresses.InsertDataInhabitant((UserControls.InsertData.Addresses.InsertDataAddress.AddressData)eventData.data);
-                    AddControl(insertDataInhabitant);
-                    panelContents.Controls.Add(insertDataInhabitant);
-                    insertDataInhabitant.BringToFront();
+                    ShowUserControl(insertDataInhabitant);
+                    insertDataInhabitant.ButtonClicked += MenuButtonClicked;
+
                     break;
-                case "streetsMenu":
-                    UserControls.InsertData.Streets.InsertDataStreets insertDataStreets = new UserControls.InsertData.Streets.InsertDataStreets();
-                    AddControl(insertDataStreets);
-                    panelContents.Controls.Add(insertDataStreets);
-                    insertDataStreets.BringToFront();
+                case "inhabitantEditCreate":
+                    UserControls.InsertData.Addresses.InsertDataInhabitantEditCreate insertDataInhabitantEditCreate = new UserControls.InsertData.Addresses.InsertDataInhabitantEditCreate((Inhabitant)eventData.data);
+                    ShowUserControl(insertDataInhabitantEditCreate);
                     break;
                 case "insertDataStreets":
-
+                    UserControls.InsertData.Streets.InsertDataStreets insertDataStreets = new UserControls.InsertData.Streets.InsertDataStreets();
+                    ShowUserControl(insertDataStreets);
                     break;
                 #endregion
                 default: break;
@@ -295,7 +235,13 @@ namespace GraduationProject.Forms
         {
             userControls.Push(userControl);
             pictureBoxBack.Visible = true;
+        }
 
+        void ShowUserControl(UserControl userControl)
+        {
+            AddControl(userControl);
+            panelContents.Controls.Add(userControl);
+            userControl.BringToFront();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

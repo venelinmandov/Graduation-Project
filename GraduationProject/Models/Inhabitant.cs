@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SQLite;
 
 namespace GraduationProject.Models
@@ -9,7 +10,7 @@ namespace GraduationProject.Models
         public string Firstname { get; set; }
         public string Middlename { get; set; }
         public string Lastname { get; set; }
-        public int Gender { get; set; }
+        public GenderEnum Gender { get; set; }
         public int AddressId { get; set; }
         public int CurrentAddressId { get; set; }
         public int PermanentAddressId { get; set; }
@@ -25,6 +26,7 @@ namespace GraduationProject.Models
         public enum AddressRegistrationEnum { No, Permanent, Current };
         public enum ResidenceStateEnum { Permanent, Temporary };
         public enum OwnershipStateEnum { Guest, Resident, Owner };
+        public enum GenderEnum { Male, Female };
 
         public override string ToString()
         {
@@ -39,7 +41,7 @@ namespace GraduationProject.Models
             Firstname = reader.GetString(1);
             Middlename = reader.GetString(2);
             Lastname = reader.GetString(3);
-            Gender = reader.GetInt32(4);
+            Gender = (GenderEnum)reader.GetInt32(4);
             AddressId = reader.GetInt32(5);
             CurrentAddressId = reader.IsDBNull(6) ? -1 : reader.GetInt32(6);
             PermanentAddressId = reader.IsDBNull(7) ? -1 : reader.GetInt32(7);
@@ -52,6 +54,9 @@ namespace GraduationProject.Models
 
 
         }
+
+        //Събития
+        public event EventHandler InhabitantSaved;
 
         //Заявки
 
@@ -89,6 +94,11 @@ namespace GraduationProject.Models
             id = (long)connectionHelper.sqlCommand.ExecuteScalar();
             connectionHelper.sqlConnection.Close();
             Id = (int)id;
+
+            if (InhabitantSaved != null)
+            {
+                InhabitantSaved(new object(), new EventArgs());
+            }
         }
 
         //GET

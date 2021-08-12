@@ -53,7 +53,6 @@ namespace GraduationProject.UserControls
             this.labelData.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelData.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelData.Location = new System.Drawing.Point(0, 0);
-            this.labelData.MaximumSize = new System.Drawing.Size(276, 0);
             this.labelData.Name = "labelData";
             this.labelData.Size = new System.Drawing.Size(45, 20);
             this.labelData.TabIndex = 1;
@@ -61,6 +60,8 @@ namespace GraduationProject.UserControls
             // 
             // panelData
             // 
+            this.panelData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelData.AutoScroll = true;
             this.panelData.BackColor = System.Drawing.Color.Transparent;
             this.panelData.Controls.Add(this.labelData);

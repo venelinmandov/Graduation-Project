@@ -301,8 +301,8 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         {
             if (mode == "edit")
             {
-                DialogResult dialogResult = CustomMessageBox.Show("Сигурни ли сте, че искате да изтриете адреса?", "Изтриване на адрес", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                if (dialogResult == DialogResult.OK)
+                DialogResult dialogResult = CustomMessageBox.Show("Сигурни ли сте, че искате да изтриете адреса?", "Изтриване на адрес", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
                 {
                     addressData.address.Delete(connectionHelper);
                     ShowAddresses();
