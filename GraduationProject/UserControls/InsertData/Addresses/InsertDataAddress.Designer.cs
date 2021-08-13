@@ -160,7 +160,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.comboBoxNumber.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNumber.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxNumber.FormattingEnabled = true;
-            this.comboBoxNumber.Location = new System.Drawing.Point(581, 115);
+            this.comboBoxNumber.Location = new System.Drawing.Point(629, 115);
             this.comboBoxNumber.Name = "comboBoxNumber";
             this.comboBoxNumber.Size = new System.Drawing.Size(56, 27);
             this.comboBoxNumber.TabIndex = 25;
@@ -193,7 +193,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelAddressExists.Size = new System.Drawing.Size(663, 33);
             this.labelAddressExists.TabIndex = 27;
             this.labelAddressExists.Tag = "errorLabel";
-            this.labelAddressExists.Text = "Адресът съществува";
+            this.labelAddressExists.Text = "Този адрес вече същестува";
             this.labelAddressExists.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelNoAddresses
@@ -214,6 +214,8 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.comboBoxStreet);
+            this.Controls.Add(this.comboBoxNumber);
             this.Controls.Add(this.labelNoAddresses);
             this.Controls.Add(this.labelAddressExists);
             this.Controls.Add(this.buttonDelete);
@@ -223,9 +225,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.Controls.Add(this.labelNumber);
             this.Controls.Add(this.labelStreet);
             this.Controls.Add(this.numericUpDownNumber);
-            this.Controls.Add(this.comboBoxStreet);
             this.Controls.Add(this.labelTitle);
-            this.Controls.Add(this.comboBoxNumber);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "InsertDataAddress";
             this.Size = new System.Drawing.Size(1081, 329);

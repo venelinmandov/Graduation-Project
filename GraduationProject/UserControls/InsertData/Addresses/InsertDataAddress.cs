@@ -58,6 +58,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             LoadStreets();
             ShowEditControls();
             labelTitle.Text = "Редактиране на адрес";
+            comboBoxStreet.Location = new Point(comboBoxStreet.Location.X + 54, comboBoxStreet.Location.Y);
+            labelStreet.Location = new Point(comboBoxStreet.Location.X, labelStreet.Location.Y);
+            labelNumber.Location = new Point(comboBoxNumber.Location.X, labelNumber.Location.Y);
         }
 
         /// <summary>

@@ -217,7 +217,7 @@ namespace GraduationProject.Forms
 
                     break;
                 case "inhabitantEditCreate":
-                    UserControls.InsertData.Addresses.InsertDataInhabitantEditCreate insertDataInhabitantEditCreate = new UserControls.InsertData.Addresses.InsertDataInhabitantEditCreate((Inhabitant)eventData.data);
+                    UserControls.InsertData.Addresses.InsertDataInhabitantEditCreate insertDataInhabitantEditCreate = new UserControls.InsertData.Addresses.InsertDataInhabitantEditCreate((UserControls.InsertData.Addresses.InsertDataInhabitantEditCreate.InhabitantData)eventData.data);
                     ShowUserControl(insertDataInhabitantEditCreate);
                     break;
                 case "insertDataStreets":

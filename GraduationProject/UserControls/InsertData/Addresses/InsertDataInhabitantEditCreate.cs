@@ -16,6 +16,13 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         ConnectionHelper connectionHelper = new ConnectionHelper();
         Button activeButton;
         Inhabitant inhabitant;
+
+        public struct InhabitantData
+        {
+            public Inhabitant Inhabitant;
+            public string addressName;
+        }
+
         Dictionary<string, Inhabitant.OwnershipStateEnum> ownershipStateDict = new Dictionary<string, Inhabitant.OwnershipStateEnum>()
         {
             {"гост", Inhabitant.OwnershipStateEnum.Guest },
@@ -35,12 +42,12 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             {"няма в нас. място", Inhabitant.AddressRegistrationEnum.No },
             {"постоянен адрес", Inhabitant.AddressRegistrationEnum.Permanent }
         };
-        public InsertDataInhabitantEditCreate(Inhabitant inhab)
+        public InsertDataInhabitantEditCreate(InhabitantData inhabitantData)
         {
             InitializeComponent();
-            inhabitant = inhab;
-            labelAddress.Text = new Address().Get(connectionHelper, inhab.AddressId).ToString();
-            if (inhab.Id != 0)
+            inhabitant = inhabitantData.Inhabitant;
+            labelAddress.Text = inhabitantData.addressName;
+            if (inhabitant.Id != 0)
             {
                 labelSubtitle.Text = "Редактиране на обитател";
             }

@@ -95,7 +95,13 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             inhabitantToSave = new Inhabitant();
             inhabitantToSave.InhabitantSaved += SaveInahbitant;
             inhabitantToSave.AddressId = addressData.address.Id;
-            ButtonClicked(new Forms.MainForm.EventData("inhabitantEditCreate", inhabitantToSave), e);
+            UserControls.InsertData.Addresses.InsertDataInhabitantEditCreate.InhabitantData inhabitantData;
+            inhabitantData = new InsertDataInhabitantEditCreate.InhabitantData()
+            {
+                Inhabitant = inhabitantToSave,
+                addressName = addressData.address.ToString()
+            };
+            ButtonClicked(new Forms.MainForm.EventData("inhabitantEditCreate", inhabitantData), e);
         }
 
         void SaveInahbitant(object sender, EventArgs eventArgs)
