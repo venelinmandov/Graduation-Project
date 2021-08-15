@@ -61,7 +61,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                     comboBox.DrawItem += comboBox_DrawItem;
                 }
             }
-            comboBoxHabitability.DrawItem += comboBox_DrawItem;
 
             UpdateInsertedDataStatesAndProperty();
             UpdateInsertedDataBuildings();
@@ -699,13 +698,20 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             var panels = this.Controls.OfType<Panel>();
             foreach (var panel in panels)
             {
-                var editButtons = from btn in panel.Controls.OfType<Button>() where btn.Tag != null && btn.Tag.Equals("editAddress") select btn;
-                foreach (var button in editButtons)
+                foreach (Button button in panel.Controls.OfType<Button>())
                 {
-                    button.Text = "Промени";
+                    if (button.Tag != null)
+                    {
+                        if (button.Tag.Equals("editAddress"))
+                        {
+                            button.Text = "Промени";
+                        }
+                        else if (button.Tag.Equals("saveAddress"))
+                        {
+                            button.Visible = false;
+                        }
+                    }
                 }
-                Button saveButton = (from btn in panel.Controls.OfType<Button>() where btn.Tag != null && btn.Tag.Equals("saveAddress") select btn).First();
-                saveButton.Visible = false;
             }
             CustomMessageBox.Show("Адресът е записан успешно.", "Адресът е записан", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

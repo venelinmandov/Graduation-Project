@@ -58,6 +58,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonOwnershipData = new System.Windows.Forms.Button();
             this.labelAddress = new System.Windows.Forms.Label();
             this.panelHabitability = new System.Windows.Forms.Panel();
+            this.labelTitleHabitability = new System.Windows.Forms.Label();
+            this.labelNoAddressesCurr = new System.Windows.Forms.Label();
+            this.labelNoAddressesPerm = new System.Windows.Forms.Label();
             this.checkBoxNotInTheSettlement = new System.Windows.Forms.CheckBox();
             this.comboBoxNumberCurr = new System.Windows.Forms.ComboBox();
             this.comboBoxStreetCurr = new System.Windows.Forms.ComboBox();
@@ -75,7 +78,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelPermanentAddress = new System.Windows.Forms.Label();
             this.buttonSaveHabitality = new System.Windows.Forms.Button();
             this.labelHabitability = new System.Windows.Forms.Label();
-            this.labelTitleHabitability = new System.Windows.Forms.Label();
             this.insertedDataDisplayHabitability = new GraduationProject.UserControls.InsertedDataDisplay();
             this.labelNotInTheSettlement = new System.Windows.Forms.Label();
             this.panelOwnershipState = new System.Windows.Forms.Panel();
@@ -85,8 +87,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.comboBoxOwnwershipState = new System.Windows.Forms.ComboBox();
             this.buttonInsertOwnershipState = new System.Windows.Forms.Button();
             this.buttonSaveOwnershipState = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
+            this.labelTitleOwnershipState = new System.Windows.Forms.Label();
             this.insertedDataDisplayOwnershipState = new GraduationProject.UserControls.InsertedDataDisplay();
+            this.labelOwnerExistsError = new System.Windows.Forms.Label();
             this.labelSubtitle = new System.Windows.Forms.Label();
             this.panelPersonsData.SuspendLayout();
             this.panelNotes.SuspendLayout();
@@ -120,7 +123,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // radioButtonFemale
             // 
             this.radioButtonFemale.AutoSize = true;
-            this.radioButtonFemale.Location = new System.Drawing.Point(540, 175);
+            this.radioButtonFemale.Location = new System.Drawing.Point(539, 175);
             this.radioButtonFemale.Name = "radioButtonFemale";
             this.radioButtonFemale.Size = new System.Drawing.Size(55, 19);
             this.radioButtonFemale.TabIndex = 78;
@@ -131,7 +134,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // radioButtonMale
             // 
             this.radioButtonMale.AutoSize = true;
-            this.radioButtonMale.Location = new System.Drawing.Point(483, 175);
+            this.radioButtonMale.Location = new System.Drawing.Point(482, 175);
             this.radioButtonMale.Name = "radioButtonMale";
             this.radioButtonMale.Size = new System.Drawing.Size(51, 19);
             this.radioButtonMale.TabIndex = 77;
@@ -144,7 +147,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelGender.AutoSize = true;
             this.labelGender.BackColor = System.Drawing.Color.Transparent;
             this.labelGender.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelGender.Location = new System.Drawing.Point(431, 175);
+            this.labelGender.Location = new System.Drawing.Point(430, 175);
             this.labelGender.Name = "labelGender";
             this.labelGender.Size = new System.Drawing.Size(47, 19);
             this.labelGender.TabIndex = 76;
@@ -152,9 +155,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // textBoxPhone
             // 
-            this.textBoxPhone.Location = new System.Drawing.Point(484, 201);
+            this.textBoxPhone.Location = new System.Drawing.Point(483, 201);
             this.textBoxPhone.Name = "textBoxPhone";
-            this.textBoxPhone.Size = new System.Drawing.Size(168, 21);
+            this.textBoxPhone.Size = new System.Drawing.Size(167, 21);
             this.textBoxPhone.TabIndex = 75;
             // 
             // labelPhone
@@ -162,7 +165,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelPhone.AutoSize = true;
             this.labelPhone.BackColor = System.Drawing.Color.Transparent;
             this.labelPhone.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelPhone.Location = new System.Drawing.Point(392, 200);
+            this.labelPhone.Location = new System.Drawing.Point(391, 200);
             this.labelPhone.Name = "labelPhone";
             this.labelPhone.Size = new System.Drawing.Size(86, 19);
             this.labelPhone.TabIndex = 73;
@@ -174,18 +177,18 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonInsertPersonsData.FlatAppearance.BorderSize = 0;
             this.buttonInsertPersonsData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInsertPersonsData.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonInsertPersonsData.Location = new System.Drawing.Point(394, 249);
+            this.buttonInsertPersonsData.Location = new System.Drawing.Point(483, 249);
             this.buttonInsertPersonsData.Name = "buttonInsertPersonsData";
             this.buttonInsertPersonsData.Size = new System.Drawing.Size(117, 29);
             this.buttonInsertPersonsData.TabIndex = 74;
-            this.buttonInsertPersonsData.Tag = "editAddress";
+            this.buttonInsertPersonsData.Tag = "editInhabitant";
             this.buttonInsertPersonsData.Text = "Въведи";
             this.buttonInsertPersonsData.UseVisualStyleBackColor = false;
             this.buttonInsertPersonsData.Click += new System.EventHandler(this.buttonInsertPersonsData_Click);
             // 
             // textBoxLastname
             // 
-            this.textBoxLastname.Location = new System.Drawing.Point(483, 150);
+            this.textBoxLastname.Location = new System.Drawing.Point(482, 150);
             this.textBoxLastname.Name = "textBoxLastname";
             this.textBoxLastname.Size = new System.Drawing.Size(168, 21);
             this.textBoxLastname.TabIndex = 72;
@@ -195,7 +198,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelLastname.AutoSize = true;
             this.labelLastname.BackColor = System.Drawing.Color.Transparent;
             this.labelLastname.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelLastname.Location = new System.Drawing.Point(390, 148);
+            this.labelLastname.Location = new System.Drawing.Point(389, 148);
             this.labelLastname.Name = "labelLastname";
             this.labelLastname.Size = new System.Drawing.Size(88, 19);
             this.labelLastname.TabIndex = 70;
@@ -203,7 +206,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // textBoxMiddlename
             // 
-            this.textBoxMiddlename.Location = new System.Drawing.Point(483, 123);
+            this.textBoxMiddlename.Location = new System.Drawing.Point(482, 123);
             this.textBoxMiddlename.Name = "textBoxMiddlename";
             this.textBoxMiddlename.Size = new System.Drawing.Size(168, 21);
             this.textBoxMiddlename.TabIndex = 69;
@@ -213,7 +216,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelMiddlename.AutoSize = true;
             this.labelMiddlename.BackColor = System.Drawing.Color.Transparent;
             this.labelMiddlename.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelMiddlename.Location = new System.Drawing.Point(394, 121);
+            this.labelMiddlename.Location = new System.Drawing.Point(393, 121);
             this.labelMiddlename.Name = "labelMiddlename";
             this.labelMiddlename.Size = new System.Drawing.Size(84, 19);
             this.labelMiddlename.TabIndex = 67;
@@ -221,7 +224,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // textBoxFirstname
             // 
-            this.textBoxFirstname.Location = new System.Drawing.Point(483, 96);
+            this.textBoxFirstname.Location = new System.Drawing.Point(482, 96);
             this.textBoxFirstname.Name = "textBoxFirstname";
             this.textBoxFirstname.Size = new System.Drawing.Size(168, 21);
             this.textBoxFirstname.TabIndex = 66;
@@ -237,7 +240,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonSaveBuildings.Name = "buttonSaveBuildings";
             this.buttonSaveBuildings.Size = new System.Drawing.Size(87, 29);
             this.buttonSaveBuildings.TabIndex = 65;
-            this.buttonSaveBuildings.Tag = "saveInhabitant";
+            this.buttonSaveBuildings.Tag = "saveAddress";
             this.buttonSaveBuildings.Text = "Запис";
             this.buttonSaveBuildings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSaveBuildings.UseVisualStyleBackColor = false;
@@ -247,7 +250,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelFirstname.AutoSize = true;
             this.labelFirstname.BackColor = System.Drawing.Color.Transparent;
             this.labelFirstname.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelFirstname.Location = new System.Drawing.Point(431, 94);
+            this.labelFirstname.Location = new System.Drawing.Point(430, 94);
             this.labelFirstname.Name = "labelFirstname";
             this.labelFirstname.Size = new System.Drawing.Size(47, 19);
             this.labelFirstname.TabIndex = 18;
@@ -315,6 +318,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonEditNote.TabIndex = 23;
             this.buttonEditNote.Text = "Редактиране";
             this.buttonEditNote.UseVisualStyleBackColor = false;
+            this.buttonEditNote.Click += new System.EventHandler(this.buttonEditNote_Click);
             // 
             // insertedDataDisplayNotes
             // 
@@ -337,6 +341,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonInsertNote.TabIndex = 21;
             this.buttonInsertNote.Text = "Въведи";
             this.buttonInsertNote.UseVisualStyleBackColor = false;
+            this.buttonInsertNote.Click += new System.EventHandler(this.buttonInsertNote_Click);
             // 
             // richTextBoxNotes
             // 
@@ -422,6 +427,9 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // panelHabitability
             // 
             this.panelHabitability.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panelHabitability.Controls.Add(this.labelTitleHabitability);
+            this.panelHabitability.Controls.Add(this.labelNoAddressesCurr);
+            this.panelHabitability.Controls.Add(this.labelNoAddressesPerm);
             this.panelHabitability.Controls.Add(this.checkBoxNotInTheSettlement);
             this.panelHabitability.Controls.Add(this.comboBoxNumberCurr);
             this.panelHabitability.Controls.Add(this.comboBoxStreetCurr);
@@ -439,7 +447,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.panelHabitability.Controls.Add(this.labelPermanentAddress);
             this.panelHabitability.Controls.Add(this.buttonSaveHabitality);
             this.panelHabitability.Controls.Add(this.labelHabitability);
-            this.panelHabitability.Controls.Add(this.labelTitleHabitability);
             this.panelHabitability.Controls.Add(this.insertedDataDisplayHabitability);
             this.panelHabitability.Controls.Add(this.labelNotInTheSettlement);
             this.panelHabitability.Location = new System.Drawing.Point(336, 14);
@@ -447,44 +454,89 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.panelHabitability.Size = new System.Drawing.Size(712, 300);
             this.panelHabitability.TabIndex = 79;
             // 
+            // labelTitleHabitability
+            // 
+            this.labelTitleHabitability.AutoSize = true;
+            this.labelTitleHabitability.BackColor = System.Drawing.Color.Transparent;
+            this.labelTitleHabitability.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelTitleHabitability.Location = new System.Drawing.Point(33, 25);
+            this.labelTitleHabitability.Name = "labelTitleHabitability";
+            this.labelTitleHabitability.Size = new System.Drawing.Size(290, 29);
+            this.labelTitleHabitability.TabIndex = 13;
+            this.labelTitleHabitability.Text = "Статус на пребиваване";
+            // 
+            // labelNoAddressesCurr
+            // 
+            this.labelNoAddressesCurr.AutoSize = true;
+            this.labelNoAddressesCurr.BackColor = System.Drawing.Color.Transparent;
+            this.labelNoAddressesCurr.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelNoAddressesCurr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(40)))), ((int)(((byte)(10)))));
+            this.labelNoAddressesCurr.Location = new System.Drawing.Point(555, 215);
+            this.labelNoAddressesCurr.Name = "labelNoAddressesCurr";
+            this.labelNoAddressesCurr.Size = new System.Drawing.Size(92, 16);
+            this.labelNoAddressesCurr.TabIndex = 93;
+            this.labelNoAddressesCurr.Tag = "";
+            this.labelNoAddressesCurr.Text = "Няма адреси";
+            this.labelNoAddressesCurr.Visible = false;
+            // 
+            // labelNoAddressesPerm
+            // 
+            this.labelNoAddressesPerm.AutoSize = true;
+            this.labelNoAddressesPerm.BackColor = System.Drawing.Color.Transparent;
+            this.labelNoAddressesPerm.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelNoAddressesPerm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(40)))), ((int)(((byte)(10)))));
+            this.labelNoAddressesPerm.Location = new System.Drawing.Point(555, 156);
+            this.labelNoAddressesPerm.Name = "labelNoAddressesPerm";
+            this.labelNoAddressesPerm.Size = new System.Drawing.Size(92, 16);
+            this.labelNoAddressesPerm.TabIndex = 92;
+            this.labelNoAddressesPerm.Tag = "";
+            this.labelNoAddressesPerm.Text = "Няма адреси";
+            this.labelNoAddressesPerm.Visible = false;
+            // 
             // checkBoxNotInTheSettlement
             // 
             this.checkBoxNotInTheSettlement.AutoSize = true;
-            this.checkBoxNotInTheSettlement.Location = new System.Drawing.Point(549, 131);
+            this.checkBoxNotInTheSettlement.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxNotInTheSettlement.Location = new System.Drawing.Point(547, 132);
             this.checkBoxNotInTheSettlement.Name = "checkBoxNotInTheSettlement";
             this.checkBoxNotInTheSettlement.Size = new System.Drawing.Size(124, 19);
             this.checkBoxNotInTheSettlement.TabIndex = 80;
             this.checkBoxNotInTheSettlement.Text = "Не е в нас. място";
-            this.checkBoxNotInTheSettlement.UseVisualStyleBackColor = true;
+            this.checkBoxNotInTheSettlement.UseVisualStyleBackColor = false;
             this.checkBoxNotInTheSettlement.Visible = false;
             this.checkBoxNotInTheSettlement.CheckedChanged += new System.EventHandler(this.checkBoxNotInTheSettlement_CheckedChanged);
             // 
             // comboBoxNumberCurr
             // 
+            this.comboBoxNumberCurr.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxNumberCurr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNumberCurr.FormattingEnabled = true;
-            this.comboBoxNumberCurr.Location = new System.Drawing.Point(637, 211);
+            this.comboBoxNumberCurr.Location = new System.Drawing.Point(614, 211);
             this.comboBoxNumberCurr.Name = "comboBoxNumberCurr";
-            this.comboBoxNumberCurr.Size = new System.Drawing.Size(57, 23);
+            this.comboBoxNumberCurr.Size = new System.Drawing.Size(57, 22);
             this.comboBoxNumberCurr.TabIndex = 90;
             this.comboBoxNumberCurr.Tag = "currentAddressControl";
             this.comboBoxNumberCurr.Visible = false;
             // 
             // comboBoxStreetCurr
             // 
+            this.comboBoxStreetCurr.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxStreetCurr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStreetCurr.FormattingEnabled = true;
-            this.comboBoxStreetCurr.Location = new System.Drawing.Point(451, 211);
+            this.comboBoxStreetCurr.Location = new System.Drawing.Point(428, 211);
             this.comboBoxStreetCurr.Name = "comboBoxStreetCurr";
-            this.comboBoxStreetCurr.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxStreetCurr.Size = new System.Drawing.Size(121, 22);
             this.comboBoxStreetCurr.TabIndex = 89;
             this.comboBoxStreetCurr.Tag = "currentAddressControl";
             this.comboBoxStreetCurr.Visible = false;
+            this.comboBoxStreetCurr.SelectedIndexChanged += new System.EventHandler(this.comboBoxStreetCurr_SelectedIndexChanged);
             // 
             // labelNumberCurr
             // 
             this.labelNumberCurr.AutoSize = true;
             this.labelNumberCurr.BackColor = System.Drawing.Color.Transparent;
             this.labelNumberCurr.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelNumberCurr.Location = new System.Drawing.Point(578, 215);
+            this.labelNumberCurr.Location = new System.Drawing.Point(555, 215);
             this.labelNumberCurr.Name = "labelNumberCurr";
             this.labelNumberCurr.Size = new System.Drawing.Size(53, 16);
             this.labelNumberCurr.TabIndex = 88;
@@ -497,7 +549,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelStreetCurr.AutoSize = true;
             this.labelStreetCurr.BackColor = System.Drawing.Color.Transparent;
             this.labelStreetCurr.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelStreetCurr.Location = new System.Drawing.Point(398, 215);
+            this.labelStreetCurr.Location = new System.Drawing.Point(375, 215);
             this.labelStreetCurr.Name = "labelStreetCurr";
             this.labelStreetCurr.Size = new System.Drawing.Size(50, 16);
             this.labelStreetCurr.TabIndex = 87;
@@ -510,7 +562,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelCurrentAddress.AutoSize = true;
             this.labelCurrentAddress.BackColor = System.Drawing.Color.Transparent;
             this.labelCurrentAddress.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelCurrentAddress.Location = new System.Drawing.Point(390, 188);
+            this.labelCurrentAddress.Location = new System.Drawing.Point(367, 188);
             this.labelCurrentAddress.Name = "labelCurrentAddress";
             this.labelCurrentAddress.Size = new System.Drawing.Size(137, 19);
             this.labelCurrentAddress.TabIndex = 86;
@@ -520,30 +572,35 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // comboBoxNumberPerm
             // 
+            this.comboBoxNumberPerm.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxNumberPerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNumberPerm.FormattingEnabled = true;
-            this.comboBoxNumberPerm.Location = new System.Drawing.Point(637, 152);
+            this.comboBoxNumberPerm.Location = new System.Drawing.Point(614, 152);
             this.comboBoxNumberPerm.Name = "comboBoxNumberPerm";
-            this.comboBoxNumberPerm.Size = new System.Drawing.Size(57, 23);
+            this.comboBoxNumberPerm.Size = new System.Drawing.Size(57, 22);
             this.comboBoxNumberPerm.TabIndex = 85;
             this.comboBoxNumberPerm.Tag = "permanentAddressControl";
             this.comboBoxNumberPerm.Visible = false;
             // 
             // comboBoxStreetPerm
             // 
+            this.comboBoxStreetPerm.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxStreetPerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStreetPerm.FormattingEnabled = true;
-            this.comboBoxStreetPerm.Location = new System.Drawing.Point(451, 152);
+            this.comboBoxStreetPerm.Location = new System.Drawing.Point(428, 152);
             this.comboBoxStreetPerm.Name = "comboBoxStreetPerm";
-            this.comboBoxStreetPerm.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxStreetPerm.Size = new System.Drawing.Size(121, 22);
             this.comboBoxStreetPerm.TabIndex = 84;
             this.comboBoxStreetPerm.Tag = "permanentAddressControl";
             this.comboBoxStreetPerm.Visible = false;
+            this.comboBoxStreetPerm.SelectedIndexChanged += new System.EventHandler(this.comboBoxStreetPerm_SelectedIndexChanged);
             // 
             // labelNumberPerm
             // 
             this.labelNumberPerm.AutoSize = true;
             this.labelNumberPerm.BackColor = System.Drawing.Color.Transparent;
             this.labelNumberPerm.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelNumberPerm.Location = new System.Drawing.Point(578, 156);
+            this.labelNumberPerm.Location = new System.Drawing.Point(555, 156);
             this.labelNumberPerm.Name = "labelNumberPerm";
             this.labelNumberPerm.Size = new System.Drawing.Size(53, 16);
             this.labelNumberPerm.TabIndex = 83;
@@ -556,7 +613,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelStreetPerm.AutoSize = true;
             this.labelStreetPerm.BackColor = System.Drawing.Color.Transparent;
             this.labelStreetPerm.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelStreetPerm.Location = new System.Drawing.Point(398, 156);
+            this.labelStreetPerm.Location = new System.Drawing.Point(375, 156);
             this.labelStreetPerm.Name = "labelStreetPerm";
             this.labelStreetPerm.Size = new System.Drawing.Size(50, 16);
             this.labelStreetPerm.TabIndex = 82;
@@ -566,10 +623,12 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // comboBoxAddressReg
             // 
+            this.comboBoxAddressReg.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxAddressReg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxAddressReg.FormattingEnabled = true;
-            this.comboBoxAddressReg.Location = new System.Drawing.Point(557, 89);
+            this.comboBoxAddressReg.Location = new System.Drawing.Point(534, 89);
             this.comboBoxAddressReg.Name = "comboBoxAddressReg";
-            this.comboBoxAddressReg.Size = new System.Drawing.Size(137, 23);
+            this.comboBoxAddressReg.Size = new System.Drawing.Size(137, 22);
             this.comboBoxAddressReg.TabIndex = 81;
             this.comboBoxAddressReg.SelectedIndexChanged += new System.EventHandler(this.comboBoxAddressReg_SelectedIndexChanged);
             // 
@@ -578,7 +637,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelHabitabilityStafdte.AutoSize = true;
             this.labelHabitabilityStafdte.BackColor = System.Drawing.Color.Transparent;
             this.labelHabitabilityStafdte.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelHabitabilityStafdte.Location = new System.Drawing.Point(392, 91);
+            this.labelHabitabilityStafdte.Location = new System.Drawing.Point(369, 91);
             this.labelHabitabilityStafdte.Name = "labelHabitabilityStafdte";
             this.labelHabitabilityStafdte.Size = new System.Drawing.Size(153, 16);
             this.labelHabitabilityStafdte.TabIndex = 80;
@@ -586,10 +645,12 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // comboBoxhabitability
             // 
+            this.comboBoxhabitability.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxhabitability.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxhabitability.FormattingEnabled = true;
-            this.comboBoxhabitability.Location = new System.Drawing.Point(557, 60);
+            this.comboBoxhabitability.Location = new System.Drawing.Point(534, 60);
             this.comboBoxhabitability.Name = "comboBoxhabitability";
-            this.comboBoxhabitability.Size = new System.Drawing.Size(137, 23);
+            this.comboBoxhabitability.Size = new System.Drawing.Size(137, 22);
             this.comboBoxhabitability.TabIndex = 79;
             // 
             // buttonInsertHabitality
@@ -598,20 +659,21 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonInsertHabitality.FlatAppearance.BorderSize = 0;
             this.buttonInsertHabitality.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInsertHabitality.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonInsertHabitality.Location = new System.Drawing.Point(394, 249);
+            this.buttonInsertHabitality.Location = new System.Drawing.Point(483, 249);
             this.buttonInsertHabitality.Name = "buttonInsertHabitality";
             this.buttonInsertHabitality.Size = new System.Drawing.Size(117, 29);
             this.buttonInsertHabitality.TabIndex = 74;
-            this.buttonInsertHabitality.Tag = "editAddress";
+            this.buttonInsertHabitality.Tag = "editInhabitant";
             this.buttonInsertHabitality.Text = "Въведи";
             this.buttonInsertHabitality.UseVisualStyleBackColor = false;
+            this.buttonInsertHabitality.Click += new System.EventHandler(this.buttonInsertHabitality_Click);
             // 
             // labelPermanentAddress
             // 
             this.labelPermanentAddress.AutoSize = true;
             this.labelPermanentAddress.BackColor = System.Drawing.Color.Transparent;
             this.labelPermanentAddress.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelPermanentAddress.Location = new System.Drawing.Point(390, 129);
+            this.labelPermanentAddress.Location = new System.Drawing.Point(367, 129);
             this.labelPermanentAddress.Name = "labelPermanentAddress";
             this.labelPermanentAddress.Size = new System.Drawing.Size(153, 19);
             this.labelPermanentAddress.TabIndex = 70;
@@ -630,7 +692,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonSaveHabitality.Name = "buttonSaveHabitality";
             this.buttonSaveHabitality.Size = new System.Drawing.Size(87, 29);
             this.buttonSaveHabitality.TabIndex = 65;
-            this.buttonSaveHabitality.Tag = "saveInhabitant";
+            this.buttonSaveHabitality.Tag = "saveAddress";
             this.buttonSaveHabitality.Text = "Запис";
             this.buttonSaveHabitality.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSaveHabitality.UseVisualStyleBackColor = false;
@@ -640,22 +702,11 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelHabitability.AutoSize = true;
             this.labelHabitability.BackColor = System.Drawing.Color.Transparent;
             this.labelHabitability.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelHabitability.Location = new System.Drawing.Point(392, 62);
+            this.labelHabitability.Location = new System.Drawing.Point(369, 62);
             this.labelHabitability.Name = "labelHabitability";
             this.labelHabitability.Size = new System.Drawing.Size(166, 16);
             this.labelHabitability.TabIndex = 18;
             this.labelHabitability.Text = "Статус на пребиваване:";
-            // 
-            // labelTitleHabitability
-            // 
-            this.labelTitleHabitability.AutoSize = true;
-            this.labelTitleHabitability.BackColor = System.Drawing.Color.Transparent;
-            this.labelTitleHabitability.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelTitleHabitability.Location = new System.Drawing.Point(33, 25);
-            this.labelTitleHabitability.Name = "labelTitleHabitability";
-            this.labelTitleHabitability.Size = new System.Drawing.Size(290, 29);
-            this.labelTitleHabitability.TabIndex = 13;
-            this.labelTitleHabitability.Text = "Статус на пребиваване";
             // 
             // insertedDataDisplayHabitability
             // 
@@ -671,10 +722,10 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             this.labelNotInTheSettlement.AutoSize = true;
             this.labelNotInTheSettlement.BackColor = System.Drawing.Color.Transparent;
-            this.labelNotInTheSettlement.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelNotInTheSettlement.Location = new System.Drawing.Point(394, 154);
+            this.labelNotInTheSettlement.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelNotInTheSettlement.Location = new System.Drawing.Point(371, 154);
             this.labelNotInTheSettlement.Name = "labelNotInTheSettlement";
-            this.labelNotInTheSettlement.Size = new System.Drawing.Size(206, 19);
+            this.labelNotInTheSettlement.Size = new System.Drawing.Size(191, 18);
             this.labelNotInTheSettlement.TabIndex = 91;
             this.labelNotInTheSettlement.Text = "Не е в населеното място";
             this.labelNotInTheSettlement.Visible = false;
@@ -682,14 +733,15 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // panelOwnershipState
             // 
             this.panelOwnershipState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panelOwnershipState.Controls.Add(this.labelTitleOwnershipState);
             this.panelOwnershipState.Controls.Add(this.labelOwnershipState);
             this.panelOwnershipState.Controls.Add(this.textBoxOwnerRelation);
             this.panelOwnershipState.Controls.Add(this.labelOwnerRealtion);
             this.panelOwnershipState.Controls.Add(this.comboBoxOwnwershipState);
             this.panelOwnershipState.Controls.Add(this.buttonInsertOwnershipState);
             this.panelOwnershipState.Controls.Add(this.buttonSaveOwnershipState);
-            this.panelOwnershipState.Controls.Add(this.label9);
             this.panelOwnershipState.Controls.Add(this.insertedDataDisplayOwnershipState);
+            this.panelOwnershipState.Controls.Add(this.labelOwnerExistsError);
             this.panelOwnershipState.Location = new System.Drawing.Point(336, 14);
             this.panelOwnershipState.Name = "panelOwnershipState";
             this.panelOwnershipState.Size = new System.Drawing.Size(712, 300);
@@ -700,7 +752,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelOwnershipState.AutoSize = true;
             this.labelOwnershipState.BackColor = System.Drawing.Color.Transparent;
             this.labelOwnershipState.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelOwnershipState.Location = new System.Drawing.Point(359, 82);
+            this.labelOwnershipState.Location = new System.Drawing.Point(364, 82);
             this.labelOwnershipState.Name = "labelOwnershipState";
             this.labelOwnershipState.Size = new System.Drawing.Size(173, 18);
             this.labelOwnershipState.TabIndex = 70;
@@ -728,10 +780,12 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // comboBoxOwnwershipState
             // 
+            this.comboBoxOwnwershipState.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxOwnwershipState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOwnwershipState.FormattingEnabled = true;
             this.comboBoxOwnwershipState.Location = new System.Drawing.Point(537, 81);
             this.comboBoxOwnwershipState.Name = "comboBoxOwnwershipState";
-            this.comboBoxOwnwershipState.Size = new System.Drawing.Size(157, 23);
+            this.comboBoxOwnwershipState.Size = new System.Drawing.Size(157, 22);
             this.comboBoxOwnwershipState.TabIndex = 84;
             this.comboBoxOwnwershipState.SelectedIndexChanged += new System.EventHandler(this.comboBoxOwnwershipState_SelectedIndexChanged);
             // 
@@ -741,11 +795,11 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonInsertOwnershipState.FlatAppearance.BorderSize = 0;
             this.buttonInsertOwnershipState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInsertOwnershipState.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonInsertOwnershipState.Location = new System.Drawing.Point(394, 249);
+            this.buttonInsertOwnershipState.Location = new System.Drawing.Point(483, 249);
             this.buttonInsertOwnershipState.Name = "buttonInsertOwnershipState";
             this.buttonInsertOwnershipState.Size = new System.Drawing.Size(117, 29);
             this.buttonInsertOwnershipState.TabIndex = 74;
-            this.buttonInsertOwnershipState.Tag = "editAddress";
+            this.buttonInsertOwnershipState.Tag = "editInhabitant";
             this.buttonInsertOwnershipState.Text = "Въведи";
             this.buttonInsertOwnershipState.UseVisualStyleBackColor = false;
             this.buttonInsertOwnershipState.Click += new System.EventHandler(this.buttonInsertOwnershipState_Click);
@@ -757,25 +811,25 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonSaveOwnershipState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveOwnershipState.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonSaveOwnershipState.Image = global::GraduationProject.Properties.Resources.saveIcon_white;
-            this.buttonSaveOwnershipState.Location = new System.Drawing.Point(607, 248);
+            this.buttonSaveOwnershipState.Location = new System.Drawing.Point(607, 249);
             this.buttonSaveOwnershipState.Name = "buttonSaveOwnershipState";
             this.buttonSaveOwnershipState.Size = new System.Drawing.Size(87, 29);
             this.buttonSaveOwnershipState.TabIndex = 65;
-            this.buttonSaveOwnershipState.Tag = "saveInhabitant";
+            this.buttonSaveOwnershipState.Tag = "saveAddress";
             this.buttonSaveOwnershipState.Text = "Запис";
             this.buttonSaveOwnershipState.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSaveOwnershipState.UseVisualStyleBackColor = false;
             // 
-            // label9
+            // labelTitleOwnershipState
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(33, 25);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(282, 29);
-            this.label9.TabIndex = 13;
-            this.label9.Text = "Статус на собственост";
+            this.labelTitleOwnershipState.AutoSize = true;
+            this.labelTitleOwnershipState.BackColor = System.Drawing.Color.Transparent;
+            this.labelTitleOwnershipState.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelTitleOwnershipState.Location = new System.Drawing.Point(33, 25);
+            this.labelTitleOwnershipState.Name = "labelTitleOwnershipState";
+            this.labelTitleOwnershipState.Size = new System.Drawing.Size(282, 29);
+            this.labelTitleOwnershipState.TabIndex = 13;
+            this.labelTitleOwnershipState.Text = "Статус на собственост";
             // 
             // insertedDataDisplayOwnershipState
             // 
@@ -786,6 +840,18 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.insertedDataDisplayOwnershipState.Size = new System.Drawing.Size(307, 203);
             this.insertedDataDisplayOwnershipState.TabIndex = 17;
             this.insertedDataDisplayOwnershipState.WrapText = false;
+            // 
+            // labelOwnerExistsError
+            // 
+            this.labelOwnerExistsError.BackColor = System.Drawing.Color.Transparent;
+            this.labelOwnerExistsError.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelOwnerExistsError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(40)))), ((int)(((byte)(10)))));
+            this.labelOwnerExistsError.Location = new System.Drawing.Point(359, 113);
+            this.labelOwnerExistsError.Name = "labelOwnerExistsError";
+            this.labelOwnerExistsError.Size = new System.Drawing.Size(308, 42);
+            this.labelOwnerExistsError.TabIndex = 87;
+            this.labelOwnerExistsError.Text = "Вече има въведени дани за собственик на този имот";
+            this.labelOwnerExistsError.Visible = false;
             // 
             // labelSubtitle
             // 
@@ -803,11 +869,11 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.panelHabitability);
             this.Controls.Add(this.panelOwnershipState);
             this.Controls.Add(this.panelPersonsData);
-            this.Controls.Add(this.panelHabitability);
-            this.Controls.Add(this.labelSubtitle);
             this.Controls.Add(this.panelNotes);
+            this.Controls.Add(this.labelSubtitle);
             this.Controls.Add(this.buttonPersonsData);
             this.Controls.Add(this.buttonNotes);
             this.Controls.Add(this.buttonHabitabilityData);
@@ -816,6 +882,8 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "InsertDataInhabitantEditCreate";
             this.Size = new System.Drawing.Size(1081, 329);
+            this.Load += new System.EventHandler(this.InsertDataInhabitantEditCreate_Load);
+            this.VisibleChanged += new System.EventHandler(this.InsertDataInhabitantEditCreate_VisibleChanged);
             this.panelPersonsData.ResumeLayout(false);
             this.panelPersonsData.PerformLayout();
             this.panelNotes.ResumeLayout(false);
@@ -886,9 +954,12 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private System.Windows.Forms.Button buttonInsertOwnershipState;
         private System.Windows.Forms.Label labelOwnershipState;
         private System.Windows.Forms.Button buttonSaveOwnershipState;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label labelTitleOwnershipState;
         private InsertedDataDisplay insertedDataDisplayOwnershipState;
         private System.Windows.Forms.Label labelSubtitle;
         private System.Windows.Forms.Label labelNotInTheSettlement;
+        private System.Windows.Forms.Label labelNoAddressesCurr;
+        private System.Windows.Forms.Label labelNoAddressesPerm;
+        private System.Windows.Forms.Label labelOwnerExistsError;
     }
 }

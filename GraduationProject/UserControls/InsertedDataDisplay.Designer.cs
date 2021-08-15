@@ -54,9 +54,8 @@ namespace GraduationProject.UserControls
             this.labelData.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelData.Location = new System.Drawing.Point(0, 0);
             this.labelData.Name = "labelData";
-            this.labelData.Size = new System.Drawing.Size(45, 20);
+            this.labelData.Size = new System.Drawing.Size(0, 20);
             this.labelData.TabIndex = 1;
-            this.labelData.Text = "данни";
             // 
             // panelData
             // 

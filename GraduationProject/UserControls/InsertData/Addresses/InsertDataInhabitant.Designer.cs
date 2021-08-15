@@ -49,6 +49,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonAddInhabitant = new System.Windows.Forms.Button();
             this.labelOwnerMissing = new System.Windows.Forms.Label();
             this.labelTitle = new System.Windows.Forms.Label();
+            this.buttonDeleteOwner = new System.Windows.Forms.Button();
             this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,19 +70,20 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonEditOwner.FlatAppearance.BorderSize = 0;
             this.buttonEditOwner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditOwner.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonEditOwner.Location = new System.Drawing.Point(34, 138);
+            this.buttonEditOwner.Location = new System.Drawing.Point(34, 110);
             this.buttonEditOwner.Name = "buttonEditOwner";
             this.buttonEditOwner.Size = new System.Drawing.Size(137, 23);
             this.buttonEditOwner.TabIndex = 69;
             this.buttonEditOwner.Text = "Редактирай";
             this.buttonEditOwner.UseVisualStyleBackColor = false;
+            this.buttonEditOwner.Click += new System.EventHandler(this.buttonEditOwner_Click);
             // 
             // labelOwnerLastnameValue
             // 
             this.labelOwnerLastnameValue.AutoSize = true;
             this.labelOwnerLastnameValue.BackColor = System.Drawing.Color.Transparent;
             this.labelOwnerLastnameValue.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelOwnerLastnameValue.Location = new System.Drawing.Point(104, 111);
+            this.labelOwnerLastnameValue.Location = new System.Drawing.Point(104, 83);
             this.labelOwnerLastnameValue.Name = "labelOwnerLastnameValue";
             this.labelOwnerLastnameValue.Size = new System.Drawing.Size(62, 16);
             this.labelOwnerLastnameValue.TabIndex = 67;
@@ -92,7 +94,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelOwnerLastname.AutoSize = true;
             this.labelOwnerLastname.BackColor = System.Drawing.Color.Transparent;
             this.labelOwnerLastname.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelOwnerLastname.Location = new System.Drawing.Point(30, 111);
+            this.labelOwnerLastname.Location = new System.Drawing.Point(30, 83);
             this.labelOwnerLastname.Name = "labelOwnerLastname";
             this.labelOwnerLastname.Size = new System.Drawing.Size(72, 16);
             this.labelOwnerLastname.TabIndex = 66;
@@ -103,7 +105,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelOwnerMiddlenameValue.AutoSize = true;
             this.labelOwnerMiddlenameValue.BackColor = System.Drawing.Color.Transparent;
             this.labelOwnerMiddlenameValue.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelOwnerMiddlenameValue.Location = new System.Drawing.Point(104, 91);
+            this.labelOwnerMiddlenameValue.Location = new System.Drawing.Point(104, 63);
             this.labelOwnerMiddlenameValue.Name = "labelOwnerMiddlenameValue";
             this.labelOwnerMiddlenameValue.Size = new System.Drawing.Size(59, 16);
             this.labelOwnerMiddlenameValue.TabIndex = 65;
@@ -114,7 +116,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelOwnerMiddlename.AutoSize = true;
             this.labelOwnerMiddlename.BackColor = System.Drawing.Color.Transparent;
             this.labelOwnerMiddlename.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelOwnerMiddlename.Location = new System.Drawing.Point(34, 91);
+            this.labelOwnerMiddlename.Location = new System.Drawing.Point(34, 63);
             this.labelOwnerMiddlename.Name = "labelOwnerMiddlename";
             this.labelOwnerMiddlename.Size = new System.Drawing.Size(68, 16);
             this.labelOwnerMiddlename.TabIndex = 64;
@@ -125,7 +127,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelOwnerFirstnameValue.AutoSize = true;
             this.labelOwnerFirstnameValue.BackColor = System.Drawing.Color.Transparent;
             this.labelOwnerFirstnameValue.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelOwnerFirstnameValue.Location = new System.Drawing.Point(104, 71);
+            this.labelOwnerFirstnameValue.Location = new System.Drawing.Point(104, 43);
             this.labelOwnerFirstnameValue.Name = "labelOwnerFirstnameValue";
             this.labelOwnerFirstnameValue.Size = new System.Drawing.Size(32, 16);
             this.labelOwnerFirstnameValue.TabIndex = 63;
@@ -136,7 +138,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelOwnerFirstname.AutoSize = true;
             this.labelOwnerFirstname.BackColor = System.Drawing.Color.Transparent;
             this.labelOwnerFirstname.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelOwnerFirstname.Location = new System.Drawing.Point(65, 71);
+            this.labelOwnerFirstname.Location = new System.Drawing.Point(65, 43);
             this.labelOwnerFirstname.Name = "labelOwnerFirstname";
             this.labelOwnerFirstname.Size = new System.Drawing.Size(37, 16);
             this.labelOwnerFirstname.TabIndex = 61;
@@ -147,7 +149,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelOwner.AutoSize = true;
             this.labelOwner.BackColor = System.Drawing.Color.Transparent;
             this.labelOwner.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelOwner.Location = new System.Drawing.Point(30, 41);
+            this.labelOwner.Location = new System.Drawing.Point(30, 13);
             this.labelOwner.Name = "labelOwner";
             this.labelOwner.Size = new System.Drawing.Size(118, 22);
             this.labelOwner.TabIndex = 60;
@@ -182,6 +184,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             // panel
             // 
+            this.panel.Controls.Add(this.buttonDeleteOwner);
             this.panel.Controls.Add(this.listBoxResidents);
             this.panel.Controls.Add(this.listBoxGuests);
             this.panel.Controls.Add(this.buttonSave);
@@ -265,6 +268,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonDelete.TabIndex = 72;
             this.buttonDelete.Text = "Изтрий избрания обитател";
             this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonEditInhabitant
             // 
@@ -278,6 +282,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonEditInhabitant.TabIndex = 71;
             this.buttonEditInhabitant.Text = "Редактирай избрания обитател";
             this.buttonEditInhabitant.UseVisualStyleBackColor = false;
+            this.buttonEditInhabitant.Click += new System.EventHandler(this.buttonEditInhabitant_Click);
             // 
             // buttonAddInhabitant
             // 
@@ -297,7 +302,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             this.labelOwnerMissing.BackColor = System.Drawing.Color.Transparent;
             this.labelOwnerMissing.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelOwnerMissing.Location = new System.Drawing.Point(34, 72);
+            this.labelOwnerMissing.Location = new System.Drawing.Point(34, 44);
             this.labelOwnerMissing.Name = "labelOwnerMissing";
             this.labelOwnerMissing.Size = new System.Drawing.Size(118, 39);
             this.labelOwnerMissing.TabIndex = 73;
@@ -314,10 +319,24 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.labelTitle.Text = "Обитатели";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // buttonDeleteOwner
+            // 
+            this.buttonDeleteOwner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
+            this.buttonDeleteOwner.FlatAppearance.BorderSize = 0;
+            this.buttonDeleteOwner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDeleteOwner.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonDeleteOwner.Location = new System.Drawing.Point(34, 139);
+            this.buttonDeleteOwner.Name = "buttonDeleteOwner";
+            this.buttonDeleteOwner.Size = new System.Drawing.Size(137, 23);
+            this.buttonDeleteOwner.TabIndex = 77;
+            this.buttonDeleteOwner.Text = "Изтрий";
+            this.buttonDeleteOwner.UseVisualStyleBackColor = false;
+            this.buttonDeleteOwner.Click += new System.EventHandler(this.buttonDeleteOwner_Click);
+            // 
             // InsertDataInhabitant
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.panel);
@@ -353,5 +372,6 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private ListBoxUserControl listBoxResidents;
         private ListBoxUserControl listBoxGuests;
         protected System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Button buttonDeleteOwner;
     }
 }

@@ -16,7 +16,7 @@ namespace GraduationProject.Models
         public int PermanentAddressId { get; set; }
         public string RelToOwner { get; set; }
         public AddressRegistrationEnum AddressReg { get; set; }
-        public string Note { get; set; }
+        public string Note { get; set; } = "";
         public string PhoneNumber { get; set; }
         public ResidenceStateEnum ResidenceState { get; set; }
         public OwnershipStateEnum OwnershipState { get; set; }
@@ -57,6 +57,7 @@ namespace GraduationProject.Models
 
         //Събития
         public event EventHandler InhabitantSaved;
+        public event EventHandler InhabitantUpdated;
 
         //Заявки
 
@@ -75,11 +76,11 @@ namespace GraduationProject.Models
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
 
             if (CurrentAddressId == -1)
-                connectionHelper.sqlCommand.Parameters.AddWithValue("@currAddrId", System.DBNull.Value);
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@currAddrId", DBNull.Value);
             else
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@currAddrId", CurrentAddressId);
             if (PermanentAddressId == -1)
-                connectionHelper.sqlCommand.Parameters.AddWithValue("@permAddrId", System.DBNull.Value);
+                connectionHelper.sqlCommand.Parameters.AddWithValue("@permAddrId", DBNull.Value);
             else
                 connectionHelper.sqlCommand.Parameters.AddWithValue("@permAddrId", PermanentAddressId);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@rel", RelToOwner);
@@ -285,7 +286,7 @@ namespace GraduationProject.Models
             string query = @"UPDATE inhabitants
                              SET firstname = @fname, middlename = @mName,
                                 lastname = @lName, gender = @gender,
-                                addressId = @addrId, currentAddressId = @currAddrId, pernamemtAddressId = @permAddrId,
+                                addressId = @addrId, currentAddressId = @currAddrId, permanentAddressId = @permAddrId,
                                 relationToOwner = @rel, addressReg = @addrReg, note = @note,
                                 phoneNumber = @phone, residenceState = @resState, ownershipState = @ownership
                              WHERE id = @id";
@@ -314,6 +315,11 @@ namespace GraduationProject.Models
 
             connectionHelper.sqlCommand.ExecuteNonQuery();
             connectionHelper.sqlConnection.Close();
+
+            if (InhabitantUpdated != null)
+            {
+                InhabitantUpdated(new object(), new EventArgs());
+            }
         }
     }
 

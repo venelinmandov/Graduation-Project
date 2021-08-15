@@ -540,7 +540,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonSaveAnimals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveAnimals.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonSaveAnimals.Image = global::GraduationProject.Properties.Resources.saveIcon_white;
-            this.buttonSaveAnimals.Location = new System.Drawing.Point(606, 249);
+            this.buttonSaveAnimals.Location = new System.Drawing.Point(607, 249);
             this.buttonSaveAnimals.Name = "buttonSaveAnimals";
             this.buttonSaveAnimals.Size = new System.Drawing.Size(87, 29);
             this.buttonSaveAnimals.TabIndex = 70;
@@ -720,7 +720,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.dataGridViewDogs.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridViewDogs.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridViewDogs.RowHeadersVisible = false;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(70)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.dataGridViewDogs.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewDogs.RowTemplate.Height = 25;
             this.dataGridViewDogs.Size = new System.Drawing.Size(305, 165);
@@ -756,7 +756,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonSaveDogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveDogs.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonSaveDogs.Image = global::GraduationProject.Properties.Resources.saveIcon_white;
-            this.buttonSaveDogs.Location = new System.Drawing.Point(601, 249);
+            this.buttonSaveDogs.Location = new System.Drawing.Point(607, 249);
             this.buttonSaveDogs.Name = "buttonSaveDogs";
             this.buttonSaveDogs.Size = new System.Drawing.Size(87, 29);
             this.buttonSaveDogs.TabIndex = 62;
@@ -923,7 +923,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.buttonSaveStAndSq.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveStAndSq.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonSaveStAndSq.Image = global::GraduationProject.Properties.Resources.saveIcon_white;
-            this.buttonSaveStAndSq.Location = new System.Drawing.Point(608, 249);
+            this.buttonSaveStAndSq.Location = new System.Drawing.Point(607, 249);
             this.buttonSaveStAndSq.Name = "buttonSaveStAndSq";
             this.buttonSaveStAndSq.Size = new System.Drawing.Size(87, 29);
             this.buttonSaveStAndSq.TabIndex = 64;
@@ -977,12 +977,12 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.panelStateAndSquaring);
             this.Controls.Add(this.panelNotes);
+            this.Controls.Add(this.panelDogs);
             this.Controls.Add(this.panelBuildings);
             this.Controls.Add(this.panelAnimals);
             this.Controls.Add(this.panelTrees);
-            this.Controls.Add(this.panelStateAndSquaring);
-            this.Controls.Add(this.panelDogs);
             this.Controls.Add(this.buttonStateAndSquaring);
             this.Controls.Add(this.buttonNotes);
             this.Controls.Add(this.buttonTrees);

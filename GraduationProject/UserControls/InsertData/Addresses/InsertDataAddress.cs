@@ -275,6 +275,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                 dog.AddressId = addressData.address.Id;
                 dog.Insert(connectionHelper);
             }
+
             buttonSave.Text = "Промени";
             buttonSave.Size = new Size(buttonSave.Width + 5, buttonSave.Height);
             notSaved = false;

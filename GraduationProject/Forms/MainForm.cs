@@ -248,11 +248,15 @@ namespace GraduationProject.Forms
         {
             if (userControls.Count != 0)
             {
-                UserControl userControl = userControls.Pop();
+                UserControl userControl = userControls.Peek();
                 userControl.Visible = false;
-                panelContents.Controls.Remove(userControl);
-                if (userControls.Count == 0)
-                    pictureBoxBack.Visible = false;
+                if (!userControl.Visible)
+                {
+                    userControls.Pop();
+                    panelContents.Controls.Remove(userControl);
+                    if (userControls.Count == 0)
+                        pictureBoxBack.Visible = false;
+                }
             }
         }
 
