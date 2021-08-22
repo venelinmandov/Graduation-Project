@@ -224,6 +224,24 @@ namespace GraduationProject.Forms
                     UserControls.InsertData.Streets.InsertDataStreets insertDataStreets = new UserControls.InsertData.Streets.InsertDataStreets();
                     ShowUserControl(insertDataStreets);
                     break;
+                case "insertDataQuarantines":
+                    UserControls.InsertData.Quarantines.InsertDataQuarantines insertDataQuarantines = new UserControls.InsertData.Quarantines.InsertDataQuarantines();
+                    ShowUserControl(insertDataQuarantines);
+                    insertDataQuarantines.ButtonClicked += MenuButtonClicked;
+                    break;
+                case "inserDataQuarantinesChooseAddress":
+                    UserControls.InsertData.Quarantines.InsertDataQuarantinesChooseAddress insertDataQuarantinesChooseAddress = new UserControls.InsertData.Quarantines.InsertDataQuarantinesChooseAddress((Type)eventData.data);
+                    ShowUserControl(insertDataQuarantinesChooseAddress);
+                    insertDataQuarantinesChooseAddress.ButtonClicked += MenuButtonClicked;
+                    break;
+                case "insertDataInhabitantsQuarantines":
+                    UserControls.InsertData.Quarantines.InsertDataInhabitantsQuarantines insertDataInhabitantsQuarantines = new UserControls.InsertData.Quarantines.InsertDataInhabitantsQuarantines((Address)eventData.data);
+                    ShowUserControl(insertDataInhabitantsQuarantines);
+                    break;
+                case "insertDataAnimalsQuarantines":
+                    UserControls.InsertData.Quarantines.InsertDataAnimalsQuarantines insertDataAnimalsQuarantines = new UserControls.InsertData.Quarantines.InsertDataAnimalsQuarantines((Address)eventData.data);
+                    ShowUserControl(insertDataAnimalsQuarantines);
+                    break;
                 #endregion
                 default: break;
 

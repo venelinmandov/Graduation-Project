@@ -108,7 +108,7 @@ namespace GraduationProject.Models
         //UPDATE
         public void Update(ConnectionHelper connectionHelper)
         {
-            string query = @"UPDATE InhabitantsQuarantines SET, 
+            string query = @"UPDATE InhabitantsQuarantines SET 
                             inhabitantId = @inhabId, quarantineType = @quar, 
                             disease = @disease, startDate = @startDate,
                             endDate = @endDate

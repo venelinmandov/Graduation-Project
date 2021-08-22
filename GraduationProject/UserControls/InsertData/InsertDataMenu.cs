@@ -31,5 +31,11 @@ namespace GraduationProject.UserControls.InsertData
             ButtonClicked(new Forms.MainForm.EventData("insertDataStreets"), e);
 
         }
+
+        private void buttonQuarantines_Click(object sender, EventArgs e)
+        {
+            ButtonClicked(new Forms.MainForm.EventData("insertDataQuarantines"), e);
+
+        }
     }
 }

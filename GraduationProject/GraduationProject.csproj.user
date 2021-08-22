@@ -22,6 +22,18 @@
     <Compile Update="UserControls\InsertData\InsertDataMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControls\InsertData\Quarantines\InsertDataAnimalsQuarantines.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\InsertData\Quarantines\InsertDataInhabitantsQuarantines.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\InsertData\Quarantines\InsertDataQuarantines.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\InsertData\Quarantines\InsertDataQuarantinesChooseAddress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\InsertData\Streets\InsertDataStreets.cs">
       <SubType>UserControl</SubType>
     </Compile>

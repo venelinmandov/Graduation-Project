@@ -1,12 +1,10 @@
 ﻿using GraduationProject.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace GraduationProject.UserControls.References.Quarantines
 {
@@ -35,7 +33,7 @@ namespace GraduationProject.UserControls.References.Quarantines
             }
             else
             {
-                labelQuarantinedNumber.Text += inhabitantsQuarantines.Count + " карантинирани:"; 
+                labelQuarantinedNumber.Text += inhabitantsQuarantines.Count + " карантинирани:";
             }
             foreach (InhabitantsQuarantine inhabitantsQuarantine in inhabitantsQuarantines)
             {
@@ -46,8 +44,8 @@ namespace GraduationProject.UserControls.References.Quarantines
                 endDate = DateTime.Parse(inhabitantsQuarantine.EndDate);
                 Inhabitant inhabitant = new Inhabitant().Get(connectionHelper, inhabitantsQuarantine.InhabitantId);
                 string quarantineType = inhabitantsQuarantine.QuarantineType == InhabitantsQuarantine.QuarantineEnum.Contact ? "контактен" : "боледува";
-                label.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-                label.Text = $"{inhabitant.ToString()}: {quarantineType}, {diseaseName}, от {startDate.ToString(dateformat)} до {endDate.ToString(dateformat)}.";
+                label.Font = new Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+                label.Text = $"{inhabitant}: {quarantineType}, {diseaseName}, от {startDate.ToString(dateformat)} до {endDate.ToString(dateformat)}.";
                 label.Size = new Size(panel.Width, label.Height);
                 label.Dock = DockStyle.Top;
                 panel.Controls.Add(label);

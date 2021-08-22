@@ -279,7 +279,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         private void DisplayInsertedOwnershipState()
         {
             string displayData = "Статус на собственост: " + ownershipStateDict.FirstOrDefault(entry => EqualityComparer<Inhabitant.OwnershipStateEnum>.Default.Equals(entry.Value, inhabitantData.inhabitant.OwnershipState)).Key;
-            if (textBoxOwnerRelation.Visible)
+            if (inhabitantData.inhabitant.OwnershipState != Inhabitant.OwnershipStateEnum.Owner)
             {
                 displayData += "\nВръзка със собтвеника: " + inhabitantData.inhabitant.RelToOwner;
             }

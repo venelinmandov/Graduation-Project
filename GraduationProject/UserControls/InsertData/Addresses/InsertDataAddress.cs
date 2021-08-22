@@ -14,6 +14,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         AddressData addressData;
         List<Address> addresses;
         List<Street> streets;
+        bool buttonsEnabled = true;
         ConnectionHelper connectionHelper = new ConnectionHelper();
         int streetIdSavedWith;
         int numberSavedWith;
@@ -112,16 +113,13 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             if (addresssesToCheck.Count() != 0 && !isCurrentAddress)
             {
                 ShowErrorLabel(labelAddressExists);
-                buttonInhabitants.Enabled = false;
-                buttonProperty.Enabled = false;
-                buttonSave.Enabled = false;
+                EnableButtons(false);
             }
             else
             {
                 HideErrorLabel();
-                buttonInhabitants.Enabled = true;
-                buttonProperty.Enabled = true;
-                buttonSave.Enabled = true;
+                EnableButtons(true);
+
             }
         }
 
@@ -151,17 +149,14 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                 }
                 comboBoxNumber.SelectedIndex = 0;
                 HideErrorLabel();
-                buttonInhabitants.Enabled = true;
-                buttonProperty.Enabled = true;
-                buttonDelete.Enabled = true;
+                EnableButtons(true);
             }
             else
             {
                 comboBoxNumber.Text = "";
                 ShowErrorLabel(labelNoAddresses);
-                buttonInhabitants.Enabled = false;
-                buttonProperty.Enabled = false;
-                buttonDelete.Enabled = false;
+                EnableButtons(false);
+
             }
             if (mode == "create")
             {
@@ -201,6 +196,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         /// <param name="e"></param>
         private void buttonProperty_Click(object sender, EventArgs e)
         {
+            if (!buttonsEnabled) return;
             changesAreMade = true;
             ButtonClicked(new Forms.MainForm.EventData("propertyData", addressData), e);
         }
@@ -240,6 +236,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         /// <param name="e"></param>
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            if (!buttonsEnabled) return;
             streetIdSavedWith = addressData.address.StreetId;
             numberSavedWith = addressData.address.Number;
             if (notSaved)
@@ -303,6 +300,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         /// <param name="e"></param>
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            if (!buttonsEnabled) return;
             if (mode == "edit")
             {
                 DialogResult dialogResult = CustomMessageBox.Show("Сигурни ли сте, че искате да изтриете адреса?", "Изтриване на адрес", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -316,6 +314,7 @@ namespace GraduationProject.UserControls.InsertData.Addresses
 
         private void buttonInhabitants_Click(object sender, EventArgs e)
         {
+            if (!buttonsEnabled) return;
             changesAreMade = true;
             ButtonClicked(new Forms.MainForm.EventData("inhabitantsData", addressData), e);
         }
@@ -345,6 +344,24 @@ namespace GraduationProject.UserControls.InsertData.Addresses
                 label.Visible = false;
             }
             labelTitle.Visible = true;
+        }
+
+        private void EnableButtons(bool enable)
+        {
+            buttonsEnabled = enable;
+            foreach (Button button in Controls.OfType<Button>())
+            {
+                Color buttonColor = button.BackColor;
+                if (enable)
+                {
+                    button.BackColor = Color.FromArgb(buttonColor.R, buttonColor.G, buttonColor.B);
+                }
+                else
+                {
+                    button.BackColor = Color.FromArgb(50, buttonColor.R, buttonColor.G, buttonColor.B);
+
+                }
+            }
         }
 
     }

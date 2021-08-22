@@ -92,10 +92,10 @@ namespace GraduationProject.UserControls.References.Addresses
             this.radioButtonInhabitants.BackColor = System.Drawing.Color.Transparent;
             this.radioButtonInhabitants.Location = new System.Drawing.Point(93, 69);
             this.radioButtonInhabitants.Name = "radioButtonInhabitants";
-            this.radioButtonInhabitants.Size = new System.Drawing.Size(70, 19);
+            this.radioButtonInhabitants.Size = new System.Drawing.Size(103, 19);
             this.radioButtonInhabitants.TabIndex = 0;
             this.radioButtonInhabitants.TabStop = true;
-            this.radioButtonInhabitants.Text = "На хора";
+            this.radioButtonInhabitants.Text = "На обитатели";
             this.radioButtonInhabitants.UseVisualStyleBackColor = false;
             // 
             // ReferencesSearchByQuarantines

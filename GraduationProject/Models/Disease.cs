@@ -12,6 +12,11 @@ namespace GraduationProject.Models
 
         public enum DiseaseType { Animal, Inhabitant };
 
+        public override string ToString()
+        {
+            return Name;
+        }
+
         public void Fill(SQLiteDataReader reader)
         {
             Id = reader.GetInt32(0);
@@ -27,7 +32,7 @@ namespace GraduationProject.Models
             List<Disease> diseases = new List<Disease>();
             Disease disease;
             string tableName = diseaseType == DiseaseType.Animal ? "AnimalsDiseases" : "InhabitantsDiseases";
-            string query = $"SELECT id, name FROM {tableName}";
+            string query = $"SELECT id, name FROM {tableName} ORDER BY name";
             connectionHelper.NewConnection(query);
             SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
             while (reader.Read())

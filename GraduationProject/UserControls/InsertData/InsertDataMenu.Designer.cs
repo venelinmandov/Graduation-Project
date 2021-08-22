@@ -101,6 +101,7 @@ namespace GraduationProject.UserControls.InsertData
             this.buttonQuarantines.TabIndex = 17;
             this.buttonQuarantines.Text = "Карантини";
             this.buttonQuarantines.UseVisualStyleBackColor = false;
+            this.buttonQuarantines.Click += new System.EventHandler(this.buttonQuarantines_Click);
             // 
             // InsertDataMenu
             // 

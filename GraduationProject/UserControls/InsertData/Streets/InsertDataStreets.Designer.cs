@@ -36,8 +36,8 @@ namespace GraduationProject.UserControls.InsertData.Streets
             this.buttonDeleteStreet = new System.Windows.Forms.Button();
             this.panelShowStreets = new System.Windows.Forms.Panel();
             this.panelInsertStreet = new System.Windows.Forms.Panel();
-            this.buttonInsertCancel = new System.Windows.Forms.Button();
             this.labelErrorInsert = new System.Windows.Forms.Label();
+            this.buttonInsertCancel = new System.Windows.Forms.Button();
             this.labelStreetName = new System.Windows.Forms.Label();
             this.labelTitleAddstreet = new System.Windows.Forms.Label();
             this.textBoxStreetInsert = new System.Windows.Forms.TextBox();
@@ -86,9 +86,9 @@ namespace GraduationProject.UserControls.InsertData.Streets
             this.buttonShowInsertStreet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonShowInsertStreet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShowInsertStreet.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonShowInsertStreet.Location = new System.Drawing.Point(53, 220);
+            this.buttonShowInsertStreet.Location = new System.Drawing.Point(53, 218);
             this.buttonShowInsertStreet.Name = "buttonShowInsertStreet";
-            this.buttonShowInsertStreet.Size = new System.Drawing.Size(155, 23);
+            this.buttonShowInsertStreet.Size = new System.Drawing.Size(155, 25);
             this.buttonShowInsertStreet.TabIndex = 22;
             this.buttonShowInsertStreet.Text = "Добави улица";
             this.buttonShowInsertStreet.UseVisualStyleBackColor = false;
@@ -99,9 +99,9 @@ namespace GraduationProject.UserControls.InsertData.Streets
             this.buttonShowRenameStreet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonShowRenameStreet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShowRenameStreet.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonShowRenameStreet.Location = new System.Drawing.Point(224, 220);
+            this.buttonShowRenameStreet.Location = new System.Drawing.Point(226, 218);
             this.buttonShowRenameStreet.Name = "buttonShowRenameStreet";
-            this.buttonShowRenameStreet.Size = new System.Drawing.Size(155, 23);
+            this.buttonShowRenameStreet.Size = new System.Drawing.Size(155, 25);
             this.buttonShowRenameStreet.TabIndex = 23;
             this.buttonShowRenameStreet.Text = "Преименувай улицата";
             this.buttonShowRenameStreet.UseVisualStyleBackColor = false;
@@ -112,9 +112,9 @@ namespace GraduationProject.UserControls.InsertData.Streets
             this.buttonDeleteStreet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
             this.buttonDeleteStreet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeleteStreet.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonDeleteStreet.Location = new System.Drawing.Point(400, 220);
+            this.buttonDeleteStreet.Location = new System.Drawing.Point(400, 218);
             this.buttonDeleteStreet.Name = "buttonDeleteStreet";
-            this.buttonDeleteStreet.Size = new System.Drawing.Size(155, 23);
+            this.buttonDeleteStreet.Size = new System.Drawing.Size(155, 25);
             this.buttonDeleteStreet.TabIndex = 24;
             this.buttonDeleteStreet.Text = "Изтрий улицата";
             this.buttonDeleteStreet.UseVisualStyleBackColor = false;
@@ -144,6 +144,17 @@ namespace GraduationProject.UserControls.InsertData.Streets
             this.panelInsertStreet.Size = new System.Drawing.Size(606, 253);
             this.panelInsertStreet.TabIndex = 26;
             // 
+            // labelErrorInsert
+            // 
+            this.labelErrorInsert.BackColor = System.Drawing.Color.Transparent;
+            this.labelErrorInsert.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelErrorInsert.Location = new System.Drawing.Point(201, 170);
+            this.labelErrorInsert.Name = "labelErrorInsert";
+            this.labelErrorInsert.Size = new System.Drawing.Size(206, 15);
+            this.labelErrorInsert.TabIndex = 28;
+            this.labelErrorInsert.Text = "Грешка";
+            this.labelErrorInsert.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // buttonInsertCancel
             // 
             this.buttonInsertCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(10)))));
@@ -156,17 +167,6 @@ namespace GraduationProject.UserControls.InsertData.Streets
             this.buttonInsertCancel.Text = "Отказ";
             this.buttonInsertCancel.UseVisualStyleBackColor = false;
             this.buttonInsertCancel.Click += new System.EventHandler(this.buttonInsertCancel_Click);
-            // 
-            // labelErrorInsert
-            // 
-            this.labelErrorInsert.BackColor = System.Drawing.Color.Transparent;
-            this.labelErrorInsert.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelErrorInsert.Location = new System.Drawing.Point(201, 170);
-            this.labelErrorInsert.Name = "labelErrorInsert";
-            this.labelErrorInsert.Size = new System.Drawing.Size(206, 15);
-            this.labelErrorInsert.TabIndex = 28;
-            this.labelErrorInsert.Text = "Грешка";
-            this.labelErrorInsert.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelStreetName
             // 

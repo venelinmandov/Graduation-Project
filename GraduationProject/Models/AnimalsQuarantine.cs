@@ -35,7 +35,7 @@ namespace GraduationProject.Models
         {
             long id;
             string query = @"INSERT INTO AnimalsQuarantines (addressId, animal, number, disease, startDate, endDate) 
-                            VALUES (@addrId, @animal, @disease, @startDate, @endDate )";
+                            VALUES (@addrId, @animal, @number, @disease, @startDate, @endDate )";
             connectionHelper.NewConnection(query);
 
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", AddressId);
@@ -64,6 +64,28 @@ namespace GraduationProject.Models
             connectionHelper.NewConnection(query);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", address.Id);
             connectionHelper.sqlCommand.Parameters.AddWithValue("@animal", animal);
+            SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                quarantine = new AnimalsQuarantine();
+                quarantine.Fill(reader);
+                quarantines.Add(quarantine);
+            }
+            reader.Close();
+            connectionHelper.sqlConnection.Close();
+            return quarantines;
+        }
+
+        public List<AnimalsQuarantine> Get(ConnectionHelper connectionHelper, Address address)
+        {
+
+            List<AnimalsQuarantine> quarantines = new List<AnimalsQuarantine>();
+            AnimalsQuarantine quarantine;
+            string query = @"SELECT id, addressId, animal, number, disease, startDate, endDate FROM AnimalsQuarantines
+                            WHERE addressId = @addrId ORDER BY date(startDate) DESC";
+
+            connectionHelper.NewConnection(query);
+            connectionHelper.sqlCommand.Parameters.AddWithValue("@addrId", address.Id);
             SQLiteDataReader reader = connectionHelper.sqlCommand.ExecuteReader();
             while (reader.Read())
             {
@@ -110,7 +132,7 @@ namespace GraduationProject.Models
         //UPDATE
         public void Update(ConnectionHelper connectionHelper)
         {
-            string query = @"UPDATE AnimalsQuarantines SET, 
+            string query = @"UPDATE AnimalsQuarantines SET
                             animal = @animal, number = @number, disease = @disease,
                             startDate = @startDate, endDate = @endDate
                             WHERE id = @id";
