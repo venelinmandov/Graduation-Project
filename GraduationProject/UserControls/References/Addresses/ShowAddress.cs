@@ -266,6 +266,8 @@ namespace GraduationProject.UserControls.References
         {
             Font font = new Font("Arial", 12f, FontStyle.Bold);
             int guardDogs = 0, huntingDogs = 0, domesticDogs = 0;
+            bool cattleLabelVisible = false,
+                 dogsLabelVisible = false;
 
             List<Dog> dogs = new Dog().Get(new ConnectionHelper(), address);
             foreach (Dog dog in dogs)
@@ -278,43 +280,62 @@ namespace GraduationProject.UserControls.References
             if (address.NumCows != 0)
             {
                 AddLabel("Крави", address.NumCows, panelCattle);
+                cattleLabelVisible = true;
             }
             if (address.NumHorses != 0)
             {
                 AddLabel("Коне", address.NumHorses, panelCattle);
+                cattleLabelVisible = true;
+
             }
             if (address.NumDonkeys != 0)
             {
                 AddLabel("Магарета", address.NumDonkeys, panelCattle);
+                cattleLabelVisible = true;
+
             }
             if (address.NumGoats != 0)
             {
                 AddLabel("Кози", address.NumGoats, panelCattle);
+                cattleLabelVisible = true;
+
             }
             if (address.NumSheep != 0)
             {
                 AddLabel("Овце", address.NumSheep, panelCattle);
+                cattleLabelVisible = true;
+
             }
             if (address.NumPigs != 0)
             {
                 AddLabel("Свине", address.NumPigs, panelCattle);
+                cattleLabelVisible = true;
+
             }
             if (guardDogs != 0)
             {
                 AddLabel("Кучета пазач", guardDogs, panelDogs);
+                dogsLabelVisible = true;
+
             }
             if (huntingDogs != 0)
             {
                 AddLabel("Ловджийски кучета", huntingDogs, panelDogs);
+                dogsLabelVisible = true;
+
             }
             if (domesticDogs != 0)
             {
                 AddLabel("Домашни кучета", domesticDogs, panelDogs);
+                dogsLabelVisible = true;
             }
             if (address.NumFeathered != 0)
             {
                 labelFeathered.Text = $"Пернати: {address.NumFeathered}";
             }
+
+            labelCattle.Visible = cattleLabelVisible;
+            labelDogs.Visible = dogsLabelVisible;
 
             void AddLabel(string animal, int number, Panel panel)
             {

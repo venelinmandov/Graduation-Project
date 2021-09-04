@@ -29,8 +29,8 @@ namespace GraduationProject.UserControls.InsertData.Addresses
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelAddress = new System.Windows.Forms.Label();
             this.labelHabitabillity = new System.Windows.Forms.Label();
             this.labelSquaring = new System.Windows.Forms.Label();
@@ -704,8 +704,8 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.dataGridViewDogs.AllowUserToDeleteRows = false;
             this.dataGridViewDogs.AllowUserToResizeColumns = false;
             this.dataGridViewDogs.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.dataGridViewDogs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.dataGridViewDogs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewDogs.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridViewDogs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewDogs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -720,8 +720,8 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.dataGridViewDogs.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridViewDogs.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridViewDogs.RowHeadersVisible = false;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
-            this.dataGridViewDogs.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
+            this.dataGridViewDogs.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewDogs.RowTemplate.Height = 25;
             this.dataGridViewDogs.Size = new System.Drawing.Size(305, 165);
             this.dataGridViewDogs.TabIndex = 14;
@@ -793,6 +793,8 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // labelDogsError
             // 
             this.labelDogsError.BackColor = System.Drawing.Color.Transparent;
+            this.labelDogsError.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelDogsError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(40)))), ((int)(((byte)(10)))));
             this.labelDogsError.Location = new System.Drawing.Point(350, 69);
             this.labelDogsError.Name = "labelDogsError";
             this.labelDogsError.Size = new System.Drawing.Size(274, 35);
@@ -818,9 +820,10 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             this.labelDogTypeEdit.AutoSize = true;
             this.labelDogTypeEdit.BackColor = System.Drawing.Color.Transparent;
+            this.labelDogTypeEdit.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelDogTypeEdit.Location = new System.Drawing.Point(369, 116);
             this.labelDogTypeEdit.Name = "labelDogTypeEdit";
-            this.labelDogTypeEdit.Size = new System.Drawing.Size(30, 15);
+            this.labelDogTypeEdit.Size = new System.Drawing.Size(35, 16);
             this.labelDogTypeEdit.TabIndex = 19;
             this.labelDogTypeEdit.Text = "Тип:";
             // 
@@ -828,9 +831,10 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             this.labelDogNumberEdit.AutoSize = true;
             this.labelDogNumberEdit.BackColor = System.Drawing.Color.Transparent;
+            this.labelDogNumberEdit.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelDogNumberEdit.Location = new System.Drawing.Point(351, 150);
             this.labelDogNumberEdit.Name = "labelDogNumberEdit";
-            this.labelDogNumberEdit.Size = new System.Drawing.Size(49, 15);
+            this.labelDogNumberEdit.Size = new System.Drawing.Size(53, 16);
             this.labelDogNumberEdit.TabIndex = 18;
             this.labelDogNumberEdit.Text = "Номер:";
             // 
@@ -852,9 +856,10 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             // 
             this.checkBoxDogNoNumber.AutoSize = true;
             this.checkBoxDogNoNumber.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxDogNoNumber.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.checkBoxDogNoNumber.Location = new System.Drawing.Point(601, 150);
             this.checkBoxDogNoNumber.Name = "checkBoxDogNoNumber";
-            this.checkBoxDogNoNumber.Size = new System.Drawing.Size(96, 19);
+            this.checkBoxDogNoNumber.Size = new System.Drawing.Size(104, 20);
             this.checkBoxDogNoNumber.TabIndex = 16;
             this.checkBoxDogNoNumber.Text = "няма номер";
             this.checkBoxDogNoNumber.UseVisualStyleBackColor = false;
@@ -977,12 +982,12 @@ namespace GraduationProject.UserControls.InsertData.Addresses
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Controls.Add(this.panelStateAndSquaring);
-            this.Controls.Add(this.panelNotes);
-            this.Controls.Add(this.panelDogs);
-            this.Controls.Add(this.panelBuildings);
             this.Controls.Add(this.panelAnimals);
+            this.Controls.Add(this.panelDogs);
+            this.Controls.Add(this.panelNotes);
             this.Controls.Add(this.panelTrees);
+            this.Controls.Add(this.panelBuildings);
+            this.Controls.Add(this.panelStateAndSquaring);
             this.Controls.Add(this.buttonStateAndSquaring);
             this.Controls.Add(this.buttonNotes);
             this.Controls.Add(this.buttonTrees);

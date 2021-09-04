@@ -342,8 +342,8 @@ namespace GraduationProject.UserControls.InsertData.Quarantines
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Controls.Add(this.panelShowQuarantines);
             this.Controls.Add(this.panelAddEditQuarantine);
+            this.Controls.Add(this.panelShowQuarantines);
             this.Controls.Add(this.labelAddress);
             this.Controls.Add(this.labelTitle);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

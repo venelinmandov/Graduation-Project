@@ -231,7 +231,7 @@ namespace GraduationProject.UserControls.InsertData.Quarantines
                 errorProvider.SetError(groupBoxInhabitant, "Моля изберете опция");
                 error = true;
             }
-            if ((!radioButtonContact.Checked && !radioButtonIll.Checked) || comboBoxDisease.Text == "") ;
+            if ((!radioButtonContact.Checked && !radioButtonIll.Checked) || comboBoxDisease.Text == "")
             {
                 errorProvider.SetError(groupBoxDisease, "Моля изберете опция");
                 error = true;
